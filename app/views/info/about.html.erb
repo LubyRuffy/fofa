@@ -1,0 +1,29 @@
+<h1>FOFA介绍</h1>
+<p>
+<pre>本程序用于对互联网网站结构进行分析。
+
+流程：
+1、提交域名
+2、请求gearman任务，请求http
+3、提取title、header、body
+4、提取ip
+5、提取tag，包括server、applicationserver、cms、中间件等
+6、提交sphinx进行索引
+
+触发事件：
+1、每7天自动更新一次
+2、每天统计一次服务器类型版本分布
+3、每天供给一次cms类型版本分布
+4、每天根据ip提取国家打tag
+5、每天根据cms打tag
+
+依赖开源项目，感谢所有无私奉献的开源工作者：
+1、sphinx
+2、gearman
+3、mysql
+4、ruby & rails
+   使用的依赖库：will_paginate、mysql2、twitter-bootstrap-rails、resque、whenever、chartkick、gearman-ruby、guess_html_encoding、nokogiri、redis、domainatrix、parslet
+5、redis
+
+</pre>
+</p>

@@ -1,0 +1,115 @@
+<div id="main" class="main" style="height: 530px;"></div>
+<script src="/assets/esl/esl.js"></script>
+<script>
+</script>
+<script>
+var myChart;
+var domMain = document.getElementById('main');
+
+function refresh(){
+  option = {
+    title : {
+      text: '政府网站分布图',
+      subtext: '按省级划分',
+      x:'center'
+    },
+    tooltip : {
+      trigger: 'item'
+    },
+   dataRange: {
+      min: 0,
+      max: <%=@data.max_by { |e| e["cnt"] }["cnt"]%>,
+      text:['高','低'],           // 文本，默认为数值文本
+      calculable : true,
+      textStyle: {
+        color: 'orange'
+      }
+    },
+    /*
+     legend: {
+      orient: 'vertical',
+      x:'left',
+      data:['iphone3']
+    },
+    toolbox: {
+      show : true,
+      orient : 'vertical',
+      x: 'right',
+      y: 'center',
+      feature : {
+        mark : true,
+        dataView : {readOnly: false},
+        restore : true,
+        saveAsImage : true
+      }
+    },
+   */
+    series : [
+      {
+      name: '政府网站个数',
+      type: 'map',
+      mapType: 'china',
+      itemStyle:{
+        normal:{label:{show:true}, color:'#ffd700'},// for legend
+        emphasis:{label:{show:true}}
+      },
+data:[
+       <% 
+         @data.each{ |d| 
+         next if !d["province"]
+       %>
+           <%= raw("{name: '#{d["province"]}', value: #{d["cnt"]}},") %>
+         <%}%>
+      ]
+    },
+    ]
+  };
+
+  myChart.setOption(option, true);
+}
+
+var echarts;
+
+  require.config({
+    packages: [
+      {
+      name: 'echarts',
+      location: '/assets/echarts',
+      main: 'echarts'
+    },
+    {
+      name: 'zrender',
+      //location: 'http://ecomfe.github.io/zrender/src',
+      location: '/assets/zrender',
+      main: 'zrender'
+    }
+    ]
+  });
+
+// 按需加载
+require(
+  [
+  'echarts',
+  'echarts/chart/line',
+  'echarts/chart/bar',
+  'echarts/chart/scatter',
+  'echarts/chart/k',
+  'echarts/chart/pie',
+  'echarts/chart/radar',
+  'echarts/chart/force',
+  'echarts/chart/chord',
+  'echarts/chart/map'
+  ],
+  requireCallback
+);
+
+function requireCallback (ec) {
+  echarts = ec;
+  if (myChart && myChart.dispose) {
+    myChart.dispose();
+  }
+  myChart = echarts.init(domMain);
+  refresh();
+  window.onresize = myChart.resize;
+}
+</script>

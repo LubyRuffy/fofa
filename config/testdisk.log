@@ -1,0 +1,18 @@
+
+
+Fri Nov 15 11:00:45 2013
+Command line: TestDisk
+
+TestDisk 6.14, Data Recovery Utility, July 2013
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 2.6.32-2.0.0.5-6 (#2 SMP Thu Jan 31 16:50:25 CST 2013) x86_64
+Compiler: GCC 4.4
+Compilation date: 2013-09-12T19:48:15
+ext2fs lib: 1.41.12, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: 20100226
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 1 sectors, sector size=512
+Hard disk list
+
+No disk found
+
+TestDisk exited normally.

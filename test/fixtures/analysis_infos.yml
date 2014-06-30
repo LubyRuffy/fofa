@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  server_info: MyString
+  text,writedate: MyString
+  date: MyString
+
+two:
+  server_info: MyString
+  text,writedate: MyString
+  date: MyString

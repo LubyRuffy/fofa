@@ -1,0 +1,6 @@
+<h1>服务器统计</h1>
+<p><%= pie_chart JSON.parse(@ai["server_info"]).sort_by {|_key, value| -value.to_i}%></p>
+<h1>CMS数据统计</h1>
+<p><%= pie_chart JSON.parse(@ai["cms_info"]).sort_by {|_key, value| -value.to_i} %></p>
+<h1>网站安全云服务数据统计</h1>
+<p><%= pie_chart JSON.parse(@ai["cloudsec_info"]).sort_by {|_key, value| -value.to_i} %></p>

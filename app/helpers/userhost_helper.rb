@@ -1,0 +1,2 @@
+module UserhostHelper
+end
