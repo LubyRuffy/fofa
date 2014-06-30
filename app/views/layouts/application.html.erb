@@ -1,110 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "FOFA -- 最全最准确的网站库 -- fofa.so" %></title>
-    <%= csrf_meta_tags %>
+<html>
+<head>
+  <title>BootstrapTestWeb</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="../" class="navbar-brand">FOFA</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li>
+          <a href="/statistic/index">数据报表</a>
+          </li>
+          <li>
+          <a href="/info/library">组件列表</a>
+          </li>
+          <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="themes">
+            <li><a href="../default/">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="../amelia/">Amelia</a></li>
+            <li><a href="../cerulean/">Cerulean</a></li>
+            <li><a href="../cosmo/">Cosmo</a></li>
+            <li><a href="../cyborg/">Cyborg</a></li>
+            <li><a href="../darkly/">Darkly</a></li>
+            <li><a href="../flatly/">Flatly</a></li>
+            <li><a href="../journal/">Journal</a></li>
+            <li><a href="../lumen/">Lumen</a></li>
+            <li><a href="../readable/">Readable</a></li>
+            <li><a href="../simplex/">Simplex</a></li>
+            <li><a href="../slate/">Slate</a></li>
+            <li><a href="../spacelab/">Spacelab</a></li>
+            <li><a href="../superhero/">Superhero</a></li>
+            <li><a href="../united/">United</a></li>
+            <li><a href="../yeti/">Yeti</a></li>
+          </ul>
+          </li>
+          
+        </ul>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-    <![endif]-->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://builtwithbootstrap.com/" target="_blank">登录</a></li>
+          <li class="dropdown">
+        <a href="#" data-toggle="dropdown">
+        <img class="user-avatar" src="http://themes.suggelab.com/sprflat/assets/img/avatars/48.jpg" alt="SuggeElson"><span class="notification">5</span>zwell<b class="caret"></b></a>
+        <ul class="dropdown-menu right animated fadeInDown" role="menu">
+        <li></i><a href="profile.html"><i class="fa fa-user"></i> 个人资料</a>
+        </li>
+        <li><a href="#"><i class="fa fa-cog"></i> 设置</a>
+        </li>
+        <li><a href="login.html"><i class="fa fa-sign-out"></i> 退出</a>
+        </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown">
+        <i class="fa fa-envelope-o"></i><span class="notification blue">2</span></a>
+        <div class="dropdown-menu with-arrow panel panel-default pull-right">
+                    <div class="panel-heading">
+                        你有两条新消息：
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="round-icon sm bg-success"><i class="fa fa-bell-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">New tasks needs to be done</span>
+                                    <span class="text-muted block">2min ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="round-icon sm bg-info"><i class="fa fa-bell-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Change your password</span>
+                                    <span class="text-muted">3 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="round-icon sm bg-danger"><i class="fa fa-bell-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">New feature added</span>
+                                    <span class="text-muted">9 hours ago</span>
+                                </div>
+                            </a>
+                        </li>                       
+                    </ul>
+                    <div class="panel-footer">
+                        <a href="javascript:;">Show all notifications.</a>
+                    </div>
+                </div>
+      </li>
+        </ul>
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
-
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
-
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-
-    <%= javascript_include_tag "application" %>
-    <!--<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>-->
-  </head>
-  <body>
-
-    <div class="navbar navbar-default">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/"><img src="/logo.png" />FOFA</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "首页", "/"  %></li>
-              <li><%= link_to "数据报表", "/statistic/index"  %></li>
-              <li><%= link_to "组件列表", "/info/library"  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
       </div>
     </div>
+  </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">热门搜索</li>
-              <li><%= link_to "IIS", "/search/result?q=IIS"  %></li>
-              <li><%= link_to "TEngine", "/search/result?q=tengine"  %></li>
-              <li><%= link_to "Apache", "/search/result?q=Apache"  %></li>
-              <li><%= link_to "Nginx", "/search/result?q=Nginx"  %></li>
-              <li><%= link_to "discuz", "/search/result?qbase64=dGl0bGU9IlBvd2VyZWQgYnkgRGlzY3V6IiB8fCBib2R5PSJjb250ZW50PVwiRGlzY3V6IiB8fCAoYm9keT0iZGlzY3V6X3VpZCIgJiYgYm9keT0icG9ydGFsLnBocD9tb2Q9dmlldyIp"  %></li>
-              <li><%= link_to "Win32", "/search/result?q=Win32"  %></li>
-              <li><%= link_to "PHP", "/search/result?q=PHP"  %></li>
-              <li><%= link_to "ASP", "/search/result?q=ASP"  %></li>
-              <li><%= link_to "CentOS", "/search/result?q=CentOS"  %></li>
-              <li><%= link_to "anquanbao", "/search/result?q=anquanbao"  %></li>
-              <li><%= link_to "360wzb", "/search/result?q=360wzb"  %></li>
-              <li><%= link_to "ASERVER", "/search/result?q=ASERVER"  %></li>
-              <li><%= link_to "tesaasst.abc.com", "/search/result?q=tesaasst.abc.com"  %></li>
-              <li><%= link_to "cloudflare-nginx", "/search/result?q=cloudflare-nginx"  %></li>
-              <li><%= link_to "安全狗", "/search/result?q=WAF/2.0"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span10">
-          <%= bootstrap_flash %>
-          <%= yield %>
+  <div class="container">
+
+    <%= yield %>
+
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+
+          <ul class="list-unstyled">
+            <li class="pull-right"><a href="#top">回到顶部</a></li>
+            <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">技术说明</a></li>
+            <li><a href="http://feeds.feedburner.com/bootswatch">提交网站</a></li>
+            <li><a href="https://twitter.com/thomashpark">关于我们</a></li>
+          </ul>
+          
+          <p>本网站基于Rails，<a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>等构架。推荐使用Chrome和Firefox、Saferi等浏览器浏览。</p>
+          <p>通过邮箱联系站长 <a href="mailto:root@fofa.so">root@fofa.so</a>.</p>
+
         </div>
-      </div><!--/row-->
-
-    </div> <!-- /container -->
-    <div id="footer">
-      <div class="container">
-        <p class="muted credit">&copy; FOFA.SO 2013~2020. <a href="/info/about">技术说明</a> <%= link_to "提交网站", "/userhost/index"  %> <%= link_to "联系我们", "/info/contact" %></p>
-        <p><script type="text/javascript" src="http://links.webscan.360.cn"></script></p>
       </div>
-    </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-45987479-1', 'fofa.so');
-  ga('send', 'pageview');
+    </footer>
 
-</script>
-  </body>
+
+  </div>
+
+
+
+</body>
 </html>

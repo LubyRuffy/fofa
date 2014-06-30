@@ -1,8 +1,19 @@
-<%= form_tag('/search/result', method:'get') do %>
-  <%= text_field_tag(:q, @query.force_encoding('UTF-8'), :class=>'input-medium search-query', :style => 'width: 400px') %>
-  <%= hidden_field_tag(:qbase64, "") %>
-  <%= content_tag(:button, raw('<i class="icon-search"></i> 查询'), :class => 'btn btn-primary') %>
-<% end %>
+<div class="row">
+  <div class="col-lg-6">
+  </div>
+  <div class="col-lg-6">
+    <p><br/><br/></p>
+    <form style="100%" action='/search/result' method='get'>
+    <div class="input-group">
+      <input type="text" class="form-control" id="q" name="q">
+      <%= hidden_field_tag(:qbase64, "") %>
+      <span class="input-group-btn">
+        <button class="btn btn-info" type="submit" data-toggle="tooltip" data-placement="right" title data-original-title="Tooltip on right" onclick='search'><i class="fa fa-search"></i> 搜索</button>
+      </span>
+    </div><!-- /input-group -->
+    </form>
+  </div>
+</div>
 
 <br/>
 <% 
@@ -15,25 +26,44 @@
 <%
   else
 %>
-搜索 <strong><%= @query.force_encoding('utf-8') %></strong> 
-获得 <%= @results.meta['total_found'] %> 条匹配结果，
-用时 <%= @results.meta['time'] %>秒。模式:<%=@mode%></br>
-<legend>查询统计：</legend>
 
-<div class="flickr_pagination">
-  <%= will_paginate @results,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+<div class="row">
+  <div class="col-lg-8">
+    搜索 <strong><%= @query.force_encoding('utf-8') %></strong> 
+    获得 <%= @results.meta['total_found'] %> 条匹配结果，
+    用时 <%= @results.meta['time'] %>秒。模式:<%=@mode%>
+  </div>
+  <div class="col-lg-4">
+    <div class="pull-right">
+      <%= will_paginate @results,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+    </div>
+  </div>
 </div>
 
-<div id="htmlcontent" class="htmlcontent" style="display:none">
-  <pre id="dataddd" class="dataddd">
-  </pre>
+<div id="htmlcontent" class="htmlcontent modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+          <h4 class="modal-title" id="mySmallModalLabel">网站正文</h4>
+        </div>
+        <div class="modal-body">
+          <pre id="dataddd" class="dataddd" style="height: 300px; font-size: 10px">
+          </pre>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+      </div><!-- /.modal-content -->
+    </div>
 </div>
 
 
 <% @results.each do |doc| %>
-  <div class="container-fluid">
-    <div class="row-fluid well-small" style="border: 1px solid #e1e1e8;">
-      <div class="span4" style="padding: 8px">
+  <div class="container">
+    <div class="row well-small" style="border: 1px solid #e1e1e8;">
+      <div class="col-lg-4" style="padding: 8px">
         <%=link_to doc.host, "http://"+doc.host, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank" 
         %>  <a href="javascript:view('<%= doc.host%>')"><img src="/eye.png"></a>
         <br/> <%= doc.title.force_encoding('utf-8') %>
@@ -43,14 +73,14 @@
   <% if @tags[doc.hosthash] %>
     <% if @tags[doc.hosthash].is_a?(Array) %>
       <% @tags[doc.hosthash].each do |tag| %>
-        <a type="button" class="btn btn-warning" href="/search/result?q=<%=tag.tag%>"><%=tag.tag%></a>
+        <a type="button" class="btn btn-success" href="/search/result?q=<%=tag.tag%>"><%=tag.tag%></a>
       <% end %>
     <% else %>
-      <a type="button" class="btn btn-warning" href="/search/result?q=<%=@tags[doc.hosthash].tag%>"><%=@tags[doc.hosthash].tag%></button>
+      <a type="button" class="btn btn-success" href="/search/result?q=<%=@tags[doc.hosthash].tag%>"><%=@tags[doc.hosthash].tag%></a>
     <% end %>
   <% end %>
 </div>
-<div class="span8" style="background-color: #f7f7f9; font-size: 12px; padding: 8px; line-height: 14px;">
+<div class="col-lg-8" style="background-color: #f7f7f9; font-size: 12px; padding: 8px; line-height: 14px;">
   <% header = raw(doc.header.gsub("\n", "<br>")) %>
   <%= highlight(header, @query)%>
 </div>
@@ -59,48 +89,19 @@
   </div>
 <% end %>
 
-<div class="flickr_pagination">
+<div class="pagination pull-right">
   <%= will_paginate @results,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
 </div>
-
-<style>
-.flickr_pagination {
-  text-align: center;
-  padding: 0.3em;
-  cursor: default; }
-.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
-  padding: 0.2em 0.5em; }
-.flickr_pagination .disabled {
-  color: #aaaaaa; }
-.flickr_pagination .current {
-  font-style: normal;
-  font-weight: bold;
-  color: #ff0084; }
-.flickr_pagination a {
-  border: 1px solid #dddddd;
-  color: #0063dc;
-  text-decoration: none; }
-.flickr_pagination a:hover, .flickr_pagination a:focus {
-  border-color: #003366;
-  background: #0063dc;
-  color: white; }
-.flickr_pagination .previous_page, .flickr_pagination .next_page {
-  border-width: 2px; }
-.flickr_pagination .previous_page {
-  margin-right: 1em; }
-.flickr_pagination .next_page {
-  margin-left: 1em; }
-
-</style>
 
 <script>
 function view(hst){
   url = '/search/get_host_content?host='+hst;
-    $.getJSON(url)
-    .done(function(data) {
-        $("#dataddd").text(data['host']);//显示到tbody中  
-        $("#htmlcontent").dialog({modal:true,height: 530,width:600, title: hst+" 网站正文"}).dialog('open');
-        });
+    $.getJSON(url).done(function(data) {
+        $("#dataddd").text(data['host']);//显示到tbody中 
+        $("#mySmallModalLabel").text(hst+" 网站正文"); 
+        $('#htmlcontent').modal({show:true});
+        //$("#htmlcontent").dialog({modal:true,height: 530,width:600, title: hst+" 网站正文"}).dialog('open');
+    });
 }
 </script>
 <% end %>

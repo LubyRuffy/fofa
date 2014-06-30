@@ -42,7 +42,7 @@ class SearchController < ApplicationController
       @tags = {}
       if @results
         @results.each {|x|
-          @tags[x.hosthash] = Tag.find_all_by_hosthash x.hosthash
+          @tags[x.hosthash] = Tag.find_by_hosthash x.hosthash
         }
       end
     rescue ThinkingSphinx::SphinxError => e

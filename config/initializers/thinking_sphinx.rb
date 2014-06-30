@@ -1,2 +1,2 @@
 ThinkingSphinx::SphinxQL.functions!
-ThinkingSphinx::Middlewares::DEFAULT.delete ThinkingSphinx::Middlewares::UTF8
+#ThinkingSphinx::Middlewares::DEFAULT.delete ThinkingSphinx::Middlewares::UTF8
