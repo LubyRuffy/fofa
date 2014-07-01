@@ -24,6 +24,7 @@ class UserhostController < ApplicationController
     @info = "提交成功，我们会尽快更新（一般5分钟内会自动更新，最长第二天能完成）！"
     @error = false
     @host = params['host']
+    @rawurl = @host
     @host = host_of_url(@host)
     #render :text => @host
     url = Domainatrix.parse(@host)
