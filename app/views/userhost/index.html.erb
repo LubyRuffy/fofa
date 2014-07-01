@@ -1,15 +1,31 @@
-<% if @info %>
-<div class="alert fade in">
-  <a class="close" data-dismiss="alert" href="#">×</a>
-  <strong>提示：</strong> <%=@info%>
+<div class="page-header" id="banner">
+    <div class="row">
+      <div class="col-lg-3">
+      </div>
+      <div class="col-lg-6">
+        <h1 style='text-align: center;'>提交网站</h1>
+
+        <% if @info %>
+		<div class="alert alert-success alert-dismissible ade in" role="alert">
+		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+		  <strong>提示：</strong> <%=@info%>
+		</div>
+		<% end %>
+	    
+	    <%= form_tag('/userhost/addhost', method:'post') do %>
+	    <div class="input-group">
+	      <input type="text" class="form-control" id="host" name="host" placeholder="请输入需要收录的网站，如：oa.baidu.com">
+	      <span class="input-group-btn">
+	        <button class="btn btn-info" type="submit" data-toggle="tooltip" data-placement="right" title data-original-title="Tooltip on right" onclick='search'><i class="fa fa-search"></i> 提交</button>
+	      </span>
+	    </div><!-- /input-group -->
+	    <% end %>
+
+        <h4>提交网站能够让我们更多的收录，让大家有更强大的查询库。</h4>
+      </div>
+      <div class="col-lg-3">
+      </div>
+    </div>
+    <p><br/><br/></p>
 </div>
-<% end %>
 
-<%= form_tag('/userhost/addhost', method:'post') do %>
-  请输入网址:  <%= text_field_tag(:host, "", :class=>'input-medium search-query', :style => 'width: 400px') %>
-  <%= content_tag(:button, raw('提交'), :class => 'btn btn-primary') %>
-<% end %>
-
-<pre>
-提交网站能够让我们更多的收录，让大家有更大的查询库。
-</pre>

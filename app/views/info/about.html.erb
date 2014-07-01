@@ -1,29 +1,32 @@
-<h1>FOFA介绍</h1>
+<h1></h1>
 <p>
-<pre>本程序用于对互联网网站结构进行分析。
+<div class="jumbotron">
+  <h1>FOFA介绍</h1>
+  
+本程序用于对互联网网站结构进行分析。<br/>
+<br/>
+<h3>流程：</h3><br/>
+1、提交域名<br/>
+2、请求gearman任务，请求http<br/>
+3、提取title、header、body<br/>
+4、提取ip<br/>
+5、提取tag，包括server、applicationserver、cms、中间件等<br/>
+6、提交sphinx进行索引<br/>
+<br/>
+<h3>触发事件：</h3><br/>
+1、每7天自动更新一次<br/>
+2、每天统计一次服务器类型版本分布<br/>
+3、每天供给一次cms类型版本分布<br/>
+4、每天根据ip提取国家打tag<br/>
+5、每天根据cms打tag<br/>
+<br/>
+<h3>依赖开源项目，感谢所有无私奉献的开源工作者：</h3><br/>
+1、sphinx<br/>
+2、gearman<br/>
+3、mysql<br/>
+4、ruby & rails<br/>
+   使用的依赖库：will_paginate、mysql2、twitter-bootstrap-rails、resque、whenever、chartkick、gearman-ruby、guess_html_encoding、nokogiri、redis、domainatrix、parslet<br/>
+5、redis<br/>
 
-流程：
-1、提交域名
-2、请求gearman任务，请求http
-3、提取title、header、body
-4、提取ip
-5、提取tag，包括server、applicationserver、cms、中间件等
-6、提交sphinx进行索引
-
-触发事件：
-1、每7天自动更新一次
-2、每天统计一次服务器类型版本分布
-3、每天供给一次cms类型版本分布
-4、每天根据ip提取国家打tag
-5、每天根据cms打tag
-
-依赖开源项目，感谢所有无私奉献的开源工作者：
-1、sphinx
-2、gearman
-3、mysql
-4、ruby & rails
-   使用的依赖库：will_paginate、mysql2、twitter-bootstrap-rails、resque、whenever、chartkick、gearman-ruby、guess_html_encoding、nokogiri、redis、domainatrix、parslet
-5、redis
-
-</pre>
+</div>
 </p>

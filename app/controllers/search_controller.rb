@@ -6,6 +6,7 @@ class SearchController < ApplicationController
   def index
     #@tbl_cnt = Subdomain.search_count 
     @site_cnt = Subdomain.count
+    @last = Subdomain.last
   end
   
   def get_web_cnt

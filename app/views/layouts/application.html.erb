@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BootstrapTestWeb</title>
+  <title><%= content_for?(:title) ? yield(:title) : "FOFA -- 最全最准确的网站库 -- fofa.so" %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -19,13 +19,12 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-          <li>
-          <a href="/statistic/index">数据报表</a>
-          </li>
+          
+          <li><%= link_to "提交网站", "/userhost/index"  %></li>
           <li>
           <a href="/info/library">组件列表</a>
           </li>
-          <li class="dropdown">
+          <!--<li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="themes">
             <li><a href="../default/">Default</a></li>
@@ -46,7 +45,7 @@
             <li><a href="../united/">United</a></li>
             <li><a href="../yeti/">Yeti</a></li>
           </ul>
-          </li>
+          </li>-->
           
         </ul>
 
@@ -127,13 +126,15 @@
 
           <ul class="list-unstyled">
             <li class="pull-right"><a href="#top">回到顶部</a></li>
-            <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">技术说明</a></li>
-            <li><a href="http://feeds.feedburner.com/bootswatch">提交网站</a></li>
-            <li><a href="https://twitter.com/thomashpark">关于我们</a></li>
+            <li><a href="/info/about">技术说明</a></li>
+            <li><a href="/statistic/index">数据报表</a></li>
+            <li><%= link_to "联系我们", "/info/contact" %></li>
           </ul>
           
           <p>本网站基于Rails，<a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>等构架。推荐使用Chrome和Firefox、Saferi等浏览器浏览。</p>
           <p>通过邮箱联系站长 <a href="mailto:root@fofa.so">root@fofa.so</a>.</p>
+            
+        <p><script type="text/javascript" src="http://links.webscan.360.cn"></script></p>
 
         </div>
       </div>

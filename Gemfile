@@ -67,3 +67,7 @@ gem "chartkick"
 gem "parslet"
 
 gem "domainatrix"
+gem 'resque'
+gem 'resque-web', require: 'resque_web'
+gem "guess_html_encoding"
+gem "nokogiri"
