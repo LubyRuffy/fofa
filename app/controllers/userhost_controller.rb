@@ -22,6 +22,7 @@ class UserhostController < ApplicationController
   
   def addhost
     @info = "感谢您的提交，我们会尽快更新（一般5分钟内会自动更新，最长第二天能完成）！"
+    @error = false
     @host = params['host']
     @host = host_of_url(@host)
     #render :text => @host
@@ -32,6 +33,7 @@ class UserhostController < ApplicationController
       @host = url
     else
       @info = "HOST格式错误"
+      @error = true
     end
     #@info = url.inspect
     #render :inline => @info

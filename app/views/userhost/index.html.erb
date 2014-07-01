@@ -6,7 +6,7 @@
         <h1 style='text-align: center;'>提交网站</h1>
 
         <% if @info %>
-		<div class="alert alert-success alert-dismissible ade in" role="alert">
+		<div class="alert <%if @error %>alert-success<%else%>alert-warning<%end%> alert-dismissible ade in" role="alert">
 		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
 		  <strong>提示：</strong> <%=@info%>
 		</div>
