@@ -37,21 +37,23 @@ namespace :fofa do
   end
 
   desc "Zero-downtime restart of Unicorn"
-  task :restart_unicorn do
+  task :restart_unicorn  => :environment do
     syscmd = "cd #{current_path} ; kill -s USR2 `cat tmp/unicorn.pid`"
     puts "Running syscmd: #{syscmd}"
     system(syscmd)
   end
 
   desc "Start unicorn"
-  task :start_unicorn do
+  task :start_unicorn  => :environment do
     syscmd = "cd #{current_path} ; unicorn_rails -E production --listen 3000 -D -c config/unicorn.rb" 
     puts "Running syscmd: #{syscmd}"
     system(syscmd)
+
+    Rake::Task["assets:precompile"]
   end
 
   desc "Stop unicorn"
-  task :stop_unicorn do
+  task :stop_unicorn  => :environment do
     syscmd ="cd #{current_path} ; kill -s QUIT `cat tmp/unicorn.pid`; rm -f tmp/unicorn.pid"
     puts "Running syscmd: #{syscmd}"
     system(syscmd)

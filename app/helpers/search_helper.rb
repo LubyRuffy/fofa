@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class String
   def and(a)
     #"( #{self} && #{a} )"
@@ -14,6 +16,7 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+      ['yongyoufe', '2014-07-01', 'http://yongyougd.com/productsview88.html', 'title="FE协作" || (body="V_show" && body="V_hedden")'],
       ['Zen Cart', '2013-12-18', 'http://www.zen-cart.com/', 'body="shopping cart program by Zen Cart" || header="Set-Cookie: zenid="'],
       ['iWebShop', '2013-12-18', 'http://www.jooyea.cn/', '(body="Powered by" && body="iWebShop") || header="iweb_safecode"'],
       ['DouPHP', '2013-12-18', 'http://www.douco.com/', 'body="Powered by DouPHP" || (body="controlBase" && body="indexLeft" && body="recommendProduct")'],
