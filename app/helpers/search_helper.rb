@@ -16,6 +16,7 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+      ['OA(a8/seeyon/ufida)', '2014-07-01', 'http://yongyougd.com/productsview88.html', 'body="/seeyon/USER-DATA/IMAGES/LOGIN/login.gif"'],
       ['yongyoufe', '2014-07-01', 'http://yongyougd.com/productsview88.html', 'title="FE协作" || (body="V_show" && body="V_hedden")'],
       ['Zen Cart', '2013-12-18', 'http://www.zen-cart.com/', 'body="shopping cart program by Zen Cart" || header="Set-Cookie: zenid="'],
       ['iWebShop', '2013-12-18', 'http://www.jooyea.cn/', '(body="Powered by" && body="iWebShop") || header="iweb_safecode"'],

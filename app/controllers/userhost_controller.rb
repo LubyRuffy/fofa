@@ -1,15 +1,29 @@
 # encoding: utf-8
 require "resque"
+require 'uri'
+require 'open-uri'
 require "#{Rails.root}/app/jobs/url_worker.rb"
 
 class UserhostController < ApplicationController
   def index
     
   end
+
+  def host_of_url(url)
+    begin
+      url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
+      url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
+      uri = URI(url)
+      uri.host
+    rescue => e
+      nil
+    end
+  end
   
   def addhost
     @info = "感谢您的提交，我们会尽快更新（一般5分钟内会自动更新，最长第二天能完成）！"
     @host = params['host']
+    @host = host_of_url(@host)
     #render :text => @host
     url = Domainatrix.parse(@host)
     if url.domain.size>0 && url.public_suffix
