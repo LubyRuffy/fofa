@@ -7,11 +7,13 @@ require File.expand_path('../config/application', __FILE__)
 Webdbweb::Application.load_tasks
 
 namespace :fofa do
+
+  current_path = File.expand_path('../', __FILE__)
   
   desc "Restart running workers"
   task :restart_workers => :environment do
-    Rake::Task['resque:stop_workers'].invoke
-    Rake::Task['resque:start_workers'].invoke
+    Rake::Task['fofa:stop_workers'].invoke
+    Rake::Task['fofa:start_workers'].invoke
   end
   
   desc "Quit running workers"
@@ -33,6 +35,46 @@ namespace :fofa do
   task :start_workers => :environment do
     run_worker("*", 2)
   end
+
+  desc "Zero-downtime restart of Unicorn"
+  task :restart_unicorn do
+    syscmd = "cd #{current_path} ; kill -s USR2 `cat tmp/unicorn.pid`"
+    puts "Running syscmd: #{syscmd}"
+    system(syscmd)
+  end
+
+  desc "Start unicorn"
+  task :start_unicorn do
+    syscmd = "cd #{current_path} ; unicorn_rails -E production --listen 3000 -D -c config/unicorn.rb" 
+    puts "Running syscmd: #{syscmd}"
+    system(syscmd)
+  end
+
+  desc "Stop unicorn"
+  task :stop_unicorn do
+    syscmd ="cd #{current_path} ; kill -s QUIT `cat tmp/unicorn.pid`; rm -f tmp/unicorn.pid"
+    puts "Running syscmd: #{syscmd}"
+    system(syscmd)
+  end
+
+  desc "start all"
+  task :start_all do
+    Rake::Task["fofa:start_unicorn"].invoke
+    Rake::Task["fofa:start_workers"].invoke
+  end
+
+  desc "stop all"
+  task :stop_all do
+    Rake::Task["fofa:stop_unicorn"].invoke
+    Rake::Task["fofa:stop_workers"].invoke
+  end
+
+  desc "restart all"
+  task :restart_all do
+    Rake::Task["fofa:restart_workers"].invoke
+    Rake::Task["fofa:restart_unicorn"].invoke
+  end
+
 end
 
 # Start a worker with proper env vars and output redirection
