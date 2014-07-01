@@ -13,8 +13,8 @@ socket_file = root_path + '/tmp/unicorn.sock'
 worker_processes 6
 working_directory root_path
 timeout 30
-# 侦听
-listen 3000, tcp_nopush: false
+# 侦听，用8080端口，前端用80端口反向代理进来
+listen 8080, tcp_nopush: false
 listen socket_file, backlog: 1024
 
 pid pid_file
