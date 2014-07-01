@@ -57717,3 +57717,121 @@ Processing by SearchController#get_web_cnt as */*
   [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `subdomain`
   Rendered text template (0.0ms)
 Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-01 13:40:44 +0800
+Processing by SearchController#index as HTML
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `subdomain`[0m
+  [1m[35mSubdomain Load (1.0ms)[0m  SELECT  `subdomain`.* FROM `subdomain`   ORDER BY `subdomain`.`id` DESC LIMIT 1
+  Rendered search/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 885ms (Views: 764.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/info.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/search.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/statistic.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/userhost.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-01 13:40:51 +0800
+
+
+Started GET "/search/get_web_cnt" for 127.0.0.1 at 2014-07-01 13:40:52 +0800
+Processing by SearchController#get_web_cnt as */*
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `subdomain`[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2014-07-01 13:40:52 +0800
+
+
+Started GET "/userhost/index" for 127.0.0.1 at 2014-07-01 13:40:55 +0800
+Processing by UserhostController#index as HTML
+  Rendered userhost/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/search/get_web_cnt" for 127.0.0.1 at 2014-07-01 13:40:57 +0800
+Processing by SearchController#get_web_cnt as */*
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM `subdomain`
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search/get_web_cnt" for 127.0.0.1 at 2014-07-01 13:41:02 +0800
+Processing by SearchController#get_web_cnt as */*
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM `subdomain`[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search/get_web_cnt" for 127.0.0.1 at 2014-07-01 13:41:07 +0800
+Processing by SearchController#get_web_cnt as */*
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `subdomain`
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search/get_web_cnt" for 127.0.0.1 at 2014-07-01 13:41:12 +0800
+Processing by SearchController#get_web_cnt as */*
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `subdomain`[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.7ms)
