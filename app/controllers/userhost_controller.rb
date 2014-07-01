@@ -30,7 +30,7 @@ class UserhostController < ApplicationController
     if url.domain.size>0 && url.public_suffix
       @userhost = Userhost.create("host"=>@host, "clientip"=>request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip )
       Resque.enqueue(Processor, @host)
-      @host = url
+      #@host = url
 
       if @host =~ /\d+\.\d+\.\d+\.\d/
         @info = "暂不支持IP格式，请直接输入域名或者URL"
