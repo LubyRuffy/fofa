@@ -99,7 +99,15 @@ module HttpModule
       ip = uri.host
       ip = ops[:hostip] if ops && ops[:hostip]
       resp[:host] = uri.host
-      resp[:ip] = ip
+      ip = uri.host
+      if ip =~ /^[0-9.]*$/
+        resp[:ip] = ip
+      else
+        ip = Socket.getaddrinfo(uri.host, nil)
+        return resp if !ip || !ip[0] || !ip[0][2]
+        resp[:ip] = Socket.getaddrinfo(uri.host, nil)[0][2]
+      end
+      resp[:port] = uri.port
 
       http_class = Net::HTTP
       if @options[:proxy]
