@@ -123,6 +123,9 @@ module HttpModule
         begin
           response = h.request request # Net::HTTPResponse object
           resp[:code] = response.code
+          resp[:message] = response.message
+          resp[:http_version] = response.http_version
+          resp[:header] = response.header
           if response['location']
             resp[:redirect_url] = response['location']
           end
