@@ -74,3 +74,5 @@ gem "guess_html_encoding"
 gem "nokogiri"
 
 gem 'lazy_high_charts'
+
+gem 'sixarm_ruby_magic_number_type'

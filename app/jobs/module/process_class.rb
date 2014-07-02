@@ -2,6 +2,8 @@
 require 'domainatrix'
 
 class Processor
+  include HttpModule
+  
   @queue = "process_url"
   @webdb = nil
   def initialize(webdb)
