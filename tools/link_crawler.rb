@@ -63,7 +63,7 @@ def main(host)
     add_host(host, nil)
   end
 
-  while @hosts.select {|h| h[:processed]}.size<100 && @hosts.select {|h| !h[:processed] }.size>0
+  while @hosts.select {|h| h[:processed]}.size<1000000 && @hosts.select {|h| !h[:processed] }.size>0
     h = @hosts.select {|h| !h[:processed] }[0]
     #puts h
     get_links h
