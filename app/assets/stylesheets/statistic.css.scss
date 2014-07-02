@@ -1,3 +1,60 @@
+@charset "UTF-8";
 // Place all the styles related to the statistic controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//aaa@import "statistic.css"
+
+.panel{
+  position:relative;
+}
+
+.panel.panels-hide{
+  display:none
+}
+
+.panel .panel-controls.panel-controls-hide{
+  display:none
+}
+
+.panel .panel-controls{
+  width:auto;
+  float:right;
+  position:absolute;
+  right:10px;
+  top:0
+}
+
+.panel .panel-controls a{
+  text-decoration:none;
+  float:left;
+  width:auto;
+  padding:10px 5px
+}
+
+.panel .panel-controls a i{
+  color:#f2f2f2;
+  text-shadow:1px 1px 1px rgba(0,0,0,.1);
+  margin-top:-3px
+}
+
+.panel .panel-controls a:hover i{
+  color:#fff
+}
+
+.panel-heading{
+  padding:0 15px;
+}
+
+.panel-heading:after,.panel-heading:before{
+  content:" ";
+  display:table
+}
+
+.panel-heading:after{
+  clear:both
+}
+
+.panel-heading .panel-title{
+  float:left;
+  padding:12px 0;
+}

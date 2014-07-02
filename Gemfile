@@ -72,3 +72,5 @@ gem 'resque'
 gem 'resque-web', require: 'resque_web'
 gem "guess_html_encoding"
 gem "nokogiri"
+
+gem 'lazy_high_charts'

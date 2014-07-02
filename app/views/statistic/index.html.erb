@@ -1,6 +1,82 @@
-<h1>服务器统计</h1>
-<p><%= pie_chart JSON.parse(@ai["server_info"]).sort_by {|_key, value| -value.to_i}%></p>
-<h1>CMS数据统计</h1>
-<p><%= pie_chart JSON.parse(@ai["cms_info"]).sort_by {|_key, value| -value.to_i} %></p>
-<h1>网站安全云服务数据统计</h1>
-<p><%= pie_chart JSON.parse(@ai["cloudsec_info"]).sort_by {|_key, value| -value.to_i} %></p>
+
+<%= stylesheet_link_tag params[:controller] %>
+
+<h1>数据统计报表</h1>
+
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+      <!-- Start col-lg-6 -->
+      <div class="panel panel-warning toggle panelClose">
+        <!-- Start .panel -->
+        <div class="panel-heading">
+          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> 服务器统计</h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="server_info" width="240px" height="240px"></canvas>
+        </div>
+      </div>
+      <!-- End .panel -->
+
+      <div class="panel panel-danger toggle panelClose">
+        <!-- Start .panel -->
+        <div class="panel-heading">
+          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> 网站安全云服务数据统计</h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="cloudsec_info" width="240px" height="240px"></canvas>
+        </div>
+      </div>
+      <!-- End .panel -->
+
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+      <!-- Start col-lg-6 -->
+      <div class="panel panel-primary toggle panelClose">
+        <!-- Start .panel -->
+        <div class="panel-heading">
+          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> CMS数据统计报表</h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="cms_info" width="240px" height="240px"></canvas>
+        </div>
+      </div>
+      <!-- End .panel -->
+
+      <div class="panel panel-info toggle panelClose">
+        <!-- Start .panel -->
+        <div class="panel-heading">
+          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> CMS数据统计报表</h4>
+        </div>
+        <div class="panel-body">
+          <canvas id="cms_info_1" width="240px" height="240px"></canvas>
+        </div>
+      </div>
+      <!-- End .panel -->
+    </div>
+</div>
+
+
+<script>
+    //This will get the first returned node in the jQuery collection.
+    window.onload = function(){
+        //$('body').sprFlat({
+        //    openEffect: 'flipInY'
+        //});
+
+        var ctx = $("#server_info").get(0).getContext("2d");
+        var server_info = new Chart(ctx).Pie(<%=raw(@server_info_data.to_json)%>, {});
+
+        ctx = $("#cms_info").get(0).getContext("2d");
+        new Chart(ctx).Pie(<%=raw(@cms_info_data.to_json)%>);
+
+        ctx = $("#cloudsec_info").get(0).getContext("2d");
+        new Chart(ctx).Pie(<%=raw(@cloudsec_info_data.to_json)%>);
+
+        $('body').sprFlat({
+        });
+    };
+
+
+</script>
+<%= javascript_include_tag params[:controller] %>
