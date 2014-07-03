@@ -3,7 +3,7 @@ require 'domainatrix'
 
 class Processor
   include HttpModule
-  
+
   @queue = "process_url"
   @webdb = nil
   def initialize(webdb)
@@ -21,7 +21,7 @@ class Processor
 
   #最上层函数，添加host到数据库
   def add_host_to_webdb(host, force=false)
-
+    host = host.downcase
     return -1 if host.include?('/') || host =~ /\d+\.\d+\.\d+\.\d/
 
       domain_info = get_domain_info_by_host(host)
