@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/statistic/index.html.erb" afterPath="$PROJECT_DIR$/app/views/statistic/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -33,7 +32,7 @@
       <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="18" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+            <state line="52" column="100" selection-start="1440" selection-end="1505" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1560">
               <folding />
             </state>
           </provider>
@@ -75,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="89" selection-start="180" selection-end="213" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2505">
+            <state line="10" column="27" selection-start="417" selection-end="417" vertical-scroll-proportion="0.31007752" vertical-offset="30" max-vertical-offset="2520">
               <folding />
             </state>
           </provider>
@@ -93,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="3" selection-start="715" selection-end="715" vertical-scroll-proportion="0.6014151" vertical-offset="0" max-vertical-offset="424">
+            <state line="17" column="3" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -159,9 +158,9 @@
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/statistic/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -883,7 +882,11 @@
       <created>1404365786615</created>
       <updated>1404365786615</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;">
+      <created>1404366023234</created>
+      <updated>1404366023234</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1183,23 +1186,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="18" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="23" selection-start="1756" selection-end="1756" vertical-scroll-proportion="-10.692307" vertical-offset="907" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="89" selection-start="180" selection-end="213" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2505">
           <folding />
         </state>
       </provider>
@@ -1213,7 +1202,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="3" selection-start="715" selection-end="715" vertical-scroll-proportion="0.6014151" vertical-offset="0" max-vertical-offset="424">
+        <state line="17" column="3" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="100" selection-start="1440" selection-end="1505" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="27" selection-start="417" selection-end="417" vertical-scroll-proportion="0.31007752" vertical-offset="30" max-vertical-offset="2520">
           <folding />
         </state>
       </provider>
