@@ -77,7 +77,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="17" selection-start="5965" selection-end="5965" vertical-scroll-proportion="0.41860464" vertical-offset="1803" max-vertical-offset="2520">
+            <state line="18" column="17" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6976744" vertical-offset="0" max-vertical-offset="2535">
               <folding />
             </state>
           </provider>
@@ -890,7 +890,11 @@
       <created>1404366728881</created>
       <updated>1404366728881</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="解决javascript在点击链接到页面的时候不加载的问题，参考http://blog.dacer.im/blog/2014/02/18/code-school-bi-ji-zombie-outlaws-level-7/&#10;">
+      <created>1404367546539</created>
+      <updated>1404367546539</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -952,7 +956,8 @@
     <MESSAGE value="90天内重复提交的URL不做任何处理" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
+    <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://blog.dacer.im/blog/2014/02/18/code-school-bi-ji-zombie-outlaws-level-7/&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决javascript在点击链接到页面的时候不加载的问题，参考http://blog.dacer.im/blog/2014/02/18/code-school-bi-ji-zombie-outlaws-level-7/&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1220,7 +1225,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="17" selection-start="5965" selection-end="5965" vertical-scroll-proportion="0.41860464" vertical-offset="1803" max-vertical-offset="2520">
+        <state line="18" column="17" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6976744" vertical-offset="0" max-vertical-offset="2535">
           <folding />
         </state>
       </provider>
