@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+require "resque"
+require "#{Rails.root}/app/jobs/url_worker.rb"
 
 class SearchController < ApplicationController
   helper SearchHelper
@@ -44,6 +46,7 @@ class SearchController < ApplicationController
       if @results
         @results.each {|x|
           @tags[x.hosthash] = Tag.find_by_hosthash x.hosthash
+          @error, @msg = Userhost.add_user_host(x.host, '127.0.0.2')
         }
       end
     rescue ThinkingSphinx::SphinxError => e

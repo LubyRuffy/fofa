@@ -1,7 +1,5 @@
 # encoding: utf-8
 require "resque"
-require 'uri'
-require 'open-uri'
 require "#{Rails.root}/app/jobs/url_worker.rb"
 
 class UserhostController < ApplicationController

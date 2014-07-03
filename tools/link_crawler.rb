@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+#用于进行host爬行，从一个入口开始，只获取首页的外链，可以设置过滤器
+#Usage: $0 <host> [MATCH_PATTERN_TO_PROCESS]
 root_path = File.expand_path(File.dirname(__FILE__))
 require 'pp'
 require 'awesome_print'
