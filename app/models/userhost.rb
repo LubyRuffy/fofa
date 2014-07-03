@@ -23,7 +23,7 @@ class Userhost < ActiveRecord::Base
     @host = host_of_url(@host)
     url = Domainatrix.parse(@host)
     if url.domain.size>0 && url.public_suffix
-      @userhost = Userhost.create("host"=>@host, "clientip"=>ip )
+      @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
       Resque.enqueue(Processor, @host)
       #@host = url
       if @host =~ /\d+\.\d+\.\d+\.\d/

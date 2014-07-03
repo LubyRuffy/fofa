@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -75,10 +74,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="59" selection-start="473" selection-end="473" vertical-scroll-proportion="0.5630027" vertical-offset="0" max-vertical-offset="1560">
+            <state line="19" column="42" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userhost_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="41" selection-start="281" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="79" selection-start="675" selection-end="675" vertical-scroll-proportion="0.36193028" vertical-offset="240" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -88,24 +105,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/statistic/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="45" column="52" selection-start="1428" selection-end="1428" vertical-scroll-proportion="11.708333" vertical-offset="956" max-vertical-offset="1305">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="22" selection-start="430" selection-end="438" vertical-scroll-proportion="0.0" vertical-offset="977" max-vertical-offset="1350">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="17" selection-start="277" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -149,7 +148,6 @@
         <option value="$PROJECT_DIR$/app/views/statistic/index.html.erb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
@@ -162,6 +160,7 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js" />
         <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/app/models/userhost.rb" />
       </list>
     </option>
   </component>
@@ -273,6 +272,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -673,12 +708,16 @@
       <created>1404356014056</created>
       <updated>1404356014056</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add show_workers rake task">
+      <created>1404358633646</created>
+      <updated>1404358633646</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -691,7 +730,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -729,7 +768,8 @@
     <MESSAGE value="fix capitalize problem" />
     <MESSAGE value="fix capitalize problem&#10;" />
     <MESSAGE value="index show js" />
-    <option name="LAST_COMMIT_MESSAGE" value="index show js" />
+    <MESSAGE value="add show_workers rake task" />
+    <option name="LAST_COMMIT_MESSAGE" value="add show_workers rake task" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -841,13 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="19" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/test/url_submit.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="15" selection-start="35" selection-end="35" vertical-scroll-proportion="0.035377357" vertical-offset="0" max-vertical-offset="424">
@@ -900,13 +933,6 @@
     <entry file="file://$PROJECT_DIR$/app/jobs/test/url_work_test.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="95" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="107" selection-start="257" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
           <folding />
         </state>
       </provider>
@@ -997,7 +1023,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="59" selection-start="473" selection-end="473" vertical-scroll-proportion="0.5630027" vertical-offset="0" max-vertical-offset="1560">
+        <state line="19" column="42" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="41" selection-start="281" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="79" selection-start="675" selection-end="675" vertical-scroll-proportion="0.36193028" vertical-offset="240" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
