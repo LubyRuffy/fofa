@@ -9,6 +9,7 @@ class SearchController < ApplicationController
     #@tbl_cnt = Subdomain.search_count 
     @site_cnt = Subdomain.count
     @last = Subdomain.last
+    @show_ws_link = true
   end
   
   def get_web_cnt
