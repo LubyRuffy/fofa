@@ -16,6 +16,7 @@ include HttpModule
 $pattern = nil
 
 def add_host(host, src)
+  host = host.downcase
   find_h = @hosts.select { |h|
     h[:host] == host
   }[0]
@@ -28,7 +29,7 @@ def add_host(host, src)
       info = "#{src} -> #{host}"
       puts info
       @hosts << h
-      `curl http://www.fofa.so/api/addhost?host=#{host}`
+      r = `curl http://www.fofa.so/api/addhost?host=#{host} >/dev/null 2>&1`
     end
   end
 end
@@ -67,7 +68,7 @@ def main(host)
 
   while @hosts.select {|h| h[:processed]}.size<1000000 && @hosts.select {|h| !h[:processed] }.size>0
     h = @hosts.select {|h| !h[:processed] }[0]
-    #puts h
+    puts h
     get_links h
     h[:processed] = true
   end
