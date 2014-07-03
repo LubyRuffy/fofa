@@ -16,6 +16,8 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+      ['ThinkPHP', '2014-07-03', 'http://www.thinkphp.cn',
+       'head="thinkphp"'],
       ['OA(a8/seeyon/ufida)', '2014-07-01', 'http://yongyougd.com/productsview88.html', 'body="/seeyon/USER-DATA/IMAGES/LOGIN/login.gif"'],
       ['yongyoufe', '2014-07-01', 'http://yongyougd.com/productsview88.html', 'title="FE协作" || (body="V_show" && body="V_hedden")'],
       ['Zen Cart', '2013-12-18', 'http://www.zen-cart.com/', 'body="shopping cart program by Zen Cart" || header="Set-Cookie: zenid="'],
@@ -46,6 +48,12 @@ module SearchHelper
       ['ASPCMS', '2013-11-19', 'http://www.aspcms.com/','title="Powered by ASPCMS" || body="content=\"ASPCMS" || body="/inc/AspCms_AdvJs.asp"'],
       ['MetInfo', '2013-11-19', 'http://www.metinfo.com/','title="Powered by MetInfo" || body="content=\"MetInfo" || body="powered_by_metinfo" || body="/images/css/metinfo.css"'],
       ['PageAdmin', '2013-11-19', 'http://www.pageadmin.net/','title="Powered by PageAdmin" || body="content=\"PageAdmin" || body="Powered by <a href=\'http://www.pageadmin.net\'"'],
+      ['Npoint', '2013-11-19', '#', 'title="Powered by Npoint"'],
+      ['小蚂蚁', '2013-11-19', 'http://www.xiaomayi.co/', 'title="Powered by 小蚂蚁地方门户网站系统" || header="AntXiaouserslogin" || body="/Template/Ant/Css/AntHomeComm.css"'],
+      ['捷点JCMS', '2013-11-19', 'http://www.jcms.com.cn/', 'body="Publish By JCms2010"'],
+      ['帝国EmpireCMS', '2013-11-19', 'http://www.phome.net/', 'title="Powered by EmpireCMS"'],
+      ['phpMyadmin', '2013-11-19', 'http://www.phpmyadmin.net/', 'header="Set-Cookie: phpMyAdmin=" || title="phpMyAdmin " || body="pma_password"'],
+      ['JEECMS', '2013-11-19', 'http://www.jeecms.com/', 'title="Powered by JEECMS" || (body="Powered by" && body="http://www.jeecms.com" && body="JEECMS")'],
     ]
   end
 

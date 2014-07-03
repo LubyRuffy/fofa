@@ -14,6 +14,7 @@ include HttpModule
 @hosts = []
 @options = {:cachetime=>864000}
 $pattern = nil
+$max_site = 10000
 
 def add_host(host, src)
   host = host.downcase
@@ -66,7 +67,7 @@ def main(host)
     add_host(host, nil)
   end
 
-  while @hosts.select {|h| h[:processed]}.size<1000000 && @hosts.select {|h| !h[:processed] }.size>0
+  while @hosts.select {|h| h[:processed]}.size<$max_site && @hosts.select {|h| !h[:processed] }.size>0
     h = @hosts.select {|h| !h[:processed] }[0]
     puts h
     get_links h
@@ -76,6 +77,7 @@ end
 
 if ARGV.size>0
   $pattern = ARGV[1] if ARGV.size>1
+  $max_site = ARGV[2].to_i if ARGV.size>2
   main(ARGV[0])
 else
   puts "Usage: $0 <host> [MATCH_PATTERN_TO_PROCESS]"

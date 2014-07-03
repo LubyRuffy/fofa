@@ -1,25 +1,34 @@
 <h1>建站类组件库列表</h1>
-<%
-  get_cms.each { |l|
-%>
-【<%=l[1]%>】<a href='<%=l[2]%>' target='_blank'><%=l[0]%></a> 识别方法： <a href="/search/result?qbase64=<%=Base64.encode64(l[3])%>"><%=l[3]%></a></p>
-<%
-  }
-%>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th width="20%">日期</th>
+    <th width="20%">厂商</th>
+    <th width="60%">规则测试</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%
+     get_cms.each { |l|
+  %>
+      <tr>
+      <td>【<%=l[1]%>】</td>
+      <td><a href='<%=l[2]%>' target='_blank'><%=l[0]%></a> </td>
+      <td><a href="/search/result?qbase64=<%=Base64.encode64(l[3])%>"><%=l[3]%></a></td>
+      </tr>
+  <%
+     }
+  %>
+  </tbody>
+</table>
 
-<p>【2013-11-19】Npoint 识别方法：title="Powered by Npoint" </p>
-<p>【2013-11-19】<a href='http://www.xiaomayi.co/' target='_blank'>小蚂蚁</a> 识别方法：title="Powered by 小蚂蚁地方门户网站系统" || header="AntXiaouserslogin" || body="/Template/Ant/Css/AntHomeComm.css"</p>
-<p>【2013-11-19】<a href='http://www.jcms.com.cn/' target='_blank'>捷点JCMS</a> 识别方法：body="Publish By JCms2010"</p>
-<p>【2013-11-19】<a href='http://www.phome.net/' target='_blank'>帝国EmpireCMS</a> 识别方法：title="Powered by EmpireCMS"</p>
-<p>【2013-11-19】<a href='http://www.phpmyadmin.net/' target='_blank'>phpMyadmin</a> 识别方法：header="Set-Cookie: phpMyAdmin=" || title="phpMyAdmin " || body="pma_password"</p>
-<p>【2013-11-19】<a href='http://www.jeecms.com/' target='_blank'>JEECMS</a> 识别方法：title="Powered by JEECMS" || (body="Powered by" && body="http://www.jeecms.com" && body="JEECMS")</p>
+
 
 
 <h1>待添加</h1>
 <p> 5ucms</p>
 <p> cms4j</p>
 <p> EasySite</p>
-<p> ThinkPHP</p>
 <p> Foosun</p>
 
 <h1>基础类组件库列表</h1>
