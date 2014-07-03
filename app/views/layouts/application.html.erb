@@ -129,9 +129,9 @@
           <ul class="list-unstyled">
             <li class="pull-right"><a href="#top">回到顶部</a></li>
             <li><a href="/info/about">技术说明</a></li>
-            <li><%= link_to '数据报表', statistic_index_path%>
+            <li><%= link_to '数据报表', statistic_index_path, "data-no-turbolink" => true%>
             </li>
-            <li><%= link_to "联系我们", "/info/contact", "data-no-turbolink" => true %></li>
+            <li><%= link_to "联系我们", "/info/contact" %></li>
           </ul>
           
           <p>本网站基于Rails，<a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>等构架。推荐使用Chrome和Firefox、Saferi等浏览器浏览。</p>
