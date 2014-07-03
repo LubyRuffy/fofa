@@ -9,6 +9,11 @@ Webdbweb::Application.load_tasks
 namespace :fofa do
 
   current_path = File.expand_path('../', __FILE__)
+
+  desc "Show running workers"
+  task :show_workers do
+    system "ps -eo pid,command | grep resque | grep -v grep"
+  end
   
   desc "Restart running workers"
   task :restart_workers => :environment do
