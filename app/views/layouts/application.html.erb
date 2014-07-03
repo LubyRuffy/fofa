@@ -121,7 +121,7 @@
 
     <%= yield %>
 
-    <footer data-no-turbolink="true">
+    <footer >
       <div class="row">
         <div class="col-lg-12">
 
@@ -130,7 +130,7 @@
             <li><a href="/info/about">技术说明</a></li>
             <li><%= link_to '数据报表', statistic_index_path%>
             </li>
-            <li><%= link_to "联系我们", "/info/contact" %></li>
+            <li><%= link_to "联系我们", "/info/contact", "data-no-turbolink" => true %></li>
           </ul>
           
           <p>本网站基于Rails，<a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>等构架。推荐使用Chrome和Firefox、Saferi等浏览器浏览。</p>
