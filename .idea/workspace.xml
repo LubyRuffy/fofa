@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/statistic/index.html.erb" afterPath="$PROJECT_DIR$/app/views/statistic/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -30,15 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="resque.rake" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/tasks/resque.rake">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,16 +77,25 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="13" selection-start="6385" selection-end="6385" vertical-scroll-proportion="-89.375" vertical-offset="0" max-vertical-offset="2505">
+            <state line="4" column="89" selection-start="180" selection-end="213" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2505">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/statistic/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="81" column="80" selection-start="2533" selection-end="2533" vertical-scroll-proportion="0.775" vertical-offset="905" max-vertical-offset="1305">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="2" selection-start="706" selection-end="706" vertical-scroll-proportion="0.6014151" vertical-offset="0" max-vertical-offset="424">
+            <state line="10" column="30" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -145,7 +144,6 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.sprFlat.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/statistic.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/statistic.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/statistic/index.html.erb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
@@ -156,12 +154,13 @@
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/controllers/search_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js" />
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/statistic/index.html.erb" />
       </list>
     </option>
   </component>
@@ -259,6 +258,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="userhost" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="statistic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -831,7 +874,11 @@
       <created>1404363285294</created>
       <updated>1404363285294</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;">
+      <created>1404363716698</created>
+      <updated>1404363716698</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -892,7 +939,8 @@
     <MESSAGE value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data.&#10;" />
     <MESSAGE value="90天内重复提交的URL不做任何处理" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application" />
+    <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1067,13 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/statistic/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="52" selection-start="1428" selection-end="1428" vertical-scroll-proportion="11.708333" vertical-offset="956" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/statistic.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="17" selection-start="930" selection-end="930" vertical-scroll-proportion="-10.166667" vertical-offset="626" max-vertical-offset="975">
@@ -1151,16 +1192,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="13" selection-start="6385" selection-end="6385" vertical-scroll-proportion="-89.375" vertical-offset="0" max-vertical-offset="2505">
+        <state line="10" column="30" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="2" selection-start="706" selection-end="706" vertical-scroll-proportion="0.6014151" vertical-offset="0" max-vertical-offset="424">
+        <state line="4" column="89" selection-start="180" selection-end="213" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="2505">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/statistic/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="80" selection-start="2533" selection-end="2533" vertical-scroll-proportion="0.775" vertical-offset="905" max-vertical-offset="1305">
           <folding />
         </state>
       </provider>
