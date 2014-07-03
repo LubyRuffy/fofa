@@ -90,14 +90,17 @@ module HttpModule
 
   def get_web_content(url,ops=nil)
     @options ||= {}
+    ops ||= {}
+    ops[:following] = 0
     resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
+    return resp if ops[:following]>2
 
     begin
       url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
       url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
       uri = URI(url)
       ip = uri.host
-      ip = ops[:hostip] if ops && ops[:hostip]
+      ip = ops[:hostip] if ops[:hostip]
       resp[:host] = uri.host
       ip = uri.host
       if ip =~ /^[0-9.]*$/
@@ -106,6 +109,7 @@ module HttpModule
         ip = Socket.getaddrinfo(uri.host, nil)
         return resp if !ip || !ip[0] || !ip[0][2]
         resp[:ip] = Socket.getaddrinfo(uri.host, nil)[0][2]
+        ip = resp[:ip]
       end
       resp[:port] = uri.port
 
@@ -130,6 +134,15 @@ module HttpModule
         request['Referer'] = ops[:referer] if ops && ops[:referer]
         begin
           response = h.request request # Net::HTTPResponse object
+          if response.code.to_i == 301 || response.code.to_i == 302
+            ops[:following] += 1
+            #  puts "redirect"
+            if response['location'].include?("http://")
+              return get_web_content(response['location'], ops)
+            else
+              return get_web_content("http://"+resp[:host]+"/"+response['location'], ops)
+            end
+          end
           resp[:code] = response.code
           resp[:message] = response.message
           resp[:http_version] = response.http_version
@@ -177,6 +190,7 @@ module HttpModule
 
   def get_utf8(c)
     encoding = GuessHtmlEncoding.guess(c)
+    encoding = "GB2312" if encoding=='GBK2312' #bug?
     begin
       #puts encoding
       if(encoding)

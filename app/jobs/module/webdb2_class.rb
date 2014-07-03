@@ -69,7 +69,7 @@ class WebDb
       header << [k,v].join(': ')
     }
     header = header.join("\n").force_encoding('UTF-8')
-    body = r[:body]
+    body = r[:utf8html]
     ip = r[:ip]
 
     sql = "insert into subdomain (host, hosthash, domain, subdomain, ip, header, title, body, lastchecktime, lastupdatetime) values('#{Mysql2::Client.escape(host)}', '#{Digest::MD5.hexdigest(host)}', '#{Mysql2::Client.escape(domain)}', '#{Mysql2::Client.escape(subdomain)}', '#{Mysql2::Client.escape(ip)}', '#{Mysql2::Client.escape(header)}', '#{Mysql2::Client.escape(title)}', '#{Mysql2::Client.escape(body)}', now(), now())"
@@ -86,7 +86,7 @@ class WebDb
       header << [k,v].join(': ')
     }
     header = header.join("\n").force_encoding('UTF-8')
-    body = r[:body]
+    body = r[:utf8html]
     ip = r[:ip]
     sql = "update subdomain set ip='#{Mysql2::Client.escape(ip)}', header='#{Mysql2::Client.escape(header)}', title='#{Mysql2::Client.escape(title)}', body='#{Mysql2::Client.escape(body)}', lastupdatetime=now() where hosthash='#{Digest::MD5.hexdigest(host)}'"
     #puts sql
