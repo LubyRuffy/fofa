@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/backtop.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -47,24 +47,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="statistic.js.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/statistic.js.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.sprflat.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="30" selection-start="2831" selection-end="2831" vertical-scroll-proportion="-6.0" vertical-offset="1044" max-vertical-offset="22545">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="resque.rake" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/tasks/resque.rake">
           <provider selected="true" editor-type-id="text-editor">
@@ -77,7 +59,7 @@
       <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="42" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+            <state line="54" column="18" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
               <folding />
             </state>
           </provider>
@@ -86,7 +68,16 @@
       <file leaf-file-name="userhost_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="41" selection-start="281" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
+            <state line="7" column="5" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="17" selection-start="277" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -95,7 +86,25 @@
       <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="79" selection-start="675" selection-end="675" vertical-scroll-proportion="0.36193028" vertical-offset="240" max-vertical-offset="675">
+            <state line="42" column="5" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.71849865" vertical-offset="362" max-vertical-offset="750">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="0" selection-start="1315" selection-end="1315" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="148" column="141" selection-start="5089" selection-end="5121" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="2400">
               <folding />
             </state>
           </provider>
@@ -105,15 +114,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/statistic/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="45" column="52" selection-start="1428" selection-end="1428" vertical-scroll-proportion="11.708333" vertical-offset="956" max-vertical-offset="1305">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding />
             </state>
           </provider>
@@ -289,7 +289,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -307,7 +307,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="jobs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -325,11 +329,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -738,12 +738,16 @@
       <created>1404359231112</created>
       <updated>1404359231112</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data.&#10;">
+      <created>1404359827831</created>
+      <updated>1404359827831</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -756,7 +760,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -796,7 +800,8 @@
     <MESSAGE value="index show js" />
     <MESSAGE value="add show_workers rake task" />
     <MESSAGE value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data." />
+    <MESSAGE value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -964,13 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="5" selection-start="5129" selection-end="5129" vertical-scroll-proportion="-6.5" vertical-offset="2066" max-vertical-offset="2400">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="84" selection-start="350" selection-end="367" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
@@ -978,23 +976,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="34" selection-start="443" selection-end="443" vertical-scroll-proportion="-3.8461537" vertical-offset="260" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="22" selection-start="430" selection-end="438" vertical-scroll-proportion="0.0" vertical-offset="977" max-vertical-offset="1350">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="277" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
           <folding />
         </state>
       </provider>
@@ -1050,21 +1034,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="42" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+        <state line="54" column="18" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="41" selection-start="281" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
+        <state line="7" column="5" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="17" selection-start="277" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="141" selection-start="5089" selection-end="5121" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="2400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="1315" selection-end="1315" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="79" selection-start="675" selection-end="675" vertical-scroll-proportion="0.36193028" vertical-offset="240" max-vertical-offset="675">
+        <state line="42" column="5" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.71849865" vertical-offset="362" max-vertical-offset="750">
           <folding />
         </state>
       </provider>

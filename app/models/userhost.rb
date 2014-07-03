@@ -23,8 +23,6 @@ class Userhost < ActiveRecord::Base
     @host = host_of_url(@host)
     url = Domainatrix.parse(@host)
     if url.domain.size>0 && url.public_suffix
-      @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
-      Resque.enqueue(Processor, @host)
       #@host = url
       if @host =~ /\d+\.\d+\.\d+\.\d/
         @info = "暂不支持IP格式，请直接输入域名或者URL"
@@ -33,6 +31,13 @@ class Userhost < ActiveRecord::Base
     else
       @info = "HOST格式错误"
       @error = true
+    end
+    if !@error
+      host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
+      if host.size<1
+        @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
+        Resque.enqueue(Processor, @host)
+      end
     end
     [@error, @info]
   end
