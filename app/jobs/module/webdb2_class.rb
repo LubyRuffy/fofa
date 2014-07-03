@@ -146,7 +146,7 @@ class WebDb
     #不存在就需要添加
     return true unless db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}'")
     #存在则判断最后更新时间, 周期是否超过7天
-    db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}' and DATEDIFF(NOW(),lastchecktime)>6")
+    !db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}' and DATEDIFF(NOW(),lastchecktime)>6")
   end
 
 end

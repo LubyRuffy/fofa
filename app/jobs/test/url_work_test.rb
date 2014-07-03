@@ -10,5 +10,5 @@ if __FILE__==$0
   #include HttpModule
 
   #puts get_http('www.fofa.so')
-  Processor.new(WebDb.new(root_path+"/../../../config/database.yml")).add_host_to_webdb('www.hnyx.gov.cn', true)
+  Processor.new(WebDb.new(root_path+"/../../../config/database.yml")).add_host_to_webdb 'www.sc.gov.cn'#, true
 end
