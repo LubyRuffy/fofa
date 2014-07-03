@@ -14,30 +14,22 @@ class StatisticController < ApplicationController
    #render inline: @ai["server_info"]
    my_array = []
    JSON.parse(@ai["server_info"]).each{|k,v|
-     my_array << {'value'=>v.to_i, 'label'=>k}
+     my_array << [k, v.to_i]
    }
+   my_array.sort! { |x, y| y[1] <=> x[1]}
    render text: my_array.to_json
    #render inline: JSON.parse(@ai["server_info"]).map{|k,v| [k,v.to_i+100000] }.to_s
    #render inline: JSON.parse(@ai["server_info"]).sort_by {|_key, value| -value.to_i} .to_s
   end
 
   private
+
       def get_json_data(ai, name)
         my_array = []
-        my_colors= ['#c12e34','#e6b600','#0098d9','#2b821d',
-                    '#005eaa','#339ca8','#cda819','#32a487',
-                    '#50B432', '#ED561B', '#DDDF00', '#24CBE5',
-                    '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
-        my_hash = JSON.parse(ai[name])
-        JSON.parse(ai[name]).each{|k,v|
-          my_array << {'value'=> v.to_i, 'label'=>k}
+        JSON.parse(@ai[name]).each{|k,v|
+          my_array << [k, v.to_i]
         }
-        my_array.sort! { |x, y| y['value'] <=> x['value']}
-
-        i=0
-        my_array.each {|x|
-          x['color'] = my_colors[i]
-          i+=1
-        }
+        my_array.sort! { |x, y| y[1] <=> x[1]}
+        my_array
       end
 end

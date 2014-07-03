@@ -12,7 +12,7 @@
           <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> 服务器统计</h4>
         </div>
         <div class="panel-body">
-          <canvas id="server_info" width="240px" height="240px"></canvas>
+          <div id="server_info"></div>
         </div>
       </div>
       <!-- End .panel -->
@@ -23,7 +23,7 @@
           <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> 网站安全云服务数据统计</h4>
         </div>
         <div class="panel-body">
-          <canvas id="cloudsec_info" width="240px" height="240px"></canvas>
+          <div id="cloudsec_info"></div>
         </div>
       </div>
       <!-- End .panel -->
@@ -38,7 +38,7 @@
           <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> CMS数据统计报表</h4>
         </div>
         <div class="panel-body">
-          <canvas id="cms_info" width="240px" height="240px"></canvas>
+          <div id="cms_info"></div>
         </div>
       </div>
       <!-- End .panel -->
@@ -49,7 +49,7 @@
           <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> CMS数据统计报表</h4>
         </div>
         <div class="panel-body">
-          <canvas id="cms_info_1" width="240px" height="240px"></canvas>
+          <div id="cms_info_1"></div>
         </div>
       </div>
       <!-- End .panel -->
@@ -60,21 +60,14 @@
 <script>
     //This will get the first returned node in the jQuery collection.
     window.onload = function(){
-        //$('body').sprFlat({
-        //    openEffect: 'flipInY'
-        //});
-
-        var ctx = $("#server_info").get(0).getContext("2d");
-        var server_info = new Chart(ctx).Pie(<%=raw(@server_info_data.to_json)%>, {});
-
-        ctx = $("#cms_info").get(0).getContext("2d");
-        new Chart(ctx).Pie(<%=raw(@cms_info_data.to_json)%>);
-
-        ctx = $("#cloudsec_info").get(0).getContext("2d");
-        new Chart(ctx).Pie(<%=raw(@cloudsec_info_data.to_json)%>);
+        show_pie_chart('server_info', '', <%=raw(@server_info_data.to_json)%>);
+        show_pie_chart('cms_info', '', <%=raw(@cms_info_data.to_json)%>);
+        show_pie_chart('cloudsec_info', '', <%=raw(@cloudsec_info_data.to_json)%>);
 
         $('body').sprFlat({
         });
+
+
     };
 
 
