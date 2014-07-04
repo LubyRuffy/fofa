@@ -14,13 +14,26 @@ def host_of_url(url)
   end
 end
 
+def hostinfo_of_url(url)
+  begin
+    url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
+    url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
+    uri = URI(url)
+    rr = uri.host
+    rr = rr+':'+uri.port.to_s if uri.port!=80
+    rr
+  rescue => e
+    nil
+  end
+end
+
 class Userhost < ActiveRecord::Base
 
   def self.add_user_host(submit_host, ip)
     @info = ''
     @error = false
     @host = submit_host
-    @host = host_of_url(@host)
+    @host = hostinfo_of_url(@host)
     url = Domainatrix.parse(@host)
     if url.domain.size>0 && url.public_suffix
       #@host = url

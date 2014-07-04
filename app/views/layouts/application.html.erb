@@ -51,10 +51,11 @@
           
         </ul>
 
-<!--
+
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://builtwithbootstrap.com/" target="_blank">登录</a></li>
-          <li class="dropdown">
+          <li><%= link_to '登录', new_user_session_path%></li>
+        </ul>
+<!--          <li class="dropdown">
         <a href="#" data-toggle="dropdown">
         <img class="user-avatar" src="http://themes.suggelab.com/sprflat/assets/img/avatars/48.jpg" alt="SuggeElson"><span class="notification">5</span>zwell<b class="caret"></b></a>
         <ul class="dropdown-menu right animated fadeInDown" role="menu">
@@ -120,6 +121,12 @@
   </div>
 
   <div class="container">
+    <% flash.each do |key,value| %>
+        <div class="page-header alert <%if key=='alert' %>alert-warning<%else%>alert-success<%end%> alert-dismissible ade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+          <strong>提示：</strong> <%=value%>
+        </div>
+    <% end %>
 
     <%= yield %>
 
