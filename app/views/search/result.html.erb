@@ -5,8 +5,8 @@
     <p><br/><br/></p>
     <form style="100%" action='/search/result' method='get'>
     <div class="input-group">
-      <input type="text" class="form-control" id="q" name="q">
-      <%= hidden_field_tag(:qbase64, "") %>
+      <input type="text" class="form-control" id="q" name="q" value="<%= @query.force_encoding('utf-8') %>">
+      <%= hidden_field_tag(:qbase64, @qbase64) %>
       <span class="input-group-btn">
         <button class="btn btn-info" type="submit" data-toggle="tooltip" data-placement="right" title data-original-title="Tooltip on right" onclick='search'><i class="fa fa-search"></i> 搜索</button>
       </span>
@@ -31,7 +31,10 @@
   <div class="col-lg-8">
     搜索 <strong><%= @query.force_encoding('utf-8') %></strong> 
     获得 <%= @results.meta['total_found'] %> 条匹配结果，
-    用时 <%= @results.meta['time'] %>秒。模式:<%=@mode%>
+    用时 <%= @results.meta['time'] %>秒，模式:<%=@mode%>。
+    <% if @mode=='extended'%>
+        <%= link_to '提交查询规则', new_rule_path+"?qbase64="+@qbase64%>
+    <% end %>
   </div>
   <div class="col-lg-4">
     <div class="pull-right">
@@ -104,5 +107,7 @@ function view(hst){
     });
 }
 </script>
+
+    <%= javascript_include_tag params[:controller] %>
 <% end %>
 

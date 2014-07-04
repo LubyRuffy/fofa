@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag params[:controller] %>
+
+<div class="row">
+  <div class="col-lg-7">
+    <div class="well bs-component">
+<%= form_for(@rule, html: {class: "form-horizontal", id:"validate"} ) do |f| %>
+  <% if @rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @rule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <fieldset>
+        <legend></legend>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">规则详情</label>
+          <div class="col-lg-10">
+            <%= f.text_area :rule, :class=> "form-control required", :row=>3, :placeholder=>'header="Set-Cookie: phpMyAdmin="|| title="phpMyAdmin " || body="pma_password"', :value => @notice?nil:@rawrule%>
+            <span class="help-block">必须是满足查询语言的语句，目前支持title，host，body，head等查询。</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">应用名称</label>
+          <div class="col-lg-10">
+            <%= f.text_field :product, :class=> "form-control", :placeholder=>"如：phpcms"%>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-lg-2 control-label">应用网站</label>
+          <div class="col-lg-10">
+            <%= f.text_field :producturl, :class=> "form-control", :placeholder=>"如：http://www.phpcms.com/"%>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit "提交", class:"btn btn-primary" %>
+          </div>
+        </div>
+      </fieldset>
+<% end %>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <h2>规则语法参考：</h2>
+  </div>
+</div>
+
+
+<%= javascript_include_tag params[:controller] %>

@@ -1,4 +1,6 @@
 Webdbweb::Application.routes.draw do
+  resources :rules
+
   get 'api/addhost'
 
   get "info/gov"

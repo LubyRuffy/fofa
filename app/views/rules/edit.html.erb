@@ -1,0 +1,12 @@
+<h1>编辑规则</h1>
+<div class="bs-component">
+  <ul class="breadcrumb">
+    <li><%= link_to '规则管理', rules_path %></li>
+    <li class="active">编辑规则</li>
+  </ul>
+</div>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @rule %> |
+<%= link_to 'Back', rules_path %>

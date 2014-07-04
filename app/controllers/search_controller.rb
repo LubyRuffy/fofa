@@ -23,6 +23,7 @@ class SearchController < ApplicationController
 
   def result
     @query = params['q']
+    @qbase64=params['qbase64']
     @query = Base64.decode64(params['qbase64']) if params['qbase64'] &&  params['qbase64'].size>2 
     @query_l = nil
     begin
