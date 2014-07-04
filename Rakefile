@@ -54,7 +54,7 @@ namespace :fofa do
     puts "Running syscmd: #{syscmd}"
     system(syscmd)
 
-    Rake::Task["assets:precompile"]
+    Rake::Task["assets:precompile RAILS_ENV=production"]
   end
 
   desc "Stop unicorn"
