@@ -3,7 +3,7 @@
 #Usage: $0 <host> [MATCH_PATTERN_TO_PROCESS]
 root_path = File.expand_path(File.dirname(__FILE__))
 require 'pp'
-require 'awesome_print'
+#require 'awesome_print'
 require 'rubygems'
 require 'domainatrix'
 require root_path+'/../app/jobs/module/httpmodule.rb'
@@ -35,27 +35,40 @@ def add_host(host, src)
   end
 end
 
+def process_url(h, href)
+  if href.include?("http://") || href.include?("https://")
+    begin
+      u = URI.join(h[:url], href)
+      url = Domainatrix.parse(u.to_s)
+      new_host = url.subdomain+"."+url.domain+"."+url.public_suffix
+      add_host(new_host, h[:host]) if h[:host] != new_host
+    rescue => e
+      puts "[ERROR] process error of [#{href}]"
+    end
+  end
+end
+
 def get_links(h)
   return unless h && h[:url]
   url = h[:url]
   html = load_info url
   if !html[:error]
+=begin
     doc = Nokogiri::HTML(html[:utf8html])
     doc.css("a").each{ |a|
       if a['href']
         href = a['href']
-        if href.include?("http://") || href.include?("https://")
-          begin
-            u = URI.join(h[:url], href)
-            url = Domainatrix.parse(u.to_s)
-            new_host = url.subdomain+"."+url.domain+"."+url.public_suffix
-            add_host(new_host, h[:host]) if h[:host] != new_host
-          rescue => e
-            puts "[ERROR] process error of [#{href}]"
-          end
-        end
+        process_url h,href
       end
     }
+=end
+
+    #window.open location.href
+    if html[:utf8html]
+      html[:utf8html].scan(/(http[s]?:\/\/.*?)[ \/\'\"\>]/).each{|x|
+        process_url h,x[0] if x[0].size>8
+      }
+    end
   else
     puts "http error"
   end
