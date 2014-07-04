@@ -1,5 +1,5 @@
 module ApiHelper
-  def search(query)
+  def search(query, page_count=10)
     @query = query
     @query_l = nil
     begin
@@ -14,11 +14,11 @@ module ApiHelper
         @mode = "extended"
         #@results = Subdomain.search Riddle::Query.escape(@query), :per_page => 10, :page => params['page']
         #@results = Subdomain.search @query_l, :index => 'idx1', :match_mode => :extended, :per_page => 10, :page => params['page'], :order => "lastupdatetime DESC"
-        @results = ThinkingSphinx.search @query_l, :index => 'idx1', :match_mode => :extended, :per_page => 10, :page => params['page'], :order => "lastupdatetime DESC"
+        @results = ThinkingSphinx.search @query_l, :index => 'idx1', :match_mode => :extended, :per_page => page_count, :page => params['page'], :order => "lastupdatetime DESC"
       else
         @mode = "normal"
         #@results = Subdomain.search Riddle::Query.escape(@query), :index => 'idx1', :per_page => 10, :page => params['page'], :order => "lastupdatetime DESC"
-        @results = ThinkingSphinx.search Riddle::Query.escape(@query), :index => 'idx1', :per_page => 10, :page => params['page'], :order => "lastupdatetime DESC"
+        @results = ThinkingSphinx.search Riddle::Query.escape(@query), :index => 'idx1', :per_page => page_count, :page => params['page'], :order => "lastupdatetime DESC"
       end
       @tags = {}
       if @results
