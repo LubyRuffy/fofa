@@ -1,5 +1,5 @@
 Webdbweb::Application.routes.draw do
-  resources :rules
+  devise_for :users
 
   get 'api/addhost'
 
@@ -23,6 +23,8 @@ Webdbweb::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'search#index'
+
+  resources :rules
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703104917) do
+ActiveRecord::Schema.define(version: 20140704083109) do
 
   create_table "analysis_info", force: true do |t|
     t.text "server_info"
@@ -124,6 +124,24 @@ ActiveRecord::Schema.define(version: 20140703104917) do
 
   add_index "tags", ["hosthash", "tag"], name: "hosthash_tag", unique: true, using: :btree
   add_index "tags", ["hosthash"], name: "hosthash", using: :btree
+
+  create_table "user", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user", ["email"], name: "index_user_on_email", unique: true, using: :btree
+  add_index "user", ["reset_password_token"], name: "index_user_on_reset_password_token", unique: true, using: :btree
 
   create_table "userhost", force: true do |t|
     t.string    "host"

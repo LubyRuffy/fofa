@@ -60,22 +60,19 @@ gem 'autoprefixer-rails'
 gem 'bootswatch-rails'
 gem 'font-awesome-rails'
 
-
-#gem "resque"
-
 #gem "whenever"
-gem "chartkick"
+#gem "chartkick"
 gem "parslet"
-
-gem "domainatrix"
-gem 'resque'
-gem 'resque-web', require: 'resque_web'
 gem "guess_html_encoding"
 gem "nokogiri"
-
-gem 'lazy_high_charts'
-
+gem "domainatrix"
 gem 'sixarm_ruby_magic_number_type'
 
+gem 'resque'
+gem 'resque-web', require: 'resque_web'
+gem 'lazy_high_charts'
 gem 'jquery-turbolinks'
+
+gem 'devise'
+gem 'paperclip'
 
