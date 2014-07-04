@@ -9,9 +9,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/jobs/module/results/d60fb521dd22ee91ffd44a309183faa7.tobj" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/jobs/module/results/efbd140f86e04d78eda497e293171b94.tobj" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/jobs/module/results/fd6150a6dd6f7bbe25d56efe5f87aae1.tobj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/api_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/api_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/manifest-a77bbaf32da438c5e6c63d4804eb4dc3.json" afterPath="$PROJECT_DIR$/public/assets/manifest-a77bbaf32da438c5e6c63d4804eb4dc3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/search/result.html.erb" afterPath="$PROJECT_DIR$/app/views/search/result.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/search_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/search_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -42,28 +43,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="search_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
+      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="14" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="3750">
+            <state line="16" column="17" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/api_helper.rb">
+      <file leaf-file-name="search_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="12" selection-start="23" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+            <state line="28" column="97" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
+      <file leaf-file-name="result.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="562" selection-end="562" vertical-scroll-proportion="0.6038136" vertical-offset="0" max-vertical-offset="472">
+            <state line="0" column="24" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1815">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="55" selection-start="156" selection-end="156" vertical-scroll-proportion="0.13793103" vertical-offset="0" max-vertical-offset="2640">
               <folding />
             </state>
           </provider>
@@ -120,21 +130,21 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/search.js.coffee" />
         <option value="$PROJECT_DIR$/app/views/search/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/base64.min.js" />
-        <option value="$PROJECT_DIR$/app/views/search/result.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_work_test.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
-        <option value="$PROJECT_DIR$/app/controllers/search_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/api_helper.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/search_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/search/result.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -244,7 +254,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="tools" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -261,6 +271,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -276,7 +290,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -712,7 +766,11 @@
       <created>1404479205267</created>
       <updated>1404479205267</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="增加api查询接口api，只返回">
+      <created>1404479569242</created>
+      <updated>1404479569242</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -773,8 +831,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add api controller, just addhost action at first&#10;" />
-    <MESSAGE value="add link tools" />
     <MESSAGE value="add link tools&#10;" />
     <MESSAGE value="fix httpmodule problem" />
     <MESSAGE value="fix http worker problem&#10;" />
@@ -798,25 +854,17 @@
     <MESSAGE value="增加用户管理" />
     <MESSAGE value="增加用户管理&#10;" />
     <MESSAGE value="增加api查询接口api，只返回host列表http://127.0.0.1:3000/api/result?qbase64=aGVhZGVyPSJ0aGlua3BocCI=" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加api查询接口api，只返回host列表http://127.0.0.1:3000/api/result?qbase64=aGVhZGVyPSJ0aGlua3BocCI=" />
+    <MESSAGE value="增加api查询接口api，只返回" />
+    <MESSAGE value="完善标题展示" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善标题展示" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/tools/link_crawler.rb</url>
-          <line>53</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/test/url_work_test.rb</url>
           <line>12</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/tools/link_crawler.rb</url>
-          <line>79</line>
-          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -966,21 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="8" selection-start="651" selection-end="651" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1785">
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1404449268000" expanded="true" signature="-1:-1" placeholder="if ... end" />
-            <marker date="1404449268000" expanded="true" signature="-1:-1" placeholder="if ... end" />
-            <marker date="1404449268000" expanded="true" signature="-1:-1" placeholder="do ... end" />
-            <marker date="1404449268000" expanded="true" signature="-1:-1" placeholder="if ... end" />
-            <marker date="1404449268000" expanded="true" signature="-1:-1" placeholder="if ... end" />
-            <marker date="1404449268000" expanded="true" signature="-1:-1" placeholder="do ... end" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/rules_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="20" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1305">
@@ -1026,13 +1059,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/userhost/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="17" selection-start="190" selection-end="539" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="32" selection-start="5863" selection-end="5863" vertical-scroll-proportion="-11.875" vertical-offset="1575" max-vertical-offset="2640">
           <folding />
         </state>
       </provider>
@@ -1093,13 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="17" selection-start="817" selection-end="817" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="21" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0" vertical-offset="473" max-vertical-offset="945">
@@ -1156,13 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="21" selection-start="141" selection-end="160" vertical-scroll-proportion="3.9230769" vertical-offset="177" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="17" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1350">
@@ -1208,6 +1220,34 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="562" selection-end="562" vertical-scroll-proportion="0.6038136" vertical-offset="0" max-vertical-offset="472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="17" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="24" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="97" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="55" selection-start="156" selection-end="156" vertical-scroll-proportion="0.13793103" vertical-offset="0" max-vertical-offset="2640">
           <folding />
         </state>
       </provider>
