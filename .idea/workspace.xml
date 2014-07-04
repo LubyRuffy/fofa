@@ -9,16 +9,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/jobs/module/results/d60fb521dd22ee91ffd44a309183faa7.tobj" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/jobs/module/results/efbd140f86e04d78eda497e293171b94.tobj" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/jobs/module/results/fd6150a6dd6f7bbe25d56efe5f87aae1.tobj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140704083109_devise_create_user.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/locales/devise.en.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/user_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/users.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -643,7 +636,11 @@
       <created>1404472967092</created>
       <updated>1404472967092</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="增加用户管理">
+      <created>1404473459749</created>
+      <updated>1404473459749</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -704,7 +701,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add chart (amazing panel show)" />
     <MESSAGE value="add chart (amazing panel show)&#10;" />
     <MESSAGE value="add api controller, just addhost action at first" />
     <MESSAGE value="add api controller, just addhost action at first&#10;" />
@@ -729,7 +725,8 @@
     <MESSAGE value="增加规则提交功能" />
     <MESSAGE value="优化链接提取工具" />
     <MESSAGE value="修改程序，支持端口号" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改程序，支持端口号" />
+    <MESSAGE value="增加用户管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加用户管理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
