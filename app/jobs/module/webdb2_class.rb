@@ -87,6 +87,7 @@ class WebDb
     }
     header = header.join("\n").force_encoding('UTF-8')
     body = r[:utf8html]
+    body ||= ''
     ip = r[:ip]
     sql = "update subdomain set ip='#{Mysql2::Client.escape(ip)}'"
     sql += ", header='#{Mysql2::Client.escape(header)}'"
