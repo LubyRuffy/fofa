@@ -173,6 +173,7 @@ module HttpModule
               }
           end
           if resp[:html]
+            page = Nokogiri::HTML(resp[:html])
             resp[:title] = page.css('title')
             resp[:title] = page.at_css('title') if !resp[:title]
           end
