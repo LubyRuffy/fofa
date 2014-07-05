@@ -18,8 +18,11 @@ if __FILE__==$0
   force_udpate=true if ARGV[1].to_i==1
   if File.exists?(ARGV[0])
     File.open(ARGV[0]).each_line do |line|
-      print line+"\r"
-      Processor.new(webdb).add_host_to_webdb line.strip, force_udpate
+      if line[0]!='#'
+        puts line
+        Processor.new(webdb).add_host_to_webdb line.strip, force_udpate
+      end
+
     end
   else
     Processor.new(webdb).add_host_to_webdb ARGV[0], force_udpate

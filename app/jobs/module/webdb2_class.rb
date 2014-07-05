@@ -88,7 +88,11 @@ class WebDb
     header = header.join("\n").force_encoding('UTF-8')
     body = r[:utf8html]
     ip = r[:ip]
-    sql = "update subdomain set ip='#{Mysql2::Client.escape(ip)}', header='#{Mysql2::Client.escape(header)}', title='#{Mysql2::Client.escape(title)}', body='#{Mysql2::Client.escape(body)}', lastupdatetime=now() where hosthash='#{Digest::MD5.hexdigest(host)}'"
+    sql = "update subdomain set ip='#{Mysql2::Client.escape(ip)}'"
+    sql += ", header='#{Mysql2::Client.escape(header)}'"
+    sql += ", title='#{Mysql2::Client.escape(title)}'"
+    sql += ", body='#{Mysql2::Client.escape(body)}'"
+    sql += ", lastupdatetime=now() where hosthash='#{Digest::MD5.hexdigest(host)}'"
     #puts sql
     db_exec(db, sql)
   end

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="修改没有title的问题&#10;">
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/addhost.rb" afterPath="$PROJECT_DIR$/tools/addhost.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -16,7 +18,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1404542936460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1404546792358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Development__fofa.coverage" NAME="Development: fofa Coverage Results" MODIFIED="1404479028177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_work_test.coverage" NAME="url_work_test Coverage Results" MODIFIED="1404541544907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/test" MODULE_NAME="fofa" />
@@ -38,25 +40,16 @@
       <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="36" selection-start="6098" selection-end="6098" vertical-scroll-proportion="0.597561" vertical-offset="2425" max-vertical-offset="6750">
+            <state line="228" column="39" selection-start="7782" selection-end="7782" vertical-scroll-proportion="0.23076923" vertical-offset="3375" max-vertical-offset="6780">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb.bak" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
+      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="66" selection-start="3018" selection-end="3074" vertical-scroll-proportion="0.0" vertical-offset="1064" max-vertical-offset="2025">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="5" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="615">
+            <state line="67" column="68" selection-start="1676" selection-end="1685" vertical-scroll-proportion="0.0" vertical-offset="766" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
@@ -74,7 +67,16 @@
       <file leaf-file-name="addhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="11" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="510">
+            <state line="27" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="321" max-vertical-offset="555">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/test.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="52605">
               <folding />
             </state>
           </provider>
@@ -101,7 +103,7 @@
       <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="0" selection-start="3207" selection-end="3207" vertical-scroll-proportion="0.0" vertical-offset="1964" max-vertical-offset="2400">
+            <state line="93" column="48" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="2460">
               <folding />
             </state>
           </provider>
@@ -111,15 +113,6 @@
         <entry file="file://$PROJECT_DIR$/app/jobs/test/url_submit.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="url_worker.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="7" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
               <folding />
             </state>
           </provider>
@@ -149,7 +142,6 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.sprFlat.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/statistic.css.scss" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/controllers/userhost_controller.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js" />
@@ -193,6 +185,7 @@
         <option value="$PROJECT_DIR$/app/jobs/test/url_work_test.rb" />
         <option value="$PROJECT_DIR$/tools/addhost.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       </list>
     </option>
   </component>
@@ -605,7 +598,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/addhost.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="cgj.hnyanling.gov.cn 1" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="www.sma.gov.cn 1" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />
@@ -850,7 +843,11 @@
       <created>1404542983364</created>
       <updated>1404542983364</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="增加批量提交工具；增加location.href跳转的处理">
+      <created>1404543869558</created>
+      <updated>1404543869558</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -864,9 +861,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2453125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33510637" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.62101066" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33510637" sideWeight="0.3546875" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.62101066" sideWeight="0.3546875" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29521278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -911,7 +908,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fix http worker problem&#10;" />
     <MESSAGE value="change update host date from 6 to 90" />
     <MESSAGE value="auto re-crawler when hosts been searched!" />
     <MESSAGE value="fix capitalize problem" />
@@ -936,7 +932,8 @@
     <MESSAGE value="完善标题展示" />
     <MESSAGE value="增加worker对meta refresh的处理" />
     <MESSAGE value="修改没有title的问题&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改没有title的问题&#10;" />
+    <MESSAGE value="增加批量提交工具；增加location.href跳转的处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加批量提交工具；增加location.href跳转的处理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -951,21 +948,24 @@
           <line>18</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb</url>
+          <line>134</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb</url>
+          <line>83</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="40" />
+      <option name="time" value="43" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/rules/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="66" selection-start="758" selection-end="758" vertical-scroll-proportion="-10.0" vertical-offset="165" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.sprflat.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1491" column="37" selection-start="79759" selection-end="79759" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
@@ -1260,13 +1260,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="68" selection-start="1676" selection-end="1685" vertical-scroll-proportion="0.0" vertical-offset="766" max-vertical-offset="1575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="7" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
@@ -1295,6 +1288,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/test/url_submit.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="52605">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="66" selection-start="3018" selection-end="3074" vertical-scroll-proportion="1.0226245" vertical-offset="1034" max-vertical-offset="2025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="68" selection-start="1676" selection-end="1685" vertical-scroll-proportion="0.0" vertical-offset="766" max-vertical-offset="1575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="321" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="0" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0" vertical-offset="556" max-vertical-offset="1005">
@@ -1304,35 +1332,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="3207" selection-end="3207" vertical-scroll-proportion="0.0" vertical-offset="1964" max-vertical-offset="2400">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/test/url_submit.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="472">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="11" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="66" selection-start="3018" selection-end="3074" vertical-scroll-proportion="0.0" vertical-offset="1064" max-vertical-offset="2025">
+        <state line="93" column="48" selection-start="3160" selection-end="3160" vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="2460">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="36" selection-start="6098" selection-end="6098" vertical-scroll-proportion="0.597561" vertical-offset="2425" max-vertical-offset="6750">
+        <state line="228" column="39" selection-start="7782" selection-end="7782" vertical-scroll-proportion="0.23076923" vertical-offset="3375" max-vertical-offset="6780">
           <folding />
         </state>
       </provider>

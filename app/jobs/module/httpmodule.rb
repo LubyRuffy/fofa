@@ -225,6 +225,8 @@ module HttpModule
         if(encoding.to_s != "UTF-8")
           c = c.force_encoding(encoding)
           c = c.encode('UTF-8', :invalid => :replace, :replace => '^')
+        else
+          c = c.force_encoding('UTF-8')
         end
       else
         c = c.force_encoding('UTF-8')
