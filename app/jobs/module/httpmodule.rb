@@ -172,11 +172,7 @@ module HttpModule
                 end
               }
           end
-          if resp[:html]
-            page = Nokogiri::HTML(resp[:html])
-            resp[:title] = page.css('title')
-            resp[:title] = page.at_css('title') if !resp[:title]
-          end
+
           resp[:bodysize] = resp[:html].size
           resp[:error] = false
 
@@ -244,6 +240,11 @@ module HttpModule
   def get_http(url, refer=nil)
     http = get_web_content url, referer: refer
     http[:utf8html] = get_utf8 http[:html] if http[:html] and http[:html].size > 2
+    if http[:utf8html]
+      page = Nokogiri::HTML(http[:utf8html])
+      http[:title] = page.css('title')
+      http[:title] = page.at_css('title') if !http[:title]
+    end
     #puts http[:utf8html]
     http
   end
