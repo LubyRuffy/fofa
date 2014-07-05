@@ -161,7 +161,8 @@ module HttpModule
           else
             resp[:html] = response.body
           end
-          if response['content-length'] && response['content-length'].to_i<200 && resp[:html]=~/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i
+          if response['content-length'] && response['content-length'].to_i<200
+            if resp[:html]=~/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i
               resp[:html].scan(/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i).each{|x|
                 ops[:following] += 1
                 loc = x[0]
@@ -171,6 +172,19 @@ module HttpModule
                   return get_web_content("http://"+resp[:host]+"/"+loc, ops)
                 end
               }
+            end
+
+            if resp[:html]=~/location.href\s*=\s*["'](.*?)["']/i
+              resp[:html].scan(/location.href\s*=\s*["'](.*?)["']/i).each{|x|
+                ops[:following] += 1
+                loc = x[0]
+                if loc.include?("http://")
+                  return get_web_content(loc, ops)
+                else
+                  return get_web_content("http://"+resp[:host]+"/"+loc, ops)
+                end
+              }
+            end
           end
 
           resp[:bodysize] = resp[:html].size

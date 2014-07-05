@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 if __FILE__==$0
-  if ARGV.size<2
+  if ARGV.size<1
     puts "Usage : #{ARGV[0]} <URL> [force_update, default=0]"
   end
   root_path = File.expand_path(File.dirname(__FILE__))
@@ -18,6 +18,7 @@ if __FILE__==$0
   force_udpate=true if ARGV[1].to_i==1
   if File.exists?(ARGV[0])
     File.open(ARGV[0]).each_line do |line|
+      print line+"\r"
       Processor.new(webdb).add_host_to_webdb line.strip, force_udpate
     end
   else
