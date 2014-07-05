@@ -121,8 +121,8 @@ module HttpModule
       end
       http = http_class.new(ip, uri.port)
       http.use_ssl = true if uri.scheme == 'https'
-      http.open_timeout = 10
-      http.read_timeout = 10
+      http.open_timeout = 15
+      http.read_timeout = 15
       http.start { |h|
         request = Net::HTTP::Get.new uri.request_uri
         request['Host'] = uri.host
@@ -143,6 +143,7 @@ module HttpModule
               return get_web_content("http://"+resp[:host]+"/"+response['location'], ops)
             end
           end
+
           resp[:code] = response.code
           resp[:message] = response.message
           resp[:http_version] = response.http_version
@@ -150,6 +151,7 @@ module HttpModule
           if response['location']
             resp[:redirect_url] = response['location']
           end
+
           resp[:html] = nil
           if response.header[ 'Content-Encoding' ].eql?( 'gzip' )
             sio = StringIO.new( response.body )
@@ -158,6 +160,17 @@ module HttpModule
             resp[:html] = html
           else
             resp[:html] = response.body
+          end
+          if response['content-length'] && response['content-length'].to_i<200 && resp[:html]=~/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i
+              resp[:html].scan(/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i).each{|x|
+                ops[:following] += 1
+                loc = x[0]
+                if loc.include?("http://")
+                  return get_web_content(loc, ops)
+                else
+                  return get_web_content("http://"+resp[:host]+"/"+loc, ops)
+                end
+              }
           end
           resp[:bodysize] = resp[:html].size
           resp[:error] = false

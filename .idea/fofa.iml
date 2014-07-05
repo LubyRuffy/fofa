@@ -179,7 +179,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/link_crawler.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="www.zjsgat.gov.cn:9087" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="www.hengyang.gov.cn" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />
