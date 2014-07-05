@@ -91,7 +91,7 @@ class WebDb
     sql = "update subdomain set ip='#{Mysql2::Client.escape(ip)}'"
     sql += ", header='#{Mysql2::Client.escape(header)}'"
     sql += ", title='#{Mysql2::Client.escape(title)}'"
-    sql += ", body='#{Mysql2::Client.escape(body)}'"
+    sql += ", body='#{Mysql2::Client.escape(body.force_encoding('UTF-8'))}'"
     sql += ", lastupdatetime=now() where hosthash='#{Digest::MD5.hexdigest(host)}'"
     #puts sql
     db_exec(db, sql)
