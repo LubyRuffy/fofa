@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="-&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/test/url_work_test.rb" afterPath="$PROJECT_DIR$/app/jobs/test/url_work_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/url_worker.rb" afterPath="$PROJECT_DIR$/app/jobs/url_worker.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -48,7 +45,16 @@
       <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="34" selection-start="6015" selection-end="6015" vertical-scroll-proportion="0.79357797" vertical-offset="2309" max-vertical-offset="6450">
+            <state line="173" column="13" selection-start="5903" selection-end="5903" vertical-scroll-proportion="0.58780485" vertical-offset="2354" max-vertical-offset="6510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpmodule.rb.bak" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="60" selection-start="2866" selection-end="2959" vertical-scroll-proportion="0.0" vertical-offset="1049" max-vertical-offset="2025">
               <folding />
             </state>
           </provider>
@@ -93,7 +99,7 @@
       <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="3" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.0" vertical-offset="556" max-vertical-offset="1005">
+            <state line="37" column="11" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1005">
               <folding />
             </state>
           </provider>
@@ -777,7 +783,11 @@
       <created>1404480709873</created>
       <updated>1404480709873</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="增加worker对meta refresh的处理">
+      <created>1404540612968</created>
+      <updated>1404540612968</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -838,7 +848,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add link tools&#10;" />
     <MESSAGE value="fix httpmodule problem" />
     <MESSAGE value="fix http worker problem&#10;" />
     <MESSAGE value="change update host date from 6 to 90" />
@@ -863,17 +872,11 @@
     <MESSAGE value="增加api查询接口api，只返回host列表http://127.0.0.1:3000/api/result?qbase64=aGVhZGVyPSJ0aGlua3BocCI=" />
     <MESSAGE value="增加api查询接口api，只返回" />
     <MESSAGE value="完善标题展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善标题展示" />
+    <MESSAGE value="增加worker对meta refresh的处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加worker对meta refresh的处理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/jobs/module/process_class.rb</url>
-          <line>42</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1063,13 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="11" selection-start="2120" selection-end="2120" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="2025">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="26" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
@@ -1210,13 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="7" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0" vertical-offset="215" max-vertical-offset="2400">
@@ -1231,13 +1220,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="3" selection-start="1314" selection-end="1314" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="68" selection-start="1676" selection-end="1685" vertical-scroll-proportion="0.0" vertical-offset="766" max-vertical-offset="1575">
@@ -1245,9 +1227,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="7" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="11" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="60" selection-start="2866" selection-end="2959" vertical-scroll-proportion="0.0" vertical-offset="1049" max-vertical-offset="2025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="34" selection-start="6015" selection-end="6015" vertical-scroll-proportion="0.79357797" vertical-offset="2309" max-vertical-offset="6450">
+        <state line="173" column="13" selection-start="5903" selection-end="5903" vertical-scroll-proportion="0.58780485" vertical-offset="2354" max-vertical-offset="6510">
           <folding />
         </state>
       </provider>

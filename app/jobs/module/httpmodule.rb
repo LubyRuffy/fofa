@@ -172,6 +172,10 @@ module HttpModule
                 end
               }
           end
+          if resp[:html]
+            resp[:title] = page.css('title')
+            resp[:title] = page.at_css('title') if !resp[:title]
+          end
           resp[:bodysize] = resp[:html].size
           resp[:error] = false
 
