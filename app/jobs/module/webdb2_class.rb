@@ -114,6 +114,9 @@ class WebDb
   end
 
   public
+  def mysql
+    @mysql
+  end
   #update last check time
   def update_subdomain_if_exists(host)
     if db_check_subdomain_exists(@mysql, host)

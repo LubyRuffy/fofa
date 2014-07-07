@@ -20,7 +20,7 @@ def hostinfo_of_url(url)
     url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
     uri = URI(url)
     rr = uri.host
-    rr = rr+':'+uri.port.to_s if uri.port!=80
+    rr = rr+':'+uri.port.to_s if uri.port!=80 && uri.port!=443
     rr
   rescue => e
     nil

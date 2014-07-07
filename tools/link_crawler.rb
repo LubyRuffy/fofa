@@ -35,12 +35,24 @@ def add_host(host, src)
   end
 end
 
+def hostinfo_of_url(url)
+  begin
+    url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
+    url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
+    uri = URI(url)
+    rr = uri.host
+    rr = rr+':'+uri.port.to_s if uri.port!=80 && uri.port!=443
+    rr
+  rescue => e
+    nil
+  end
+end
+
 def process_url(h, href)
   if href.include?("http://") || href.include?("https://")
     begin
       u = URI.join(h[:url], href)
-      url = Domainatrix.parse(u.to_s)
-      new_host = url.subdomain+"."+url.domain+"."+url.public_suffix
+      new_host = hostinfo_of_url(u.to_s)
       add_host(new_host, h[:host]) if h[:host] != new_host
     rescue => e
       puts "[ERROR] process error of [#{href}]"
