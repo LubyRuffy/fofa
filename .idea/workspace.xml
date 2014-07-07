@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/zh-CN.yml" afterPath="$PROJECT_DIR$/config/locales/zh-CN.yml" />
     </list>
     <ignored path="fofa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,10 +52,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zh-CN.yml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="zh-CN.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/locales/zh-CN.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="30" selection-start="994" selection-end="994" vertical-scroll-proportion="1.0" vertical-offset="180" max-vertical-offset="645">
+            <state line="24" column="11" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="645">
+              <folding>
+                <marker date="1404721935000" expanded="true" signature="607:996" placeholder="zh-CN:" />
+                <marker date="1404721935000" expanded="true" signature="639:996" placeholder="activerecord:" />
+                <marker date="1404721935000" expanded="true" signature="657:996" placeholder="errors:" />
+                <marker date="1404721935000" expanded="true" signature="671:996" placeholder="models:" />
+                <marker date="1404721935000" expanded="true" signature="687:996" placeholder="user:" />
+                <marker date="1404721935000" expanded="true" signature="703:996" placeholder="attributes:" />
+                <marker date="1404721935000" expanded="true" signature="727:815" placeholder="current_password:" />
+                <marker date="1404721935000" expanded="true" signature="828:890" placeholder="password_confirmation:" />
+                <marker date="1404721935000" expanded="true" signature="903:941" placeholder="email:" />
+                <marker date="1404721935000" expanded="true" signature="954:996" placeholder="username:" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Rakefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="43" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.375" vertical-offset="705" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
@@ -130,7 +150,6 @@
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/api_helper.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
@@ -157,6 +176,7 @@
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/locales/zh-CN.yml" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -271,6 +291,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="devise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -785,12 +827,16 @@
       <created>1404721500044</created>
       <updated>1404721500044</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="增加用户头像管理功能。&#10;">
+      <created>1404721989615</created>
+      <updated>1404721989615</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -798,7 +844,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2453125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2453125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48404256" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48404256" sideWeight="0.3546875" order="9" side_tool="true" content_ui="tabs" />
@@ -846,8 +892,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add show_workers rake task" />
-    <MESSAGE value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data." />
     <MESSAGE value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data.&#10;" />
     <MESSAGE value="90天内重复提交的URL不做任何处理" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application" />
@@ -871,7 +915,9 @@
     <MESSAGE value="用户处理" />
     <MESSAGE value="用户处理&#10;" />
     <MESSAGE value="增加用户头像管理功能。" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加用户头像管理功能。" />
+    <MESSAGE value="增加用户头像管理功能。&#10;" />
+    <MESSAGE value="修改rake" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改rake" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -946,13 +992,6 @@
     <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="45" selection-start="68" selection-end="113" vertical-scroll-proportion="0.03177966" vertical-offset="0" max-vertical-offset="472">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="20" selection-start="1887" selection-end="1887" vertical-scroll-proportion="0.6673729" vertical-offset="690" max-vertical-offset="1560">
           <folding />
         </state>
       </provider>
@@ -1246,7 +1285,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/zh-CN.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="30" selection-start="994" selection-end="994" vertical-scroll-proportion="1.0" vertical-offset="180" max-vertical-offset="645">
+        <state line="24" column="11" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="645">
+          <folding>
+            <marker date="1404721935000" expanded="true" signature="607:996" placeholder="zh-CN:" />
+            <marker date="1404721935000" expanded="true" signature="639:996" placeholder="activerecord:" />
+            <marker date="1404721935000" expanded="true" signature="657:996" placeholder="errors:" />
+            <marker date="1404721935000" expanded="true" signature="671:996" placeholder="models:" />
+            <marker date="1404721935000" expanded="true" signature="687:996" placeholder="user:" />
+            <marker date="1404721935000" expanded="true" signature="703:996" placeholder="attributes:" />
+            <marker date="1404721935000" expanded="true" signature="727:815" placeholder="current_password:" />
+            <marker date="1404721935000" expanded="true" signature="828:890" placeholder="password_confirmation:" />
+            <marker date="1404721935000" expanded="true" signature="903:941" placeholder="email:" />
+            <marker date="1404721935000" expanded="true" signature="954:996" placeholder="username:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="43" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.375" vertical-offset="705" max-vertical-offset="1575">
           <folding />
         </state>
       </provider>
