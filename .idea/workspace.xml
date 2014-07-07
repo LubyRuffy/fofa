@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/db_link_crawler.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/link_crawler.rb" afterPath="$PROJECT_DIR$/tools/link_crawler.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -46,6 +43,42 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="50" selection-start="152" selection-end="152" vertical-scroll-proportion="0.17985612" vertical-offset="0" max-vertical-offset="2730">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="465">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="12" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="161" max-vertical-offset="615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="103" selection-start="304" selection-end="328" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1830">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="db_link_crawler.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="link_crawler.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="76" selection-start="828" selection-end="894" vertical-scroll-proportion="-0.5660377" vertical-offset="750" max-vertical-offset="1755">
+            <state line="66" column="18" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
               <folding />
             </state>
           </provider>
@@ -142,7 +175,6 @@
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/locales/zh-CN.yml" />
@@ -151,6 +183,7 @@
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -277,6 +310,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -292,7 +329,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -819,7 +896,11 @@
       <created>1404722377584</created>
       <updated>1404722377584</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="增加直接从数据库中提取连接的工具">
+      <created>1404725142194</created>
+      <updated>1404725142194</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -880,7 +961,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fix client ip bug when user visit with proxy, ip will be like 'ip1,ip2' and mysql report error for long data.&#10;" />
     <MESSAGE value="90天内重复提交的URL不做任何处理" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
@@ -905,7 +985,8 @@
     <MESSAGE value="增加用户头像管理功能。" />
     <MESSAGE value="增加用户头像管理功能。&#10;" />
     <MESSAGE value="修改rake" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改rake" />
+    <MESSAGE value="增加直接从数据库中提取连接的工具" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加直接从数据库中提取连接的工具" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -968,13 +1049,6 @@
     <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="7" selection-start="421" selection-end="421" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="694" selection-end="694" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="1830">
           <folding />
         </state>
       </provider>
@@ -1126,20 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="87" selection-start="2568" selection-end="2637" vertical-scroll-proportion="1.25" vertical-offset="915" max-vertical-offset="2730">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="19" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
@@ -1242,13 +1302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="323" selection-end="323" vertical-scroll-proportion="0.45833334" vertical-offset="30" max-vertical-offset="615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="155" selection-end="155" vertical-scroll-proportion="0.29166666" vertical-offset="15" max-vertical-offset="375">
@@ -1270,9 +1323,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+        <state line="66" column="18" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
           <folding />
         </state>
       </provider>
@@ -1284,9 +1337,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="76" selection-start="828" selection-end="894" vertical-scroll-proportion="-0.5660377" vertical-offset="750" max-vertical-offset="1755">
+        <state line="18" column="26" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="103" selection-start="304" selection-end="328" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1830">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="12" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="161" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="50" selection-start="152" selection-end="152" vertical-scroll-proportion="0.17985612" vertical-offset="0" max-vertical-offset="2730">
           <folding />
         </state>
       </provider>
