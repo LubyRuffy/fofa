@@ -1,0 +1,25 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "已经有帐号？点击登录", new_session_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "注册帐号", new_registration_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "忘记密码？", new_password_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "没有收到确认邮件？", new_confirmation_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "没有收到解锁邮件？", new_unlock_path(resource_name) %>
+<% end -%>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "通过如下服务注册： #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %>
+  <% end -%>
+<% end -%>

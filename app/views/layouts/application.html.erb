@@ -54,68 +54,72 @@
 
 
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to '登录', new_user_session_path%></li>
-        </ul>
-<!--          <li class="dropdown">
-        <a href="#" data-toggle="dropdown">
-        <img class="user-avatar" src="http://themes.suggelab.com/sprflat/assets/img/avatars/48.jpg" alt="SuggeElson"><span class="notification">5</span>zwell<b class="caret"></b></a>
-        <ul class="dropdown-menu right animated fadeInDown" role="menu">
-          <li></i><a href="profile.html"><i class="fa fa-user"></i> 个人资料</a>
-          </li>
-          <li><a href="#"><i class="fa fa-cog"></i> 设置</a>
-          </li>
-          <li><a href="login.html"><i class="fa fa-sign-out"></i> 退出</a>
-          </li>
-          </ul>
-        </li>
-      <li class="dropdown">
-        <a href="#" data-toggle="dropdown">
-        <i class="fa fa-envelope-o"></i><span class="notification blue">2</span></a>
-        <div class="dropdown-menu with-arrow panel panel-default pull-right">
-                    <div class="panel-heading">
-                        你有两条新消息：
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
+          <% if current_user %>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown">
+                  <img class="user-avatar" src="http://u1.qhimg.com/qhimg/quc/48_48/22/02/55/220255dq9816.3eceac.jpg">
+                  <!--<span class="notification">5</span>--><%=current_user.email%><b class="caret"></b></a>
+                <ul class="dropdown-menu right animated fadeInDown" role="menu">
+                  <li></i><a href="<%=edit_user_registration_path%>"><i class="fa fa-user"></i> 个人资料</a>
+                  </li>
+                  <!--<li><a href="#"><i class="fa fa-cog"></i> 设置</a></li>-->
+                  <li><%= link_to raw('<i class="fa fa-sign-out">退出登录</i>'), destroy_user_session_path, :method => :delete %>
+                  </li>
+                </ul>
+              </li>
+              <!--<li class="dropdown">
+                <a href="#" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i><span class="notification blue">2</span></a>
+                <div class="dropdown-menu with-arrow panel panel-default pull-right">
+                  <div class="panel-heading">
+                    你有两条新消息：
+                  </div>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <a href="javascript:;" class="media">
                                 <span class="pull-left media-icon">
                                     <span class="round-icon sm bg-success"><i class="fa fa-bell-o"></i></span>
                                 </span>
-                                <div class="media-body">
-                                    <span class="block">New tasks needs to be done</span>
-                                    <span class="text-muted block">2min ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
+                        <div class="media-body">
+                          <span class="block">New tasks needs to be done</span>
+                          <span class="text-muted block">2min ago</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="javascript:;" class="media">
                                 <span class="pull-left media-icon">
                                     <span class="round-icon sm bg-info"><i class="fa fa-bell-o"></i></span>
                                 </span>
-                                <div class="media-body">
-                                    <span class="block">Change your password</span>
-                                    <span class="text-muted">3 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="javascript:;" class="media">
+                        <div class="media-body">
+                          <span class="block">Change your password</span>
+                          <span class="text-muted">3 hours ago</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="javascript:;" class="media">
                                 <span class="pull-left media-icon">
                                     <span class="round-icon sm bg-danger"><i class="fa fa-bell-o"></i></span>
                                 </span>
-                                <div class="media-body">
-                                    <span class="block">New feature added</span>
-                                    <span class="text-muted">9 hours ago</span>
-                                </div>
-                            </a>
-                        </li>                       
-                    </ul>
-                    <div class="panel-footer">
-                        <a href="javascript:;">Show all notifications.</a>
-                    </div>
+                        <div class="media-body">
+                          <span class="block">New feature added</span>
+                          <span class="text-muted">9 hours ago</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="panel-footer">
+                    <a href="javascript:;">显示所有通知。</a>
+                  </div>
                 </div>
-      </li>
-        </ul>-->
+              </li>-->
+
+        <% else %>
+          <li><%= link_to '登录', new_user_session_path%></li>
+          <li><%= link_to "注册", new_user_registration_path%></li>
+          <% end %>
+        </ul>
 
       </div>
     </div>
@@ -124,7 +128,8 @@
   <div class="container">
     <% flash.each do |key,value| %>
         <div class="page-header alert <%if key=='alert' %>alert-warning<%else%>alert-success<%end%> alert-dismissible ade in" role="alert">
-          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+            <span class="sr-only">关闭</span></button>
           <strong>提示：</strong> <%=value%>
         </div>
     <% end %>

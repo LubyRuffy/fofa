@@ -1,0 +1,43 @@
+
+
+<h1></h1>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3  ">
+    <div class="well bs-component">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+          <fieldset>
+            <legend>用户注册<%= devise_error_messages! %></legend>
+            <div class="form-group">
+              <label for="inputEmail" class="col-lg-2 control-label">邮箱</label>
+              <div class="col-lg-10">
+                <%= f.email_field :email, autofocus: true, class: "form-control", :placeholder=>"Email"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword" class="col-lg-2 control-label">密码</label>
+              <div class="col-lg-10">
+                <%= f.password_field :password, class: "form-control", :placeholder=>"Password"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword" class="col-lg-2 control-label">确认密码</label>
+              <div class="col-lg-10">
+                <%= f.password_field :password_confirmation, class: "form-control", :placeholder=>"Password"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <%= f.submit "注册", class:"btn btn-primary" %> <br />
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+
+          </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>
+

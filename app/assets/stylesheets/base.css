@@ -22,8 +22,8 @@ body {
     line-height: 20px;
     min-width: 20px;
     position: absolute;
-    top: 7px;
-    right: 0px;
+    top: 10px;
+    left: 3px;
     text-align: center;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
     padding-left: 4px;
@@ -445,3 +445,4 @@ footer p {
 .bsa .one .bsa_it_p {
     display: none
 }
+
