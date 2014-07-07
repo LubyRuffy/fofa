@@ -6,19 +6,19 @@
           <fieldset>
             <legend>用户登录</legend>
             <div class="form-group">
-              <label for="inputEmail" class="col-lg-2 control-label">邮箱</label>
-              <div class="col-lg-10">
+              <label for="inputEmail" class="col-lg-3 control-label">用户名/邮箱</label>
+              <div class="col-lg-9">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                  <%= f.email_field :email, autofocus: true, class: "form-control", :placeholder=>"Email"%>
+                  <%= f.email_field :login, autofocus: true, class: "form-control", :placeholder=>"用户名或者邮箱"%>
                 </div>
 
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputPassword" class="col-lg-2 control-label">密码</label>
-              <div class="col-lg-10">
+              <label for="inputPassword" class="col-lg-3 control-label">密码</label>
+              <div class="col-lg-9">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                   <%= f.password_field :password, class: "form-control", :placeholder=>"Password"%>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="form-group">
-              <div class="col-lg-10 col-lg-offset-2">
+              <div class="col-lg-10 col-lg-offset-3">
                 <%= f.submit "登录", class:"btn btn-primary" %>
                 <%= render "devise/shared/links" %>
               </div>

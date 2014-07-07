@@ -14,6 +14,7 @@
               </div>
             </div>
 
+
             <div class="form-group">
               <label for="inputPassword" class="col-lg-2 control-label">密码</label>
               <div class="col-lg-10">
@@ -25,6 +26,13 @@
               <label for="inputPassword" class="col-lg-2 control-label">确认密码</label>
               <div class="col-lg-10">
                 <%= f.password_field :password_confirmation, class: "form-control", :placeholder=>"Password"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputusername" class="col-lg-2 control-label">用户名</label>
+              <div class="col-lg-10">
+                <%= f.text_field :username, class: "form-control", :placeholder=>"用户名"%>
               </div>
             </div>
 

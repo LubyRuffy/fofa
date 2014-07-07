@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704083109) do
+ActiveRecord::Schema.define(version: 20140707072812) do
 
   create_table "analysis_info", force: true do |t|
     t.text "server_info"
@@ -138,10 +138,16 @@ ActiveRecord::Schema.define(version: 20140704083109) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "user", ["email"], name: "index_user_on_email", unique: true, using: :btree
   add_index "user", ["reset_password_token"], name: "index_user_on_reset_password_token", unique: true, using: :btree
+  add_index "user", ["username"], name: "index_user_on_username", unique: true, using: :btree
 
   create_table "userhost", force: true do |t|
     t.string    "host"

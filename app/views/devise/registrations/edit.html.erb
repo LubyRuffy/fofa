@@ -9,6 +9,7 @@
 <%end%>
 
 <div class="outlet">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-vertical hover-stripped" }) do |f| %>
   <!-- Start .outlet -->
   <!-- Page start here ( usual with .row ) -->
   <div class="row">
@@ -20,11 +21,11 @@
           <h4 class="panel-title"><i class="fa fa-user"></i> 个人资料配置</h4>
         </div>
         <div class="panel-body">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-vertical hover-stripped" }) do |f| %>
-            <!--<div class="form-group">
-              <label class="control-label">用户名</label>
-              <%#= f.text_field :username, autofocus: true, class:"form-control" %>
-            </div>-->
+
+            <div class="form-group">
+                <label class="control-label">用户名</label>
+                <%= f.text_field :username, class:"form-control" %>
+            </div>
             <div class="form-group">
               <label class="control-label">邮箱</label>
               <%= f.email_field :email, class:"form-control" %>
@@ -32,6 +33,7 @@
                   <div>等待账户激活: <%= resource.unconfirmed_email %></div>
               <% end %>
             </div>
+
             <div class="form-group">
               <label class="control-label">新密码<i>(不修改密码，留空即可)</i></label>
               <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
@@ -41,7 +43,7 @@
               <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
             </div>
               <div class="form-group">
-                <label class="control-label">重复输入新密码</label>
+                <label class="control-label">当前密码</label>
                 <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
               </div>
 
@@ -51,7 +53,7 @@
 
             </div>
             <!-- End .form-group  -->
-          <% end %>
+
         </div>
       </div>
       <!-- End .panel -->
@@ -67,18 +69,19 @@
         <div class="panel-body">
           <div class="col-lg-4 col-md-4 col-sm-12">
             <div class="profile-avatar">
-              <img class="user-avatar" src="http://u1.qhimg.com/qhimg/quc/48_48/22/02/55/220255dq9816.3eceac.jpg">
+              <%= image_tag current_user.avatar.url(:medium) %>
+
             </div>
           </div>
           <div class="col-lg-8 col-md-8 col-sm-12">
-            <p>修改头像</p>
+            修改头像：<%= f.file_field :avatar %>
           </div>
         </div>
         <div class="panel-footer white-bg">
           <ul class="profile-info">
             <li><i class="fa fa-envelope-o "></i> <%=current_user.email%></li>
           </ul>
-          <%= button_to "取消帐号", registration_path(resource_name), data: { confirm: "取消之后不能恢复！确认取消帐号吗?" }, method: :delete, class: "btn btn-danger" %>
+
         </div>
       </div>
       <!-- End .panel -->
@@ -86,4 +89,7 @@
     <!-- col-lg-4 end here -->
   </div>
   <!-- Page End here -->
+  <% end %>
 </div>
+
+<%= button_to "取消帐号", registration_path(resource_name), data: { confirm: "取消之后不能恢复！确认取消帐号吗?" }, method: :delete, class: "btn btn-danger" %>

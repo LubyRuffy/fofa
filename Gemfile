@@ -74,5 +74,6 @@ gem 'lazy_high_charts'
 gem 'jquery-turbolinks'
 
 gem 'devise'
-gem 'paperclip'
+#gem 'paperclip'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 

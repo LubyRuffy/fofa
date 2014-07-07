@@ -28,3 +28,6 @@ zh-CN:
           attributes:
             current_password:
               blank: '需要填写原密码来确认提交！'
+              invalid: '当前密码不正确！'
+            password_confirmation:
+              confirmation: '需要输入确认密码!'
