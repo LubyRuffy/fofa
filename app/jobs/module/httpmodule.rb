@@ -89,6 +89,7 @@ module HttpModule
   end
 
   def get_web_content(url,ops=nil)
+
     @options ||= {}
     ops ||= {}
     ops[:following] = 0
@@ -157,6 +158,12 @@ module HttpModule
             sio = StringIO.new( response.body )
             gz = Zlib::GzipReader.new( sio )
             html = gz.read()
+            resp[:html] = html
+          elsif response.header[ 'Content-Encoding' ].eql?( 'deflate' )
+            zstream = Zlib::Inflate.new(-Zlib::MAX_WBITS)
+            html = zstream.inflate(string)
+            zstream.finish
+            zstream.close
             resp[:html] = html
           else
             resp[:html] = response.body

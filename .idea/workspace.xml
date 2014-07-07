@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/zh-CN.yml" afterPath="$PROJECT_DIR$/config/locales/zh-CN.yml" />
     </list>
     <ignored path="fofa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -15,7 +17,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1404549537108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1404729497451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Development__fofa.coverage" NAME="Development: fofa Coverage Results" MODIFIED="1404479028177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_work_test.coverage" NAME="url_work_test Coverage Results" MODIFIED="1404541544907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/test" MODULE_NAME="fofa" />
@@ -37,26 +39,73 @@
       <file leaf-file-name="addhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="26" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+            <state line="27" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="555">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0" vertical-offset="503" max-vertical-offset="1005">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="164" column="26" selection-start="5427" selection-end="5427" vertical-scroll-proportion="0.42592594" vertical-offset="2322" max-vertical-offset="6885">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="http.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/net/http.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="854" column="0" selection-start="27404" selection-end="27404" vertical-scroll-proportion="0.0" vertical-offset="12698" max-vertical-offset="23430">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="response.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/net/http/response.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="225" column="0" selection-start="5662" selection-end="5662" vertical-scroll-proportion="0.0" vertical-offset="3263" max-vertical-offset="6165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpmodule.rb.bak" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="11" selection-start="2346" selection-end="2721" vertical-scroll-proportion="0.0" vertical-offset="899" max-vertical-offset="2025">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="50" selection-start="152" selection-end="152" vertical-scroll-proportion="0.17985612" vertical-offset="0" max-vertical-offset="2730">
+            <state line="5" column="50" selection-start="152" selection-end="152" vertical-scroll-proportion="6.25" vertical-offset="225" max-vertical-offset="2730">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <file leaf-file-name="zh-CN.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/locales/zh-CN.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="24" max-vertical-offset="465">
-              <folding />
+            <state line="36" column="32" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="3675">
+              <folding>
+                <marker date="1404727715000" expanded="true" signature="607:4981" placeholder="zh-CN:" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,42 +123,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="10" column="103" selection-start="304" selection-end="328" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1830">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_link_crawler.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1177" selection-end="1177" vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="18" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="62" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="945">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="10" selection-start="3873" selection-end="3873" vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="2520">
               <folding />
             </state>
           </provider>
@@ -162,7 +175,6 @@
         <option value="$PROJECT_DIR$/app/jobs/url_worker.rb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_work_test.rb" />
         <option value="$PROJECT_DIR$/tools/addhost.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/app/views/user/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
@@ -177,13 +189,14 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/config/locales/zh-CN.yml" />
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/config/locales/zh-CN.yml" />
+        <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       </list>
     </option>
   </component>
@@ -310,8 +323,22 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,65 +356,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="jobs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="search" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,7 +588,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/addhost.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="www.gzcx.hbjt.gov.cn 1" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="hagongda.net:3000 1" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />
@@ -900,7 +873,11 @@
       <created>1404725142194</created>
       <updated>1404725142194</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="修复标题显示中文错误的问题">
+      <created>1404727168168</created>
+      <updated>1404727168169</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -910,9 +887,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32845744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48404256" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32845744" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32845744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48404256" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48404256" sideWeight="0.3546875" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -961,8 +938,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="90天内重复提交的URL不做任何处理" />
-    <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
     <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://blog.dacer.im/blog/2014/02/18/code-school-bi-ji-zombie-outlaws-level-7/&#10;" />
     <MESSAGE value="修改报表库，现在用highchart，以前用chart.js" />
@@ -986,7 +961,9 @@
     <MESSAGE value="增加用户头像管理功能。&#10;" />
     <MESSAGE value="修改rake" />
     <MESSAGE value="增加直接从数据库中提取连接的工具" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加直接从数据库中提取连接的工具" />
+    <MESSAGE value="修复标题显示中文错误的问题" />
+    <MESSAGE value="增加http中deflate压缩格式的处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加http中deflate压缩格式的处理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -996,28 +973,24 @@
           <line>12</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
+          <line>264</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
+          <line>162</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="55" />
+      <option name="time" value="63" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/userhost/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="190" selection-end="539" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="45" selection-start="68" selection-end="113" vertical-scroll-proportion="0.03177966" vertical-offset="0" max-vertical-offset="472">
@@ -1060,13 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="66" selection-start="3018" selection-end="3074" vertical-scroll-proportion="1.0226245" vertical-offset="1034" max-vertical-offset="2025">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib/ruby-debug-ide.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="0" selection-start="1977" selection-end="1977" vertical-scroll-proportion="0.0" vertical-offset="1135" max-vertical-offset="2220">
@@ -1077,20 +1043,6 @@
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/bin/rdebug-ide">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="0" selection-start="3313" selection-end="3313" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="1755">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0" vertical-offset="503" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="0" selection-start="8356" selection-end="8356" vertical-scroll-proportion="-3.8076923" vertical-offset="3681" max-vertical-offset="6780">
           <folding />
         </state>
       </provider>
@@ -1214,24 +1166,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/zh-CN.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="11" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="645">
-          <folding>
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="zh-CN:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="activerecord:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="errors:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="models:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="user:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="attributes:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="current_password:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="password_confirmation:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="email:" />
-            <marker date="1404721935000" expanded="true" signature="-1:-1" placeholder="username:" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="43" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1575">
@@ -1337,13 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="465">
@@ -1367,7 +1294,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="50" selection-start="152" selection-end="152" vertical-scroll-proportion="0.17985612" vertical-offset="0" max-vertical-offset="2730">
+        <state line="5" column="50" selection-start="152" selection-end="152" vertical-scroll-proportion="6.25" vertical-offset="225" max-vertical-offset="2730">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/zh-CN.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="32" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="3675">
+          <folding>
+            <marker date="1404727715000" expanded="true" signature="607:4981" placeholder="zh-CN:" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0" vertical-offset="503" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="11" selection-start="2346" selection-end="2721" vertical-scroll-proportion="0.0" vertical-offset="899" max-vertical-offset="2025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/net/http.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="854" column="0" selection-start="27404" selection-end="27404" vertical-scroll-proportion="0.0" vertical-offset="12698" max-vertical-offset="23430">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/net/http/response.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="225" column="0" selection-start="5662" selection-end="5662" vertical-scroll-proportion="0.0" vertical-offset="3263" max-vertical-offset="6165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="26" selection-start="5427" selection-end="5427" vertical-scroll-proportion="0.42592594" vertical-offset="2322" max-vertical-offset="6885">
           <folding />
         </state>
       </provider>
