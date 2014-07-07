@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/db_link_crawler.rb" afterPath="$PROJECT_DIR$/tools/db_link_crawler.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/search_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/search_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -52,10 +53,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.5185185" vertical-offset="2322" max-vertical-offset="6885">
+            <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="6885">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_helper.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="19" selection-start="170" selection-end="170" vertical-scroll-proportion="0.2777778" vertical-offset="120" max-vertical-offset="3750">
               <folding />
             </state>
           </provider>
@@ -117,15 +127,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="103" selection-start="304" selection-end="328" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1830">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -165,7 +166,6 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/api_helper.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/search_controller.rb" />
@@ -195,6 +195,7 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/locales/zh-CN.yml" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
       </list>
     </option>
   </component>
@@ -319,6 +320,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -839,7 +858,11 @@
       <created>1404729570429</created>
       <updated>1404729570430</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="增加http中deflate压缩格式的处理&#10;">
+      <created>1404729803921</created>
+      <updated>1404729803922</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -900,8 +923,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://stackoverflow.com/questions/17881384/jquery-gets-loaded-only-on-page-refresh-in-rails-4-application&#10;" />
-    <MESSAGE value="解决javascript在点击链接到页面的时候不加载的问题，参考http://blog.dacer.im/blog/2014/02/18/code-school-bi-ji-zombie-outlaws-level-7/&#10;" />
     <MESSAGE value="修改报表库，现在用highchart，以前用chart.js" />
     <MESSAGE value="修改组件列表页面样式" />
     <MESSAGE value="增加规则提交功能" />
@@ -925,7 +946,9 @@
     <MESSAGE value="增加直接从数据库中提取连接的工具" />
     <MESSAGE value="修复标题显示中文错误的问题" />
     <MESSAGE value="增加http中deflate压缩格式的处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加http中deflate压缩格式的处理" />
+    <MESSAGE value="增加http中deflate压缩格式的处理&#10;" />
+    <MESSAGE value="添加组件" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加组件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1165,13 +1188,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="14" selection-start="286" selection-end="286" vertical-scroll-proportion="0.778098" vertical-offset="15" max-vertical-offset="3750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/test/url_work_test.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="113" selection-start="331" selection-end="442" vertical-scroll-proportion="0.5341246" vertical-offset="0" max-vertical-offset="337">
@@ -1302,7 +1318,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.5185185" vertical-offset="2322" max-vertical-offset="6885">
+        <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="6885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="19" selection-start="170" selection-end="170" vertical-scroll-proportion="0.2777778" vertical-offset="120" max-vertical-offset="3750">
           <folding />
         </state>
       </provider>

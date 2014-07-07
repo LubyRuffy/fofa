@@ -21,7 +21,7 @@ end
 
 @m = WebDb.new(root_path+"/../config/database.yml")
 @p = Processor.new(@m)
-@id=0
+@id=892256
 while true
   sql = "select * from subdomain where id>#{@id} limit 1"
   r = @m.mysql.query(sql)
