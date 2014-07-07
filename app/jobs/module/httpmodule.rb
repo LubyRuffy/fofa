@@ -161,7 +161,7 @@ module HttpModule
             resp[:html] = html
           elsif response.header[ 'Content-Encoding' ].eql?( 'deflate' )
             zstream = Zlib::Inflate.new(-Zlib::MAX_WBITS)
-            html = zstream.inflate(string)
+            html = zstream.inflate(response.body)
             zstream.finish
             zstream.close
             resp[:html] = html
