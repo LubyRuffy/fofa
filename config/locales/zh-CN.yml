@@ -31,3 +31,7 @@ zh-CN:
               invalid: '当前密码不正确！'
             password_confirmation:
               confirmation: '需要输入确认密码!'
+            email:
+              taken: '邮箱已经被注册！'
+            username:
+              taken: '用户名已经被注册！'
