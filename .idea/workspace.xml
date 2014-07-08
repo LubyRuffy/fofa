@@ -47,7 +47,7 @@
       <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="54" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2565">
+            <state line="96" column="54" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2565">
               <folding />
             </state>
           </provider>
@@ -65,7 +65,16 @@
       <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="5" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.84569734" vertical-offset="255" max-vertical-offset="1590">
+            <state line="41" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.44510385" vertical-offset="465" max-vertical-offset="1590">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6885">
               <folding />
             </state>
           </provider>
@@ -111,15 +120,6 @@
         <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib/ruby-debug-ide.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="86" column="0" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.0" vertical-offset="1182" max-vertical-offset="2220">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="13" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.0" vertical-offset="773" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -290,6 +290,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jobs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jobs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -857,7 +911,11 @@
       <created>1404824511423</created>
       <updated>1404824511423</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="修改停止任务，原来老是有worker的残像">
+      <created>1404826608188</created>
+      <updated>1404826608188</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -918,8 +976,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修改程序，支持端口号" />
-    <MESSAGE value="增加用户管理" />
     <MESSAGE value="增加用户管理&#10;" />
     <MESSAGE value="增加api查询接口api，只返回host列表http://127.0.0.1:3000/api/result?qbase64=aGVhZGVyPSJ0aGlua3BocCI=" />
     <MESSAGE value="增加api查询接口api，只返回" />
@@ -943,7 +999,9 @@
     <MESSAGE value="添加jira，fisheyey组件" />
     <MESSAGE value="增加通过url提取CMS特征的脚本" />
     <MESSAGE value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
+    <MESSAGE value="修改停止任务，原来老是有worker的残像" />
+    <MESSAGE value="修改停止任务，原来老是有worker的残像&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改停止任务，原来老是有worker的残像&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -962,11 +1020,6 @@
           <url>file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb</url>
           <line>48</line>
           <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/Rakefile</url>
-          <line>29</line>
-          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1209,13 +1262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="6885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="44" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
@@ -1281,13 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="54" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2565">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="12" selection-start="212" selection-end="212" vertical-scroll-proportion="-4.769231" vertical-offset="131" max-vertical-offset="3810">
@@ -1323,9 +1362,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="30" selection-start="5491" selection-end="5491" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="6885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="54" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="5" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.84569734" vertical-offset="255" max-vertical-offset="1590">
+        <state line="41" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.44510385" vertical-offset="465" max-vertical-offset="1590">
           <folding />
         </state>
       </provider>
