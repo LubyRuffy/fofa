@@ -26,44 +26,27 @@ class Diff::LCS::HTMLDiff
       @only_b_class = options[:only_b_class] || "only_b"
     end
 
-    def htmlize(element, css_class)
-      element = "&nbsp;" if element.empty?
-      %Q|<pre class="#{__send__(css_class)}">#{element}</pre>\n|
-    end
-    private :htmlize
-
     # This will be called with both lines are the same
     def match(event)
-      @output << htmlize(event.old_element, :match_class)
+      #@output << htmlize(event.old_element, :match_class)
+      @output << event.old_element
     end
 
     # This will be called when there is a line in A that isn't in B
     def discard_a(event)
-      @output << htmlize(event.old_element, :only_a_class)
+      #@output << htmlize(event.old_element, :only_a_class)
     end
 
     # This will be called when there is a line in B that isn't in A
     def discard_b(event)
-      @output << htmlize(event.new_element, :only_b_class)
+      #@output << htmlize(event.new_element, :only_b_class)
     end
   end
 
   def run
-    verify_options
-
-    if @options[:expand_tabs] > 0 && self.class.can_expand_tabs
-      formatter = Text::Format.new
-      formatter.tabstop = @options[:expand_tabs]
-
-      @left.map! { |line| formatter.expand(line.chomp) }
-      @right.map! { |line| formatter.expand(line.chomp) }
-    end
-
-    @left.map! { |line| CGI.escapeHTML(line.chomp) }
-    @right.map! { |line| CGI.escapeHTML(line.chomp) }
-
     callbacks = MyCallbacks.new(@options[:output])
     Diff::LCS.traverse_sequences(@left, @right, callbacks)
+    @options[:output]
   end
 end
 
@@ -81,6 +64,7 @@ def hostinfo_of_url(url)
   end
 end
 
+
 @m = WebDb.new(root_path+"/../config/database.yml")
 @sql = "select header,title,body from subdomain where 1=2"
 ARGV.each{|a|
@@ -95,10 +79,20 @@ if r.size>0
     array_body << x['body']
   }
   if array_body.size>1
-    array_body.inject { |result, e|
-      d = Diff::LCS::HTMLDiff.new(result.lines, e.lines,
-                              :expand_tabs => 0)
-      d.run
-    }
+    arr =  array_body.inject { |result, e|
+      same_string = StringIO.new
+      Diff::LCS::HTMLDiff.new(result.lines, e.lines,
+                              :expand_tabs => 0,
+                              :output => same_string).run
+      same_string.string
+    }.lines.reject{|x|
+      #x.size<20 ||
+      x.include?('html') || x.include?('script') || x.include?('head') || x.include?('<')
+    }.sort{|x,y| y.size<=>x.size }
+    if arr.size>0
+      puts "body=\"#{Mysql2::Client.escape(arr[0].strip)})\""
+    else
+      puts "no result"
+    end
   end
 end
