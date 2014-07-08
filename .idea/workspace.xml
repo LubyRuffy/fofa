@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -64,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1575">
+            <state line="36" column="5" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.84569734" vertical-offset="255" max-vertical-offset="1590">
               <folding />
             </state>
           </provider>
@@ -82,10 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="devise.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="devise.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="34" selection-start="736" selection-end="736" vertical-scroll-proportion="0.5092593" vertical-offset="0" max-vertical-offset="3960">
+            <state line="11" column="34" selection-start="736" selection-end="736" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
               <folding />
             </state>
           </provider>
@@ -184,7 +182,6 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -196,6 +193,7 @@
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
         <option value="$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -855,7 +853,11 @@
       <created>1404811255265</created>
       <updated>1404811255265</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。">
+      <created>1404824511423</created>
+      <updated>1404824511423</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -916,7 +918,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="优化链接提取工具" />
     <MESSAGE value="修改程序，支持端口号" />
     <MESSAGE value="增加用户管理" />
     <MESSAGE value="增加用户管理&#10;" />
@@ -941,7 +942,8 @@
     <MESSAGE value="修复utf8问题&#10;" />
     <MESSAGE value="添加jira，fisheyey组件" />
     <MESSAGE value="增加通过url提取CMS特征的脚本" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加通过url提取CMS特征的脚本" />
+    <MESSAGE value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1307,13 +1309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="1575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.ru">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="337">
@@ -1323,7 +1318,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="34" selection-start="736" selection-end="736" vertical-scroll-proportion="0.5092593" vertical-offset="0" max-vertical-offset="3960">
+        <state line="11" column="34" selection-start="736" selection-end="736" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="5" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.84569734" vertical-offset="255" max-vertical-offset="1590">
           <folding />
         </state>
       </provider>
