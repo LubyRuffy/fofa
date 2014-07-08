@@ -5,4 +5,3 @@ database.yml
 resque.yml
 thinking_sphinx.yml
 .idea
-devise.rb
