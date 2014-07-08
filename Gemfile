@@ -77,3 +77,4 @@ gem 'devise'
 #gem 'paperclip'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
+gem 'diff-lcs'

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+#通过数据库的body分析，来提取所有url，通过api提交到fofa（超过90天才更新）
 require 'mysql2'
 root_path = File.expand_path(File.dirname(__FILE__))
 require "resque"
@@ -21,7 +22,7 @@ end
 
 @m = WebDb.new(root_path+"/../config/database.yml")
 @p = Processor.new(@m)
-@id=892256
+@id=900011
 while true
   sql = "select * from subdomain where id>#{@id} limit 1"
   r = @m.mysql.query(sql)

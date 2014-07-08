@@ -16,6 +16,10 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+
+      ['jira', '2014-07-08', 'https://www.atlassian.com/software/jira', 'body="atl.dashboard" && header="atlassian" && body="jira"'],
+      ['fisheye', '2014-07-08', 'https://www.atlassian.com/software/fisheye/overview', 'header="Set-Cookie: FESESSIONID" || body="fisheye-16.ico"'],
+      ['elasticsearch', '2014-07-07', 'http://www.elasticsearch.org/', 'header="application/json" && body="build_hash"'],
       ['MDaemon', '2014-07-07', 'http://www.altn.com/Products/MDaemon-Email-Server-Windows/', 'body="/WorldClient.dll?View=Main"'],
       ['ThinkPHP', '2014-07-03', 'http://www.thinkphp.cn', 'header="thinkphp"'],
       ['OA(a8/seeyon/ufida)', '2014-07-01', 'http://yongyougd.com/productsview88.html', 'body="/seeyon/USER-DATA/IMAGES/LOGIN/login.gif"'],
