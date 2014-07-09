@@ -20,13 +20,15 @@
 
 <br/>
 <% 
-    if @error
+    #if @error
+    if nil
   %>
 <div class="alert fade in">
   <a class="close" data-dismiss="alert" href="#">×</a>
   <strong>错误！</strong> <%=@error%>
 </div>
 <%
+
   else
 %>
 

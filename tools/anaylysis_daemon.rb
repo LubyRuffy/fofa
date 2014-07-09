@@ -43,35 +43,7 @@ def build_info(query_array, col_name)
   @m.mysql.query(sql)
 end
 
-servers = [
-    ['header="Microsoft-IIS" || header="X-Powered-By: WAF/2.0"', 'IIS'], #安全狗也是IIS
-    ['header="nginx"', 'nginx'],
-    ['header="Apache-Coyote"', 'Tomcat'],
-    ['header="Apache" && header!="Apache-Coyote"', 'Apache'],
-    ['header="Tengine"', 'TEngine'],
-    ['header="IBM_HTTP_Server"', 'IBM_HTTP_Server'],
-    #['header="Server: Oversee"'],
-    ['header="Server: GSE"', 'GSE'],
-    ['header="LiteSpeed"', 'LiteSpeed'],
-    #['header="Server: BSM"'],
-    ['header="Microsoft-HTTPAPI"', 'Microsoft-HTTPAPI'], #sqlserver2008
-    #['header="Server: JDWS"'],
-    #['header="Server: Youboy-WS"'],
-    ['header="ngx_openresty"', 'ngx_openresty'],
-    #['header="Server: PWS"'],
-    #['header="Server: Tomcat"'], Server: Tomcat X-Powered-By: WAF/2.0 这个指纹是安全狗
-    ['header="Server: Zeus"', 'Zeus'],
-    ['header="Resin"', 'Resin'],
-    ['header="Netscape-Enterprise"', 'Netscape-Enterprise'],
-    ['header="Phusion"', 'Phusion'],
-    ['header="webrick"', 'webrick'],
-    ['header="Server: Jetty"', 'Jetty'],
-    ['header="Sun-ONE-Web-Server"', 'Sun-ONE-Web-Server'],
-    ['header="Oracle-Application-Server"', 'Oracle-Application-Server'],
-    ['header="JBoss"', 'JBoss'],
-]
 
-
-build_info(get_cms, 'cms_info')
-build_info(servers, 'server_info')
 build_info(get_cloudsec, 'cloudsec_info')
+build_info(get_servers, 'server_info')
+build_info(get_cms, 'cms_info')

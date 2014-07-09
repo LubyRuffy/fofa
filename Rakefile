@@ -31,15 +31,15 @@ namespace :fofa do
     #  puts "No workers to kill"
     #else
     #  syscmd = "kill -s QUIT #{pids.join(' ')}"
-      syscmd = "kill -s QUIT `ps aux | grep [r]esque | grep -v grep`"
+      syscmd = "ps aux | grep [r]esque | grep -v grep  | awk '{print $2}' | xargs -n 1 kill -s QUIT"
       puts "Running syscmd: #{syscmd}"
       system(syscmd)
     #end
   end
   
-  desc "Start workers (5 process)"
+  desc "Start workers (1 process)"
   task :start_workers => :environment do
-    run_worker("*", 2)
+    run_worker("*", 1)
   end
 
   desc "Zero-downtime restart of Unicorn"

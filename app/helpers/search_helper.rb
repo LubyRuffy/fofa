@@ -16,6 +16,7 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+      ['易瑞授权访问系统', '2014-07-09', 'http://www.infcn.com.cn/iras/752.jhtml', 'body="/authjsp/login.jsp" || body="FE0174BB-F093-42AF-AB20-7EC621D10488"'],
       ['fangmail', '2014-07-09', 'http://www.fangmail.net/', 'body="/fangmail/default/css/em_css.css"'],
       ['腾讯企业邮箱', '2014-07-09', 'http://exmail.qq.com/', 'body="/cgi-bin/getinvestigate?flowid="'],
       ['通达0A', '2014-07-09', 'http://www.tongda2000.com/', 'body="<link rel=\"shortcut icon\" href=\"/images/tongda.ico\" />" || (body="OA提示：不能登录OA" && body="紧急通知：今日10点停电") || body="Office Anywhere 2013"'],
@@ -73,11 +74,13 @@ module SearchHelper
   
   def get_cloudsec
     return [
+      ['baidu_yunjiasu', '2014-07-07', 'http://yunjiasu.baidu.com/', 'header="X-Server" && header="fhl"'],
       ['Cloudflare', '2013-11-25', 'http://www.cloudflare.com/', 'header="cloudflare-nginx"'],
       ['Incapsula', '2013-11-25', 'http://www.Incapsula.com/', 'header="X-Cdn: Incapsula"'],
-      ['baidu_jiasule', '2013-11-25', 'http://jiasule.baidu.com', 'header!="server: " && header="X-Cache:" && header="Connection: keep-alive"'],
+      ['jiasule', '2013-11-25', 'http://jiasule.baidu.com', 'header!="server: " && header="X-Cache:" && header="Connection: keep-alive"'],
       ['360_wangzhanweishi', '2013-11-25', 'http://wangzhan.360.cn/', 'header="360wzb"'],
       ['anquanbao', '2013-11-25', 'http://www.anquanbao.com/', 'header="X-Powered-By-Anquanbao"'],
+
     ]
   end
 
@@ -101,6 +104,37 @@ module SearchHelper
       ['bootstrap', '2013-11-24', 'http://getbootstrap.com/', 'body="bootstrap.css" || body="bootstrap.min.css"'],
     ]
   end
+
+  def get_servers
+    return [
+      ['IIS', '2014-07-09', '-', 'header="Microsoft-IIS" || header="X-Powered-By: WAF/2.0"'],
+      ['nginx', '2014-07-09', '-', 'header="nginx"'],
+      ['Tomcat', '2014-07-09', '-', 'header="Apache-Coyote"'],
+      ['Apache', '2014-07-09', '-', 'header="Apache" && header!="Apache-Coyote"'],
+      ['TEngine', '2014-07-09', '-', 'header="Tengine"'],
+      ['IBM_HTTP_Server', '2014-07-09', '-', 'header="IBM_HTTP_Server"'],
+      ['GSE', '2014-07-09', '-', 'header="Server: GSE"'],
+      ['LiteSpeed', '2014-07-09', '-', 'header="LiteSpeed"'],
+      ['Microsoft-HTTPAPI', '2014-07-09', '-', 'header="Microsoft-HTTPAPI"'],#sqlserver2008
+      ['ngx_openresty', '2014-07-09', '-', 'header="ngx_openresty"'],
+      ['Zeus', '2014-07-09', '-', 'header="Server: Zeus"'],
+      ['Resin', '2014-07-09', '-', 'header="Resin"'],
+      ['Netscape-Enterprise', '2014-07-09', '-', 'header="Netscape-Enterprise"'],
+      ['Phusion', '2014-07-09', '-', 'header="Phusion"'],
+      ['webrick', '2014-07-09', '-', 'header="webrick"'],
+      ['Jetty', '2014-07-09', '-', 'header="Server: Jetty"'],
+      ['Sun-ONE-Web-Server', '2014-07-09', '-', 'header="Sun-ONE-Web-Server"'],
+      ['Oracle-Application-Server', '2014-07-09', '-', 'header="Oracle-Application-Server"'],
+      ['JBoss', '2014-07-09', '-', 'header="Server: JBoss"'],
+      #['header="Server: Oversee"'],
+      #['header="Server: BSM"'],
+      #['header="Server: JDWS"'],
+      #['header="Server: Youboy-WS"'],
+      #['header="Server: PWS"'],
+      #['header="Server: Tomcat"'], Server: Tomcat X-Powered-By: WAF/2.0 这个指纹是安全狗
+    ]
+  end
+
 
 
   require 'parslet'

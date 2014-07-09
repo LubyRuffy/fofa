@@ -37,10 +37,10 @@ class Userhost < ActiveRecord::Base
     url = Domainatrix.parse(@host)
     if url.domain.size>0 && url.public_suffix
       #@host = url
-      if @host =~ /\d+\.\d+\.\d+\.\d/
-        @info = "暂不支持IP格式，请直接输入域名或者URL"
-        @error = true
-      end
+      #if @host =~ /\d+\.\d+\.\d+\.\d/
+      #  @info = "暂不支持IP格式，请直接输入域名或者URL"
+      #  @error = true
+      #end
     else
       @info = "HOST格式错误"
       @error = true
