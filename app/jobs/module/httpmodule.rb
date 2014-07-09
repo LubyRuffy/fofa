@@ -94,7 +94,6 @@ module HttpModule
     ops ||= {:following => 0}
     ops[:following] = 0 if !ops.has_key?(:following)
     resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
-    return resp if ops[:following]>2
 
     begin
       url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
@@ -135,24 +134,10 @@ module HttpModule
         request['Referer'] = ops[:referer] if ops && ops[:referer]
         begin
           response = h.request request # Net::HTTPResponse object
-          if response.code.to_i == 301 || response.code.to_i == 302
-            ops[:following] += 1
-            #  puts "redirect"
-            if response['location'].include?("http://")
-              return get_web_content(response['location'], ops)
-            else
-              return get_web_content("http://"+resp[:host]+"/"+response['location'], ops)
-            end
-          end
-
           resp[:code] = response.code
           resp[:message] = response.message
           resp[:http_version] = response.http_version
           resp[:header] = response.header
-          if response['location']
-            resp[:redirect_url] = response['location']
-          end
-
           resp[:html] = nil
           if response.header[ 'Content-Encoding' ].eql?( 'gzip' )
             sio = StringIO.new( response.body )
@@ -168,10 +153,30 @@ module HttpModule
           else
             resp[:html] = response.body
           end
+          resp[:bodysize] = resp[:html].size
+          resp[:error] = false
+
+          if response['location']
+            resp[:redirect_url] = response['location']
+          end
+
+          if response.code.to_i == 301 || response.code.to_i == 302
+            ops[:following] += 1
+            return resp if ops[:following]>2
+
+            #  puts "redirect"
+            if response['location'].include?("http://")
+              return get_web_content(response['location'], ops)
+            else
+              return get_web_content("http://"+resp[:host]+"/"+response['location'], ops)
+            end
+          end
+
           if response['content-length'] && response['content-length'].to_i<200
             if resp[:html]=~/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i
               resp[:html].scan(/<META\s*HTTP-EQUIV=[\'\"]REFRESH[\'\"]\s*CONTENT=[\'\"]\d;\s*URL=(.*)[\'\"]\s*>/i).each{|x|
                 ops[:following] += 1
+                return resp if ops[:following]>2
                 loc = x[0]
                 if loc.include?("http://")
                   return get_web_content(loc, ops)
@@ -193,9 +198,6 @@ module HttpModule
               }
             end
           end
-
-          resp[:bodysize] = resp[:html].size
-          resp[:error] = false
 
         rescue Timeout::Error => e
           resp[:code] = 999
