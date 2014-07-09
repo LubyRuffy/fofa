@@ -91,8 +91,8 @@ module HttpModule
   def get_web_content(url,ops=nil)
 
     @options ||= {}
-    ops ||= {}
-    ops[:following] = 0
+    ops ||= {:following => 0}
+    ops[:following] = 0 if !ops.has_key?(:following)
     resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
     return resp if ops[:following]>2
 
