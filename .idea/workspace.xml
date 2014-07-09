@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -15,7 +16,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1404907092112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1404908704642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@anaylysis_daemon.coverage" NAME="anaylysis_daemon Coverage Results" MODIFIED="1404887465182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@analysis_fingerprint_from_urls.coverage" NAME="analysis_fingerprint_from_urls Coverage Results" MODIFIED="1404808110158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Development__fofa.coverage" NAME="Development: fofa Coverage Results" MODIFIED="1404479028177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
@@ -45,6 +46,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="db_link_crawler.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="37" selection-start="1214" selection-end="1218" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="990">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="url_worker.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="273" column="0" selection-start="9097" selection-end="9097" vertical-scroll-proportion="-3.8076923" vertical-offset="3996" max-vertical-offset="6915">
+            <state line="278" column="8" selection-start="9250" selection-end="9250" vertical-scroll-proportion="0.63422817" vertical-offset="3981" max-vertical-offset="6990">
               <folding />
             </state>
           </provider>
@@ -81,19 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rakefile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="19" selection-start="852" selection-end="852" vertical-scroll-proportion="-6.3461537" vertical-offset="270" max-vertical-offset="1590">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="0" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.6884273" vertical-offset="728" max-vertical-offset="1215">
+            <state line="49" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="623" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -902,7 +903,11 @@
       <created>1404906930981</created>
       <updated>1404906930981</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="修复无线循环的问题&#10;">
+      <created>1404907145250</created>
+      <updated>1404907145250</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -963,7 +968,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修复入库时报错的问题。在utf8编码处理时，已经是utf8的也要force_encoding一下。&#10;" />
     <MESSAGE value="用户处理" />
     <MESSAGE value="用户处理&#10;" />
     <MESSAGE value="增加用户头像管理功能。" />
@@ -988,7 +992,8 @@
     <MESSAGE value="增加每天的保表更新工具，如果crontab -e编辑一下" />
     <MESSAGE value="支持提交ip&#10;" />
     <MESSAGE value="修复无线循环的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复无线循环的问题" />
+    <MESSAGE value="修复无线循环的问题&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复无线循环的问题&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1020,19 +1025,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>265</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>126</line>
-          <option name="timeStamp" value="93" />
+          <line>268</line>
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="95" />
+      <option name="time" value="97" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1253,13 +1253,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="25" selection-start="984" selection-end="984" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/search/result.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="10" selection-start="730" selection-end="730" vertical-scroll-proportion="-4.0833335" vertical-offset="247" max-vertical-offset="1860">
@@ -1351,9 +1344,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="428" max-vertical-offset="765">
+        <state line="49" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="623" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
@@ -1365,16 +1358,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+    <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="273" column="0" selection-start="9097" selection-end="9097" vertical-scroll-proportion="-3.8076923" vertical-offset="3996" max-vertical-offset="6915">
+        <state line="42" column="37" selection-start="1214" selection-end="1218" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="990">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.6884273" vertical-offset="728" max-vertical-offset="1215">
+        <state line="39" column="0" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0" vertical-offset="428" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="278" column="8" selection-start="9250" selection-end="9250" vertical-scroll-proportion="0.63422817" vertical-offset="3981" max-vertical-offset="6990">
           <folding />
         </state>
       </provider>

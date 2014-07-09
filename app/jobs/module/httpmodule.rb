@@ -266,9 +266,14 @@ module HttpModule
     http = get_web_content url, referer: refer
     http[:utf8html] = get_utf8 http[:html] if http[:html] and http[:html].size > 2
     if http[:utf8html]
-      page = Nokogiri::HTML(http[:utf8html])
-      http[:title] = page.css('title')
-      http[:title] = page.at_css('title') if !http[:title]
+      arr = http[:utf8html].scan(/<title>(.*?)<\/title>/i)
+      if arr.size>0
+        http[:title] = arr[0][0].strip
+      else
+        page = Nokogiri::HTML(http[:utf8html])
+        http[:title] = page.css('title')
+        http[:title] = page.at_css('title') if !http[:title]
+      end
     end
     #puts http[:utf8html]
     http
