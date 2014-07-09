@@ -62,8 +62,8 @@ class WebDb
   end
 
   def db_insert_host(db, host, domain, subdomain, r)
-    title = ''
-    title = r[:title][0].text if r[:title] and r[:title][0]
+    title = r[:title]
+    title ||= ''
     header = ["HTTP/#{r[:http_version]} #{r[:code]} #{r[:message]}"]
     r[:header].each_capitalized() {|k, v| #if !r[:error]
       header << [k,v].join(': ')
@@ -83,8 +83,8 @@ class WebDb
   end
 
   def db_update_host(db, host, r)
-    title = ''
-    title = r[:title][0].text if r[:title] and r[:title][0]
+    title = r[:title]
+    title ||= ''
     header = ["HTTP/#{r[:http_version]} #{r[:code]} #{r[:message]}"]
     r[:header].each_capitalized() {|k, v| #if !r[:error]
       header << [k,v].join(': ')

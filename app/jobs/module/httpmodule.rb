@@ -271,8 +271,10 @@ module HttpModule
         http[:title] = arr[0][0].strip
       else
         page = Nokogiri::HTML(http[:utf8html])
-        http[:title] = page.css('title')
-        http[:title] = page.at_css('title') if !http[:title]
+        title_s = page.css('title')
+        title_s = page.at_css('title') if !title_s
+        http[:title] = title_s[0].text if title_s && title_s[0]
+        http[:title] ||= ''
       end
     end
     #puts http[:utf8html]
