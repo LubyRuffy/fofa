@@ -29,7 +29,7 @@ while true
   if r.size>0
     r.each {|h|
       @id=h['id']
-      puts "======#{@id}======"
+      puts "======#{@id} -> h['host']======"
       arr = []
       h['body'].scan(/(http[s]?:\/\/.*?)[ \/\'\"\>]/).each{|x|
         arr << hostinfo_of_url(x[0]) if x[0].size>8 && x[0].include?('.')

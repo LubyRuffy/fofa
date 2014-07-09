@@ -1,3 +1,4 @@
+
 <h1>建站类组件库列表</h1>
 <table class="table table-striped table-hover table-bordered">
   <thead>
@@ -14,7 +15,7 @@
       <tr>
       <td>【<%=l[1]%>】</td>
       <td><a href='<%=l[2]%>' target='_blank'><%=l[0]%></a> </td>
-      <td><a href="/search/result?qbase64=<%=Base64.encode64(l[3])%>"><%=l[3]%></a></td>
+      <td><a href="/search/result?qbase64=<%=CGI.escape Base64.encode64(l[3])%>"><%=l[3]%></a></td>
       </tr>
   <%
      }

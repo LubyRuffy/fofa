@@ -23,10 +23,12 @@ class SearchController < ApplicationController
   end
 
   def result
-
     @query = params['q']
     @qbase64=params['qbase64']
     @query = Base64.decode64(params['qbase64']) if params['qbase64'] &&  params['qbase64'].size>2
+    #puts @query.encoding
+    #@query.force_encoding('utf-8')
+    #render :text => @query
     @error, @mode, @results, @tags = search(@query)
     
     #require 'pp'

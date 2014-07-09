@@ -17,6 +17,7 @@ class RulesController < ApplicationController
     @rule = Rule.new
     @rawrule = params['q']
     @rawrule = Base64.decode64(params['qbase64']) if params['qbase64'] &&  params['qbase64'].size>2
+    @rawrule.force_encoding('utf-8').strip! if @rawrule
   end
 
   # GET /rules/1/edit
