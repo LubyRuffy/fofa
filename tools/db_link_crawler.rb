@@ -2,11 +2,11 @@
 #通过数据库的body分析，来提取所有url，通过api提交到fofa（超过90天才更新）
 require 'mysql2'
 #require 'thread/pool'
-root_path = File.expand_path(File.dirname(__FILE__))
+@root_path = File.expand_path(File.dirname(__FILE__))
 require "resque"
-require root_path+"/../app/jobs/module/httpmodule.rb"
-require root_path+"/../app/jobs/module/webdb2_class.rb"
-require root_path+"/../app/jobs/module/process_class.rb"
+require @root_path+"/../app/jobs/module/httpmodule.rb"
+require @root_path+"/../app/jobs/module/webdb2_class.rb"
+require @root_path+"/../app/jobs/module/process_class.rb"
 
 def hostinfo_of_url(url)
   begin
@@ -21,7 +21,13 @@ def hostinfo_of_url(url)
   end
 end
 
-@m = WebDb.new(root_path+"/../config/database.yml")
+def write_to_file(id)
+  File.open(@root_path+"/id.txt", 'w') do |f|
+    f.puts id
+  end
+end # Def end
+
+@m = WebDb.new(@root_path+"/../config/database.yml")
 @p = Processor.new(@m)
 #@pool = Thread.pool(2)
 @id=902660
@@ -44,6 +50,7 @@ while true
         }
       #}
       @id=h['id']
+      write_to_file @id
     }
 
   else

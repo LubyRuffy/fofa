@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/db_link_crawler.rb" afterPath="$PROJECT_DIR$/tools/db_link_crawler.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/search_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/search_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -48,7 +47,7 @@
       <file leaf-file-name="db_link_crawler.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="7" selection-start="1328" selection-end="1328" vertical-scroll-proportion="1.958457" vertical-offset="0" max-vertical-offset="885">
+            <state line="24" column="45" selection-start="743" selection-end="743" vertical-scroll-proportion="0.4340836" vertical-offset="225" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -940,13 +939,18 @@
       <created>1404876336092</created>
       <updated>1404876336128</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="增加fangmail">
+      <created>1404880108037</created>
+      <updated>1404880108037</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -962,7 +966,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32845744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1001,7 +1004,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="完善标题展示" />
     <MESSAGE value="增加worker对meta refresh的处理" />
     <MESSAGE value="修改没有title的问题&#10;" />
     <MESSAGE value="增加批量提交工具；增加location.href跳转的处理" />
@@ -1026,7 +1028,8 @@
     <MESSAGE value="修复新增数据时由于没有body部分导致的错误推出" />
     <MESSAGE value="增加通达oa，并且修改base64作为url跳转的bug" />
     <MESSAGE value="连接提取改成多线程" />
-    <option name="LAST_COMMIT_MESSAGE" value="连接提取改成多线程" />
+    <MESSAGE value="增加fangmail" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加fangmail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1338,7 +1341,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="7" selection-start="1328" selection-end="1328" vertical-scroll-proportion="1.958457" vertical-offset="0" max-vertical-offset="885">
+        <state line="24" column="45" selection-start="743" selection-end="743" vertical-scroll-proportion="0.4340836" vertical-offset="225" max-vertical-offset="990">
           <folding />
         </state>
       </provider>
