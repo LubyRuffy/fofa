@@ -78,3 +78,4 @@ gem 'devise'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
 gem 'diff-lcs'
+gem 'thread'

@@ -16,6 +16,7 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+      ['腾讯企业邮箱', '2014-07-09', 'http://exmail.qq.com/', 'body=""/cgi-bin/getinvestigate?flowid="'],
       ['通达0A', '2014-07-09', 'http://www.tongda2000.com/', 'body="<link rel=\"shortcut icon\" href=\"/images/tongda.ico\" />" || (body="OA提示：不能登录OA" && body="紧急通知：今日10点停电") || body="Office Anywhere 2013"'],
       ['jira', '2014-07-08', 'https://www.atlassian.com/software/jira', 'body="atl.dashboard" && header="atlassian" && body="jira"'],
       ['fisheye', '2014-07-08', 'https://www.atlassian.com/software/fisheye/overview', 'header="Set-Cookie: FESESSIONID" || body="fisheye-16.ico"'],
