@@ -26,10 +26,12 @@ class StatisticController < ApplicationController
 
       def get_json_data(ai, name)
         my_array = []
-        JSON.parse(@ai[name]).each{|k,v|
-          my_array << [k, v.to_i]
-        }
-        my_array.sort! { |x, y| y[1] <=> x[1]}
+        if @ai[name]
+          JSON.parse(@ai[name]).each{|k,v|
+            my_array << [k, v.to_i]
+          }
+          my_array.sort! { |x, y| y[1] <=> x[1]}
+        end
         my_array
       end
 end
