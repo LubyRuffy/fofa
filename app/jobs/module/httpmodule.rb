@@ -276,6 +276,7 @@ module HttpModule
         http[:title] = title_s[0].text if title_s && title_s[0]
         http[:title] ||= ''
       end
+      http[:title] = http[:title].force_encoding('utf-8')
     end
     #puts http[:utf8html]
     http
