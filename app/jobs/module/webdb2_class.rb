@@ -70,6 +70,7 @@ class WebDb
     }
     header = header.join("\n").force_encoding('UTF-8')
     body = r[:utf8html]
+    body ||= ''
     ip = r[:ip]
 
     sql = "insert into subdomain (host, hosthash, domain, subdomain, ip, header, title, body, lastchecktime, lastupdatetime)"

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="webdb2_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="54" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2565">
+            <state line="72" column="15" selection-start="2060" selection-end="2060" vertical-scroll-proportion="0.6481481" vertical-offset="870" max-vertical-offset="2580">
               <folding />
             </state>
           </provider>
@@ -62,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.44510385" vertical-offset="465" max-vertical-offset="1590">
+            <state line="41" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1590">
               <folding />
             </state>
           </provider>
@@ -190,10 +190,10 @@
         <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
         <option value="$PROJECT_DIR$/tools/addhost.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
         <option value="$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       </list>
     </option>
   </component>
@@ -915,7 +915,11 @@
       <created>1404826608188</created>
       <updated>1404826608188</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="修改停止任务，原来老是有worker的残像&#10;">
+      <created>1404828229200</created>
+      <updated>1404828229201</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -976,7 +980,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加用户管理&#10;" />
     <MESSAGE value="增加api查询接口api，只返回host列表http://127.0.0.1:3000/api/result?qbase64=aGVhZGVyPSJ0aGlua3BocCI=" />
     <MESSAGE value="增加api查询接口api，只返回" />
     <MESSAGE value="完善标题展示" />
@@ -1001,7 +1004,8 @@
     <MESSAGE value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
     <MESSAGE value="修改停止任务，原来老是有worker的残像" />
     <MESSAGE value="修改停止任务，原来老是有worker的残像&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改停止任务，原来老是有worker的残像&#10;" />
+    <MESSAGE value="修复新增数据时由于没有body部分导致的错误推出" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复新增数据时由于没有body部分导致的错误推出" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1369,16 +1373,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="54" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="2565">
+        <state line="41" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1590">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="21" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.44510385" vertical-offset="465" max-vertical-offset="1590">
+        <state line="72" column="15" selection-start="2060" selection-end="2060" vertical-scroll-proportion="0.6481481" vertical-offset="870" max-vertical-offset="2580">
           <folding />
         </state>
       </provider>
