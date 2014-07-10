@@ -29,19 +29,13 @@ end
 
 class Userhost < ActiveRecord::Base
 
-  def self.add_user_host(submit_host, ip)
+  def self.add_single_host(submit_host, ip)
     @info = ''
     @error = false
     @host = submit_host
     @host = hostinfo_of_url(@host)
     url = Domainatrix.parse(@host)
-    if url.domain.size>0 && url.public_suffix
-      #@host = url
-      #if @host =~ /\d+\.\d+\.\d+\.\d/
-      #  @info = "暂不支持IP格式，请直接输入域名或者URL"
-      #  @error = true
-      #end
-    else
+    if url.domain.size<1 || !url.public_suffix
       @info = "HOST格式错误"
       @error = true
     end
@@ -52,6 +46,20 @@ class Userhost < ActiveRecord::Base
         Resque.enqueue(Processor, @host)
       end
     end
-    [@error, @info]
+    [@error,@info]
+  end
+
+  def self.add_user_host(submit_host, ip)
+    @info = ''
+    @error = false
+    if submit_host.include? ","
+      submit_host.split(',').each{|h|
+        error,info = add_single_host(h, ip)
+        return [error, info] if @error
+      }
+    else
+      return add_single_host(submit_host, ip)
+    end
+    [@error,@info]
   end
 end

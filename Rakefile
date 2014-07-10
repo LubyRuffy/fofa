@@ -66,6 +66,13 @@ namespace :fofa do
     system(syscmd)
   end
 
+  desc "Start db link crawler"
+  task :start_dblinkcrawler  => :environment do
+    syscmd ="cd #{current_path} ; nohup ./tools/db_link_crawler.rb &"
+    puts "Running syscmd: #{syscmd}"
+    system(syscmd)
+  end
+
   desc "start all"
   task :start_all do
     Rake::Task["fofa:start_unicorn"].invoke
