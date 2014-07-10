@@ -37,7 +37,7 @@ source src1
 
 source src1p0 : src1
 {
-  sql_query_pre           = REPLACE INTO sph_counter SELECT 1, MAX(id), MIN(id), 'subdomain', MAX(lastupdatetime) FROM subdomain
+  sql_query_pre           = REPLACE INTO 111111 SELECT 1, MAX(id), MIN(id), 'subdomain', MAX(lastupdatetime) FROM subdomain
 	sql_query = SELECT SQL_NO_CACHE `subdomain`.`id` * 1 + 0 AS `id`, `subdomain`.`ip` AS `ip`, `subdomain`.`body` AS `body`, `subdomain`.`title` AS `title`, `subdomain`.`header` AS `header`, `subdomain`.`host` AS `host`, `subdomain`.`id` AS `sphinx_internal_id`, 'Subdomain' AS `sphinx_internal_class`, 0 AS `sphinx_deleted`, `subdomain`.`id` AS `id`, UNIX_TIMESTAMP(`subdomain`.`lastupdatetime`) AS `lastupdatetime` FROM `subdomain`  WHERE (`subdomain`.`id` BETWEEN $start AND $end and `subdomain`.`id` % 5 = 0) GROUP BY `subdomain`.`id`, `subdomain`.`ip`, `subdomain`.`title`, `subdomain`.`header`, `subdomain`.`host`, `subdomain`.`id`, `subdomain`.`id`, `subdomain`.`lastupdatetime`  ORDER BY NULL;
 }
 
