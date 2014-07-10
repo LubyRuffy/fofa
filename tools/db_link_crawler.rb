@@ -9,6 +9,7 @@ require @root_path+"/../app/jobs/module/webdb2_class.rb"
 require @root_path+"/../app/jobs/module/process_class.rb"
 require @root_path+"/../app/jobs/module/lrlink.rb"
 include Lrlink
+require 'net/http'
 
 def write_to_file(id)
   File.open(@root_path+"/id.txt", 'w') do |f|
@@ -39,9 +40,12 @@ while true
       @id=h['id']
       write_to_file @id
     }
-    curl_line = "curl http://www.fofa.so/api/addhost?host=#{a.uniq.join(',')} >/dev/null 2>&1"
-    puts curl_line
-    `#{curl_line}`
+    uri = URI('http://www.fofa.so/api/addhost')
+    res = Net::HTTP.post_form(uri, 'host' => hosts.uniq.join(','))
+    puts res.body
+    #curl_line = "curl http://www.fofa.so/api/addhost?host=#{hosts.uniq.join(',')} >/dev/null 2>&1"
+    #puts curl_line
+    #`#{curl_line}`
   else
     break
   end
