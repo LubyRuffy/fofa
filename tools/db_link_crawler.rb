@@ -55,12 +55,14 @@ while true
 
     }
 
-    uri = URI('http://www.fofa.so/api/addhostp')
-    res = Net::HTTP.post_form(uri, 'host' => hosts.uniq!.join(','))
-    #puts "id:"+ids.join(",")
     puts ""
     puts "host count:"+hosts.size.to_s
-    puts "response:"+res.body
+    if hosts.size>0
+      uri = URI('http://www.fofa.so/api/addhostp')
+      res = Net::HTTP.post_form(uri, 'host' => hosts.uniq!.join(','))
+      #puts "id:"+ids.join(",")
+      puts "response:"+res.body
+    end
     write_to_file ids.max
     #curl_line = "curl http://www.fofa.so/api/addhost?host=#{hosts.uniq.join(',')} >/dev/null 2>&1"
     #puts curl_line
