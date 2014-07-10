@@ -77,7 +77,7 @@ class Processor
 
       #递归测试的只添加新的，不更新旧的
       hosts = get_linkes(http_info[:utf8html]).select {|h|
-        !@webdb.mysql_exists_host(host)
+        !@webdb.mysql_exists_host(h)
       }
       if hosts.size>0
         root_path = File.expand_path(File.dirname(__FILE__))

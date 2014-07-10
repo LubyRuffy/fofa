@@ -41,7 +41,7 @@ module SearchHelper
       ['CMSTop', '2013-11-23', 'http://www.cmstop.com/','body="/css/cmstop-common.css" || body="/js/cmstop-common.js" || body="cmstop-list-text.css" || body="<a class=\"poweredby\" href=\"http://www.cmstop.com\""'],
       ['ESPCMS', '2013-11-23', 'http://www.ecisp.cn/','title="Powered by ESPCMS" || body="Powered by ESPCMS" || (body="infolist_fff" && body="/templates/default/style/tempates_div.css")'],
       ['74cms', '2013-11-23', 'http://www.74cms.com/','(body="content=\"74cms.com" || body="content=\"骑士CMS" || body="Powered by <a href=\"http://www.74cms.com/\"" || (body="/templates/default/css/common.css" && body="selectjobscategory"))'],
-      ['Foosun', '2013-11-21', 'http://www.foosun.net/','(body="Created by DotNetCMS" || body="For Foosun")'],
+      ['Foosun', '2013-11-21', 'http://www.foosun.net/','body="Created by DotNetCMS" || body="For Foosun" || body="Powered by www.Foosun.net,Products:Foosun Content Manage system"'],
       ['PhpCMS', '2013-11-21', 'http://www.phpcms.com/','(body="Powered by" && body="http://www.phpcms.cn") || body="content=\"Phpcms" || body="Powered by Phpcms"'],
       ['Hanweb', '2013-11-21', 'http://www.hanweb.com/','body="Produced By 大汉网络" || body="<a href=\'http://www.hanweb.com\' style=\'display:none\'>" || body="<meta name=\'Generator\' content=\'大汉版通\'>" || body="<meta name=\'Author\' content=\'大汉网络\'>" || body="/jcms_files/jcms"'],
       ['Drupal', '2013-11-21', 'http://www.drupal.org/','header="X-Generator: Drupal" || body="content=\"Drupal" || body="jQuery.extend(Drupal.settings" || (body="/sites/default/files/" && body="/sites/all/modules/" && body="/sites/all/themes/")'],
