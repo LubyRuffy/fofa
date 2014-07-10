@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -55,19 +54,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.3125" vertical-offset="465" max-vertical-offset="1710">
+            <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="21" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1215">
+            <state line="67" column="95" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.78125" vertical-offset="630" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -158,8 +157,8 @@
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       </list>
     </option>
   </component>
@@ -926,7 +925,11 @@
       <created>1404963208235</created>
       <updated>1404963208235</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="增加并发量">
+      <created>1404964474183</created>
+      <updated>1404964474184</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -987,7 +990,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加http中deflate压缩格式的处理" />
     <MESSAGE value="增加http中deflate压缩格式的处理&#10;" />
     <MESSAGE value="添加组件" />
     <MESSAGE value="修复utf8问题&#10;" />
@@ -1012,7 +1014,8 @@
     <MESSAGE value="修复环境变量错误&#10;" />
     <MESSAGE value="支持批量提交host&#10;" />
     <MESSAGE value="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;" />
+    <MESSAGE value="增加并发量" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加并发量" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1384,16 +1387,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="21" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1215">
+        <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.3125" vertical-offset="465" max-vertical-offset="1710">
+        <state line="67" column="95" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.78125" vertical-offset="630" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
