@@ -75,14 +75,20 @@ class Processor
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
       end
 
-      if dolink
-        get_linkes(http_info[:utf8html]).each {|h|
+      if dolink #递归测试的只添加新的，不更新旧的
+        hosts = get_linkes(http_info[:utf8html]).select {|h|
+          !@webdb.mysql_exists_host(host)
+        }
+        if hosts.size>0
           root_path = File.expand_path(File.dirname(__FILE__))
           rails_env = 'production'
           resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
           Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
-          Resque.enqueue(Processor, h, dolink)
-        }
+
+          hosts.each {|h|
+            Resque.enqueue(Processor, h, dolink)
+          }
+        end
       end
 
       return 0
@@ -93,5 +99,4 @@ class Processor
   end
 
 end
-
 

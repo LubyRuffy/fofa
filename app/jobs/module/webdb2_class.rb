@@ -31,11 +31,6 @@ class WebDb
     db.query(sql).size>0
   end
 
-  def redis_exists_host(host)
-    key = "lct_"+host
-    @redis.exists(key)
-  end
-
   def redis_update_checktime(host)
     key = "lct_"+host
     @redis.set(key, Time.now().to_s)
@@ -121,6 +116,16 @@ class WebDb
   def mysql
     @mysql
   end
+
+  def redis_exists_host(host)
+    key = "lct_"+host
+    @redis.exists(key)
+  end
+
+  def mysql_exists_host(host)
+    db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}'")
+  end
+
   #update last check time
   def update_subdomain_if_exists(host)
     if db_check_subdomain_exists(@mysql, host)
