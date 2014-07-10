@@ -55,11 +55,12 @@ while true
 
     }
 
+    hosts.uniq!
     puts ""
     puts "host count:"+hosts.size.to_s
     if hosts.size>0
       uri = URI('http://www.fofa.so/api/addhostp')
-      res = Net::HTTP.post_form(uri, 'host' => hosts.uniq!.join(','))
+      res = Net::HTTP.post_form(uri, 'host' => hosts.join(','))
       #puts "id:"+ids.join(",")
       puts "response:"+res.body
     end

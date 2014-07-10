@@ -48,7 +48,7 @@
       <file leaf-file-name="db_link_crawler.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.5" vertical-offset="570" max-vertical-offset="1200">
+            <state line="62" column="52" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.75" vertical-offset="570" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -905,7 +905,11 @@
       <created>1404962723840</created>
       <updated>1404962723840</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;">
+      <created>1404963131368</created>
+      <updated>1404963131368</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1372,7 +1376,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.5" vertical-offset="570" max-vertical-offset="1200">
+        <state line="62" column="52" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.75" vertical-offset="570" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
