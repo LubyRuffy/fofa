@@ -39,7 +39,7 @@ namespace :fofa do
   
   desc "Start workers (1 process)"
   task :start_workers => :environment do
-    run_worker("*", 2)
+    run_worker("*", 5)
   end
 
   desc "Zero-downtime restart of Unicorn"

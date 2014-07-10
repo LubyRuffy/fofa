@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -53,19 +54,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+            <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.3125" vertical-offset="465" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="95" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.78125" vertical-offset="630" max-vertical-offset="1215">
+            <state line="67" column="95" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -156,8 +157,8 @@
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -932,7 +933,11 @@
       <created>1404965448388</created>
       <updated>1404965448388</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="增加并发量&#10;">
+      <created>1404965454071</created>
+      <updated>1404965454071</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1390,16 +1395,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+        <state line="67" column="95" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="95" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.78125" vertical-offset="630" max-vertical-offset="1215">
+        <state line="41" column="21" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.3125" vertical-offset="465" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
