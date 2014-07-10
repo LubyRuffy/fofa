@@ -9,6 +9,12 @@ class ApiController < ApplicationController
     render :json => {error:@error, msg:@msg}
   end
 
+  def addhostp
+    @rawurl = params['host']
+    @error, @msg = Userhost.add_user_host(@rawurl,request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip)
+    render :json => {error:@error, msg:@msg}
+  end
+
   def result
     @query = ''
     @query = Base64.decode64(params['qbase64']) if params['qbase64'] && params['qbase64'].size>2

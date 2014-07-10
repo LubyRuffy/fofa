@@ -17,7 +17,7 @@ Webdbweb::Application.routes.draw do
   get "userhost/index"
   post "userhost/addhost"
   get "api/addhost"
-  post "api/addhost"
+  post "api/addhostp"
   get "api/result"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
