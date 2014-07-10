@@ -55,7 +55,7 @@ class Userhost < ActiveRecord::Base
     if submit_host.include? ","
       submit_host.split(',').each{|h|
         error,info = add_single_host(h, ip)
-        return [error, info] if @error
+        return [error, info] if error
       }
     else
       return add_single_host(submit_host, ip)
