@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -929,7 +928,11 @@
       <created>1404964474183</created>
       <updated>1404964474184</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="增加并发量&#10;">
+      <created>1404965448388</created>
+      <updated>1404965448388</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -990,7 +993,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加http中deflate压缩格式的处理&#10;" />
     <MESSAGE value="添加组件" />
     <MESSAGE value="修复utf8问题&#10;" />
     <MESSAGE value="添加jira，fisheyey组件" />
@@ -1015,7 +1017,8 @@
     <MESSAGE value="支持批量提交host&#10;" />
     <MESSAGE value="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;" />
     <MESSAGE value="增加并发量" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加并发量" />
+    <MESSAGE value="增加并发量&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加并发量&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
