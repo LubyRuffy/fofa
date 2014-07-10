@@ -56,7 +56,7 @@ namespace :fofa do
     system(syscmd)
 
     #environment "RAILS_ENV" => 'production'
-    ENV['RAKE_ENV'] = production
+    ENV['RAKE_ENV'] = 'production'
     Rake::Task["assets:precompile"] #assets:precompile RAILS_ENV=production
   end
 
