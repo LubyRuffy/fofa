@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -41,10 +41,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="71" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+            <state line="103" column="54" selection-start="3185" selection-end="3185" vertical-scroll-proportion="0.5714286" vertical-offset="1285" max-vertical-offset="1740">
               <folding />
             </state>
           </provider>
@@ -68,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.6043956" vertical-offset="280" max-vertical-offset="1545">
+            <state line="37" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
@@ -195,11 +195,11 @@
         <option value="$PROJECT_DIR$/config/development.sphinx.conf" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tools/addhost.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -1035,7 +1035,11 @@
       <created>1404976866628</created>
       <updated>1404976866629</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="在addhost的时候增加dolink参数决定是否递归执行&#10;">
+      <created>1404977355254</created>
+      <updated>1404977355254</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1096,7 +1100,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
     <MESSAGE value="修改停止任务，原来老是有worker的残像" />
     <MESSAGE value="修改停止任务，原来老是有worker的残像&#10;" />
     <MESSAGE value="修复新增数据时由于没有body部分导致的错误推出" />
@@ -1121,7 +1124,8 @@
     <MESSAGE value="增加配置模板，以免丢失" />
     <MESSAGE value="完善说明文档" />
     <MESSAGE value="在addhost的时候增加dolink参数决定是否递归执行" />
-    <option name="LAST_COMMIT_MESSAGE" value="在addhost的时候增加dolink参数决定是否递归执行" />
+    <MESSAGE value="在addhost的时候增加dolink参数决定是否递归执行&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="在addhost的时候增加dolink参数决定是否递归执行&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1492,16 +1496,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="71" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+        <state line="37" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.6043956" vertical-offset="280" max-vertical-offset="1545">
+        <state line="103" column="54" selection-start="3185" selection-end="3185" vertical-scroll-proportion="0.5714286" vertical-offset="1285" max-vertical-offset="1740">
           <folding />
         </state>
       </provider>
