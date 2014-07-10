@@ -22,17 +22,17 @@ class Processor
     nil
   end
 
-  def self.perform(url, dolink=false)
+  def self.perform(url)
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= Processor.new( @@db)
     puts @@p,Process.pid
-    @@p.add_host_to_webdb(url,false,dolink)
+    @@p.add_host_to_webdb(url,false)
   end
 
 
   #最上层函数，添加host到数据库
-  def add_host_to_webdb(host, force=false, dolink=false)
+  def add_host_to_webdb(host, force=false)
     host = host.downcase
     return -1 if host.include?('/')
 
@@ -75,20 +75,19 @@ class Processor
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
       end
 
-      if dolink #递归测试的只添加新的，不更新旧的
-        hosts = get_linkes(http_info[:utf8html]).select {|h|
-          !@webdb.mysql_exists_host(host)
-        }
-        if hosts.size>0
-          root_path = File.expand_path(File.dirname(__FILE__))
-          rails_env = 'production'
-          resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
-          Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
+      #递归测试的只添加新的，不更新旧的
+      hosts = get_linkes(http_info[:utf8html]).select {|h|
+        !@webdb.mysql_exists_host(host)
+      }
+      if hosts.size>0
+        root_path = File.expand_path(File.dirname(__FILE__))
+        rails_env = 'production'
+        resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
+        Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
 
-          hosts.each {|h|
-            Resque.enqueue(Processor, h, dolink)
-          }
-        end
+        hosts.each {|h|
+          Resque.enqueue(Processor, h)
+        }
       end
 
       return 0
