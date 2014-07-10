@@ -40,7 +40,7 @@ while true
       @id=h['id']
       write_to_file @id
     }
-    uri = URI('http://www.fofa.so/api/addhost')
+    uri = URI('http://www.fofa.so/api/addhostp')
     res = Net::HTTP.post_form(uri, 'host' => hosts.uniq.join(','))
     puts res.body
     #curl_line = "curl http://www.fofa.so/api/addhost?host=#{hosts.uniq.join(',')} >/dev/null 2>&1"

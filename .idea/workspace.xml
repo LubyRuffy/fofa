@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/db_link_crawler.rb" afterPath="$PROJECT_DIR$/tools/db_link_crawler.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -49,16 +49,16 @@
       <file leaf-file-name="db_link_crawler.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="17" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0" vertical-offset="398" max-vertical-offset="885">
+            <state line="42" column="46" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="api_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="14" selection-start="284" selection-end="284" vertical-scroll-proportion="0.48961425" vertical-offset="0" max-vertical-offset="465">
+            <state line="5" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="23" selection-start="946" selection-end="954" vertical-scroll-proportion="5.230769" vertical-offset="706" max-vertical-offset="1065">
+            <state line="59" column="22" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.76848876" vertical-offset="646" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -190,12 +190,12 @@
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/url_worker.rb" />
-        <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-        <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
+        <option value="$PROJECT_DIR$/app/models/userhost.rb" />
       </list>
     </option>
   </component>
@@ -961,7 +961,15 @@
       <created>1404960179533</created>
       <updated>1404960179534</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="支持批量提交host&#10;">
+      <created>1404960389624</created>
+      <updated>1404960389626</updated>
+    </task>
+    <task id="LOCAL-00093" summary="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;">
+      <created>1404960688793</created>
+      <updated>1404960688793</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1022,7 +1030,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修复标题显示中文错误的问题" />
     <MESSAGE value="增加http中deflate压缩格式的处理" />
     <MESSAGE value="增加http中deflate压缩格式的处理&#10;" />
     <MESSAGE value="添加组件" />
@@ -1047,7 +1054,8 @@
     <MESSAGE value="修复环境变量错误" />
     <MESSAGE value="修复环境变量错误&#10;" />
     <MESSAGE value="支持批量提交host&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持批量提交host&#10;" />
+    <MESSAGE value="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1082,7 +1090,9 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="465" />
+        <state line="23" column="4" selection-start="930" selection-end="930" vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="465">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
@@ -1382,13 +1392,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="23" selection-start="946" selection-end="954" vertical-scroll-proportion="5.230769" vertical-offset="706" max-vertical-offset="1065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="34" selection-start="1754" selection-end="1754" vertical-scroll-proportion="0.0" vertical-offset="661" max-vertical-offset="1710">
@@ -1410,13 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="17" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0" vertical-offset="398" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="20" selection-start="419" selection-end="427" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1365">
@@ -1424,9 +1420,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="46" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="14" selection-start="284" selection-end="284" vertical-scroll-proportion="0.48961425" vertical-offset="0" max-vertical-offset="465">
+        <state line="5" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="173" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="22" selection-start="1541" selection-end="1541" vertical-scroll-proportion="0.76848876" vertical-offset="646" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
