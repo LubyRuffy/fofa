@@ -37,9 +37,11 @@ namespace :fofa do
     #end
   end
   
-  desc "Start workers (10 process)"
+  desc "Start workers (5 process, can set by WCNT environment; WGETLINK for crawler)"
   task :start_workers => :environment do
-    run_worker("*", 10)
+    worker_cnt = ENV['WCNT'].to_i if ENV['WCNT']
+    worker_cnt ||= 5
+    run_worker("*", worker_cnt)
   end
 
   desc "Zero-downtime restart of Unicorn"

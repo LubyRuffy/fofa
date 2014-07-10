@@ -11,6 +11,6 @@ if __FILE__==$0
   config = g_config[rails_env]['redis']
 
   Resque.redis = "#{config['host']}:#{config['port']}"
-  pp Resque.enqueue(Processor, ARGV[0])
+  pp Resque.enqueue(Processor, ARGV[0], false)
 end
 
