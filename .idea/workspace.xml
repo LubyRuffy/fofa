@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -63,10 +63,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="34" selection-start="883" selection-end="883" vertical-scroll-proportion="0.37142858" vertical-offset="397" max-vertical-offset="1065">
+            <state line="38" column="23" selection-start="946" selection-end="954" vertical-scroll-proportion="5.230769" vertical-offset="706" max-vertical-offset="1065">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Rakefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="32" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.54285717" vertical-offset="661" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -182,10 +191,10 @@
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/url_worker.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/tools/db_link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -912,7 +921,11 @@
       <created>1404959215391</created>
       <updated>1404959215391</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="支持批量提交host&#10;">
+      <created>1404959465063</created>
+      <updated>1404959465063</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1324,13 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="40" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.74930364" vertical-offset="781" max-vertical-offset="1695">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="5" selection-start="173" selection-end="318" vertical-scroll-proportion="0.75208914" vertical-offset="0" max-vertical-offset="1215">
@@ -1375,7 +1381,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="34" selection-start="883" selection-end="883" vertical-scroll-proportion="0.37142858" vertical-offset="397" max-vertical-offset="1065">
+        <state line="38" column="23" selection-start="946" selection-end="954" vertical-scroll-proportion="5.230769" vertical-offset="706" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="32" selection-start="1752" selection-end="1752" vertical-scroll-proportion="0.54285717" vertical-offset="661" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
