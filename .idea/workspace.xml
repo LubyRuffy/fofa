@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/addhost.rb" afterPath="$PROJECT_DIR$/tools/addhost.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/test/url_submit.rb" afterPath="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -50,7 +44,7 @@
       <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="71" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="1740">
+            <state line="39" column="71" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
               <folding />
             </state>
           </provider>
@@ -74,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="10" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0" vertical-offset="940" max-vertical-offset="1545">
+            <state line="37" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.6043956" vertical-offset="280" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
@@ -92,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="api_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="37" selection-start="485" selection-end="485" vertical-scroll-proportion="0.4945055" vertical-offset="60" max-vertical-offset="570">
+            <state line="19" column="37" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -202,10 +196,10 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tools/addhost.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
-        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       </list>
     </option>
   </component>
@@ -1037,7 +1031,11 @@
       <created>1404974025160</created>
       <updated>1404974025160</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="在addhost的时候增加dolink参数决定是否递归执行">
+      <created>1404976866628</created>
+      <updated>1404976866629</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1098,7 +1096,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加通过url提取CMS特征的脚本" />
     <MESSAGE value="修改gitignore，devise好像没有什么敏感信息，为什么也放到忽略名单，脑袋秀逗了。" />
     <MESSAGE value="修改停止任务，原来老是有worker的残像" />
     <MESSAGE value="修改停止任务，原来老是有worker的残像&#10;" />
@@ -1123,7 +1120,8 @@
     <MESSAGE value="自动提交更新网站的连接" />
     <MESSAGE value="增加配置模板，以免丢失" />
     <MESSAGE value="完善说明文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善说明文档" />
+    <MESSAGE value="在addhost的时候增加dolink参数决定是否递归执行" />
+    <option name="LAST_COMMIT_MESSAGE" value="在addhost的时候增加dolink参数决定是否递归执行" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1452,13 +1450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="71" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="9" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
@@ -1480,13 +1471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="10" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0" vertical-offset="1090" max-vertical-offset="1545">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/test/url_submit.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="5" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
@@ -1503,7 +1487,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="37" selection-start="485" selection-end="485" vertical-scroll-proportion="0.4945055" vertical-offset="60" max-vertical-offset="570">
+        <state line="19" column="37" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="71" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="847" selection-end="847" vertical-scroll-proportion="0.6043956" vertical-offset="280" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>

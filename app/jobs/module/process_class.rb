@@ -27,12 +27,12 @@ class Processor
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= Processor.new( @@db)
     puts @@p,Process.pid
-    @@p.add_host_to_webdb(url)
+    @@p.add_host_to_webdb(url,false,dolink)
   end
 
 
   #最上层函数，添加host到数据库
-  def add_host_to_webdb(host, force=false)
+  def add_host_to_webdb(host, force=false, dolink=false)
     host = host.downcase
     return -1 if host.include?('/')
 
