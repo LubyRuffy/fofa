@@ -42,11 +42,8 @@ while true
       #@pool.process(h) { |h|
         #puts "======#{h['id']} -> #{h['host']}======"
         print h['id'].to_s+" "
-        arr = []
-        h['body'].scan(/(http[s]?:\/\/.*?)[ \/\'\"\>]/).each{|x|
-          arr << hostinfo_of_url(x[0].downcase) if x[0].size>8 && x[0].include?('.')
-        }
-        arr.uniq.each{|a|
+        arr = get_linkes(h['body'])
+        arr.each{|a|
           hosts << a
         }
       #}

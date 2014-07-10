@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
 require 'domainatrix'
+require 'resque'
+root_path = File.expand_path(File.dirname(__FILE__))
+require root_path+"/lrlink.rb"
 
 class Processor
   include HttpModule
+  include Lrlink
 
   @queue = "process_url"
   @webdb = nil
@@ -16,6 +20,14 @@ class Processor
       return url
     end
     nil
+  end
+
+  def self.perform(url)
+    root_path = File.expand_path(File.dirname(__FILE__))
+    @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
+    @@p ||= Processor.new( @@db)
+    puts @@p,Process.pid
+    @@p.add_host_to_webdb(url)
   end
 
 
@@ -62,6 +74,14 @@ class Processor
         #更新子域名表
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
       end
+
+      get_linkes(http_info[:utf8html]).each {|h|
+        root_path = File.expand_path(File.dirname(__FILE__))
+        rails_env = 'production'
+        resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
+        Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
+        Resque.enqueue(Processor, h)
+      }
 
       return 0
     else

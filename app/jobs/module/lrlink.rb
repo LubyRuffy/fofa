@@ -22,4 +22,12 @@ module Lrlink
       nil
     end
   end
+
+  def get_linkes(html)
+    arr = []
+    html.scan(/(http[s]?:\/\/.*?)[ \/\'\"\>]/).each{|x|
+      arr << hostinfo_of_url(x[0].downcase) if x[0].size>8 && x[0].include?('.')
+    }
+    arr.uniq
+  end
 end
