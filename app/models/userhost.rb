@@ -36,7 +36,7 @@ class Userhost < ActiveRecord::Base
     @host = hostinfo_of_url(@host)
     url = Domainatrix.parse(@host)
     if url.domain.size<1 || !url.public_suffix
-      @info = "HOST格式错误"
+      @info = "HOST格式错误: #{@host}"
       @error = true
     end
     if !@error

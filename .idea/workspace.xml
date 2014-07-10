@@ -66,7 +66,7 @@
       <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="32" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.6831169" vertical-offset="592" max-vertical-offset="1065">
+            <state line="36" column="34" selection-start="883" selection-end="883" vertical-scroll-proportion="0.37142858" vertical-offset="397" max-vertical-offset="1065">
               <folding />
             </state>
           </provider>
@@ -908,7 +908,11 @@
       <created>1404959103750</created>
       <updated>1404959103750</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="支持批量提交host&#10;">
+      <created>1404959215391</created>
+      <updated>1404959215391</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -969,7 +973,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加用户头像管理功能。&#10;" />
     <MESSAGE value="修改rake" />
     <MESSAGE value="增加直接从数据库中提取连接的工具" />
     <MESSAGE value="修复标题显示中文错误的问题" />
@@ -994,7 +997,8 @@
     <MESSAGE value="修复提取标题时nokogiri奔溃的问题（如partner.funshion.com），默认先直接正则匹配&#10;" />
     <MESSAGE value="90天更新的逻辑错误，尽更新最新的了。。。" />
     <MESSAGE value="支持批量提交host" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持批量提交host" />
+    <MESSAGE value="支持批量提交host&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="支持批量提交host&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1371,7 +1375,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="32" selection-start="1499" selection-end="1499" vertical-scroll-proportion="0.6831169" vertical-offset="592" max-vertical-offset="1065">
+        <state line="36" column="34" selection-start="883" selection-end="883" vertical-scroll-proportion="0.37142858" vertical-offset="397" max-vertical-offset="1065">
           <folding />
         </state>
       </provider>
