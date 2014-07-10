@@ -1,7 +1,7 @@
 require 'domainatrix'
 require 'uri'
 
-Module Lrlink
+module Lrlink
   def get_domain_info_by_host(host)
     url = Domainatrix.parse(host)
     if url.domain && url.public_suffix
