@@ -10,6 +10,17 @@ module Lrlink
     nil
   end
 
+  def host_of_url(url)
+    begin
+      url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
+      url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
+      uri = URI(url)
+      uri.host
+    rescue => e
+      nil
+    end
+  end
+
   def hostinfo_of_url(url)
     begin
       url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
