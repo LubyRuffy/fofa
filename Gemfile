@@ -79,3 +79,4 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 
 gem 'diff-lcs'
 gem 'thread'
+gem 'resque-loner'

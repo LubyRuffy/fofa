@@ -1,15 +1,18 @@
 #!/usr/bin/env ruby
 require 'domainatrix'
 require 'resque'
+require 'resque-loner'
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/lrlink.rb"
 
 class Processor
   include HttpModule
   include Lrlink
+  include Resque::Plugins::UniqueJob
 
   @queue = "process_url"
   @webdb = nil
+
   def initialize(webdb)
     @webdb = webdb
   end

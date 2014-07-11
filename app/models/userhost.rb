@@ -1,4 +1,5 @@
 require "resque"
+require 'resque-loner'
 require 'uri'
 require 'open-uri'
 require "#{Rails.root}/app/jobs/url_worker.rb"
