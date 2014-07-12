@@ -32,20 +32,21 @@ class QuickProcessor
     @pool ||= Thread.pool(20)
     hosts.split(',').each {|h|
       @pool.process(h) {|host|
+        domain = nil
         host = host.downcase
         if host =~ /\d+\.\d+\.\d+\.\d/
           domain = host
         else
           domain_info = get_domain_info_by_host(host)
-          #pp domain_info
-          return -2 if !domain_info
-          domain = domain_info.domain+'.'+domain_info.public_suffix
+          domain = domain_info.domain+'.'+domain_info.public_suffix if  domain_info
         end
-        #获取http信息
-        http_info = get_http(host)
-        if http_info && ! http_info[:error]
-          @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
-          return 0
+
+        if domain
+          #获取http信息
+          http_info = get_http(host)
+          if http_info && ! http_info[:error]
+            @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
+          end
         end
       }
     }
