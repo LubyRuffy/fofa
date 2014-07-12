@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/resque_worker_client.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/resque.rb" afterPath="$PROJECT_DIR$/config/initializers/resque.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -119,7 +116,7 @@
       <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="20" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.52747256" vertical-offset="390" max-vertical-offset="1755">
+            <state line="104" column="53" selection-start="3234" selection-end="3234" vertical-scroll-proportion="0.5714286" vertical-offset="1300" max-vertical-offset="1755">
               <folding />
             </state>
           </provider>
@@ -1082,7 +1079,11 @@
       <created>1405134185923</created>
       <updated>1405134185923</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。&#10;">
+      <created>1405138251797</created>
+      <updated>1405138251797</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1143,7 +1144,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="支持提交ip&#10;" />
     <MESSAGE value="修复无线循环的问题" />
     <MESSAGE value="修复无线循环的问题&#10;" />
     <MESSAGE value="修复提取标题时nokogiri奔溃的问题（如partner.funshion.com），默认先直接正则匹配&#10;" />
@@ -1168,7 +1168,8 @@
     <MESSAGE value="增加redis任务队列去重工具" />
     <MESSAGE value="增加zmap下的web_probe.rb工具，用于进行快速特征数据导入" />
     <MESSAGE value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。" />
+    <MESSAGE value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1504,7 +1505,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="20" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.52747256" vertical-offset="390" max-vertical-offset="1755">
+        <state line="104" column="53" selection-start="3234" selection-end="3234" vertical-scroll-proportion="0.5714286" vertical-offset="1300" max-vertical-offset="1755">
           <folding />
         </state>
       </provider>

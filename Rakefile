@@ -102,7 +102,7 @@ def run_worker(queue, count = 1)
   puts "Starting #{count} worker(s) with QUEUE: #{queue}"
   ops = {:pgroup => true, :err => [(Rails.root + "log/workers_error.log").to_s, "a"],
                           :out => [(Rails.root + "log/workers.log").to_s, "a"]}
-  env_vars = {"QUEUE" => queue.to_s, "COUNT" => 5.to_s}
+  env_vars = {"QUEUE" => queue.to_s, "COUNT" => count.to_s}
   count.times {
     ## Using Kernel.spawn and Process.detach because regular system() call would
     ## cause the processes to quit when capistrano finishes
