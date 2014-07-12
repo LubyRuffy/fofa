@@ -4,7 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 #require 'thinking_sphinx/tasks' 
 
-Webdbweb::Application.load_tasks
+Fofa::Application.load_tasks
 
 namespace :fofa do
 

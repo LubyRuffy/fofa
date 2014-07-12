@@ -8,7 +8,7 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 
 
-module Webdbweb
+module Fofa
   class Application < Rails::Application
 
     # Settings in config/environments/* take precedence over those specified here.

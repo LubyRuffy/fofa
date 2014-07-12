@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Webdbweb::Application.config.secret_key_base = '73399e7964185aadbb47958d4a116dd295ca5c2aee21110dc7caf0a5ad16f4808abca54bb9803a9d88f952685cc479d39d7859c6066fda1ad944593dc2b2e1d5'
+Fofa::Application.config.secret_key_base = '73399e7964185aadbb47958d4a116dd295ca5c2aee21110dc7caf0a5ad16f4808abca54bb9803a9d88f952685cc479d39d7859c6066fda1ad944593dc2b2e1d5'
