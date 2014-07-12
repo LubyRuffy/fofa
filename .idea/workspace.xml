@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -44,19 +42,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="5" selection-start="2079" selection-end="2079" vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1785">
+            <state line="54" column="33" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.62637365" vertical-offset="525" max-vertical-offset="1860">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="91" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.8021978" vertical-offset="865" max-vertical-offset="1350">
+            <state line="82" column="91" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.0" vertical-offset="865" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -201,8 +199,8 @@
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -1248,7 +1246,11 @@
       <created>1405164918045</created>
       <updated>1405164918046</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="修改主页和样式">
+      <created>1405165336356</created>
+      <updated>1405165336356</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1309,7 +1311,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修复环境变量错误&#10;" />
     <MESSAGE value="支持批量提交host&#10;" />
     <MESSAGE value="支持批量提交host,&#10;skip_before_filter :verify_authenticity_token ，api接口需要关闭token的要求&#10;" />
     <MESSAGE value="增加并发量" />
@@ -1334,7 +1335,8 @@
     <MESSAGE value="增加activeadmin管理，包括用户管理，规则管理，用户提交域名管理等&#10;" />
     <MESSAGE value="更新控制面板首页" />
     <MESSAGE value="更新控制面板首页&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新控制面板首页&#10;" />
+    <MESSAGE value="修改主页和样式" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改主页和样式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1706,16 +1708,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="5" selection-start="2079" selection-end="2079" vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="1785">
+        <state line="82" column="91" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.0" vertical-offset="865" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="91" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.8021978" vertical-offset="865" max-vertical-offset="1350">
+        <state line="54" column="33" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.62637365" vertical-offset="525" max-vertical-offset="1860">
           <folding />
         </state>
       </provider>

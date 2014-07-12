@@ -51,6 +51,8 @@ namespace :fofa do
     syscmd = "cd #{current_path} ; kill -s USR2 `cat tmp/unicorn.pid`"
     puts "Running syscmd: #{syscmd}"
     system(syscmd)
+
+    Rake::Task["fofa:precompile"]
   end
 
   desc "Start unicorn"
@@ -59,10 +61,13 @@ namespace :fofa do
     puts "Running syscmd: #{syscmd}"
     system(syscmd)
 
-    #environment "RAILS_ENV" => 'production'
+    Rake::Task["fofa:precompile"]
+  end
+
+  desc "Precompile assets"
+  task :precompile => :environment do
     ENV['RAKE_ENV'] = 'production'
     Rake::Task["assets:precompile"] #assets:precompile RAILS_ENV=production
-    #Rake::Task["assets:precompile"]
   end
 
   desc "Stop unicorn"
