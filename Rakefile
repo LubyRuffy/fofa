@@ -62,6 +62,7 @@ namespace :fofa do
     #environment "RAILS_ENV" => 'production'
     ENV['RAKE_ENV'] = 'production'
     Rake::Task["assets:precompile"] #assets:precompile RAILS_ENV=production
+    Rake::Task["assets:precompile"]
   end
 
   desc "Stop unicorn"
