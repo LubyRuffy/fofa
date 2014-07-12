@@ -23,6 +23,7 @@ class QuickProcessor
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= QuickProcessor.new( @@db)
+    puts "#{@@p.class.name}.perform called"
     @@p.add_host_to_webdb(url)
   end
 
@@ -60,7 +61,7 @@ class Processor
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= Processor.new( @@db)
-    puts @@p,Process.pid
+    puts "#{@@p.class.name}.perform called"
     @@p.add_host_to_webdb(url,false)
   end
 

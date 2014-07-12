@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/resque_worker_client.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/resque.rb" afterPath="$PROJECT_DIR$/config/initializers/resque.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -42,10 +44,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="49" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="810">
+            <state line="13" column="30" selection-start="298" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2145">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resque_worker_client.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/resque_worker_client.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="0" selection-start="2033" selection-end="2033" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="1755">
               <folding />
             </state>
           </provider>
@@ -54,34 +74,7 @@
       <file leaf-file-name="uniq_process_url.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/uniq_process_url.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="7" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web_probe.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/zmap_probe/web_probe.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="9" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="12" selection-start="2475" selection-end="2475" vertical-scroll-proportion="0.0" vertical-offset="1148" max-vertical-offset="1635">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="64" selection-start="4673" selection-end="4673" vertical-scroll-proportion="0.0" vertical-offset="2043" max-vertical-offset="2655">
+            <state line="3" column="0" selection-start="52" selection-end="320" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
               <folding />
             </state>
           </provider>
@@ -90,43 +83,52 @@
       <file leaf-file-name="addhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="58" selection-start="317" selection-end="371" vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="750">
+            <state line="14" column="61" selection-start="218" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="url_worker.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
+      <file leaf-file-name="analysis_fingerprint_from_urls.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="25" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+            <state line="86" column="24" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0" vertical-offset="1090" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+      <file leaf-file-name="anaylysis_daemon.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/anaylysis_daemon.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="5" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+            <state line="47" column="38" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="825">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <file leaf-file-name="db_link_crawler.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="15" selection-start="1062" selection-end="1062" vertical-scroll-proportion="1.5164835" vertical-offset="0" max-vertical-offset="2130">
+            <state line="47" column="9" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1170">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="23" selection-start="3418" selection-end="3418" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+            <state line="42" column="20" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.52747256" vertical-offset="390" max-vertical-offset="1755">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resque.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="106" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -150,8 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_work_test.rb" />
         <option value="$PROJECT_DIR$/app/views/user/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
@@ -189,7 +189,6 @@
         <option value="$PROJECT_DIR$/config/development.sphinx.conf" />
         <option value="$PROJECT_DIR$/tools/addhost.rb" />
         <option value="$PROJECT_DIR$/app/jobs/test/url_submit.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/info/library.html.erb" />
@@ -200,7 +199,10 @@
         <option value="$PROJECT_DIR$/tools/zmap_probe/web_proble.rb" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
+        <option value="$PROJECT_DIR$/config/initializers/resque.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/tools/resque_worker_client.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -344,46 +346,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jobs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jobs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1116,7 +1078,11 @@
       <created>1405050188369</created>
       <updated>1405050188369</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。">
+      <created>1405134185923</created>
+      <updated>1405134185923</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1177,7 +1143,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加每天的保表更新工具，如果crontab -e编辑一下" />
     <MESSAGE value="支持提交ip&#10;" />
     <MESSAGE value="修复无线循环的问题" />
     <MESSAGE value="修复无线循环的问题&#10;" />
@@ -1202,7 +1167,8 @@
     <MESSAGE value="增加resque-loner，任务队列去重。&#10;" />
     <MESSAGE value="增加redis任务队列去重工具" />
     <MESSAGE value="增加zmap下的web_probe.rb工具，用于进行快速特征数据导入" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加zmap下的web_probe.rb工具，用于进行快速特征数据导入" />
+    <MESSAGE value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1230,11 +1196,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/thinking_sphinx.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/thinking-sphinx-3.1.1/lib/thinking_sphinx.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="0" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="1275" />
@@ -1282,11 +1243,6 @@
         <state line="23" column="10" selection-start="730" selection-end="730" vertical-scroll-proportion="-4.0833335" vertical-offset="247" max-vertical-offset="1860" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/anaylysis_daemon.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="38" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="840" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="51" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="645" />
@@ -1312,18 +1268,6 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/userhost_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="29" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="9" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1170" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="24" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib/ruby-debug-ide.rb">
@@ -1376,19 +1320,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2880" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="1755" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/resque-1.25.2/lib/resque.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="297" column="53" selection-start="8402" selection-end="8402" vertical-scroll-proportion="0.0" vertical-offset="4288" max-vertical-offset="7275" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
@@ -1463,30 +1397,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="49" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="58" selection-start="317" selection-end="371" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/uniq_process_url.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="7" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
           <folding />
         </state>
       </provider>
@@ -1505,13 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="23" selection-start="3418" selection-end="3418" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="5" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
@@ -1526,9 +1432,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="25" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="106" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="61" selection-start="218" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="24" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/anaylysis_daemon.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="38" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="9" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="1755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/uniq_process_url.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="52" selection-end="320" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/resque_worker_client.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="2033" selection-end="2033" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="15" selection-start="1062" selection-end="1062" vertical-scroll-proportion="1.5164835" vertical-offset="0" max-vertical-offset="2130">
+        <state line="13" column="30" selection-start="298" selection-end="316" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2145">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="20" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.52747256" vertical-offset="390" max-vertical-offset="1755">
           <folding />
         </state>
       </provider>
