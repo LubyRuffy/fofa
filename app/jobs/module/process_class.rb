@@ -33,6 +33,14 @@ class QuickProcessor
     host.split(',').each {|h|
       @pool.process(h) {|h|
         host = h.downcase
+        if host =~ /\d+\.\d+\.\d+\.\d/
+          domain = host
+        else
+          domain_info = get_domain_info_by_host(host)
+          #pp domain_info
+          return -2 if !domain_info
+          domain = domain_info.domain+'.'+domain_info.public_suffix
+        end
         #获取http信息
         http_info = get_http(host)
         if http_info && ! http_info[:error]
