@@ -28,11 +28,11 @@ class QuickProcessor
   end
 
   #最上层函数，添加host到数据库
-  def add_host_to_webdb(host)
+  def add_host_to_webdb(hosts)
     @pool ||= Thread.pool(20)
-    host.split(',').each {|h|
-      @pool.process(h) {|h|
-        host = h.downcase
+    hosts.split(',').each {|h|
+      @pool.process(h) {|host|
+        host = host.downcase
         if host =~ /\d+\.\d+\.\d+\.\d/
           domain = host
         else
