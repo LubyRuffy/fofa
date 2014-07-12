@@ -1,9 +1,48 @@
 #!/usr/bin/env ruby
 require 'domainatrix'
 require 'resque'
+require 'thread/pool'
 require 'resque-loner'
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/lrlink.rb"
+
+class QuickProcessor
+  include HttpModule
+  include Lrlink
+  include Resque::Plugins::UniqueJob
+
+  @queue = "quick_process_host"
+  @webdb = nil
+  @pool = nil
+
+  def initialize(webdb)
+    @webdb = webdb
+  end
+
+  def self.perform(url)
+    root_path = File.expand_path(File.dirname(__FILE__))
+    @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
+    @@p ||= QuickProcessor.new( @@db)
+    @@p.add_host_to_webdb(url)
+  end
+
+  #最上层函数，添加host到数据库
+  def add_host_to_webdb(host)
+    @pool ||= Thread.pool(20)
+    host.split(',').each {|h|
+      @pool.process(h) {|h|
+        host = h.downcase
+        #获取http信息
+        http_info = get_http(host)
+        if http_info && ! http_info[:error]
+          @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
+          return 0
+        end
+      }
+    }
+    @pool.shutdown
+  end
+end
 
 class Processor
   include HttpModule
@@ -15,14 +54,6 @@ class Processor
 
   def initialize(webdb)
     @webdb = webdb
-  end
-
-  def get_domain_info_by_host(host)
-    url = Domainatrix.parse(host)
-    if url.domain && url.public_suffix
-      return url
-    end
-    nil
   end
 
   def self.perform(url)
@@ -55,7 +86,7 @@ class Processor
     #检查是否需要更新
     if !force && !@webdb.need_update_host(host)
       #puts "#{host} no need to update"
-      return 1 
+      return 1
     end
 
     #更新检查时间
@@ -88,9 +119,10 @@ class Processor
         resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
         Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
 
-        hosts.each {|h|
-          Resque.enqueue(Processor, h)
-        }
+        #hosts.each {|h|
+        #  Resque.enqueue(Processor, h)
+        #}
+        Resque.enqueue(QuickProcessor, hosts.join(','))
       end
 
       return 0

@@ -92,4 +92,13 @@ worker就是用来执行任务的（也就是爬虫）
 * link_crawler.rb 输入一个其实url，递归爬行host的工具，只爬首页
 * addhost.rb 测试模拟处理url的工具，可以制定是否强制刷新（默认90天内更新的不会处理）
 
+可选cron任务：
+---
+* 每天3点更新一下统计数据：
+    03 00 * * * $SS_DIR/fofa/tools/anaylysis_daemon.rb >> $SS_DIR/analysis_cms_crontab.log
+* 每5分钟执行一次增量索引：
+    */1 * * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1delta --rotate >> $SS_DIR/sphinx_crontab_delta.log
 
+查看redis任务队列：
+---
+watch -n 5 redis-cli -hlocahost llen resque:queue:process_url
