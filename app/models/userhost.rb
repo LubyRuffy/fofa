@@ -6,9 +6,10 @@ require "#{Rails.root}/app/jobs/url_worker.rb"
 require "#{Rails.root}/app/jobs/module/lrlink.rb"
 
 class Userhost < ActiveRecord::Base
-  include Lrlink
+
 
   def self.add_single_host(submit_host, ip)
+    include Lrlink
     @info = ''
     @error = false
     @host = submit_host
