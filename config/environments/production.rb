@@ -79,4 +79,6 @@ Fofa::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { host: 'fofa.so' }
+
+  config.assets.precompile += %w( active_admin.css active_admin/print.css active_admin.js )
 end
