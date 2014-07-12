@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/resque.rb" afterPath="$PROJECT_DIR$/config/initializers/resque.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -113,19 +114,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="20" selection-start="3196" selection-end="3201" vertical-scroll-proportion="0.0" vertical-offset="1300" max-vertical-offset="1755">
+            <state line="104" column="21" selection-start="3196" selection-end="3202" vertical-scroll-proportion="0.73626375" vertical-offset="1225" max-vertical-offset="1755">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resque.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="resque.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="26" selection-start="316" selection-end="316" vertical-scroll-proportion="0.16483517" vertical-offset="0" max-vertical-offset="455">
+            <state line="5" column="1" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
@@ -198,8 +199,8 @@
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/tools/resque_worker_client.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/config/initializers/resque.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -1119,7 +1120,11 @@
       <created>1405138406411</created>
       <updated>1405138406411</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。&#10;">
+      <created>1405138649407</created>
+      <updated>1405138649407</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1532,16 +1537,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
+    <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="20" selection-start="3196" selection-end="3201" vertical-scroll-proportion="0.0" vertical-offset="1300" max-vertical-offset="1755">
+        <state line="5" column="1" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/resque.rb">
+    <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="26" selection-start="316" selection-end="316" vertical-scroll-proportion="0.16483517" vertical-offset="0" max-vertical-offset="455">
+        <state line="104" column="21" selection-start="3196" selection-end="3202" vertical-scroll-proportion="0.73626375" vertical-offset="1225" max-vertical-offset="1755">
           <folding />
         </state>
       </provider>
