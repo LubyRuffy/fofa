@@ -8,8 +8,9 @@ require "#{Rails.root}/app/jobs/module/lrlink.rb"
 include Lrlink
 
 class Userhost < ActiveRecord::Base
-  def self.add_single_host(submit_host, ip)
+  has_many :rule
 
+  def self.add_single_host(submit_host, ip)
     @info = ''
     @error = false
     @host = submit_host

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712090445) do
+ActiveRecord::Schema.define(version: 20140712124644) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 20140712090445) do
     t.string   "rule"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.boolean  "published"
   end
 
   create_table "sph_counter", primary_key: "counter_id", force: true do |t|

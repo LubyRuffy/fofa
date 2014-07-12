@@ -1,8 +1,11 @@
 ActiveAdmin.register Rule do
+
+  belongs_to :user, :optional => true
+  navigation_menu :user
+
   menu :label => "规则管理", :priority => 1
 
-
-  permit_params :product, :rule, :producturl
+  permit_params :product, :rule, :producturl, :published
 
   index do
     selectable_column
@@ -10,6 +13,8 @@ ActiveAdmin.register Rule do
     column :product
     column :rule
     column :producturl
+    column :user
+    column :published
     actions
   end
 
@@ -18,6 +23,8 @@ ActiveAdmin.register Rule do
       f.input :product
       f.input :producturl
       f.input :rule
+      f.input :user
+      f.input :published
     end
     f.actions
   end

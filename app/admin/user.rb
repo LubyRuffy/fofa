@@ -1,4 +1,11 @@
 ActiveAdmin.register User do
+
+  sidebar "Rule Details", only: [:show, :edit] do
+    ul do
+      li link_to("Rule", admin_user_rules_path(user))
+    end
+  end
+
   menu :label => "用户管理", :priority => 4
   permit_params :email, :password, :password_confirmation, :isadmin
 
