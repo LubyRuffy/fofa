@@ -63,7 +63,7 @@
       <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="18" selection-start="271" selection-end="271" vertical-scroll-proportion="0.33665836" vertical-offset="30" max-vertical-offset="825">
+            <state line="9" column="35" selection-start="222" selection-end="222" vertical-scroll-proportion="0.33665836" vertical-offset="0" max-vertical-offset="825">
               <folding />
             </state>
           </provider>
@@ -1238,7 +1238,11 @@
       <created>1405164762632</created>
       <updated>1405164762632</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="更新控制面板首页&#10;">
+      <created>1405164841626</created>
+      <updated>1405164841627</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1703,7 +1707,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="18" selection-start="271" selection-end="271" vertical-scroll-proportion="0.33665836" vertical-offset="30" max-vertical-offset="825">
+        <state line="9" column="35" selection-start="222" selection-end="222" vertical-scroll-proportion="0.33665836" vertical-offset="0" max-vertical-offset="825">
           <folding />
         </state>
       </provider>

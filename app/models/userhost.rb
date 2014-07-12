@@ -5,11 +5,11 @@ require 'open-uri'
 require "#{Rails.root}/app/jobs/url_worker.rb"
 require "#{Rails.root}/app/jobs/module/lrlink.rb"
 
+include Lrlink
+
 class Userhost < ActiveRecord::Base
-
-
   def self.add_single_host(submit_host, ip)
-    include Lrlink
+
     @info = ''
     @error = false
     @host = submit_host
