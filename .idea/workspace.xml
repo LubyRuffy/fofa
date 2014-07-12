@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -78,15 +80,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addhost.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="61" selection-start="218" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="analysis_fingerprint_from_urls.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -114,10 +107,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="63" selection-start="1384" selection-end="1384" vertical-scroll-proportion="-1.4617068" vertical-offset="1313" max-vertical-offset="1770">
+            <state line="112" column="3" selection-start="3548" selection-end="3548" vertical-scroll-proportion="0.0" vertical-offset="1313" max-vertical-offset="1770">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="12" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.6717724" vertical-offset="893" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -191,7 +193,6 @@
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/info/library.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/uniq_process_url.rb" />
         <option value="$PROJECT_DIR$/tools/zmap_probe/web_proble.rb" />
@@ -201,6 +202,7 @@
         <option value="$PROJECT_DIR$/config/initializers/resque.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -1117,7 +1119,11 @@
       <created>1405148659988</created>
       <updated>1405148659988</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="修改默认启动worker的方式和数量">
+      <created>1405148795596</created>
+      <updated>1405148795596</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1178,7 +1184,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修复无线循环的问题" />
     <MESSAGE value="修复无线循环的问题&#10;" />
     <MESSAGE value="修复提取标题时nokogiri奔溃的问题（如partner.funshion.com），默认先直接正则匹配&#10;" />
     <MESSAGE value="90天更新的逻辑错误，尽更新最新的了。。。" />
@@ -1203,7 +1208,8 @@
     <MESSAGE value="增加zmap下的web_probe.rb工具，用于进行快速特征数据导入" />
     <MESSAGE value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。" />
     <MESSAGE value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加quick_process_host队列，递归出来的host直接进入快速处理器，不做任何数据库判断，且通过线程池进行批量处理。&#10;" />
+    <MESSAGE value="修改默认启动worker的方式和数量" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改默认启动worker的方式和数量" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1403,19 +1409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="18" selection-start="1865" selection-end="1865" vertical-scroll-proportion="0.0" vertical-offset="803" max-vertical-offset="1305">
-          <folding>
-            <marker date="1405045785000" expanded="true" signature="-1:-1" placeholder="#..." />
-            <marker date="1405045785000" expanded="true" signature="-1:-1" placeholder="#..." />
-            <marker date="1405045785000" expanded="true" signature="-1:-1" placeholder="#..." />
-            <marker date="1405045785000" expanded="true" signature="-1:-1" placeholder="#..." />
-            <marker date="1405045785000" expanded="true" signature="-1:-1" placeholder="#..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/api_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="30" selection-start="1391" selection-end="1391" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
@@ -1544,7 +1537,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="63" selection-start="1384" selection-end="1384" vertical-scroll-proportion="-1.4617068" vertical-offset="1313" max-vertical-offset="1770">
+        <state line="112" column="3" selection-start="3548" selection-end="3548" vertical-scroll-proportion="0.0" vertical-offset="1313" max-vertical-offset="1770">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="12" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.6717724" vertical-offset="893" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>

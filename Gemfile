@@ -8,13 +8,13 @@ gem 'will_paginate'
 #gem 'hexdump'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '4.0.3'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
@@ -80,3 +80,5 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'diff-lcs'
 gem 'thread'
 gem 'resque-loner'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
