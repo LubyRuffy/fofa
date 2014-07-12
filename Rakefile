@@ -41,8 +41,9 @@ namespace :fofa do
   task :start_workers => :environment do
     worker_cnt = ENV['WCNT'].to_i if ENV['WCNT']
     worker_cnt ||= 5
-    run_worker("process_url", worker_cnt)
-    run_worker("quick_process_host", 2)
+    run_worker(ENV['QUEUES'] || ENV['QUEUE'] || '*', worker_cnt)
+    #run_worker("process_url", worker_cnt)
+    #run_worker("quick_process_host", 2)
   end
 
   desc "Zero-downtime restart of Unicorn"
