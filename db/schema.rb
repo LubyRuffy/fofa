@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712124644) do
+ActiveRecord::Schema.define(version: 20140712125544) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -172,6 +172,13 @@ ActiveRecord::Schema.define(version: 20140712124644) do
     t.string    "clientip",  limit: 20
     t.timestamp "writetime"
     t.integer   "processed", limit: 1,  default: 0
+  end
+
+  create_table "userruleship", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "rule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

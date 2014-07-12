@@ -38,7 +38,7 @@
     获得 <%= @results.meta['total_found'] %> 条匹配结果，
     用时 <%= @results.meta['time'] %>秒，模式:<%=@mode%>。
     <% if @mode=='extended'%>
-        <%= link_to '提交查询规则', new_rule_path+"?qbase64="+CGI.escape(Base64.encode64(@query))%>
+        <%= link_to '收藏规则', new_rule_path+"?qbase64="+CGI.escape(Base64.encode64(@query))%>
     <% end %>
   </div>
   <div class="col-lg-4">

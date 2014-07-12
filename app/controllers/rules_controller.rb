@@ -27,7 +27,12 @@ class RulesController < ApplicationController
   # POST /rules
   # POST /rules.json
   def create
-    @rule = Rule.new(rule_params)
+    if current_user
+      @rule = current_user.rules.new(rule_params)
+    else
+      @rule = Rule.new(rule_params)
+    end
+    #@rule.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @rule.save
