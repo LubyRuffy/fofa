@@ -1,4 +1,7 @@
 ActiveAdmin.register Rule do
+  menu :label => "规则管理", :priority => 1
+
+
   permit_params :product, :rule, :producturl
 
   index do
