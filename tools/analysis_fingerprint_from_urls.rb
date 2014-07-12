@@ -4,11 +4,12 @@
 
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/../app/jobs/module/webdb2_class.rb"
+require root_path+"/../app/jobs/module/lrlink.rb"
 require 'diff/lcs'
 require 'diff/lcs/htmldiff'
 require 'uri'
 
-
+include Lrlink
 
 class Diff::LCS::HTMLDiff
   class MyCallbacks
@@ -47,20 +48,6 @@ class Diff::LCS::HTMLDiff
     callbacks = MyCallbacks.new(@options[:output])
     Diff::LCS.traverse_sequences(@left, @right, callbacks)
     @options[:output]
-  end
-end
-
-def hostinfo_of_url(url)
-  begin
-    url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
-    url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
-    uri = URI(url)
-    rr = uri.host
-    rr = rr+':'+uri.port.to_s if uri.port!=80 && uri.port!=443
-    rr
-  rescue => e
-    puts e
-    nil
   end
 end
 

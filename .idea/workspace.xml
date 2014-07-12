@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb" afterPath="$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/link_crawler.rb" afterPath="$PROJECT_DIR$/tools/link_crawler.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -60,19 +62,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="5" selection-start="575" selection-end="575" vertical-scroll-proportion="0.6593407" vertical-offset="15" max-vertical-offset="1020">
+            <state line="14" column="21" selection-start="348" selection-end="348" vertical-scroll-proportion="-1.9444444" vertical-offset="105" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="14" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1590">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analysis_fingerprint_from_urls.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="3" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1350">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="2" selection-start="471" selection-end="819" vertical-scroll-proportion="-4.6153846" vertical-offset="225" max-vertical-offset="735">
+            <state line="23" column="6" selection-start="475" selection-end="475" vertical-scroll-proportion="0.33333334" vertical-offset="202" max-vertical-offset="735">
               <folding />
             </state>
           </provider>
@@ -91,24 +111,6 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="31" column="38" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="645">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/info_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="24" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -150,8 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/search_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/rules_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/rules/_form.html.erb" />
         <option value="$PROJECT_DIR$/config/thinking_sphinx.yml" />
@@ -200,6 +200,8 @@
         <option value="$PROJECT_DIR$/app/admin/user.rb" />
         <option value="$PROJECT_DIR$/app/admin/dashboard.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
+        <option value="$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb" />
+        <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
       </list>
     </option>
@@ -1230,7 +1232,11 @@
       <created>1405164473642</created>
       <updated>1405164473642</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="更新控制面板首页&#10;">
+      <created>1405164534097</created>
+      <updated>1405164534098</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1328,7 +1334,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb</url>
-          <line>48</line>
+          <line>49</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
@@ -1427,13 +1433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="24" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1545">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/anaylysis_daemon.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="38" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.0" vertical-offset="383" max-vertical-offset="825">
@@ -1444,13 +1443,6 @@
     <entry file="file://$PROJECT_DIR$/tools/db_link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="9" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="1755">
           <folding />
         </state>
       </provider>
@@ -1672,13 +1664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/search_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="38" selection-start="827" selection-end="827" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="645">
@@ -1686,16 +1671,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+    <entry file="file://$PROJECT_DIR$/tools/analysis_fingerprint_from_urls.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="2" selection-start="471" selection-end="819" vertical-scroll-proportion="-4.6153846" vertical-offset="225" max-vertical-offset="735">
+        <state line="51" column="3" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="14" selection-start="396" selection-end="396" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/url_worker.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="25" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="575" selection-end="575" vertical-scroll-proportion="0.6593407" vertical-offset="15" max-vertical-offset="1020">
+        <state line="14" column="21" selection-start="348" selection-end="348" vertical-scroll-proportion="-1.9444444" vertical-offset="105" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="6" selection-start="475" selection-end="475" vertical-scroll-proportion="0.33333334" vertical-offset="202" max-vertical-offset="735">
           <folding />
         </state>
       </provider>

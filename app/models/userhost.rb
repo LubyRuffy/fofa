@@ -8,21 +8,7 @@ require "#{Rails.root}/app/jobs/module/lrlink.rb"
 class Userhost < ActiveRecord::Base
   include Lrlink
 
-  def hostinfo_of_url(url)
-    begin
-      url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
-      url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
-      uri = URI(url)
-      rr = uri.host
-      rr = rr+':'+uri.port.to_s if uri.port!=80 && uri.port!=443
-      rr
-    rescue => e
-      nil
-    end
-  end
-
   def self.add_single_host(submit_host, ip)
-
     @info = ''
     @error = false
     @host = submit_host
