@@ -15,7 +15,7 @@ class Thread::Pool
 end
 
 def is_bullshit_host?(host)
-  $hosts = %w|mc520.com .i.sohu.com .tumblr.com|
+  $hosts = %w|mc520.com .i.sohu.com .tumblr.com zhuangbei.net|
   $hosts.each{|h|
     return true if host.include?(h)
   }
