@@ -69,7 +69,7 @@ cnt = 0
 p = Thread::pool(200)
 while job = Resque::Job.reserve(:process_url)
   until p.idle?
-    sleep 0.1
+    sleep 2
   end
 
   cnt += 1
@@ -79,7 +79,7 @@ while job = Resque::Job.reserve(:process_url)
   }
 
   if cnt % 50 == 0
-    puts "#{cnt}"
+    print " #{cnt}\r"
   end
 end
 
