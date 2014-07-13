@@ -5,18 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/rules/index.html.erb" afterPath="$PROJECT_DIR$/app/views/rules/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/rule.rb" afterPath="$PROJECT_DIR$/app/models/rule.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/rules_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/rules_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/userhost_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/userhost_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -129,7 +117,7 @@
       <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="42" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.53846157" vertical-offset="445" max-vertical-offset="1875">
+            <state line="56" column="5" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.8681319" vertical-offset="445" max-vertical-offset="1875">
               <folding />
             </state>
           </provider>
@@ -1206,7 +1194,11 @@
       <created>1405172066160</created>
       <updated>1405172066161</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能">
+      <created>1405234231486</created>
+      <updated>1405234231486</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1267,7 +1259,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="自动提交更新网站的连接" />
     <MESSAGE value="增加配置模板，以免丢失" />
     <MESSAGE value="完善说明文档" />
     <MESSAGE value="在addhost的时候增加dolink参数决定是否递归执行" />
@@ -1292,7 +1283,8 @@
     <MESSAGE value="修改rake&#10;" />
     <MESSAGE value="增加规则并联用户，增加published字段" />
     <MESSAGE value="创建规则时绑定用户" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建规则时绑定用户" />
+    <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1672,7 +1664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="42" selection-start="1507" selection-end="1507" vertical-scroll-proportion="0.53846157" vertical-offset="445" max-vertical-offset="1875">
+        <state line="56" column="5" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.8681319" vertical-offset="445" max-vertical-offset="1875">
           <folding />
         </state>
       </provider>
