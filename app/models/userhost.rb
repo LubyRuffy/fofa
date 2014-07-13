@@ -24,7 +24,9 @@ class Userhost < ActiveRecord::Base
       host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
       if host.size<1
         @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
-        Resque.enqueue((realtime?RealtimeProcessor:Processor), @host)
+        cls = Processor
+        cls = RealtimeProcessor if realtime
+        Resque.enqueue(cls, @host)
       end
     end
     [@error,@info]
