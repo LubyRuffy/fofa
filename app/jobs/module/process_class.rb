@@ -14,6 +14,22 @@ class Thread::Pool
   end
 end
 
+def is_bullshit_host?(host)
+  HOSTS = %w|mc520.com .i.sohu.com .tumblr.com|
+  HOSTS.each{|h|
+    return true if host.include?(h)
+  }
+  false
+end
+
+def is_bullshit_ip?(ip)
+  IPS = %w|192.126.115. 198.204.238. 192.151.145. 146.71.35. 23.245.66.|
+  IPS.each{|bip|
+    return true if ip.include?(bip)
+  }
+  false
+end
+
 class QuickProcessor
   include HttpModule
   include Lrlink
@@ -40,7 +56,7 @@ class QuickProcessor
   def add_host_to_webdb(hosts)
     @pool ||= Thread.pool(20)
     hosts.split(',').each {|h|
-      if !@webdb.mysql_exists_host(h)
+      if !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h)
         @pool.process(h) {|host|
           domain = nil
           host = host.downcase
@@ -87,11 +103,11 @@ class Processor
     @@p.add_host_to_webdb(url,false)
   end
 
-
   #最上层函数，添加host到数据库
   def add_host_to_webdb(host, force=false)
     host = host.downcase
     return -1 if host.include?('/')
+    return -2 if is_bullshit_host?(host)
 
 
     domain_is_ip = false
@@ -101,7 +117,7 @@ class Processor
     else
       domain_info = get_domain_info_by_host(host)
       #pp domain_info
-      return -2 if !domain_info
+      return -3 if !domain_info
       domain = domain_info.domain+'.'+domain_info.public_suffix
     end
 
@@ -118,6 +134,9 @@ class Processor
     #获取http信息
     http_info = get_http(host)
     if http_info && ! http_info[:error]
+
+      return -4 is_bullshit_host?(http_info[:ip])
+
       #puts host
       #pp http_info
       #更新ip
