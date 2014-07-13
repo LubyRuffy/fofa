@@ -63,8 +63,9 @@ class Processor
   @queue = "process_url"
   @webdb = nil
 
-  def initialize(webdb)
+  def initialize(webdb, queue=nil)
     @webdb = webdb
+    @queue = queue || "process_url"
   end
 
   def self.perform(url)
@@ -146,10 +147,22 @@ class Processor
 end
 
 class RealtimeProcessor < Processor
+  include HttpModule
+  include Lrlink
+  include Resque::Plugins::UniqueJob
+
+  @queue = "realtime_process_list"
+  @webdb = nil
+
+  def initialize(webdb, queue=nil)
+    @webdb = webdb
+    @queue = queue || "realtime_process_list"
+  end
+
   def self.perform(url)
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
-    @@p ||= Processor.new( @@db, "realtime_process_list" )
+    @@p ||= RealtimeProcessor.new( @@db, "realtime_process_list" )
     puts "#{@@p.class.name}.perform called"
     @@p.add_host_to_webdb(url,false)
   end

@@ -308,7 +308,7 @@ module HttpModule
     rescue URI::InvalidURIError
       return nil
     end
-    path = File.join(File.dirname(__FILE__), 'results', Digest::MD5.hexdigest(url)+'.tobj')
+    path = File.join(File.dirname(__FILE__), '/../../log/results', Digest::MD5.hexdigest(url)+'.tobj')
 
     #先看文件是否存且时间小于1天
     if File.exists?(path) && !@options[:no_cache]

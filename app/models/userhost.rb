@@ -45,7 +45,7 @@ class Userhost < ActiveRecord::Base
 
       }
     else
-      return add_single_host(submit_host, ip)
+      return add_single_host(submit_host, ip, realtime)
     end
     [@error,@info]
   end

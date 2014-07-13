@@ -81,7 +81,7 @@ Fofa::Application.routes.draw do
   #     resources :products
   #   end
   require "resque_web"
-
+  ResqueWeb::Engine.eager_load!
   resque_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
   constraints resque_web_constraint do
       mount ResqueWeb::Engine => "/resque_web"
