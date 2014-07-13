@@ -32,7 +32,7 @@ class QuickProcessor
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= QuickProcessor.new( @@db)
-    puts "#{@@p.class.name}.perform called"
+    #puts "#{@@p.class.name}.perform called"
     @@p.add_host_to_webdb(url)
   end
 
@@ -83,7 +83,7 @@ class Processor
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= Processor.new( @@db)
-    puts "#{@@p.class.name}.perform called"
+    #puts "#{@@p.class.name}.perform called"
     @@p.add_host_to_webdb(url,false)
   end
 
@@ -174,7 +174,7 @@ class RealtimeProcessor < Processor
     root_path = File.expand_path(File.dirname(__FILE__))
     @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
     @@p ||= RealtimeProcessor.new( @@db, "realtime_process_list" )
-    puts "#{@@p.class.name}.perform called"
+    #puts "#{@@p.class.name}.perform called"
     @@p.add_host_to_webdb(url,false)
   end
 end
