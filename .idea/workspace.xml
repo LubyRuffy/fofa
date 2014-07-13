@@ -4,8 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -79,19 +79,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="55" selection-start="3912" selection-end="3933" vertical-scroll-proportion="0.0" vertical-offset="1960" max-vertical-offset="2415">
+            <state line="19" column="22" selection-start="424" selection-end="424" vertical-scroll-proportion="0.62637365" vertical-offset="0" max-vertical-offset="2415">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userhost.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="61" selection-start="808" selection-end="808" vertical-scroll-proportion="0.5714286" vertical-offset="130" max-vertical-offset="840">
+            <state line="26" column="61" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="840">
               <folding />
             </state>
           </provider>
@@ -197,11 +197,11 @@
         <option value="$PROJECT_DIR$/app/models/rule.rb" />
         <option value="$PROJECT_DIR$/app/models/userruleship.rb" />
         <option value="$PROJECT_DIR$/app/controllers/rules_controller.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/controllers/userhost_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       </list>
     </option>
   </component>
@@ -1203,7 +1203,11 @@
       <created>1405234503540</created>
       <updated>1405234503540</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能&#10;">
+      <created>1405234653721</created>
+      <updated>1405234653721</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1653,13 +1657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="55" selection-start="3912" selection-end="3933" vertical-scroll-proportion="0.0" vertical-offset="1960" max-vertical-offset="2415">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="2" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1875">
@@ -1669,7 +1666,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="61" selection-start="808" selection-end="808" vertical-scroll-proportion="0.5714286" vertical-offset="130" max-vertical-offset="840">
+        <state line="26" column="61" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="22" selection-start="424" selection-end="424" vertical-scroll-proportion="0.62637365" vertical-offset="0" max-vertical-offset="2415">
           <folding />
         </state>
       </provider>

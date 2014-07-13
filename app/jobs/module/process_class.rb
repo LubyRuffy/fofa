@@ -15,9 +15,9 @@ class QuickProcessor
   @webdb = nil
   @pool = nil
 
-  def initialize(webdb, @queue=nil)
+  def initialize(webdb, queue=nil)
     @webdb = webdb
-    @queue || = "quick_process_host"
+    @queue = queue || "quick_process_host"
   end
 
   def self.perform(url)
