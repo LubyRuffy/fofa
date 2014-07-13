@@ -40,24 +40,26 @@ class QuickProcessor
   def add_host_to_webdb(hosts)
     @pool ||= Thread.pool(20)
     hosts.split(',').each {|h|
-      @pool.process(h) {|host|
-        domain = nil
-        host = host.downcase
-        if host =~ /\d+\.\d+\.\d+\.\d/
-          domain = host
-        else
-          domain_info = get_domain_info_by_host(host)
-          domain = domain_info.domain+'.'+domain_info.public_suffix if  domain_info
-        end
-
-        if domain
-          #获取http信息
-          http_info = get_http(host)
-          if http_info && ! http_info[:error]
-            @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
+      if !@webdb.mysql_exists_host(h)
+        @pool.process(h) {|host|
+          domain = nil
+          host = host.downcase
+          if host =~ /\d+\.\d+\.\d+\.\d/
+            domain = host
+          else
+            domain_info = get_domain_info_by_host(host)
+            domain = domain_info.domain+'.'+domain_info.public_suffix if  domain_info
           end
-        end
-      }
+
+          if domain
+            #获取http信息
+            http_info = get_http(host)
+            if http_info && ! http_info[:error]
+              @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
+            end
+          end
+        }
+      end
     }
     @pool.wait_until_finished
     #@pool.shutdown

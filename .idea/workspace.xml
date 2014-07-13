@@ -91,7 +91,7 @@
       <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="19" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.6376518" vertical-offset="480" max-vertical-offset="2745">
+            <state line="42" column="37" selection-start="983" selection-end="983" vertical-scroll-proportion="0.15182187" vertical-offset="555" max-vertical-offset="2775">
               <folding />
             </state>
           </provider>
@@ -1277,7 +1277,11 @@
       <created>1405241324559</created>
       <updated>1405241324559</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="threadpool只wait_done，不用shutdown">
+      <created>1405242777031</created>
+      <updated>1405242777031</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1338,7 +1342,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="在addhost的时候增加dolink参数决定是否递归执行" />
     <MESSAGE value="在addhost的时候增加dolink参数决定是否递归执行&#10;" />
     <MESSAGE value="开5个线程" />
     <MESSAGE value="递归的只处理没有的host，已经存在的不进行更新" />
@@ -1363,7 +1366,8 @@
     <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能" />
     <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能&#10;" />
     <MESSAGE value="threadpool先要wait_done，然后才能shutdown，否则会出现错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="threadpool先要wait_done，然后才能shutdown，否则会出现错误" />
+    <MESSAGE value="threadpool只wait_done，不用shutdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="threadpool只wait_done，不用shutdown" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1385,7 +1389,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/process_class.rb</url>
-          <line>62</line>
+          <line>64</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
@@ -1748,7 +1752,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="19" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.6376518" vertical-offset="480" max-vertical-offset="2745">
+        <state line="42" column="37" selection-start="983" selection-end="983" vertical-scroll-proportion="0.15182187" vertical-offset="555" max-vertical-offset="2775">
           <folding />
         </state>
       </provider>
