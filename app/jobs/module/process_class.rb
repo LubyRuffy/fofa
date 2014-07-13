@@ -6,6 +6,14 @@ require 'resque-loner'
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/lrlink.rb"
 
+class Thread::Pool
+  def wait_until_finished
+    until self.wait_done.nil?
+      self.wait_done
+    end
+  end
+end
+
 class QuickProcessor
   include HttpModule
   include Lrlink
@@ -51,8 +59,8 @@ class QuickProcessor
         end
       }
     }
-    @pool.wait_done
-    @pool.shutdown
+    @pool.wait_until_finished
+    #@pool.shutdown
   end
 end
 
