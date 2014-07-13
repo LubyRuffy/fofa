@@ -15,8 +15,9 @@ class QuickProcessor
   @webdb = nil
   @pool = nil
 
-  def initialize(webdb)
+  def initialize(webdb, @queue=nil)
     @webdb = webdb
+    @queue || = "quick_process_host"
   end
 
   def self.perform(url)
@@ -144,3 +145,12 @@ class Processor
 
 end
 
+class RealtimeProcessor < Processor
+  def self.perform(url)
+    root_path = File.expand_path(File.dirname(__FILE__))
+    @@db ||= WebDb.new(root_path+"/../../../config/database.yml")
+    @@p ||= Processor.new( @@db, "realtime_process_list" )
+    puts "#{@@p.class.name}.perform called"
+    @@p.add_host_to_webdb(url,false)
+  end
+end

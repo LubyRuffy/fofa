@@ -1,5 +1,6 @@
 class RulesController < ApplicationController
-  before_action :set_rule, only: [:show, :edit, :update, :destroy]
+  before_action :set_rule, only: [:show, :edit, :update, :destroy, :save]
+  #before_filter :require_user
 
   # GET /rules
   # GET /rules.json
@@ -10,6 +11,7 @@ class RulesController < ApplicationController
   # GET /rules/1
   # GET /rules/1.json
   def show
+
   end
 
   # GET /rules/new
@@ -22,6 +24,17 @@ class RulesController < ApplicationController
 
   # GET /rules/1/edit
   def edit
+    require_user
+
+    unless @rule
+      flash[:alert] = "规则不存在！"
+      return redirect_to rules_path
+    end
+
+    unless @rule.users == current_user
+      flash[:alert] = "只能管理自己的规则！"
+      return redirect_to rules_path
+    end
   end
 
   # POST /rules
@@ -32,7 +45,6 @@ class RulesController < ApplicationController
     else
       @rule = Rule.new(rule_params)
     end
-    #@rule.user_id = current_user.id if current_user
 
     respond_to do |format|
       if @rule.save
@@ -53,6 +65,18 @@ class RulesController < ApplicationController
   # PATCH/PUT /rules/1
   # PATCH/PUT /rules/1.json
   def update
+    require_user
+
+    unless @rule
+      flash[:alert] = "规则不存在！"
+      return redirect_to rules_path
+    end
+
+    unless @rule.users == current_user
+      flash[:alert] = "只能管理自己的规则！"
+      return redirect_to rules_path
+    end
+
     respond_to do |format|
       if @rule.update(rule_params)
         format.html { redirect_to @rule, notice: 'Rule was successfully updated.' }
@@ -67,10 +91,38 @@ class RulesController < ApplicationController
   # DELETE /rules/1
   # DELETE /rules/1.json
   def destroy
+    require_user
+
+    unless @rule
+      flash[:alert] = "规则不存在！"
+      return redirect_to rules_path
+    end
+
+    unless @rule.users == current_user
+      flash[:alert] = "只能管理自己的规则！"
+      return redirect_to rules_path
+    end
+
     @rule.destroy
     respond_to do |format|
       format.html { redirect_to rules_url, notice: 'Rule was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  #收藏
+  def save
+    require_user
+
+    @ur = Userruleship.new(user:current_user, rule:@rule)
+    respond_to do |format|
+      if @ur.save
+        format.html { redirect_to rules_url, notice: '收藏成功！' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to rules_url, alert: '收藏失败！' }
+        format.json { head :no_content }
+      end
     end
   end
 

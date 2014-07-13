@@ -24,6 +24,15 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
+  def require_user
+    if current_user.blank?
+      respond_to do |format|
+        format.html { authenticate_user! }
+        format.all { head(:unauthorized) }
+      end
+    end
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }

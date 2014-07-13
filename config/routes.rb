@@ -29,6 +29,8 @@ Fofa::Application.routes.draw do
   root 'search#index'
 
   resources :rules
+  #get "rules" => "rules#index"
+  get "save/:id" => "rules#save"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -14,11 +14,10 @@
   <thead>
   <tr>
     <th width="10%">日期</th>
-    <th width="20%">厂商</th>
+    <th width="10%">厂商</th>
+    <th width="10%">贡献者</th>
     <th width="50%">规则测试</th>
-    <% if @admin %>
     <th width="20%">操作</th>
-    <% end %>
   </tr>
   </thead>
 
@@ -27,12 +26,16 @@
       <tr>
         <td><%= link_to rule.created_at.strftime("%Y-%m-%d"), rule %></td>
         <td><%= link_to rule.product, rule.producturl%></td>
+        <td><%if rule.user %><%= link_to rule.user.username, rule.producturl%><% end %></td>
         <td><%= link_to rule.rule, "/search/result?qbase64="+Base64.encode64(rule.rule)%></td>
-        <% if @admin %>
-        <td><%= link_to '查看', rule %>
-        <%= link_to '编辑', edit_rule_path(rule) %>
-        <%= link_to '删除', rule, method: :delete, data: { confirm: '确定要删除吗?' } %></td>
-        <% end %>
+        <td>
+          <%= link_to '收藏', "/save/#{rule.id}", :class=>"btn btn-success btn-sm "%>
+          <!--
+          <%= link_to '查看', rule %>
+          <%= link_to '编辑', edit_rule_path(rule) %>
+            <%= link_to '删除', rule, method: :delete, data: { confirm: '确定要删除吗?' } %>
+            -->
+        </td>
       </tr>
     <% end %>
   </tbody>

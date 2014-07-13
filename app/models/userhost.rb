@@ -10,7 +10,7 @@ include Lrlink
 class Userhost < ActiveRecord::Base
   has_many :rule
 
-  def self.add_single_host(submit_host, ip)
+  def self.add_single_host(submit_host, ip, realtime=false)
     @info = ''
     @error = false
     @host = submit_host
@@ -24,18 +24,18 @@ class Userhost < ActiveRecord::Base
       host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
       if host.size<1
         @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
-        Resque.enqueue(Processor, @host)
+        Resque.enqueue(realtime?RealtimeProcessor:Processor, @host)
       end
     end
     [@error,@info]
   end
 
-  def self.add_user_host(submit_host, ip)
+  def self.add_user_host(submit_host, ip, realtime=false)
     @info = ''
     @error = false
     if submit_host.include? ","
       submit_host.split(',').each{|h|
-        error,info = add_single_host(h, ip)
+        error,info = add_single_host(h, ip, realtime)
         if error
           @error = error
           @info = info

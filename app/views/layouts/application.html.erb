@@ -127,7 +127,7 @@
 
   <div class="container">
     <% flash.each do |key,value| %>
-        <div class="page-header alert <%if key=='alert' %>alert-warning<%else%>alert-success<%end%> alert-dismissible ade in" role="alert">
+        <div class="page-header alert <%if key.to_s=='alert' %>alert-warning<%else%>alert-success<%end%> alert-dismissible ade in" role="alert">
           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
             <span class="sr-only">关闭</span></button>
           <strong>提示：</strong> <%=value%>
