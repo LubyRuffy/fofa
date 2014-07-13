@@ -1345,7 +1345,11 @@
       <created>1405258155588</created>
       <updated>1405258155588</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="排除垃圾ip&#10;">
+      <created>1405258160559</created>
+      <updated>1405258160559</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="ToolWindowManager">
