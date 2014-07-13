@@ -2,6 +2,7 @@
 # 结合zmap查找服务并提交到fofa
 # sudo zmap -p 28017 -o - -N1000 | ./web_probe.rb 28017
 # sudo zmap -p 9200 -o - -N1000 | ./web_probe.rb 9200
+#/usr/local/sbin/zmap
 require 'thread/pool'
 require 'net/http'
 require 'uri'

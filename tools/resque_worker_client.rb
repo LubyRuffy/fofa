@@ -64,14 +64,15 @@ rails_env = 'production'
 resque_config = YAML.load_file(root_path+"/../config/database.yml")
 Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
 
-#job = Resque::Job.reserve(:quick_process_host)
-job = Resque::Job.reserve(:realtime_process_list)
-p job
-if job
-  klass = job.payload['class'].to_s.constantize
-  klass.perform(*job.payload['args'])
-  #job.recreate
-else
-  puts "no job right now"
+while job = Resque::Job.reserve(:quick_process_host)
+  #job = Resque::Job.reserve(:realtime_process_list)
+  p job
+  if job
+    klass = job.payload['class'].to_s.constantize
+    klass.perform(*job.payload['args'])
+    #job.recreate
+  else
+    puts "no job right now"
+  end
 end
 

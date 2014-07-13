@@ -51,6 +51,7 @@ class QuickProcessor
         end
       }
     }
+    @pool.wait_done
     @pool.shutdown
   end
 end
