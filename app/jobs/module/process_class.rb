@@ -71,6 +71,7 @@ class QuickProcessor
             #获取http信息
             http_info = get_http(host)
             if http_info && ! http_info[:error]
+              return -4 if is_bullshit_ip?(http_info[:ip])
               @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
             end
           end
