@@ -15,16 +15,16 @@ class Thread::Pool
 end
 
 def is_bullshit_host?(host)
-  HOSTS = %w|mc520.com .i.sohu.com .tumblr.com|
-  HOSTS.each{|h|
+  $hosts = %w|mc520.com .i.sohu.com .tumblr.com|
+  $hosts.each{|h|
     return true if host.include?(h)
   }
   false
 end
 
 def is_bullshit_ip?(ip)
-  IPS = %w|192.126.115. 198.204.238. 192.151.145. 146.71.35. 23.245.66.|
-  IPS.each{|bip|
+  $ips = %w|192.126.115. 198.204.238. 192.151.145. 146.71.35. 23.245.66.|
+  $ips.each{|bip|
     return true if ip.include?(bip)
   }
   false

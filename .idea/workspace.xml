@@ -75,7 +75,7 @@
       <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="39" selection-start="3215" selection-end="3215" vertical-scroll-proportion="4.908377" vertical-offset="150" max-vertical-offset="3060">
+            <state line="26" column="6" selection-start="556" selection-end="556" vertical-scroll-proportion="0.62827224" vertical-offset="150" max-vertical-offset="3060">
               <folding />
             </state>
           </provider>
@@ -1314,7 +1314,11 @@
       <created>1405252781617</created>
       <updated>1405252781617</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="排除垃圾ip">
+      <created>1405255763875</created>
+      <updated>1405255763875</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1375,7 +1379,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="递归的只处理没有的host，已经存在的不进行更新&#10;" />
     <MESSAGE value="增加resque-loner，任务队列去重。" />
     <MESSAGE value="增加resque-loner，任务队列去重。&#10;" />
     <MESSAGE value="增加redis任务队列去重工具" />
@@ -1400,7 +1403,8 @@
     <MESSAGE value="threadpool只wait_done，不用shutdown&#10;" />
     <MESSAGE value="添加工具" />
     <MESSAGE value="添加工具&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加工具&#10;" />
+    <MESSAGE value="排除垃圾ip" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1780,7 +1784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="39" selection-start="3215" selection-end="3215" vertical-scroll-proportion="4.908377" vertical-offset="150" max-vertical-offset="3060">
+        <state line="26" column="6" selection-start="556" selection-end="556" vertical-scroll-proportion="0.62827224" vertical-offset="150" max-vertical-offset="3060">
           <folding />
         </state>
       </provider>
