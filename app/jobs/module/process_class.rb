@@ -23,7 +23,7 @@ def is_bullshit_host?(host)
 end
 
 def is_bullshit_ip?(ip)
-  $ips = %w|192.126.115. 198.204.238. 192.151.145. 146.71.35. 23.245.66.|
+  $ips = %w|192.126.115. 198.204.238. 192.151.145. 146.71.35. 23.245.66. 42.121.52.|
   $ips.each{|bip|
     return true if ip.include?(bip)
   }

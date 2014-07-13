@@ -75,7 +75,7 @@
       <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="19" selection-start="3239" selection-end="3239" vertical-scroll-proportion="0.41573033" vertical-offset="1892" max-vertical-offset="3045">
+            <state line="25" column="83" selection-start="559" selection-end="559" vertical-scroll-proportion="0.4213483" vertical-offset="225" max-vertical-offset="3060">
               <folding />
             </state>
           </provider>
@@ -1322,7 +1322,15 @@
       <created>1405255972210</created>
       <updated>1405255972210</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="排除垃圾ip&#10;">
+      <created>1405256143121</created>
+      <updated>1405256143121</updated>
+    </task>
+    <task id="LOCAL-00153" summary="排除垃圾ip&#10;">
+      <created>1405256275686</created>
+      <updated>1405256275686</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1788,7 +1796,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="19" selection-start="3239" selection-end="3239" vertical-scroll-proportion="0.41573033" vertical-offset="1892" max-vertical-offset="3045">
+        <state line="25" column="83" selection-start="559" selection-end="559" vertical-scroll-proportion="0.4213483" vertical-offset="225" max-vertical-offset="3060">
           <folding />
         </state>
       </provider>
