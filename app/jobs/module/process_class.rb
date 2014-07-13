@@ -134,8 +134,7 @@ class Processor
     #获取http信息
     http_info = get_http(host)
     if http_info && ! http_info[:error]
-
-      return -4 is_bullshit_host?(http_info[:ip])
+      return -4 if is_bullshit_ip?(http_info[:ip])
 
       #puts host
       #pp http_info
