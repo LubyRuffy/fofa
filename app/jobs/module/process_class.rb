@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# encoding: utf-8
 require 'domainatrix'
 require 'resque'
 require 'thread/pool'
@@ -138,7 +139,8 @@ class Processor
       end
 
       #递归测试的只添加新的，不更新旧的
-      hosts = get_linkes(http_info[:utf8html]).select {|h|
+      utf8html = http_info[:utf8html]
+      hosts = get_linkes(utf8html).select {|h|
         !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h)
       }
 

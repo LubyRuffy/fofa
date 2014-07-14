@@ -17,5 +17,9 @@ class TestMeme < MiniTest::Unit::TestCase
     http = get_web_content 'www.zaren.hu'
     http[:utf8html] = get_utf8 http[:html] if http[:html] and http[:html].size > 2
     assert(http[:utf8html].valid_encoding?)
+
+    http = get_web_content 'www.vpslm.sk'
+    http[:utf8html] = get_utf8 http[:html] if http[:html] and http[:html].size > 2
+    assert(http[:utf8html].valid_encoding?)
   end
 end
