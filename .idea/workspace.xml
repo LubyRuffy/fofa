@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -46,28 +46,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="291" column="0" selection-start="9613" selection-end="9613" vertical-scroll-proportion="0.0" vertical-offset="4238" max-vertical-offset="7185">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="20" selection-start="4211" selection-end="4211" vertical-scroll-proportion="-21.115385" vertical-offset="1926" max-vertical-offset="2910">
+            <state line="152" column="9" selection-start="3923" selection-end="3923" vertical-scroll-proportion="0.52845526" vertical-offset="2130" max-vertical-offset="2910">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="513" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.7478006" vertical-offset="645" max-vertical-offset="1095">
+            <state line="53" column="513" selection-start="1791" selection-end="1791" vertical-scroll-proportion="-2.7777777" vertical-offset="645" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
@@ -200,11 +191,11 @@
         <option value="$PROJECT_DIR$/tools/remove_allport_host.rb" />
         <option value="$PROJECT_DIR$/tools/resque_worker_client_thread.rb" />
         <option value="$PROJECT_DIR$/Rakefile" />
-        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
         <option value="$PROJECT_DIR$/tools/bid.txt" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       </list>
     </option>
   </component>
@@ -1445,7 +1436,11 @@
       <created>1405309731962</created>
       <updated>1405309731962</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="排除垃圾ip&#10;">
+      <created>1405309812500</created>
+      <updated>1405309812500</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1893,13 +1888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="72" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/bid.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
@@ -1907,16 +1895,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="20" selection-start="4211" selection-end="4211" vertical-scroll-proportion="-21.115385" vertical-offset="1926" max-vertical-offset="2910">
+        <state line="53" column="513" selection-start="1791" selection-end="1791" vertical-scroll-proportion="-2.7777777" vertical-offset="645" max-vertical-offset="1095">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+    <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="513" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.7478006" vertical-offset="645" max-vertical-offset="1095">
+        <state line="33" column="72" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="9" selection-start="3923" selection-end="3923" vertical-scroll-proportion="0.52845526" vertical-offset="2130" max-vertical-offset="2910">
           <folding />
         </state>
       </provider>

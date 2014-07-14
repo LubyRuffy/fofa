@@ -147,10 +147,10 @@ class Processor
         resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
         Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
 
-        #hosts.each {|h|
-        #  Resque.enqueue(Processor, h)
-        #}
-        Resque.enqueue(QuickProcessor, hosts.join(','))
+        hosts.each {|h|
+          Resque.enqueue(Processor, h)
+        }
+        #Resque.enqueue(QuickProcessor, hosts.join(','))
       end
 
       return 0
