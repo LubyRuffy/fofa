@@ -42,7 +42,7 @@ def process_url(h, href)
     begin
       u = URI.join(h[:url], href)
       new_host = hostinfo_of_url(u.to_s)
-      add_host(new_host, h[:host]) if h[:host] != new_host
+      add_host(new_host, h[:host]) if new_host && h[:host] != new_host
     rescue => e
       puts "[ERROR] process error of [#{href}]"
     end
