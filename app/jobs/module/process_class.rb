@@ -145,7 +145,7 @@ class Processor
       if hosts.size>0
         len = hosts.inject(0){|memo,s|memo+s.length}
         sl = len/hosts.size
-        port_len = hosts.sellect{|h| h.include?(':') }.size
+        port_len = hosts.select{|h| h.include?(':') }.size
 
         if sl<17 && port_len<10 #全是:123这样的说明是垃圾站，同时平均长度超长的说明是dns泛解析垃圾站
           root_path = File.expand_path(File.dirname(__FILE__))
