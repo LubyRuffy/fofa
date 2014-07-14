@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="排除垃圾ip&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -44,15 +46,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="router.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/journey/router.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="0" selection-start="2073" selection-end="2073" vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="2580">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="userhost.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -71,10 +64,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="131" selection-start="621" selection-end="621" vertical-scroll-proportion="0.8005618" vertical-offset="90" max-vertical-offset="3060">
+            <state line="25" column="155" selection-start="697" selection-end="697" vertical-scroll-proportion="-9.807693" vertical-offset="120" max-vertical-offset="3060">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Rakefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="43" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.68586385" vertical-offset="428" max-vertical-offset="1875">
               <folding />
             </state>
           </provider>
@@ -194,7 +196,6 @@
         <option value="$PROJECT_DIR$/app/controllers/rules_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/userhost_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
-        <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
@@ -203,6 +204,7 @@
         <option value="$PROJECT_DIR$/tools/remove_allport_host.rb" />
         <option value="$PROJECT_DIR$/tools/resque_worker_client_thread.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/Rakefile" />
       </list>
     </option>
   </component>
@@ -1349,7 +1351,11 @@
       <created>1405258160559</created>
       <updated>1405258160559</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="排除垃圾ip&#10;">
+      <created>1405258204710</created>
+      <updated>1405258204710</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1659,13 +1665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="2" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="31" selection-start="2228" selection-end="2228" vertical-scroll-proportion="0.0" vertical-offset="953" max-vertical-offset="1425">
@@ -1815,7 +1814,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="131" selection-start="621" selection-end="621" vertical-scroll-proportion="0.8005618" vertical-offset="90" max-vertical-offset="3060">
+        <state line="25" column="155" selection-start="697" selection-end="697" vertical-scroll-proportion="-9.807693" vertical-offset="120" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="43" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.68586385" vertical-offset="428" max-vertical-offset="1875">
           <folding />
         </state>
       </provider>
