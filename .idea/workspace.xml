@@ -7,9 +7,6 @@
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/test/test_charset.rb" afterPath="$PROJECT_DIR$/tools/test/test_charset.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -22,7 +19,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405339247436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405341742989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@test_getutf8__fofa.coverage" NAME="test_getutf8: fofa Coverage Results" MODIFIED="1405336369067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
@@ -52,10 +49,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="48" selection-start="3131" selection-end="3131" vertical-scroll-proportion="0.4967033" vertical-offset="1709" max-vertical-offset="2985">
+            <state line="129" column="48" selection-start="3131" selection-end="3131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2985">
               <folding />
             </state>
           </provider>
@@ -64,7 +61,7 @@
       <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="0" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.0" vertical-offset="1965" max-vertical-offset="2655">
+            <state line="55" column="20" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-5.769231" vertical-offset="675" max-vertical-offset="2655">
               <folding />
             </state>
           </provider>
@@ -106,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="436" column="0" selection-start="13657" selection-end="13657" vertical-scroll-proportion="-5.5" vertical-offset="6397" max-vertical-offset="9675">
+            <state line="27" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.24708624" vertical-offset="299" max-vertical-offset="7305">
               <folding />
             </state>
           </provider>
@@ -209,8 +206,8 @@
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/tools/test/test_charset.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       </list>
     </option>
   </component>
@@ -1617,7 +1614,11 @@
       <created>1405336470343</created>
       <updated>1405336470344</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="解决UTF8编码报错的问题">
+      <created>1405339272138</created>
+      <updated>1405339272138</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1678,7 +1679,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加activeadmin管理，包括用户管理，规则管理，用户提交域名管理等&#10;" />
     <MESSAGE value="更新控制面板首页" />
     <MESSAGE value="更新控制面板首页&#10;" />
     <MESSAGE value="修改主页和样式" />
@@ -1703,7 +1703,8 @@
     <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="添加测试目录" />
     <MESSAGE value="添加测试目录&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加测试目录&#10;" />
+    <MESSAGE value="解决UTF8编码报错的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决UTF8编码报错的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1725,37 +1726,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>435</line>
+          <line>277</line>
           <option name="timeStamp" value="141" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>425</line>
+          <line>267</line>
           <option name="timeStamp" value="142" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>421</line>
+          <line>263</line>
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>433</line>
+          <line>275</line>
           <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>65</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>436</line>
+          <line>278</line>
           <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>401</line>
+          <line>242</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
@@ -2051,13 +2047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="0" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.0" vertical-offset="1223" max-vertical-offset="2655">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="23" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
@@ -2065,16 +2054,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="436" column="0" selection-start="13657" selection-end="13657" vertical-scroll-proportion="-5.5" vertical-offset="6397" max-vertical-offset="9675">
+        <state line="129" column="48" selection-start="3131" selection-end="3131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2985">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="48" selection-start="3131" selection-end="3131" vertical-scroll-proportion="0.4967033" vertical-offset="1709" max-vertical-offset="2985">
+        <state line="55" column="20" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-5.769231" vertical-offset="675" max-vertical-offset="2655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.24708624" vertical-offset="299" max-vertical-offset="7305">
           <folding />
         </state>
       </provider>
