@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -76,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="17" selection-start="17" selection-end="17" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1215">
+            <state line="59" column="727" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.62217194" vertical-offset="760" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
@@ -103,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="26" selection-start="8323" selection-end="8323" vertical-scroll-proportion="0.47319347" vertical-offset="3487" max-vertical-offset="7230">
+            <state line="244" column="72" selection-start="8253" selection-end="8253" vertical-scroll-proportion="-76.46154" vertical-offset="1672" max-vertical-offset="7230">
               <folding />
             </state>
           </provider>
@@ -205,9 +204,9 @@
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
         <option value="$PROJECT_DIR$/tools/test/test_charset.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -1626,7 +1625,15 @@
       <created>1405342781753</created>
       <updated>1405342781753</updated>
     </task>
-    <option name="localTasksCounter" value="211" />
+    <task id="LOCAL-00211" summary="优化utf8编码&#10;">
+      <created>1405343966012</created>
+      <updated>1405343966012</updated>
+    </task>
+    <task id="LOCAL-00212" summary="优化utf8编码&#10;">
+      <created>1405344609241</created>
+      <updated>1405344609241</updated>
+    </task>
+    <option name="localTasksCounter" value="213" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1637,7 +1644,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32712767" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37632978" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37632978" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37632978" sideWeight="0.3546875" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1687,7 +1694,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修改主页和样式" />
     <MESSAGE value="修改rake" />
     <MESSAGE value="修改rake&#10;" />
     <MESSAGE value="增加规则并联用户，增加published字段" />
@@ -1712,7 +1718,8 @@
     <MESSAGE value="解决UTF8编码报错的问题" />
     <MESSAGE value="解决shift-jis编码报错的问题：guest和ruby的编码名称不一致，shift_jis处理一下" />
     <MESSAGE value="优化utf8编码" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码" />
+    <MESSAGE value="优化utf8编码&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2011,13 +2018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="17" selection-start="17" selection-end="17" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="23" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
@@ -2048,7 +2048,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="26" selection-start="8323" selection-end="8323" vertical-scroll-proportion="0.47319347" vertical-offset="3487" max-vertical-offset="7230">
+        <state line="244" column="72" selection-start="8253" selection-end="8253" vertical-scroll-proportion="-76.46154" vertical-offset="1672" max-vertical-offset="7230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="727" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.62217194" vertical-offset="760" max-vertical-offset="1230">
           <folding />
         </state>
       </provider>
