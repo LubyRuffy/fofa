@@ -43,7 +43,7 @@ module Lrlink
   end
 
   def is_bullshit_host?(host)
-    $hosts = %w|mc520.com .i.sohu.com .tumblr.com zhuangbei.net bet569.com odbjl.com m5pp.com bjkeer.com 999ylc.com|
+    $hosts = %w|.i.sohu.com .tumblr.com|
     $hosts.each{|h|
       return true if host.include?(h)
     }
