@@ -31,7 +31,7 @@ def write_to_file(id)
 end # Def end
 
 while true
-  sql = "select id,ip,subdomain from subdomain where id>#{@id} limit 1000"
+  sql = "select id,ip,subdomain from subdomain where id>#{@id} limit 5000"
   r = @m.mysql.query(sql)
   if r.size>0
     r.each {|h|
