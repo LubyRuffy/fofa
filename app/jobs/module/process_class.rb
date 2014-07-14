@@ -141,16 +141,23 @@ class Processor
       hosts = get_linkes(http_info[:utf8html]).select {|h|
         !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h)
       }
-      if hosts.size>0
-        root_path = File.expand_path(File.dirname(__FILE__))
-        rails_env = 'production'
-        resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
-        Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
 
-        hosts.each {|h|
-          Resque.enqueue(Processor, h)
-        }
-        #Resque.enqueue(QuickProcessor, hosts.join(','))
+      if hosts.size>0
+        len = hosts.inject(0){|memo,s|memo+s.length}
+        sl = len/hosts.size
+        port_len = hosts.sellect{|h| h.include?(':') }.size
+
+        if sl<17 && port_len<10 #全是:123这样的说明是垃圾站，同时平均长度超长的说明是dns泛解析垃圾站
+          root_path = File.expand_path(File.dirname(__FILE__))
+          rails_env = 'production'
+          resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
+          Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
+
+          hosts.each {|h|
+            Resque.enqueue(Processor, h)
+          }
+          #Resque.enqueue(QuickProcessor, hosts.join(','))
+        end
       end
 
       return 0
