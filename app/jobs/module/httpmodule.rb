@@ -243,37 +243,31 @@ module HttpModule
     encoding = GuessHtmlEncoding.guess(c)
     encoding = "GB2312" if encoding=='GBK2312' #bug?
     encoding = "SHIFT_JIS" if encoding=='SHIFT-JIS' #bug?
-    begin
-      #puts encoding
-      if(encoding)
-        if(encoding.to_s != "UTF-8")
-          c = c.force_encoding(encoding)
-          c = c.encode('UTF-8', :invalid => :replace, :replace => '^')
-        else
-          c = c.force_encoding("UTF-8") if c.encoding != 'UTF-8'
-          c = c.encode('UTF-8', :invalid => :replace, :replace => '^')
-          #
-        end
-      else
-        c = c.force_encoding('UTF-8')
-        if !c.valid_encoding?
-          c = c.force_encoding("GB18030")
-          if !c.valid_encoding?
-            return ''
-          end
-          c = c.encode('UTF-8', :invalid => :replace, :replace => '^')
-        end
-      end
+    encoding = "cp1251" if encoding=='WINDOWS-1251' #bug?
 
+    if(encoding)
+      if(encoding.to_s != "UTF-8")
+        c = c.force_encoding(encoding)
+        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+      else
+        c = c.force_encoding("UTF-8") if c.encoding != 'UTF-8'
+        c.encode!('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+        #
+      end
+    else
+      c = c.force_encoding('UTF-8')
       if !c.valid_encoding?
         c = c.force_encoding("GB18030")
-        if !c.valid_encoding?
-          return ''
-        end
-        c = c.encode('UTF-8', :invalid => :replace, :replace => '^')
+        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
       end
-    rescue => e
-      puts "error of "+e.backtrace.inspect
+    end
+
+    if !c.valid_encoding?
+      c = c.force_encoding("GB18030")
+      if !c.valid_encoding?
+        return ''
+      end
+      c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
     end
 
     c
