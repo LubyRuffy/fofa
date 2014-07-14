@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/test/test_charset.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/test/test_charset.rb" afterPath="$PROJECT_DIR$/tools/test/test_charset.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -22,10 +21,10 @@
     <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405318994808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@test_getutf8__fofa.coverage" NAME="test_getutf8: fofa Coverage Results" MODIFIED="1405335185443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@test_getutf8__fofa.coverage" NAME="test_getutf8: fofa Coverage Results" MODIFIED="1405336369067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@process_class.coverage" NAME="process_class Coverage Results" MODIFIED="1404975886642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/module" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@Run_test__test_charset___fofa.coverage" NAME="Run test 'test_charset': fofa Coverage Results" MODIFIED="1405334930147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@Run_test__test_charset___fofa.coverage" NAME="Run test 'test_charset': fofa Coverage Results" MODIFIED="1405336435138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_work_test.coverage" NAME="url_work_test Coverage Results" MODIFIED="1404541544907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@link_crawler.coverage" NAME="link_crawler Coverage Results" MODIFIED="1404526260178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@anaylysis_daemon.coverage" NAME="anaylysis_daemon Coverage Results" MODIFIED="1404887465182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
@@ -58,10 +57,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_charset.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="test_charset.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/test/test_charset.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="3" selection-start="391" selection-end="391" vertical-scroll-proportion="0.4556962" vertical-offset="0" max-vertical-offset="395">
+            <state line="18" column="0" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="405">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unit.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/minitest/unit.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1271" column="29" selection-start="32885" selection-end="32885" vertical-scroll-proportion="0.57723576" vertical-offset="18852" max-vertical-offset="21420">
               <folding />
             </state>
           </provider>
@@ -372,7 +380,7 @@
       <recent name="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.2/lib/active_record/connection_adapters/abstract_mysql_adapter.rb" />
     </key>
   </component>
-  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.test_getutf8: fofa">
+  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.Run test 'test_charset': fofa">
     <configuration default="false" name="process_class" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="fofa" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -654,8 +662,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_getutf8: fofa" />
-        <item index="1" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'test_charset': fofa" />
+        <item index="0" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'test_charset': fofa" />
+        <item index="1" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_getutf8: fofa" />
         <item index="2" class="java.lang.String" itemvalue="Ruby.resque_worker_client_thread" />
         <item index="3" class="java.lang.String" itemvalue="Ruby.remove_allport_host" />
         <item index="4" class="java.lang.String" itemvalue="Ruby.process_class" />
@@ -1507,7 +1515,11 @@
       <created>1405332528008</created>
       <updated>1405332528008</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="添加测试目录">
+      <created>1405335337439</created>
+      <updated>1405335337440</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1568,7 +1580,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加activeadmin" />
     <MESSAGE value="增加activeadmin管理，包括用户管理，规则管理，用户提交域名管理等" />
     <MESSAGE value="增加activeadmin管理，包括用户管理，规则管理，用户提交域名管理等&#10;" />
     <MESSAGE value="更新控制面板首页" />
@@ -1593,7 +1604,8 @@
     <MESSAGE value="修复由于hostinfo_of_url返回nil导致报错的问题&#10;" />
     <MESSAGE value="排除垃圾ip" />
     <MESSAGE value="排除垃圾ip&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
+    <MESSAGE value="添加测试目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加测试目录" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1615,14 +1627,14 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/tools/test/test_charset.rb</url>
-          <line>9</line>
-          <option name="timeStamp" value="130" />
+          <line>16</line>
+          <option name="timeStamp" value="132" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="131" />
+      <option name="time" value="133" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1877,13 +1889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/minitest/unit.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1232" column="10" selection-start="31720" selection-end="31720" vertical-scroll-proportion="0.33164558" vertical-offset="18349" max-vertical-offset="21420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/activesupport-4.0.3/lib/active_support/test_case.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="42" selection-start="670" selection-end="670" vertical-scroll-proportion="0.721519" vertical-offset="0" max-vertical-offset="1095">
@@ -1928,7 +1933,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/test/test_charset.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="3" selection-start="391" selection-end="391" vertical-scroll-proportion="0.4556962" vertical-offset="0" max-vertical-offset="395">
+        <state line="18" column="0" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/minitest/unit.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1271" column="29" selection-start="32885" selection-end="32885" vertical-scroll-proportion="0.57723576" vertical-offset="18852" max-vertical-offset="21420">
           <folding />
         </state>
       </provider>
