@@ -75,7 +75,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="213" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.52879584" vertical-offset="593" max-vertical-offset="975">
+            <state line="53" column="223" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.52879584" vertical-offset="593" max-vertical-offset="975">
               <folding />
             </state>
           </provider>
@@ -1380,7 +1380,11 @@
       <created>1405305374640</created>
       <updated>1405305374640</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="排除垃圾ip&#10;">
+      <created>1405305487580</created>
+      <updated>1405305487580</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1463,10 +1467,10 @@
     <MESSAGE value="添加工具" />
     <MESSAGE value="添加工具&#10;" />
     <MESSAGE value="排除垃圾ip" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="保留一个实时队列" />
     <MESSAGE value="ip处理放到http模块中" />
-    <option name="LAST_COMMIT_MESSAGE" value="ip处理放到http模块中" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1851,7 +1855,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="213" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.52879584" vertical-offset="593" max-vertical-offset="975">
+        <state line="53" column="223" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.52879584" vertical-offset="593" max-vertical-offset="975">
           <folding />
         </state>
       </provider>
