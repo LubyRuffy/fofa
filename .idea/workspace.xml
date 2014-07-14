@@ -76,7 +76,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="225" selection-start="1365" selection-end="1365" vertical-scroll-proportion="0.7049505" vertical-offset="454" max-vertical-offset="1230">
+            <state line="50" column="254" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.16831683" vertical-offset="740" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -1485,7 +1485,11 @@
       <created>1405319687945</created>
       <updated>1405319687945</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="修复由于hostinfo_of_url返回nil导致报错的问题&#10;">
+      <created>1405320025404</created>
+      <updated>1405320025404</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1883,7 +1887,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="225" selection-start="1365" selection-end="1365" vertical-scroll-proportion="0.7049505" vertical-offset="454" max-vertical-offset="1230">
+        <state line="50" column="254" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.16831683" vertical-offset="740" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
