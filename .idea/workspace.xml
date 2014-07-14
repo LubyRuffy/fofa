@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" afterPath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -59,7 +58,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="549" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.7696477" vertical-offset="616" max-vertical-offset="1095">
+            <state line="53" column="561" selection-start="1839" selection-end="1839" vertical-scroll-proportion="0.7696477" vertical-offset="616" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
@@ -1457,7 +1456,11 @@
       <created>1405311628156</created>
       <updated>1405311628156</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="排除垃圾ip&#10;">
+      <created>1405312167086</created>
+      <updated>1405312167086</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1541,9 +1544,9 @@
     <MESSAGE value="排除垃圾ip" />
     <MESSAGE value="保留一个实时队列" />
     <MESSAGE value="ip处理放到http模块中" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="现在能处理过来，暂时不用放到快速队列了&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="现在能处理过来，暂时不用放到快速队列了&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1928,7 +1931,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="549" selection-start="1827" selection-end="1827" vertical-scroll-proportion="0.7696477" vertical-offset="616" max-vertical-offset="1095">
+        <state line="53" column="561" selection-start="1839" selection-end="1839" vertical-scroll-proportion="0.7696477" vertical-offset="616" max-vertical-offset="1095">
           <folding />
         </state>
       </provider>
