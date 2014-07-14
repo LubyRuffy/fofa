@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -18,7 +19,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405305309902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405318994808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
@@ -46,19 +47,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="38" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.66753924" vertical-offset="2085" max-vertical-offset="2955">
+            <state line="140" column="20" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.0" vertical-offset="1958" max-vertical-offset="2955">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="0" selection-start="3286" selection-end="3286" vertical-scroll-proportion="0.0" vertical-offset="1643" max-vertical-offset="7185">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="0" selection-start="3921" selection-end="3921" vertical-scroll-proportion="0.0" vertical-offset="1748" max-vertical-offset="2655">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="155" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1110">
+            <state line="41" column="35" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.5974684" vertical-offset="379" max-vertical-offset="1155">
               <folding />
             </state>
           </provider>
@@ -185,8 +204,8 @@
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/tools/bid.txt" />
         <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -302,6 +321,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jobs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jobs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -346,7 +419,7 @@
       <recent name="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.2/lib/active_record/connection_adapters/abstract_mysql_adapter.rb" />
     </key>
   </component>
-  <component name="RunManager" selected="Ruby.remove_bullship_ip">
+  <component name="RunManager" selected="Ruby.addhost">
     <configuration default="false" name="anaylysis_daemon" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="fofa" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -430,28 +503,6 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/resque_worker_client_thread.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <RunnerSettings RunnerId="RubyDebugRunner" />
-      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="remove_bullship_ip" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
-      <module name="fofa" />
-      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/tools" />
-      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/remove_bullship_ip.rb" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
@@ -606,12 +657,11 @@
       <item index="14" class="java.lang.String" itemvalue="Ruby.remove_bullship_ip" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Ruby.remove_bullship_ip" />
-        <item index="1" class="java.lang.String" itemvalue="Ruby.resque_worker_client_thread" />
-        <item index="2" class="java.lang.String" itemvalue="Ruby.remove_allport_host" />
-        <item index="3" class="java.lang.String" itemvalue="Ruby.process_class" />
-        <item index="4" class="java.lang.String" itemvalue="Ruby.anaylysis_daemon" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Ruby.resque_worker_client_thread" />
+        <item index="1" class="java.lang.String" itemvalue="Ruby.remove_allport_host" />
+        <item index="2" class="java.lang.String" itemvalue="Ruby.process_class" />
+        <item index="3" class="java.lang.String" itemvalue="Ruby.anaylysis_daemon" />
       </list>
     </recent_temporary>
   </component>
@@ -1416,7 +1466,11 @@
       <created>1405314211520</created>
       <updated>1405314211520</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="remove bullship ip&#10;">
+      <created>1405318285883</created>
+      <updated>1405318285883</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1430,7 +1484,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47340426" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47340426" sideWeight="0.6453125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47340426" sideWeight="0.3546875" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29521278" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1523,15 +1577,21 @@
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb</url>
-          <line>118</line>
-          <option name="timeStamp" value="121" />
+          <url>file://$PROJECT_DIR$/app/jobs/module/process_class.rb</url>
+          <line>144</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <condition>arr.size&gt;75</condition>
+          <url>file://$PROJECT_DIR$/app/jobs/module/lrlink.rb</url>
+          <line>41</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="122" />
+      <option name="time" value="129" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1760,13 +1820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="0" selection-start="9613" selection-end="9613" vertical-scroll-proportion="0.0" vertical-offset="4238" max-vertical-offset="7185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="70" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="885">
@@ -1795,16 +1848,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="155" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1110">
+        <state line="118" column="0" selection-start="3286" selection-end="3286" vertical-scroll-proportion="0.0" vertical-offset="1643" max-vertical-offset="7185">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="0" selection-start="3921" selection-end="3921" vertical-scroll-proportion="0.0" vertical-offset="1748" max-vertical-offset="2655">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="38" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.66753924" vertical-offset="2085" max-vertical-offset="2955">
+        <state line="140" column="20" selection-start="3443" selection-end="3443" vertical-scroll-proportion="0.0" vertical-offset="1958" max-vertical-offset="2955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="35" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.5974684" vertical-offset="379" max-vertical-offset="1155">
           <folding />
         </state>
       </provider>
