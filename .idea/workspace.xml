@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="排除垃圾ip&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/Rakefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -76,7 +74,7 @@
       <file leaf-file-name="Rakefile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Rakefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="43" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.68586385" vertical-offset="428" max-vertical-offset="1875">
+            <state line="46" column="4" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.68586385" vertical-offset="428" max-vertical-offset="1875">
               <folding />
             </state>
           </provider>
@@ -1355,7 +1353,11 @@
       <created>1405258204710</created>
       <updated>1405258204710</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="排除垃圾ip&#10;">
+      <created>1405302475461</created>
+      <updated>1405302475461</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1821,7 +1823,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Rakefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="43" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.68586385" vertical-offset="428" max-vertical-offset="1875">
+        <state line="46" column="4" selection-start="1470" selection-end="1470" vertical-scroll-proportion="0.68586385" vertical-offset="428" max-vertical-offset="1875">
           <folding />
         </state>
       </provider>
