@@ -244,6 +244,7 @@ module HttpModule
     encoding = "GB2312" if encoding=='GBK2312' #bug?
     encoding = "SHIFT_JIS" if encoding=='SHIFT-JIS' #bug?
     encoding = "cp1251" if encoding=='WINDOWS-1251' #bug?
+    encoding = "iso-8859-1" if encoding=='ISO-8855-1' #bug?
 
     if(encoding)
       if(encoding.to_s != "UTF-8")
