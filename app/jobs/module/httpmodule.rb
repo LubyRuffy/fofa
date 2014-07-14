@@ -11,6 +11,10 @@ require 'pathname'
 require 'base64'
 require "json"
 require "sixarm_ruby_magic_number_type"
+root_path = File.expand_path(File.dirname(__FILE__))
+require root_path+"/lrlink.rb"
+
+include Lrlink
 
 class String
   def string_between_markers marker1, marker2
@@ -110,6 +114,12 @@ module HttpModule
         return resp if !ip || !ip[0] || !ip[0][2]
         resp[:ip] = Socket.getaddrinfo(uri.host, nil)[0][2]
         ip = resp[:ip]
+      end
+
+      if is_bullshit_ip?(resp[:ip])
+        resp[:error] = true
+        resp[:errstring] = "bullshit ip"
+        return resp
       end
       resp[:port] = uri.port
 
