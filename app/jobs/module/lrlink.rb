@@ -48,7 +48,7 @@ module Lrlink
   end
 
   def is_bullshit_host?(host)
-    $hosts = %w|.i.sohu.com .tumblr.com .soufun.com .ymjx168.com .ninemarket.com .12market.com .cailiao.com .taobao.com .blogfa.com .parsiblog.com .blog.ir|
+    $hosts = %w|.i.sohu.com .tumblr.com .soufun.com .ymjx168.com .ninemarket.com .12market.com .cailiao.com .taobao.com .blogfa.com .parsiblog.com .blog.ir .mihanblog.com .persianblog.ir .niniweblog.com|
     $hosts.each{|h|
       return true if host.include?(h)
     }
