@@ -76,7 +76,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="5" selection-start="2207" selection-end="2207" vertical-scroll-proportion="0.7494781" vertical-offset="766" max-vertical-offset="1245">
+            <state line="65" column="3" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.8121086" vertical-offset="766" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -1493,7 +1493,11 @@
       <created>1405320468864</created>
       <updated>1405320468864</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="排除垃圾ip">
+      <created>1405328860716</created>
+      <updated>1405328860716</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1571,7 +1575,6 @@
     <MESSAGE value="threadpool只wait_done，不用shutdown&#10;" />
     <MESSAGE value="添加工具" />
     <MESSAGE value="添加工具&#10;" />
-    <MESSAGE value="排除垃圾ip" />
     <MESSAGE value="保留一个实时队列" />
     <MESSAGE value="ip处理放到http模块中" />
     <MESSAGE value="现在能处理过来，暂时不用放到快速队列了&#10;" />
@@ -1579,7 +1582,8 @@
     <MESSAGE value="remove bullship ip&#10;" />
     <MESSAGE value="修复由于hostinfo_of_url返回nil导致报错的问题" />
     <MESSAGE value="修复由于hostinfo_of_url返回nil导致报错的问题&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复由于hostinfo_of_url返回nil导致报错的问题&#10;" />
+    <MESSAGE value="排除垃圾ip" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1891,7 +1895,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="5" selection-start="2207" selection-end="2207" vertical-scroll-proportion="0.7494781" vertical-offset="766" max-vertical-offset="1245">
+        <state line="65" column="3" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.8121086" vertical-offset="766" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
