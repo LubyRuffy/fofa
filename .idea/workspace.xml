@@ -4,9 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/link_crawler.rb" afterPath="$PROJECT_DIR$/tools/link_crawler.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/userhost.rb" afterPath="$PROJECT_DIR$/app/models/userhost.rb" />
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="修复由于hostinfo_of_url返回nil导致报错的问题&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -74,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="34" selection-start="975" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="379" max-vertical-offset="1155">
+            <state line="37" column="12" selection-start="856" selection-end="856" vertical-scroll-proportion="0.46732673" vertical-offset="349" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -101,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="link_crawler.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="link_crawler.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="18" selection-start="1405" selection-end="1405" vertical-scroll-proportion="-0.55487806" vertical-offset="1098" max-vertical-offset="1590">
+            <state line="55" column="18" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="1590">
               <folding />
             </state>
           </provider>
@@ -203,9 +202,9 @@
         <option value="$PROJECT_DIR$/tools/bid.txt" />
         <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/models/userhost.rb" />
         <option value="$PROJECT_DIR$/tools/link_crawler.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -1474,7 +1473,11 @@
       <created>1405319095049</created>
       <updated>1405319095049</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="修复由于hostinfo_of_url返回nil导致报错的问题&#10;">
+      <created>1405319227184</created>
+      <updated>1405319227184</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1535,7 +1538,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修改默认启动worker的方式和数量" />
     <MESSAGE value="增加activeadmin" />
     <MESSAGE value="增加activeadmin管理，包括用户管理，规则管理，用户提交域名管理等" />
     <MESSAGE value="增加activeadmin管理，包括用户管理，规则管理，用户提交域名管理等&#10;" />
@@ -1560,7 +1562,8 @@
     <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="remove bullship ip&#10;" />
     <MESSAGE value="修复由于hostinfo_of_url返回nil导致报错的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复由于hostinfo_of_url返回nil导致报错的问题" />
+    <MESSAGE value="修复由于hostinfo_of_url返回nil导致报错的问题&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复由于hostinfo_of_url返回nil导致报错的问题&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1579,12 +1582,6 @@
           <url>file://$PROJECT_DIR$/app/jobs/module/process_class.rb</url>
           <line>144</line>
           <option name="timeStamp" value="124" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <condition>arr.size&gt;75</condition>
-          <url>file://$PROJECT_DIR$/app/jobs/module/lrlink.rb</url>
-          <line>41</line>
-          <option name="timeStamp" value="128" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1855,13 +1852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="34" selection-start="975" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="379" max-vertical-offset="1155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/userhost.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="12" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="945">
@@ -1878,7 +1868,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/link_crawler.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="18" selection-start="1405" selection-end="1405" vertical-scroll-proportion="-0.55487806" vertical-offset="1098" max-vertical-offset="1590">
+        <state line="55" column="18" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="1590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="12" selection-start="856" selection-end="856" vertical-scroll-proportion="0.46732673" vertical-offset="349" max-vertical-offset="1215">
           <folding />
         </state>
       </provider>

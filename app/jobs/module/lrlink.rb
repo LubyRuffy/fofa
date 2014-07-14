@@ -36,12 +36,14 @@ module Lrlink
 
   def get_linkes(html)
     arr = []
-    html.scan(/(http[s]?:\/\/.*?)[ \/\'\"\>]/).each{|x|
-      if x[0].size>8 && x[0].include?('.')
-        hostinfo = hostinfo_of_url(x[0].downcase)
-        arr << hostinfo if hostinfo
-      end
-    }
+    if html
+      html.scan(/(http[s]?:\/\/.*?)[ \/\'\"\>]/).each{|x|
+        if x[0].size>8 && x[0].include?('.')
+          hostinfo = hostinfo_of_url(x[0].downcase)
+          arr << hostinfo if hostinfo
+        end
+      }
+    end
     arr.uniq
   end
 
