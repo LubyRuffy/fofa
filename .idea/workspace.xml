@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -33,7 +31,7 @@
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client_thread.coverage" NAME="resque_worker_client_thread Coverage Results" MODIFIED="1405251065387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@db_schema_dump.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1405171091466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@ruby_debug_ide.coverage" NAME="ruby-debug-ide Coverage Results" MODIFIED="1404966712155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405307606518" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405307795632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Unnamed.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1404817656735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -69,7 +67,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="94" selection-start="1144" selection-end="1144" vertical-scroll-proportion="0.06504065" vertical-offset="666" max-vertical-offset="1035">
+            <state line="45" column="119" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.7154471" vertical-offset="426" max-vertical-offset="1035">
               <folding />
             </state>
           </provider>
@@ -96,7 +94,7 @@
       <file leaf-file-name="bid.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/bid.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="105">
+            <state line="1" column="0" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
               <folding />
             </state>
           </provider>
@@ -204,8 +202,8 @@
         <option value="$PROJECT_DIR$/Rakefile" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
-        <option value="$PROJECT_DIR$/tools/bid.txt" />
         <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
+        <option value="$PROJECT_DIR$/tools/bid.txt" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
@@ -218,7 +216,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="x" value="1" />
+    <option name="y" value="24" />
     <option name="width" value="1280" />
     <option name="height" value="774" />
   </component>
@@ -1420,11 +1419,15 @@
       <created>1405306208398</created>
       <updated>1405306208398</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="排除垃圾ip&#10;">
+      <created>1405307746578</created>
+      <updated>1405307746578</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="774" extended-state="6" />
+    <frame x="1" y="24" width="1280" height="774" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1875,13 +1878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/bid.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="72" selection-start="740" selection-end="740" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
@@ -1889,9 +1885,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tools/bid.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="94" selection-start="1144" selection-end="1144" vertical-scroll-proportion="0.06504065" vertical-offset="666" max-vertical-offset="1035">
+        <state line="45" column="119" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.7154471" vertical-offset="426" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>
