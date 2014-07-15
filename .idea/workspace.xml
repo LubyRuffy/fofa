@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/remove_duplicate_host.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -64,7 +61,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="5" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.8034188" vertical-offset="749" max-vertical-offset="1245">
+            <state line="51" column="319" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.13034189" vertical-offset="749" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -1653,7 +1650,11 @@
       <created>1405345891636</created>
       <updated>1405345891636</updated>
     </task>
-    <option name="localTasksCounter" value="217" />
+    <task id="LOCAL-00217" summary="排除垃圾ip&#10;">
+      <created>1405392085524</created>
+      <updated>1405392085524</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1737,9 +1738,9 @@
     <MESSAGE value="解决UTF8编码报错的问题" />
     <MESSAGE value="解决shift-jis编码报错的问题：guest和ruby的编码名称不一致，shift_jis处理一下" />
     <MESSAGE value="优化utf8编码" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="优化utf8编码&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2087,7 +2088,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="5" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.8034188" vertical-offset="749" max-vertical-offset="1245">
+        <state line="51" column="319" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.13034189" vertical-offset="749" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
