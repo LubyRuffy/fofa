@@ -72,7 +72,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="440" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
+            <state line="51" column="467" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -1788,7 +1788,11 @@
       <created>1405423445327</created>
       <updated>1405423445327</updated>
     </task>
-    <option name="localTasksCounter" value="251" />
+    <task id="LOCAL-00251" summary="放开递归爬行限制&#10;">
+      <created>1405423859822</created>
+      <updated>1405423859822</updated>
+    </task>
+    <option name="localTasksCounter" value="252" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1828,7 +1832,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="创建规则时绑定用户" />
     <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能" />
     <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能&#10;" />
     <MESSAGE value="threadpool先要wait_done，然后才能shutdown，否则会出现错误" />
@@ -1853,7 +1856,8 @@
     <MESSAGE value="优化utf8编码" />
     <MESSAGE value="优化utf8编码&#10;" />
     <MESSAGE value="放开递归爬行限制" />
-    <option name="LAST_COMMIT_MESSAGE" value="放开递归爬行限制" />
+    <MESSAGE value="放开递归爬行限制&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="放开递归爬行限制&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2245,7 +2249,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="440" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
+        <state line="51" column="467" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
