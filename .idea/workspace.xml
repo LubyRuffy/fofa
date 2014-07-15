@@ -72,7 +72,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="467" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
+            <state line="51" column="477" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.25339368" vertical-offset="773" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -1792,7 +1792,11 @@
       <created>1405423859822</created>
       <updated>1405423859822</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="排除垃圾ip&#10;">
+      <created>1405424010675</created>
+      <updated>1405424010675</updated>
+    </task>
+    <option name="localTasksCounter" value="253" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1852,12 +1856,12 @@
     <MESSAGE value="解决shift-jis编码报错的问题：guest和ruby的编码名称不一致，shift_jis处理一下" />
     <MESSAGE value="增加fofa客户端漏洞测试工具。" />
     <MESSAGE value="增加fofa客户端漏洞测试工具。&#10;" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="优化utf8编码" />
     <MESSAGE value="优化utf8编码&#10;" />
     <MESSAGE value="放开递归爬行限制" />
     <MESSAGE value="放开递归爬行限制&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="放开递归爬行限制&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2249,7 +2253,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="467" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
+        <state line="51" column="477" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.25339368" vertical-offset="773" max-vertical-offset="1380">
           <folding />
         </state>
       </provider>
