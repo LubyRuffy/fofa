@@ -126,7 +126,7 @@
       <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="279" selection-start="8883" selection-end="8883" vertical-scroll-proportion="0.72747254" vertical-offset="3479" max-vertical-offset="7395">
+            <state line="258" column="199" selection-start="9417" selection-end="9417" vertical-scroll-proportion="0.5626374" vertical-offset="3614" max-vertical-offset="7380">
               <folding />
             </state>
           </provider>
@@ -1772,7 +1772,11 @@
       <created>1405421852427</created>
       <updated>1405421852427</updated>
     </task>
-    <option name="localTasksCounter" value="247" />
+    <task id="LOCAL-00247" summary="优化utf8编码&#10;">
+      <created>1405422003516</created>
+      <updated>1405422003516</updated>
+    </task>
+    <option name="localTasksCounter" value="248" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2229,7 +2233,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="279" selection-start="8883" selection-end="8883" vertical-scroll-proportion="0.72747254" vertical-offset="3479" max-vertical-offset="7395">
+        <state line="258" column="199" selection-start="9417" selection-end="9417" vertical-scroll-proportion="0.5626374" vertical-offset="3614" max-vertical-offset="7380">
           <folding />
         </state>
       </provider>
