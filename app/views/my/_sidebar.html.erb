@@ -1,0 +1,20 @@
+<div class="sidebar-fixed" id="sidebar">
+  <!-- Start .sidebar-inner -->
+  <div style="position: relative; overflow: hidden; width: auto; height: 100%;" class="slimScrollDiv"><div style="overflow: hidden; width: auto; height: 100%;" class="sidebar-inner">
+    <!-- Start #sideNav -->
+    <ul id="sideNav" class="nav nav-pills nav-stacked show-arrows">
+      <li><a <% if action_name=="index"%>class="active"<%end%> href="/my">控制面板 <i class="im-screen"></i></a>
+      </li>
+      <li><a <% if action_name=="rules"%>class="active"<%end%> href="/my/rules">我的规则 <i class="st-chart"></i></a>
+      </li>
+      <li class="hasSub">
+        <a <% if action_name=="saverules"%>class="active"<%end%> href="/my/saverules"><i class="en-arrow-down5 sideNav-arrow"></i> 收藏规则 <i class="im-paragraph-justify"></i><span class="notification onhover red">4</span></a>
+      </li>
+      <!--<li><a <% if action_name=="vuls"%>class="active"<%end%> href="/my/vuls">我的漏洞库 <i class="st-chart"></i></a>-->
+
+    </ul>
+    <!-- End #sideNav -->
+  </div>
+    <div style="background: none repeat scroll 0% 0% rgb(153, 153, 153); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 0px; height: 63.7955px;" class="slimScrollBar"></div><div style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(238, 238, 238); opacity: 0.5; z-index: 90; right: 0px;" class="slimScrollRail"></div></div>
+  <!-- End .sidebar-inner -->
+</div>

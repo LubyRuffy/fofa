@@ -49,7 +49,7 @@ module Lrlink
   end
 
   def is_bullshit_host?(host)
-    $hosts = %w|.i.sohu.com .tumblr.com .soufun.com .ymjx168.com .ninemarket.com .12market.com .cailiao.com .taobao.com .blogfa.com .parsiblog.com .blog.ir .mihanblog.com .persianblog.ir .niniweblog.com .lapozz.hu .blogcu.com .blogsky.com .deviantart.com rpod.ru .beon.ru .ieskok.lt .vk.me .qaix.com .gyxu.com .ltalk.ru .userapi.com .olx.bg .digart.pl .flog.pl .fmix.pl .uol.ua .rock.cz .blog.is .yjycw.com .243mm.com .bxlwt.com .mmfj.com .blox.pl .bloog.pl .huamu.cn .8671.net .blog.pl .onet.pl .salon24.pl .pinger.pl|
+    $hosts = %w|.i.sohu.com .tumblr.com .soufun.com .ymjx168.com .ninemarket.com .12market.com .cailiao.com .taobao.com .blogfa.com .parsiblog.com .blog.ir .mihanblog.com .persianblog.ir .niniweblog.com .lapozz.hu .blogcu.com .blogsky.com .deviantart.com rpod.ru .beon.ru .ieskok.lt .vk.me .qaix.com .gyxu.com .ltalk.ru .userapi.com .olx.bg .digart.pl .flog.pl .fmix.pl .uol.ua .rock.cz .blog.is .yjycw.com .243mm.com .bxlwt.com .mmfj.com .blox.pl .bloog.pl .huamu.cn .8671.net .blog.pl .onet.pl .salon24.pl .pinger.pl .blog.hexun.com .blog.163.com .canalblog.com|
     $hosts.each{|h|
       return true if host.include?(h)
     }

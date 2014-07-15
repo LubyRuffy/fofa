@@ -20,7 +20,7 @@
         <div class="form-group">
           <label for="textArea" class="col-lg-2 control-label">规则详情</label>
           <div class="col-lg-10">
-            <%= f.text_area :rule, :class=> "form-control required", :row=>3, :placeholder=>'header="Set-Cookie: phpMyAdmin="|| title="phpMyAdmin " || body="pma_password"', :value => @notice?nil:@rawrule%>
+            <%= f.text_area :rule, :class=> "form-control required", :row=>3, :placeholder=>'header="Set-Cookie: phpMyAdmin="|| title="phpMyAdmin " || body="pma_password"', :value => @notice?nil:@rawrule||@rule.rule%>
             <span class="help-block">必须是满足查询语言的语句，目前支持title，host，body，head等查询。</span>
           </div>
         </div>

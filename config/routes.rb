@@ -1,10 +1,8 @@
 Fofa::Application.routes.draw do
-  get "my/index"
+
   devise_for :users
   #ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  get 'api/addhost'
 
   get "info/gov"
   get "info/library"
@@ -22,6 +20,12 @@ Fofa::Application.routes.draw do
   get "api/addhost"
   post "api/addhostp"
   get "api/result"
+  get 'api/addhost'
+
+  get "my/index"
+  get "my/rules"
+  get "my/saverules"
+  get "my" => "my#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

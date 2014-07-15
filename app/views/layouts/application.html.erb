@@ -55,6 +55,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
+              <li ><a href="/my">管理后台</a></li>
               <li class="dropdown">
                 <a href="#" data-toggle="dropdown">
                   <%= image_tag current_user.avatar.url(:thumb), class:"user-avatar" %>

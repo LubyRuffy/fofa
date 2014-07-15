@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :userruleships
-  has_many :saverules, :class_name => "Rule", :through => :userruleships, :foreign_key => "user_id"
+  has_many :saverules, :class_name => "Rule", :through => :userruleships, :foreign_key => "user_id", :source =>:user
   has_many :rules
 
   # Include default devise modules. Others available are:

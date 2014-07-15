@@ -31,7 +31,7 @@ class RulesController < ApplicationController
       return redirect_to rules_path
     end
 
-    unless @rule.users == current_user
+    unless @rule.user == current_user
       flash[:alert] = "只能管理自己的规则！"
       return redirect_to rules_path
     end
@@ -72,7 +72,7 @@ class RulesController < ApplicationController
       return redirect_to rules_path
     end
 
-    unless @rule.users == current_user
+    unless @rule.user == current_user
       flash[:alert] = "只能管理自己的规则！"
       return redirect_to rules_path
     end
@@ -98,7 +98,7 @@ class RulesController < ApplicationController
       return redirect_to rules_path
     end
 
-    unless @rule.users == current_user
+    unless @rule.user == current_user
       flash[:alert] = "只能管理自己的规则！"
       return redirect_to rules_path
     end
