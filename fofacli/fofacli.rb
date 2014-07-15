@@ -33,10 +33,69 @@ class Fofacli
     ext
   end
 
+  def engage_mode(modules)
+    case @args[:mode].downcase
+      when 'h'
+        usage
+=begin
+      when "s"
+        show_summary(modules)
+      when "o"
+        show_options(modules)
+      when "a"
+        show_advanced(modules)
+      when "i"
+        show_ids_evasion(modules)
+      when "p"
+        if modules[:module].file_path =~ /auxiliary\//i
+          $stdout.puts("\nError: This type of module does not support payloads")
+        else
+          show_payloads(modules)
+        end
+      when "t"
+        puts
+        if modules[:module].file_path =~ /auxiliary\//i
+          $stdout.puts("\nError: This type of module does not support targets")
+        else
+          show_targets(modules)
+        end
+      when "ac"
+        if modules[:module].file_path =~ /auxiliary\//i
+          show_actions(modules)
+        else
+          $stdout.puts("\nError: This type of module does not support actions")
+        end
+      when "c"
+        show_check(modules)
+=end
+      when "e"
+        execute_module(modules)
+      else
+        usage("Invalid mode #{@args[:mode]}")
+    end
+  end
+
   def init_modules
     $stdout.puts "[*] Initializing modules..."
     module_name = @args[:module_name]
-    modules[:module] =
+    require 'exploits/'+module_name
+    modules[:module] = FofaExploits.new
+    modules
+  end
+
+  def execute_module(m)
+    module_class = (m[:module].fullname =~ /^auxiliary/ ? 'auxiliary' : 'exploit')
+
+    con.run_single("use #{module_class}/#{m[:module].refname}")
+
+    # Assign console parameters
+    @args[:params].each do |arg|
+      k,v = arg.split("=", 2)
+      con.run_single("set #{k} #{v}")
+    end
+
+    # Run the exploit
+    con.run_single("exploit")
   end
 
   def run!
@@ -59,7 +118,7 @@ class Fofacli
     end
 
     # Process special var/val pairs...
-    Msf::Ui::Common.process_cli_arguments(@framework, @args[:params])
+    #process_cli_arguments(@args[:params])
 
     engage_mode(modules)
     $stdout.puts
