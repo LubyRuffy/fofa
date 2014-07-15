@@ -6,32 +6,32 @@ module Fofa
       @info = info
     end
 
-    def excute_scansteps
+    def excute_scansteps(hostinfo)
       @info['ScanSteps'].each{|step|
-        if !execute_step step
+        if !execute_step(step, hostinfo)
           return false #任何一个测试请求失败都返回FALSE
         end
       }
       true
     end
 
-    def vulnerable
-      excute_scansteps if @info['ScanStep']
+    def vulnerable(hostinfo)
+      excute_scansteps(hostinfo) if @info['ScanSteps']
     end
 
-    def exploit
+    def exploit(hostinfo)
       false
     end
 
     private
 
-    def execute_step(step)
-      response = make_request(step['Request'])
+    def execute_step(step, hostinfo)
+      response = make_request(hostinfo, step['Request'])
       check_response(response, step['ResponseTest'])
     end
 
-    def make_request(request)
-      response = {error:false, errstring:'', body:'', head:''}
+    def make_request(hostinfo, request)
+      response = {error:false, errstring:'', body:'root:x:0:0:root:/root:/bin/bash', head:'', code:200}
       response
     end
 
@@ -63,11 +63,11 @@ module Fofa
     def execute_item(response, test)
       case test[:varibale]
         when '$code'
-          test_int(response.code, test[:operation], test[:value].to_i)
+          test_int(response[:code], test[:operation], test[:value].to_i)
         when '$body'
-          test_string(response.body, test[:operation], test[:value])
+          test_string(response[:body], test[:operation], test[:value])
         when '$head'
-          test_string(response.head, test[:operation], test[:value])
+          test_string(response[:head], test[:operation], test[:value])
       end
     end
 

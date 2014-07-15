@@ -13,7 +13,11 @@ class Fofacli
 
     @args[:module_name] = args.shift # First argument should be the module name
     @args[:mode] = args.pop || 'h' # Last argument should be the mode
-    @args[:params] = args # Whatever is in the middle should be the params
+    @args[:params] = {}
+    args.each{|p|
+      k,v = p.split('=')
+      @args[:params][k] = v
+    } # Whatever is in the middle should be the params
   end
 
   def usage(str = nil, extra = nil)
@@ -27,9 +31,10 @@ class Fofacli
     $stdout.puts "[*] Please wait while we load the module tree..."
     #todo: load exploits in exploits/*.rb
     ext = ''
-    Dir.each { |x| x.name }
-    ext <<
-    ext << "\n"
+    Dir["exploits/*.rb"].each do |filename|
+      ext << filename
+      ext << "\n"
+    end
     ext
   end
 
@@ -78,13 +83,12 @@ class Fofacli
   def init_modules
     $stdout.puts "[*] Initializing modules..."
     module_name = @args[:module_name]
-    require 'exploits/'+module_name
-    modules[:module] = FofaExploits.new
-    modules
+    require './exploits/'+module_name
+    FofaExploits.new
   end
 
   def execute_module(m)
-    m[:module].scan
+    m.vulnerable(@args[:params])
   end
 
   def run!
@@ -99,17 +103,12 @@ class Fofacli
       exit
     end
 
-    modules = init_modules
-
-    if modules[:module].nil?
-      usage("Invalid module: #{@args[:module_name]}")
-      exit
-    end
+    mod = init_modules
 
     # Process special var/val pairs...
     #process_cli_arguments(@args[:params])
 
-    engage_mode(modules)
+    engage_mode(mod)
     $stdout.puts
   end
 end
