@@ -151,7 +151,14 @@ module HttpModule
           resp[:code] = response.code
           resp[:message] = response.message
           resp[:http_version] = response.http_version
-          resp[:header] = response.header
+
+          header = ["HTTP/#{response.http_version} #{response.code} #{response.message}"]
+          response.header.each_capitalized() {|k, v|
+            header << [k,v].join(': ')
+          }
+          header = header.join("\n")
+
+          resp[:header] = header.force_encoding('UTF-8')
           resp[:html] = nil
           if response.header[ 'Content-Encoding' ].eql?( 'gzip' )
             sio = StringIO.new( response.body )
@@ -239,12 +246,14 @@ module HttpModule
     resp
   end
 
-  def get_utf8(c)
-    encoding = GuessHtmlEncoding.guess(c)
-    encoding = "GB2312" if encoding=='GBK2312' #bug?
-    encoding = "SHIFT_JIS" if encoding=='SHIFT-JIS' || encoding=='X-SJIS' #bug?
-    encoding = "cp1251" if encoding=='WINDOWS-1251' || encoding=='WINDOW-1251' #bug?
-    encoding = "iso-8859-1" if encoding=='ISO-8855-1' #bug?
+  def get_utf8(c,header=nil)
+    encoding = GuessHtmlEncoding.guess(c,header)
+    #puts encoding
+    encoding = "GB2312" if encoding=='GBK2312' || encoding=='GB_2312-80' #bug?
+    encoding = "UTF-8" if encoding.include?('UTF') || encoding=='U1TF-8' || encoding=='UF-8' #bug?
+    encoding = "SHIFT_JIS" if encoding=='SHIFT-JIS' || encoding=='X-SJIS' || encoding=='SHFIT_JIS' || encoding=='SHIT-JIS' || encoding=='SHIFT_JS' || encoding='S-JIS' || encoding='SHIF_JIS' || encoding='SJIS-WIN' || encoding='S-JIS'#bug?
+    encoding = "cp1251" if encoding.include?('1251') ||  encoding.include?('1250') #bug?
+    encoding = "iso-8859-1" if encoding=='ISO-8855-1' || encoding='IS0-8859-1' || encoding.include?('8859-1')  #bug?
     encoding = "iso-8859-2" if encoding=='ISO8859_2' #bug?
 
     if(encoding)
@@ -277,7 +286,7 @@ module HttpModule
 
   def get_http(url, refer=nil)
     http = get_web_content url, referer: refer
-    http[:utf8html] = get_utf8 http[:html] if http[:html] and http[:html].size > 2
+    http[:utf8html] = get_utf8(http[:html],http[:header]) if http[:html] and http[:html].size > 2
     #http[:utf8html] = Redmine::CodesetUtil::to_utf8( http[:html], GuessHtmlEncoding.guess(http[:html])) if http[:html] and http[:html].size > 2
     if http[:utf8html]
       arr = http[:utf8html].scan(/<title>(.*?)<\/title>/i)

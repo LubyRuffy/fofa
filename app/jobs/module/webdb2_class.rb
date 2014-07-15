@@ -59,11 +59,7 @@ class WebDb
   def db_insert_host(db, host, domain, subdomain, r)
     title = r[:title]
     title ||= ''
-    header = ["HTTP/#{r[:http_version]} #{r[:code]} #{r[:message]}"]
-    r[:header].each_capitalized() {|k, v| #if !r[:error]
-      header << [k,v].join(': ')
-    }
-    header = header.join("\n").force_encoding('UTF-8')
+    header = r[:header]
     body = r[:utf8html]
     body ||= ''
     ip = r[:ip]
@@ -80,11 +76,7 @@ class WebDb
   def db_update_host(db, host, r)
     title = r[:title]
     title ||= ''
-    header = ["HTTP/#{r[:http_version]} #{r[:code]} #{r[:message]}"]
-    r[:header].each_capitalized() {|k, v| #if !r[:error]
-      header << [k,v].join(': ')
-    }
-    header = header.join("\n").force_encoding('UTF-8')
+    header = r[:header]
     body = r[:utf8html]
     body ||= ''
     ip = r[:ip]
