@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/lib/fofa_http.rb" afterPath="$PROJECT_DIR$/fofacli/lib/fofa_http.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -114,19 +114,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fofa_http.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fofa_http.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fofacli/lib/fofa_http.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="43" selection-start="5581" selection-end="5581" vertical-scroll-proportion="0.62637365" vertical-offset="1890" max-vertical-offset="2520">
+            <state line="145" column="43" selection-start="5581" selection-end="5581" vertical-scroll-proportion="0.0" vertical-offset="1770" max-vertical-offset="2520">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="258" column="77" selection-start="9144" selection-end="9215" vertical-scroll-proportion="0.0" vertical-offset="3614" max-vertical-offset="7395">
+            <state line="259" column="0" selection-start="9303" selection-end="9303" vertical-scroll-proportion="0.62857145" vertical-offset="3599" max-vertical-offset="7395">
               <folding />
             </state>
           </provider>
@@ -208,8 +208,8 @@
         <option value="$PROJECT_DIR$/fofacli/fofacli.rb" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/fofacli/lib/fofa_http.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       </list>
     </option>
   </component>
@@ -1764,7 +1764,11 @@
       <created>1405421668183</created>
       <updated>1405421668183</updated>
     </task>
-    <option name="localTasksCounter" value="245" />
+    <task id="LOCAL-00245" summary="优化utf8编码&#10;">
+      <created>1405421731702</created>
+      <updated>1405421731702</updated>
+    </task>
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1824,12 +1828,12 @@
     <MESSAGE value="添加测试目录&#10;" />
     <MESSAGE value="解决UTF8编码报错的问题" />
     <MESSAGE value="解决shift-jis编码报错的问题：guest和ruby的编码名称不一致，shift_jis处理一下" />
-    <MESSAGE value="优化utf8编码&#10;" />
     <MESSAGE value="增加fofa客户端漏洞测试工具。" />
     <MESSAGE value="增加fofa客户端漏洞测试工具。&#10;" />
     <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="优化utf8编码" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码" />
+    <MESSAGE value="优化utf8编码&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2212,16 +2216,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+    <entry file="file://$PROJECT_DIR$/fofacli/lib/fofa_http.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="258" column="77" selection-start="9144" selection-end="9215" vertical-scroll-proportion="0.0" vertical-offset="3614" max-vertical-offset="7395">
+        <state line="145" column="43" selection-start="5581" selection-end="5581" vertical-scroll-proportion="0.0" vertical-offset="1770" max-vertical-offset="2520">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fofacli/lib/fofa_http.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="43" selection-start="5581" selection-end="5581" vertical-scroll-proportion="0.62637365" vertical-offset="1890" max-vertical-offset="2520">
+        <state line="259" column="0" selection-start="9303" selection-end="9303" vertical-scroll-proportion="0.62857145" vertical-offset="3599" max-vertical-offset="7395">
           <folding />
         </state>
       </provider>
