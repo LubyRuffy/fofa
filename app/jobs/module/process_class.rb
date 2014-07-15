@@ -149,7 +149,8 @@ class Processor
         sl = len/hosts.size
         port_len = hosts.select{|h| h.include?(':') }.size
 
-        if sl<17 && port_len<10 #全是:123这样的说明是垃圾站，同时平均长度超长的说明是dns泛解析垃圾站
+        #if sl<17 && port_len<10 #全是:123这样的说明是垃圾站，同时平均长度超长的说明是dns泛解析垃圾站
+        if port_len<15 && sl<25
           root_path = File.expand_path(File.dirname(__FILE__))
           rails_env = 'production'
           resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
