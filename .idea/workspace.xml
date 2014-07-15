@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" afterPath="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -53,10 +50,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="332" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1245">
+            <state line="51" column="340" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.13034189" vertical-offset="749" max-vertical-offset="1245">
               <folding />
             </state>
           </provider>
@@ -80,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="httpmodule.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="482" column="5" selection-start="15597" selection-end="15597" vertical-scroll-proportion="0.6703297" vertical-offset="6925" max-vertical-offset="7380">
+            <state line="107" column="24" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
               <folding />
             </state>
           </provider>
@@ -209,9 +206,9 @@
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/resque-1.25.2/lib/resque.rb" />
         <option value="$PROJECT_DIR$/tools/remove_duplicate_host.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -1662,7 +1659,11 @@
       <created>1405392214225</created>
       <updated>1405392214225</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="优化utf8编码&#10;">
+      <created>1405395600620</created>
+      <updated>1405395600620</updated>
+    </task>
+    <option name="localTasksCounter" value="220" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1746,9 +1747,9 @@
     <MESSAGE value="解决UTF8编码报错的问题" />
     <MESSAGE value="解决shift-jis编码报错的问题：guest和ruby的编码名称不一致，shift_jis处理一下" />
     <MESSAGE value="优化utf8编码" />
-    <MESSAGE value="优化utf8编码&#10;" />
     <MESSAGE value="排除垃圾ip&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
+    <MESSAGE value="优化utf8编码&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2035,13 +2036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="332" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/remove_allport_host.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="25" selection-start="1137" selection-end="1160" vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="735">
@@ -2091,6 +2085,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="24" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/net/http.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="854" column="0" selection-start="27404" selection-end="27404" vertical-scroll-proportion="0.0" vertical-offset="12659" max-vertical-offset="23430">
@@ -2098,9 +2099,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="482" column="5" selection-start="15597" selection-end="15597" vertical-scroll-proportion="0.6703297" vertical-offset="6925" max-vertical-offset="7380">
+        <state line="51" column="340" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.13034189" vertical-offset="749" max-vertical-offset="1245">
           <folding />
         </state>
       </provider>
