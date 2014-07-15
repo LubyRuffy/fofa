@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" afterPath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" afterPath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/fofacli.rb" afterPath="$PROJECT_DIR$/fofacli/fofacli.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -20,9 +22,10 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405407363534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405413013416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@fofacli.coverage" NAME="fofacli Coverage Results" MODIFIED="1405413369470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fofacli" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@test_getutf8__fofa.coverage" NAME="test_getutf8: fofa Coverage Results" MODIFIED="1405336369067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@process_class.coverage" NAME="process_class Coverage Results" MODIFIED="1404975886642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/module" MODULE_NAME="fofa" />
@@ -55,7 +58,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="836" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
+            <state line="59" column="846" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -64,7 +67,7 @@
       <file leaf-file-name="fofacli.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fofacli/fofacli.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="16" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="1860">
+            <state line="86" column="25" selection-start="2240" selection-end="2358" vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="1875">
               <folding />
             </state>
           </provider>
@@ -73,7 +76,7 @@
       <file leaf-file-name="elasticsearch_rce_CVE-2014-3120.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="61" selection-start="2077" selection-end="2108" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1245">
+            <state line="43" column="26" selection-start="1569" selection-end="1575" vertical-scroll-proportion="0.0" vertical-offset="447" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
@@ -82,7 +85,7 @@
       <file leaf-file-name="fofa_core.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fofacli/lib/fofa_core.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="3" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1650">
+            <state line="146" column="54" selection-start="3839" selection-end="3883" vertical-scroll-proportion="-1.4230769" vertical-offset="2153" max-vertical-offset="4395">
               <folding />
             </state>
           </provider>
@@ -100,7 +103,7 @@
       <file leaf-file-name="httpmodule.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="2" selection-start="2547" selection-end="8314" vertical-scroll-proportion="0.0" vertical-offset="4244" max-vertical-offset="7380">
+            <state line="98" column="2" selection-start="2547" selection-end="10747" vertical-scroll-proportion="0.0" vertical-offset="1634" max-vertical-offset="7380">
               <folding />
             </state>
           </provider>
@@ -350,42 +353,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fofacli" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofacli" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exploits" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fofa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -474,29 +441,7 @@
       <recent name="$PROJECT_DIR$/config/locales" />
     </key>
   </component>
-  <component name="RunManager" selected="Ruby.addhost">
-    <configuration default="false" name="resque_worker_client_thread" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
-      <module name="fofa" />
-      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/tools" />
-      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/resque_worker_client_thread.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
-      <RunnerSettings RunnerId="RubyDebugRunner" />
-      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Ruby.fofacli">
     <configuration default="false" name="remove_duplicate_host" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="fofa" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -537,6 +482,28 @@
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/app/jobs/module/httpmodule.rb" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <RunnerSettings RunnerId="RubyDebugRunner" />
+      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="fofacli" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="fofa" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$/fofacli" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/fofacli/fofacli.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="elasticsearch_rce_CVE-2014-3120.rb e" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />
@@ -747,20 +714,20 @@
       <item index="7" class="java.lang.String" itemvalue="Ruby.addhost" />
       <item index="8" class="java.lang.String" itemvalue="Ruby.analysis_fingerprint_from_urls" />
       <item index="9" class="java.lang.String" itemvalue="Ruby.resque_worker_client" />
-      <item index="10" class="java.lang.String" itemvalue="Ruby.resque_worker_client_thread" />
-      <item index="11" class="java.lang.String" itemvalue="Ruby.remove_bullship_ip" />
-      <item index="12" class="java.lang.String" itemvalue="Ruby.remove_duplicate_host" />
-      <item index="13" class="java.lang.String" itemvalue="Ruby.httpmodule" />
+      <item index="10" class="java.lang.String" itemvalue="Ruby.remove_bullship_ip" />
+      <item index="11" class="java.lang.String" itemvalue="Ruby.remove_duplicate_host" />
+      <item index="12" class="java.lang.String" itemvalue="Ruby.httpmodule" />
+      <item index="13" class="java.lang.String" itemvalue="Ruby.fofacli" />
       <item index="14" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'test_charset': fofa" />
       <item index="15" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_getutf8: fofa" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Ruby.remove_duplicate_host" />
-        <item index="1" class="java.lang.String" itemvalue="Ruby.httpmodule" />
-        <item index="2" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'test_charset': fofa" />
-        <item index="3" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_getutf8: fofa" />
-        <item index="4" class="java.lang.String" itemvalue="Ruby.resque_worker_client_thread" />
+        <item index="0" class="java.lang.String" itemvalue="Ruby.fofacli" />
+        <item index="1" class="java.lang.String" itemvalue="Ruby.remove_duplicate_host" />
+        <item index="2" class="java.lang.String" itemvalue="Ruby.httpmodule" />
+        <item index="3" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'test_charset': fofa" />
+        <item index="4" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_getutf8: fofa" />
       </list>
     </recent_temporary>
   </component>
@@ -1721,7 +1688,11 @@
       <created>1405411770695</created>
       <updated>1405411770695</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="排除垃圾ip&#10;">
+      <created>1405412824003</created>
+      <updated>1405412824003</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1815,7 +1786,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="186" />
+      <option name="time" value="188" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -2125,35 +2096,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="2" selection-start="2547" selection-end="8314" vertical-scroll-proportion="0.0" vertical-offset="4244" max-vertical-offset="7380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="61" selection-start="2077" selection-end="2108" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fofacli/lib/fofa_core.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="3" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1650">
+        <state line="98" column="2" selection-start="2547" selection-end="10747" vertical-scroll-proportion="0.0" vertical-offset="1304" max-vertical-offset="7380">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fofacli/fofacli.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="16" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="1860">
+        <state line="86" column="25" selection-start="2240" selection-end="2358" vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="1875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="26" selection-start="1569" selection-end="1575" vertical-scroll-proportion="0.0" vertical-offset="447" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fofacli/lib/fofa_core.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="54" selection-start="3839" selection-end="3883" vertical-scroll-proportion="-1.4230769" vertical-offset="2153" max-vertical-offset="4395">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="836" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
+        <state line="59" column="846" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>

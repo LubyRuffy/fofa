@@ -83,7 +83,8 @@ class Fofacli
   def init_modules
     $stdout.puts "[*] Initializing modules..."
     module_name = @args[:module_name]
-    require './exploits/'+module_name
+    exploits_path = File.expand_path(File.join(File.dirname(__FILE__), 'exploits', module_name))
+    require exploits_path
     FofaExploits.new
   end
 
