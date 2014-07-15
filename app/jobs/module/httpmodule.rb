@@ -256,7 +256,7 @@ module HttpModule
       encoding = "cp1251" if encoding.include?('1251') ||  encoding.include?('1250') #bug?
       encoding = "iso-8859-1" if encoding=='ISO-8855-1' || encoding=='IS0-8859-1' || encoding.include?('8859-1') || encoding.include?('8858-1')  #bug?
       encoding = "iso-8859-2" if encoding=='ISO8859_2' #bug?
-      encoding = "euc-kr" if encoding.include?('5601') || encoding=='EUC_KR' || encoding=='KOREAN' || encoding=='EUK-KR' || encoding=='KO' || encoding=='X-EUC' || encoding='ECU-KR' || encoding='MS949'
+      encoding = "euc-kr" if encoding.include?('5601') || encoding=='EUC_KR' || encoding=='KOREAN' || encoding=='EUK-KR' || encoding=='KO' || encoding=='X-EUC' || encoding=='ECU-KR' || encoding=='MS949'
       if(encoding.to_s != "UTF-8")
         c = c.force_encoding(encoding)
         c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
