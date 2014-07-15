@@ -1,15 +1,4 @@
-<%= stylesheet_link_tag params[:controller] %>
 
-
-<%= render 'sidebar' %>
-
-<div id="content">
-<!-- Start .content-wrapper -->
-<div class="content-wrapper">
-<div class="row">
-  <!-- Start .row -->
-  <!-- Start .page-header -->
-  <div class="col-lg-12 heading">
     <h1 class="page-header"><i class="im-screen"></i> 我收藏的规则列表</h1>
     <!-- Start .bredcrumb -->
     <ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="index.html">控制面板</a><i class="en-arrow-right7"></i></li><li><i class="im-screen"></i> 规则列表 </li></ul>
@@ -39,13 +28,9 @@
       <% end %>
       </tbody>
     </table>
-    <%= will_paginate @rules, :container => false %>
-  </div>
-  <!-- End .page-header -->
-</div>
-<!-- End .row -->
-</div>
-<!-- End .content-wrapper -->
-<div class="clearfix"></div>
-</div>
+    <div class="col-lg-4">
+      <div class="pull-right">
+        <%= will_paginate @rules,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+      </div>
+    </div>
 
