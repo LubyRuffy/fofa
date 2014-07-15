@@ -63,7 +63,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="858" selection-start="2554" selection-end="2554" vertical-scroll-proportion="0.93162394" vertical-offset="719" max-vertical-offset="1350">
+            <state line="59" column="869" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -1740,7 +1740,11 @@
       <created>1405420141045</created>
       <updated>1405420141045</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL-00239" summary="增加fofa客户端漏洞测试工具。&#10;">
+      <created>1405420261840</created>
+      <updated>1405420261840</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2202,7 +2206,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="858" selection-start="2554" selection-end="2554" vertical-scroll-proportion="0.93162394" vertical-offset="719" max-vertical-offset="1350">
+        <state line="59" column="869" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
