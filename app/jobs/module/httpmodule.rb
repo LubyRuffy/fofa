@@ -252,11 +252,11 @@ module HttpModule
     if(encoding)
       encoding = "GB2312" if (encoding=='GBK2312') || (encoding=='GB_2312-80') #bug?
       encoding = "UTF-8" if (encoding.include?('UTF')) || (encoding=='U1TF-8') || (encoding=='UF-8') #bug?
-      encoding = "SHIFT_JIS" if (encoding=='SHIFT-JIS') || (encoding=='X-SJIS') || encoding==('SHFIT_JIS') || (encoding=='SHIT-JIS') || (encoding=='SHIFT_JS') || (encoding=='S-JIS') || (encoding=='SHIF_JIS') || (encoding=='SJIS-WIN') || (encoding=='S-JIS')#bug?
+      encoding = "SHIFT_JIS" if (encoding=='SHIFT-JIS') || (encoding=='X-SJIS') || encoding==('SHFIT_JIS') || (encoding=='SHIT-JIS') || (encoding=='SHIFT_JS') || (encoding=='S-JIS') || (encoding=='SHIF_JIS') || (encoding=='SJIS-WIN') || (encoding=='S-JIS') || encoding=="X-EUC-JP"#bug?
       encoding = "cp1251" if encoding.include?('1251') ||  encoding.include?('1250') #bug?
       encoding = "iso-8859-1" if encoding=='ISO-8855-1' || encoding=='IS0-8859-1' || encoding.include?('8859-1')  #bug?
       encoding = "iso-8859-2" if encoding=='ISO8859_2' #bug?
-      encoding = "euc-kr" if encoding=='KS_C_5601-1987' || encoding=='EUC_KR' || encoding=='KOREAN' || encoding=='KS_C_5601' || encoding=='EUK-KR' || encoding=='KO'
+      encoding = "euc-kr" if encoding.include?('5601') || encoding=='EUC_KR' || encoding=='KOREAN' || encoding=='EUK-KR' || encoding=='KO' || encoding=='X-EUC'
 
       if(encoding.to_s != "UTF-8")
         c = c.force_encoding(encoding)
