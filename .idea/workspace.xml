@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" afterPath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" afterPath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/fofacli.rb" afterPath="$PROJECT_DIR$/fofacli/fofacli.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -58,7 +54,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="846" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
+            <state line="51" column="428" selection-start="1586" selection-end="1586" vertical-scroll-proportion="0.5248869" vertical-offset="638" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -1692,7 +1688,11 @@
       <created>1405412824003</created>
       <updated>1405412824003</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="排除垃圾ip&#10;">
+      <created>1405414726069</created>
+      <updated>1405414726069</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2124,7 +2124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="846" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.5588235" vertical-offset="908" max-vertical-offset="1350">
+        <state line="51" column="428" selection-start="1586" selection-end="1586" vertical-scroll-proportion="0.5248869" vertical-offset="638" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
