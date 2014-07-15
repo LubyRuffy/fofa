@@ -1,4 +1,5 @@
 Fofa::Application.routes.draw do
+  get "my/index"
   devise_for :users
   #ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

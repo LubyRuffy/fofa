@@ -4,6 +4,7 @@ require 'domainatrix'
 require 'resque'
 require 'thread/pool'
 require 'resque-loner'
+require 'script_detector'
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/lrlink.rb"
 
@@ -138,28 +139,31 @@ class Processor
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
       end
 
-      #递归测试的只添加新的，不更新旧的
-      utf8html = http_info[:utf8html]
-      hosts = get_linkes(utf8html).select {|h|
-        !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h)
-      }
+      #队列如果不长，就递归添加，否则只添加中文的网站
+      root_path = File.expand_path(File.dirname(__FILE__))
+      rails_env = 'production'
+      resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
+      Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
+      queue_len =Resque.redis.llen("queue:#{@queue}").to_i
+      chinese = (http_info[:title] && http_info[:title].chinese?)
+      if queue_len<200000 || host.include?('.cn') || chinese
+        utf8html = http_info[:utf8html]
+        hosts = get_linkes(utf8html).select {|h|
+          !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h)
+        }
 
-      if hosts.size>0
-        len = hosts.inject(0){|memo,s|memo+s.length}
-        sl = len/hosts.size
-        port_len = hosts.select{|h| h.include?(':') }.size
+        if hosts.size>0
+          len = hosts.inject(0){|memo,s|memo+s.length}
+          sl = len/hosts.size
+          port_len = hosts.select{|h| h.include?(':') }.size
 
-        #if sl<17 && port_len<10 #全是:123这样的说明是垃圾站，同时平均长度超长的说明是dns泛解析垃圾站
-        if port_len<15 && sl<25
-          root_path = File.expand_path(File.dirname(__FILE__))
-          rails_env = 'production'
-          resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
-          Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
-
-          hosts.each {|h|
-            Resque.enqueue(Processor, h)
-          }
-          #Resque.enqueue(QuickProcessor, hosts.join(','))
+          #if sl<17 && port_len<10 #全是:123这样的说明是垃圾站，同时平均长度超长的说明是dns泛解析垃圾站
+          if port_len<15 && sl<25
+            hosts.each {|h|
+              Resque.enqueue(Processor, h)
+            }
+            #Resque.enqueue(QuickProcessor, hosts.join(','))
+          end
         end
       end
 

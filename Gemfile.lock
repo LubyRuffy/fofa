@@ -200,6 +200,7 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    script_detector (0.1.2)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
@@ -284,6 +285,7 @@ DEPENDENCIES
   resque-loner
   resque-web
   sass-rails (~> 4.0.0)
+  script_detector
   sdoc
   sixarm_ruby_magic_number_type
   sphinx

@@ -82,3 +82,5 @@ gem 'thread'
 gem 'resque-loner'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'script_detector'
