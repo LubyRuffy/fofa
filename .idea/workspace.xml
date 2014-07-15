@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fofacli/lib/fofa_http.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" afterPath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" afterPath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/fofacli.rb" afterPath="$PROJECT_DIR$/fofacli/fofacli.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -104,7 +99,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="30" selection-start="2579" selection-end="2579" vertical-scroll-proportion="0.8021978" vertical-offset="1225" max-vertical-offset="1680">
+            <state line="109" column="3" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.9010989" vertical-offset="1225" max-vertical-offset="1725">
               <folding />
             </state>
           </provider>
@@ -1737,7 +1732,11 @@
       <created>1405414837423</created>
       <updated>1405414837423</updated>
     </task>
-    <option name="localTasksCounter" value="237" />
+    <task id="LOCAL-00237" summary="增加fofa客户端漏洞测试工具。">
+      <created>1405420044257</created>
+      <updated>1405420044257</updated>
+    </task>
+    <option name="localTasksCounter" value="238" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1777,7 +1776,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="修改rake" />
     <MESSAGE value="修改rake&#10;" />
     <MESSAGE value="增加规则并联用户，增加published字段" />
     <MESSAGE value="创建规则时绑定用户" />
@@ -1802,7 +1800,8 @@
     <MESSAGE value="优化utf8编码" />
     <MESSAGE value="优化utf8编码&#10;" />
     <MESSAGE value="排除垃圾ip&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
+    <MESSAGE value="增加fofa客户端漏洞测试工具。" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加fofa客户端漏洞测试工具。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2199,7 +2198,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="30" selection-start="2579" selection-end="2579" vertical-scroll-proportion="0.8021978" vertical-offset="1225" max-vertical-offset="1680">
+        <state line="109" column="3" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.9010989" vertical-offset="1225" max-vertical-offset="1725">
           <folding />
         </state>
       </provider>
