@@ -4,8 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="fangkai">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -51,10 +51,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="process_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="process_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="31" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.3956044" vertical-offset="2100" max-vertical-offset="3000">
+            <state line="152" column="31" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="3000">
               <folding />
             </state>
           </provider>
@@ -69,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="942" selection-start="2638" selection-end="2638" vertical-scroll-proportion="-4.8846154" vertical-offset="758" max-vertical-offset="1365">
+            <state line="51" column="440" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -206,10 +206,10 @@
         <option value="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" />
         <option value="$PROJECT_DIR$/fofacli/fofacli.rb" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/fofacli/lib/fofa_http.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -1784,7 +1784,11 @@
       <created>1405422559004</created>
       <updated>1405422559004</updated>
     </task>
-    <option name="localTasksCounter" value="250" />
+    <task id="LOCAL-00250" summary="放开递归爬行限制">
+      <created>1405423445327</created>
+      <updated>1405423445327</updated>
+    </task>
+    <option name="localTasksCounter" value="251" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1824,7 +1828,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="增加规则并联用户，增加published字段" />
     <MESSAGE value="创建规则时绑定用户" />
     <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能" />
     <MESSAGE value="增加realtime_process_list队列，讲用户提交的url放到这个单独的队列。增加收藏功能&#10;" />
@@ -1849,7 +1852,8 @@
     <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="优化utf8编码" />
     <MESSAGE value="优化utf8编码&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码&#10;" />
+    <MESSAGE value="放开递归爬行限制" />
+    <option name="LAST_COMMIT_MESSAGE" value="放开递归爬行限制" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2211,13 +2215,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="942" selection-start="2638" selection-end="2638" vertical-scroll-proportion="-4.8846154" vertical-offset="758" max-vertical-offset="1365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="3" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
@@ -2232,6 +2229,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="152" column="31" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="3000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/httpmodule.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="252" column="44" selection-start="8456" selection-end="8456" vertical-scroll-proportion="0.0" vertical-offset="3614" max-vertical-offset="7380">
@@ -2239,9 +2243,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="31" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.3956044" vertical-offset="2100" max-vertical-offset="3000">
+        <state line="51" column="440" selection-start="1598" selection-end="1598" vertical-scroll-proportion="0.25339368" vertical-offset="758" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
