@@ -23,7 +23,7 @@ delc = 0
 
 while job = Resque::Failure.all(0)
   #p job
-  if job["error"].include?('Duplicate entry') || job["error"].include?('nil:NilClass')
+  if job["error"].include?('Duplicate entry') || job["error"].include?('nil:NilClass') || job["error"].include?('wrong number of arguments')
     delc += 1
   else
     puts job["error"] if job["error"].include?('unknown encoding name')
