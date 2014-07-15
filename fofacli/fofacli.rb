@@ -84,18 +84,7 @@ class Fofacli
   end
 
   def execute_module(m)
-    module_class = (m[:module].fullname =~ /^auxiliary/ ? 'auxiliary' : 'exploit')
-
-    con.run_single("use #{module_class}/#{m[:module].refname}")
-
-    # Assign console parameters
-    @args[:params].each do |arg|
-      k,v = arg.split("=", 2)
-      con.run_single("set #{k} #{v}")
-    end
-
-    # Run the exploit
-    con.run_single("exploit")
+    m[:module].scan
   end
 
   def run!
