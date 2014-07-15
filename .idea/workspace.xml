@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" afterPath="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" afterPath="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fofacli/fofacli.rb" afterPath="$PROJECT_DIR$/fofacli/fofacli.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -56,7 +53,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="814" selection-start="2486" selection-end="2498" vertical-scroll-proportion="0.5588235" vertical-offset="893" max-vertical-offset="1335">
+            <state line="59" column="824" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.5588235" vertical-offset="893" max-vertical-offset="1335">
               <folding />
             </state>
           </provider>
@@ -1714,7 +1711,11 @@
       <created>1405409049778</created>
       <updated>1405409049778</updated>
     </task>
-    <option name="localTasksCounter" value="232" />
+    <task id="LOCAL-00232" summary="排除垃圾ip&#10;">
+      <created>1405411686865</created>
+      <updated>1405411686865</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2146,7 +2147,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="814" selection-start="2486" selection-end="2498" vertical-scroll-proportion="0.5588235" vertical-offset="893" max-vertical-offset="1335">
+        <state line="59" column="824" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.5588235" vertical-offset="893" max-vertical-offset="1335">
           <folding />
         </state>
       </provider>
