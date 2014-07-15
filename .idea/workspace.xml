@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -53,7 +52,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="386" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.13034189" vertical-offset="764" max-vertical-offset="1260">
+            <state line="51" column="395" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.13034189" vertical-offset="764" max-vertical-offset="1260">
               <folding />
             </state>
           </provider>
@@ -1683,7 +1682,11 @@
       <created>1405399110988</created>
       <updated>1405399110988</updated>
     </task>
-    <option name="localTasksCounter" value="225" />
+    <task id="LOCAL-00225" summary="排除垃圾ip&#10;">
+      <created>1405399918151</created>
+      <updated>1405399918151</updated>
+    </task>
+    <option name="localTasksCounter" value="226" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1767,9 +1770,9 @@
     <MESSAGE value="解决UTF8编码报错的问题" />
     <MESSAGE value="解决shift-jis编码报错的问题：guest和ruby的编码名称不一致，shift_jis处理一下" />
     <MESSAGE value="优化utf8编码" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="优化utf8编码&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化utf8编码&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2121,7 +2124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="386" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.13034189" vertical-offset="764" max-vertical-offset="1260">
+        <state line="51" column="395" selection-start="1553" selection-end="1553" vertical-scroll-proportion="0.13034189" vertical-offset="764" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
