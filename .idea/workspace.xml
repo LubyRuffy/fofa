@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -72,7 +71,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="495" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.5927602" vertical-offset="623" max-vertical-offset="1380">
+            <state line="51" column="507" selection-start="1665" selection-end="1665" vertical-scroll-proportion="0.5927602" vertical-offset="623" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -1800,7 +1799,11 @@
       <created>1405424075270</created>
       <updated>1405424075270</updated>
     </task>
-    <option name="localTasksCounter" value="254" />
+    <task id="LOCAL-00254" summary="排除垃圾ip&#10;">
+      <created>1405424247854</created>
+      <updated>1405424247855</updated>
+    </task>
+    <option name="localTasksCounter" value="255" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2257,7 +2260,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="495" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.5927602" vertical-offset="623" max-vertical-offset="1380">
+        <state line="51" column="507" selection-start="1665" selection-end="1665" vertical-scroll-proportion="0.5927602" vertical-offset="623" max-vertical-offset="1380">
           <folding />
         </state>
       </provider>
