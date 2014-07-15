@@ -15,7 +15,9 @@ class Fofacli
     @args[:mode] = args.pop || 'h' # Last argument should be the mode
     @args[:params] = {}
     args.each{|p|
-      k,v = p.split('=')
+      ps = p.split('=')
+      k = ps.shift
+      v = ps.join('=')
       @args[:params][k] = v
     } # Whatever is in the middle should be the params
   end
@@ -89,7 +91,25 @@ class Fofacli
   end
 
   def execute_module(m)
-    m.vulnerable(@args[:params])
+    p @args[:params]
+    if @args[:params]["hostinfo"]
+      m.vulnerable(@args[:params]["hostinfo"])
+    elsif @args[:params]["fofaquery"]
+      require 'net/http'
+      require 'json'
+      require 'base64'
+      require 'cgi'
+
+      uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(@args[:params]["fofaquery"])))
+      res = Net::HTTP.get_response(uri)
+      JSON.parse(res.body)['results'].each{|h|
+        puts h+":"
+        m.vulnerable(h)
+      }
+    else
+      puts "no target to scan, set hostinfo=127.0.0.1:80 or fofaquery='body=\"123\"'"
+      exit
+    end
   end
 
   def run!

@@ -335,7 +335,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/fofacli/fofacli.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="elasticsearch_rce_CVE-2014-3120.rb e" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="elasticsearch_rce_CVE-2014-3120.rb 'fofaquery=(header=&quot;application/json&quot; &amp;&amp; body=&quot;build_hash&quot;) || body=&quot;You Know, for Search&quot;' e" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />

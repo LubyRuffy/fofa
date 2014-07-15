@@ -102,3 +102,6 @@ worker就是用来执行任务的（也就是爬虫）
 查看redis任务队列：
 ---
 watch -n 5 redis-cli -hlocahost llen resque:queue:process_url
+
+漏洞测试：
+./fofacli/fofacli.rb elasticsearch_rce_CVE-2014-3120.rb 'fofaquery=(header="application/json" && body="build_hash") || body="You Know, for Search"' e
