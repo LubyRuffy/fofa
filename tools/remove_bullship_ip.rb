@@ -11,7 +11,7 @@ include Lrlink
 
 @m = WebDb.new(@root_path+"/../config/database.yml")
 @bid_file = @root_path+"/bid.txt"
-@id=0
+@id=25000000
 @did=0
 
 #load id from file
