@@ -58,9 +58,29 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
 
+
+    end
+
+    columns do
       column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
+        panel "实时根域名排名" do
+          ul do
+            Resque.redis.redis.zrevrange("rootdomains", 0, 9, :with_scores => true).each{|kv|
+              k,v = kv
+              li "#{k} : #{v.to_i}"
+            }
+          end
+        end
+      end
+
+      column do
+        panel "实时IP排名" do
+          ul do
+            Resque.redis.redis.zrevrange("ips", 0, 9, :with_scores => true).each{|kv|
+              k,v = kv
+              li "#{k} : #{v.to_i}"
+            }
+          end
         end
       end
     end
