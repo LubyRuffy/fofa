@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -91,7 +90,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="979" selection-start="2866" selection-end="2866" vertical-scroll-proportion="0.8354701" vertical-offset="764" max-vertical-offset="1350">
+            <state line="62" column="5" selection-start="2996" selection-end="2996" vertical-scroll-proportion="0.6606335" vertical-offset="923" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -1834,7 +1833,11 @@
       <created>1405485826003</created>
       <updated>1405485826003</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="排除垃圾ip&#10;">
+      <created>1405487362166</created>
+      <updated>1405487362166</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1896,10 +1899,10 @@
     <MESSAGE value="放开递归爬行限制&#10;" />
     <MESSAGE value="在小于200000时才启用全网递归，否则只启用中文网站的递归" />
     <MESSAGE value="增加管理后台" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="增加redis统计域名和ip数" />
     <MESSAGE value="增加redis统计域名和ip数&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加redis统计域名和ip数&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2299,7 +2302,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="979" selection-start="2866" selection-end="2866" vertical-scroll-proportion="0.8354701" vertical-offset="764" max-vertical-offset="1350">
+        <state line="62" column="5" selection-start="2996" selection-end="2996" vertical-scroll-proportion="0.6606335" vertical-offset="923" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
