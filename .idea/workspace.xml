@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/dashboard.rb" afterPath="$PROJECT_DIR$/app/admin/dashboard.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -58,7 +56,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="1691" selection-start="3722" selection-end="3722" vertical-scroll-proportion="0.5833333" vertical-offset="1047" max-vertical-offset="1515">
+            <state line="59" column="1715" selection-start="3746" selection-end="3746" vertical-scroll-proportion="0.5833333" vertical-offset="1047" max-vertical-offset="1515">
               <folding />
             </state>
           </provider>
@@ -1929,7 +1927,11 @@
       <created>1405514691594</created>
       <updated>1405514691594</updated>
     </task>
-    <option name="localTasksCounter" value="281" />
+    <task id="LOCAL-00281" summary="排除垃圾ip&#10;">
+      <created>1405518245753</created>
+      <updated>1405518245753</updated>
+    </task>
+    <option name="localTasksCounter" value="282" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2399,7 +2401,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="1691" selection-start="3722" selection-end="3722" vertical-scroll-proportion="0.5833333" vertical-offset="1047" max-vertical-offset="1515">
+        <state line="59" column="1715" selection-start="3746" selection-end="3746" vertical-scroll-proportion="0.5833333" vertical-offset="1047" max-vertical-offset="1515">
           <folding />
         </state>
       </provider>
