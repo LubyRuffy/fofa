@@ -11,7 +11,7 @@ include Lrlink
 
 @m = WebDb.new(@root_path+"/../config/database.yml")
 @bid_file = @root_path+"/bid.txt"
-@id=25000000
+@id=30000000
 @did=0
 
 #load id from file
@@ -31,11 +31,11 @@ def write_to_file(id)
 end # Def end
 
 while true
-  sql = "select id,ip,subdomain from subdomain where id>#{@id} limit 5000"
+  sql = "select id,ip,subdomain from subdomain where id<=#{@id} order by id desc limit 5000"
   r = @m.mysql.query(sql)
   if r.size>0
     r.each {|h|
-      @id=h['id']
+      @id= [h['id'],@id].min
       if h['ip'] && is_bullshit_ip?(h['ip']) && h['subdomain'].size>4
         sql = "delete from subdomain where id=#{@id}"
         #puts sql
