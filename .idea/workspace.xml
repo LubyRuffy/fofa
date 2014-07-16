@@ -4,7 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="增加">
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -18,7 +19,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405430831658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@addhost.coverage" NAME="addhost Coverage Results" MODIFIED="1405485671608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@fofacli.coverage" NAME="fofacli Coverage Results" MODIFIED="1405419604937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fofacli" MODULE_NAME="fofa" />
@@ -63,7 +64,16 @@
       <file leaf-file-name="webdb2_class.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2531" selection-end="2531" vertical-scroll-proportion="0.7582418" vertical-offset="915" max-vertical-offset="2685">
+            <state line="44" column="38" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.36263737" vertical-offset="495" max-vertical-offset="2700">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addhost.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="3" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
@@ -82,15 +92,6 @@
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="55" column="9" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statistic_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/statistic_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
               <folding />
             </state>
           </provider>
@@ -1825,7 +1826,11 @@
       <created>1405483900204</created>
       <updated>1405483900204</updated>
     </task>
-    <option name="localTasksCounter" value="260" />
+    <task id="LOCAL-00260" summary="增加redis统计域名和ip数">
+      <created>1405485429762</created>
+      <updated>1405485429762</updated>
+    </task>
+    <option name="localTasksCounter" value="261" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1865,7 +1870,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="threadpool先要wait_done，然后才能shutdown，否则会出现错误" />
     <MESSAGE value="threadpool只wait_done，不用shutdown" />
     <MESSAGE value="threadpool只wait_done，不用shutdown&#10;" />
     <MESSAGE value="添加工具" />
@@ -1890,7 +1894,8 @@
     <MESSAGE value="在小于200000时才启用全网递归，否则只启用中文网站的递归" />
     <MESSAGE value="增加管理后台" />
     <MESSAGE value="排除垃圾ip&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
+    <MESSAGE value="增加redis统计域名和ip数" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加redis统计域名和ip数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1934,7 +1939,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="199" />
+      <option name="time" value="200" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -2074,13 +2079,6 @@
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="20" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="849" max-vertical-offset="1365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="3" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
@@ -2288,9 +2286,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="3" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2531" selection-end="2531" vertical-scroll-proportion="0.7582418" vertical-offset="915" max-vertical-offset="2685">
+        <state line="44" column="38" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.36263737" vertical-offset="495" max-vertical-offset="2700">
           <folding />
         </state>
       </provider>

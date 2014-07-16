@@ -42,6 +42,7 @@ class WebDb
   end
 
   def redis_inc_ip(ip)
+    ip = ip.split('.')[0..2].join('.')
     @redis.zincrby('ips',1,ip)
   end
 
