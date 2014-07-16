@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -36,7 +37,7 @@
     <SUITE FILE_PATH="coverage/fofa@remove_duplicate_host.coverage" NAME="remove_duplicate_host Coverage Results" MODIFIED="1405421611388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@db_schema_dump.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1405171091466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@ruby_debug_ide.coverage" NAME="ruby-debug-ide Coverage Results" MODIFIED="1404966712155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405511937013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405514302657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Unnamed.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1404817656735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -64,15 +65,6 @@
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="87" column="21" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.0" vertical-offset="2235" max-vertical-offset="2700">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addhost.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/addhost.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="3" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
@@ -108,7 +100,16 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="1618" selection-start="3649" selection-end="3649" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
+            <state line="59" column="1629" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="3" selection-start="2556" selection-end="2556" vertical-scroll-proportion="0.0" vertical-offset="1255" max-vertical-offset="1740">
               <folding />
             </state>
           </provider>
@@ -187,7 +188,6 @@
         <option value="$PROJECT_DIR$/tools/remove_duplicate_host.rb" />
         <option value="$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb" />
         <option value="$PROJECT_DIR$/fofacli/lib/fofa_core.rb" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/jobs/module/httpmodule.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/my.css.scss" />
@@ -209,6 +209,7 @@
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
@@ -1901,7 +1902,11 @@
       <created>1405511783525</created>
       <updated>1405511783525</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="排除垃圾ip&#10;">
+      <created>1405514262283</created>
+      <updated>1405514262283</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2087,13 +2092,6 @@
     <entry file="file://$PROJECT_DIR$/fofacli/exploits/elasticsearch_rce_CVE-2014-3120.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="22" selection-start="2008" selection-end="2008" vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="3" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="1725">
           <folding />
         </state>
       </provider>
@@ -2364,9 +2362,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="3" selection-start="2556" selection-end="2556" vertical-scroll-proportion="0.0" vertical-offset="1255" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="1618" selection-start="3649" selection-end="3649" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
+        <state line="59" column="1629" selection-start="3660" selection-end="3660" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
           <folding />
         </state>
       </provider>
