@@ -1,8 +1,12 @@
 http_path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'app', 'jobs', 'module', 'httpmodule.rb'))
 require http_path
 
+include HttpModule
+
 module Fofa
   module HttpRequest
+
+
     def self.get_web_content(url, req)
       resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
 
@@ -141,14 +145,13 @@ module Fofa
       resp
     end
 
-    def self.get_utf8(c,header=nil)
-      include HttpModule
-      return HttpModule::get_utf8(c,header)
+    def self.get_utf8_html(c,header=nil)
+      get_utf8(c,header)
     end
 
     def self.row_http(hostinfo, req)
       http = get_web_content hostinfo+req[:uri], req
-      http[:utf8html] = get_utf8(http[:html],http[:header]) if http[:html] and http[:html].size > 2
+      http[:utf8html] = get_utf8_html(http[:html],http[:header]) if http[:html] and http[:html].size > 2
       if http[:utf8html]
         arr = http[:utf8html].scan(/<title>(.*?)<\/title>/i)
         http[:title] = ''

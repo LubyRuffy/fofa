@@ -16,6 +16,10 @@ module SearchHelper
   def get_cms
     # 大于号>也好转义
     return [
+      ['phpshe','2014-07-16','http://www.phpshe.com','body="phpshe"'],
+      ['华天动力OA(OA8000)','2014-07-16','http://www.oa8000.com','/OAapp/WebObjects/OAapp.woa"'],
+      ['ThinkSAAS','2014-07-16','http://www.thinksaas.cn','body="/app/home/skins/default/style.css"'],
+      ['e-tiller','2014-07-16','http://www.e-tiller.com','body="reader/view_abstract.aspx"'],
       ['mongodb','2014-07-11','http://www.mongodb.org','body="<a href=\"/_replSet\">Replica set status</a></p>"'],
       ['易瑞授权访问系统', '2014-07-09', 'http://www.infcn.com.cn/iras/752.jhtml', 'body="/authjsp/login.jsp" || body="FE0174BB-F093-42AF-AB20-7EC621D10488"'],
       ['fangmail', '2014-07-09', 'http://www.fangmail.net/', 'body="/fangmail/default/css/em_css.css"'],
