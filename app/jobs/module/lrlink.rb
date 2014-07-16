@@ -49,7 +49,7 @@ module Lrlink
   end
 
   def is_bullshit_host?(host)
-    $hosts = %w|.i.sohu.com .tumblr.com .soufun.com .ymjx168.com .ninemarket.com .12market.com .cailiao.com .taobao.com .blogfa.com .parsiblog.com .blog.ir .mihanblog.com .persianblog.ir .niniweblog.com .lapozz.hu .blogcu.com .blogsky.com .deviantart.com rpod.ru .beon.ru .ieskok.lt .vk.me .qaix.com .gyxu.com .ltalk.ru .userapi.com .olx.bg .digart.pl .flog.pl .fmix.pl .uol.ua .rock.cz .blog.is .yjycw.com .243mm.com .bxlwt.com .mmfj.com .blox.pl .bloog.pl .huamu.cn .8671.net .blog.pl .onet.pl .salon24.pl .pinger.pl .blog.hexun.com .blog.163.com .canalblog.com .skyrock.com .1254.it .wanknews.com .soup.io .interia.pl .blogbus.com .idnes.cz .bloblo.pl .startpagina.nl .tianya.cn .blog.sohu.com .blogchina.com .tianyablog.com .blog.bokee.net .1688.com .100ye.com .b2b168.com .net114.com .5d6d.com|
+    $hosts = %w|.i.sohu.com .tumblr.com .soufun.com .ymjx168.com .ninemarket.com .12market.com .cailiao.com .taobao.com .blogfa.com .parsiblog.com .blog.ir .mihanblog.com .persianblog.ir .niniweblog.com .lapozz.hu .blogcu.com .blogsky.com .deviantart.com rpod.ru .beon.ru .ieskok.lt .vk.me .qaix.com .gyxu.com .ltalk.ru .userapi.com .olx.bg .digart.pl .flog.pl .fmix.pl .uol.ua .rock.cz .blog.is .yjycw.com .243mm.com .bxlwt.com .mmfj.com .blox.pl .bloog.pl .huamu.cn .8671.net .blog.pl .onet.pl .salon24.pl .pinger.pl .blog.hexun.com .blog.163.com .canalblog.com .skyrock.com .1254.it .wanknews.com .soup.io .interia.pl .blogbus.com .idnes.cz .bloblo.pl .startpagina.nl .tianya.cn .blog.sohu.com .blogchina.com .tianyablog.com .blog.bokee.net .1688.com .100ye.com .b2b168.com .net114.com .5d6d.com .goedbegin.nl|
     $hosts.each{|h|
       return true if host.end_with?(h)
     }
