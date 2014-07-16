@@ -98,7 +98,6 @@ class Processor
     return -1 if host.include?('/')
     return -2 if is_bullshit_host?(host)
 
-
     domain_is_ip = false
     if host =~ /\d+\.\d+\.\d+\.\d/
       domain = host
@@ -149,7 +148,7 @@ class Processor
       if queue_len<200000 || host.include?('.cn') || chinese
         utf8html = http_info[:utf8html]
         hosts = get_linkes(utf8html).select {|h|
-          !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h)
+          !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) #&& Resque.redis.zscore("rootdomains", domain)<2000
         }
 
         if hosts.size>0
