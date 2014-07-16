@@ -37,6 +37,14 @@ class WebDb
     @redis.expire(key, 60*60*24*7)
   end
 
+  def redis_inc_rootdomain(domain)
+    @redis.zincrby('rootdomains',1,domain)
+  end
+
+  def redis_inc_ip(ip)
+    @redis.zincrby('ips',1,ip)
+  end
+
   def db_check_subdomain_exists(db, host)
     db_query_exists(db, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}'")
   end
@@ -71,6 +79,8 @@ class WebDb
     #puts sql
     db_exec(db, sql)
     redis_update_checktime(host)
+    redis_inc_rootdomain(domain)
+    redis_inc_ip(ip)
   end
 
   def db_update_host(db, host, r)
