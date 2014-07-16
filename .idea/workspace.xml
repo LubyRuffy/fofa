@@ -36,7 +36,7 @@
     <SUITE FILE_PATH="coverage/fofa@remove_duplicate_host.coverage" NAME="remove_duplicate_host Coverage Results" MODIFIED="1405421611388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@db_schema_dump.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1405171091466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@ruby_debug_ide.coverage" NAME="ruby-debug-ide Coverage Results" MODIFIED="1404966712155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405511740471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405511937013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Unnamed.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1404817656735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -108,7 +108,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="1569" selection-start="3590" selection-end="3600" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
+            <state line="59" column="1618" selection-start="3649" selection-end="3649" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
               <folding />
             </state>
           </provider>
@@ -1897,7 +1897,11 @@
       <created>1405511709205</created>
       <updated>1405511709205</updated>
     </task>
-    <option name="localTasksCounter" value="278" />
+    <task id="LOCAL-00278" summary="排除垃圾ip&#10;">
+      <created>1405511783525</created>
+      <updated>1405511783525</updated>
+    </task>
+    <option name="localTasksCounter" value="279" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2362,7 +2366,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="1569" selection-start="3590" selection-end="3600" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
+        <state line="59" column="1618" selection-start="3649" selection-end="3649" vertical-scroll-proportion="0.5588235" vertical-offset="1058" max-vertical-offset="1500">
           <folding />
         </state>
       </provider>
