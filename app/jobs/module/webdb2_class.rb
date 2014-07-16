@@ -38,12 +38,12 @@ class WebDb
   end
 
   def redis_inc_rootdomain(domain)
-    @redis.zincrby('rootdomains',1,domain)
+    @redis.zincrby('rootdomains',1,domain) #ZREVRANGE rootdomains 0 10 WITHSCORES
   end
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @redis.zincrby('ips',1,ip)
+    @redis.zincrby('ips',1,ip) #ZREVRANGE ips 0 10 WITHSCORES
   end
 
   def db_check_subdomain_exists(db, host)

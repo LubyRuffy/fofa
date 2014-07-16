@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -61,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webdb2_class.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="webdb2_class.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="38" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.36263737" vertical-offset="495" max-vertical-offset="2700">
+            <state line="40" column="65" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="2700">
               <folding />
             </state>
           </provider>
@@ -88,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="9" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1335">
+            <state line="59" column="979" selection-start="2866" selection-end="2866" vertical-scroll-proportion="0.8354701" vertical-offset="764" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -209,8 +209,8 @@
         <option value="$PROJECT_DIR$/fofacli/exploits/oa80000_default_account.rb" />
         <option value="$PROJECT_DIR$/fofacli/lib/fofa_http.rb" />
         <option value="$PROJECT_DIR$/fofacli/fofacli.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -1830,7 +1830,11 @@
       <created>1405485429762</created>
       <updated>1405485429762</updated>
     </task>
-    <option name="localTasksCounter" value="261" />
+    <task id="LOCAL-00261" summary="增加redis统计域名和ip数&#10;">
+      <created>1405485826003</created>
+      <updated>1405485826003</updated>
+    </task>
+    <option name="localTasksCounter" value="262" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1870,7 +1874,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="threadpool只wait_done，不用shutdown" />
     <MESSAGE value="threadpool只wait_done，不用shutdown&#10;" />
     <MESSAGE value="添加工具" />
     <MESSAGE value="添加工具&#10;" />
@@ -1895,7 +1898,8 @@
     <MESSAGE value="增加管理后台" />
     <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="增加redis统计域名和ip数" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加redis统计域名和ip数" />
+    <MESSAGE value="增加redis统计域名和ip数&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加redis统计域名和ip数&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2265,13 +2269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="9" selection-start="1809" selection-end="1809" vertical-scroll-proportion="0.0" vertical-offset="749" max-vertical-offset="1335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/process_class.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="138" column="28" selection-start="3372" selection-end="3372" vertical-scroll-proportion="0.0" vertical-offset="1799" max-vertical-offset="3060">
@@ -2295,7 +2292,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/webdb2_class.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="38" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.36263737" vertical-offset="495" max-vertical-offset="2700">
+        <state line="40" column="65" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="2700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="979" selection-start="2866" selection-end="2866" vertical-scroll-proportion="0.8354701" vertical-offset="764" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
