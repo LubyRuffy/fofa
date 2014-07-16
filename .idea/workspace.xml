@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/dashboard.rb" afterPath="$PROJECT_DIR$/app/admin/dashboard.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -38,7 +39,7 @@
     <SUITE FILE_PATH="coverage/fofa@remove_duplicate_host.coverage" NAME="remove_duplicate_host Coverage Results" MODIFIED="1405421611388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@db_schema_dump.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1405171091466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@ruby_debug_ide.coverage" NAME="ruby-debug-ide Coverage Results" MODIFIED="1404966712155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405518767141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405519188393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Unnamed.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1404817656735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -56,7 +57,16 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="1761" selection-start="3804" selection-end="3804" vertical-scroll-proportion="0.775641" vertical-offset="972" max-vertical-offset="1530">
+            <state line="51" column="790" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.51282054" vertical-offset="660" max-vertical-offset="1530">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="string.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/rubystubs21/string.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1119" column="8" selection-start="45399" selection-end="45399" vertical-scroll-proportion="0.0" vertical-offset="16634" max-vertical-offset="27570">
               <folding />
             </state>
           </provider>
@@ -65,7 +75,7 @@
       <file leaf-file-name="dashboard.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="33" selection-start="2178" selection-end="2178" vertical-scroll-proportion="0.0" vertical-offset="820" max-vertical-offset="1410">
+            <state line="59" column="0" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0" vertical-offset="865" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -129,15 +139,6 @@
         <entry file="file://$PROJECT_DIR$/fofacli/fofacli.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="0" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="2175">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="remove_allport_host.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/remove_allport_host.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="25" selection-start="1137" selection-end="1160" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="735">
               <folding />
             </state>
           </provider>
@@ -1943,7 +1944,19 @@
       <created>1405518570341</created>
       <updated>1405518570341</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <task id="LOCAL-00285" summary="排除垃圾ip&#10;">
+      <created>1405518911897</created>
+      <updated>1405518911897</updated>
+    </task>
+    <task id="LOCAL-00286" summary="排除垃圾ip&#10;">
+      <created>1405519118121</created>
+      <updated>1405519118121</updated>
+    </task>
+    <task id="LOCAL-00287" summary="排除垃圾ip&#10;">
+      <created>1405519168072</created>
+      <updated>1405519168072</updated>
+    </task>
+    <option name="localTasksCounter" value="288" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2061,13 +2074,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs21/object.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="575" column="8" selection-start="21068" selection-end="21068" vertical-scroll-proportion="0.0" vertical-offset="8249" max-vertical-offset="14580">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/net/http.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1343" column="37" selection-start="42319" selection-end="42331" vertical-scroll-proportion="-4.3461537" vertical-offset="20032" max-vertical-offset="23430">
@@ -2404,16 +2410,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs21/string.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1119" column="8" selection-start="45399" selection-end="45399" vertical-scroll-proportion="0.0" vertical-offset="16634" max-vertical-offset="27570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="33" selection-start="2178" selection-end="2178" vertical-scroll-proportion="0.0" vertical-offset="820" max-vertical-offset="1410">
+        <state line="59" column="0" selection-start="1689" selection-end="1689" vertical-scroll-proportion="0.0" vertical-offset="865" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="1761" selection-start="3804" selection-end="3804" vertical-scroll-proportion="0.775641" vertical-offset="972" max-vertical-offset="1530">
+        <state line="51" column="790" selection-start="1948" selection-end="1948" vertical-scroll-proportion="0.51282054" vertical-offset="660" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>

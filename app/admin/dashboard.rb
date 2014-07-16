@@ -58,10 +58,6 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
 
-
-    end
-
-    columns do
       column do
         panel "实时根域名排名" do
           ul do
