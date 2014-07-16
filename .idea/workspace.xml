@@ -4,9 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/tools/db_link_crawler.rb" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="排除垃圾ip&#10;">
+    <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/process_class.rb" afterPath="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -91,7 +90,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="1046" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.7126697" vertical-offset="870" max-vertical-offset="1380">
+            <state line="59" column="1091" selection-start="3028" selection-end="3028" vertical-scroll-proportion="0.7126697" vertical-offset="870" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -1842,7 +1841,11 @@
       <created>1405501353719</created>
       <updated>1405501353720</updated>
     </task>
-    <option name="localTasksCounter" value="264" />
+    <task id="LOCAL-00264" summary="排除垃圾ip&#10;">
+      <created>1405508319378</created>
+      <updated>1405508319378</updated>
+    </task>
+    <option name="localTasksCounter" value="265" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2307,7 +2310,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="1046" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.7126697" vertical-offset="870" max-vertical-offset="1380">
+        <state line="59" column="1091" selection-start="3028" selection-end="3028" vertical-scroll-proportion="0.7126697" vertical-offset="870" max-vertical-offset="1380">
           <folding />
         </state>
       </provider>
