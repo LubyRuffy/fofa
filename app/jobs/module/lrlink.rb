@@ -88,7 +88,10 @@ _百度认证
 合击
 [新开
 传奇1.76蓝魔
-我本沉默}
+我本沉默
+SF_
+不变态_仿盛大
+热血战神}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -193,6 +196,7 @@ _百度认证
 107.149.155.
 107.149.55.
 107.149.82.
+107.160.157
 107.160.169.
 107.160.38.
 107.160.83.
