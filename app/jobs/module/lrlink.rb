@@ -56,7 +56,9 @@ module Lrlink
 时时彩
 外围现金
 百家乐
-_百度百科}
+_百度百科
+皇冠比分
+赌场}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -270,6 +272,7 @@ _百度百科}
 23.104.3.
 23.105.79.
 23.105.83.
+23.106.236.
 23.107.74.
 23.110.102.
 23.110.244.
