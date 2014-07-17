@@ -113,6 +113,7 @@ _百度认证
 .blox.pl
 .biz72.com
 .bxlwt.com
+.c-c.com
 .cailiao.com
 .canalblog.com
 .diarynote.jp
