@@ -57,8 +57,8 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5033003" vertical-offset="1310" max-vertical-offset="7714">
-              <caret line="85" column="2" selection-start-line="85" selection-start-column="2" selection-end-line="85" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.5973597" vertical-offset="1310" max-vertical-offset="7733">
+              <caret line="88" column="2" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -2122,7 +2122,11 @@
       <created>1405607363956</created>
       <updated>1405607363957</updated>
     </task>
-    <option name="localTasksCounter" value="341" />
+    <task id="LOCAL-00341" summary="排除垃圾ip&#10;">
+      <created>1405607444449</created>
+      <updated>1405607444450</updated>
+    </task>
+    <option name="localTasksCounter" value="342" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2619,8 +2623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5033003" vertical-offset="1310" max-vertical-offset="7714">
-          <caret line="85" column="2" selection-start-line="85" selection-start-column="2" selection-end-line="85" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.5973597" vertical-offset="1310" max-vertical-offset="7733">
+          <caret line="88" column="2" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="2" />
           <folding />
         </state>
       </provider>
