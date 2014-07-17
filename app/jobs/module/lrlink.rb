@@ -75,7 +75,8 @@ _百度认证
 银行卡【电话
 成人激情
 丁香五月
-色五月}
+色五月
+一干燥设备有限公司}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
