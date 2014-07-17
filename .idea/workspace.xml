@@ -38,7 +38,7 @@
     <SUITE FILE_PATH="coverage/fofa@remove_duplicate_host.coverage" NAME="remove_duplicate_host Coverage Results" MODIFIED="1405421611388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@db_schema_dump.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1405171091466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@ruby_debug_ide.coverage" NAME="ruby-debug-ide Coverage Results" MODIFIED="1404966712155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405561042797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405562081197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@Unnamed.coverage" NAME="db:schema:dump Coverage Results" MODIFIED="1404817656735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -56,7 +56,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="1856" selection-start="3936" selection-end="3936" vertical-scroll-proportion="0.5289855" vertical-offset="1131" max-vertical-offset="1545">
+            <state line="248" column="10" selection-start="3607" selection-end="3607" vertical-scroll-proportion="3.536232" vertical-offset="2286" max-vertical-offset="4455">
               <folding />
             </state>
           </provider>
@@ -80,6 +80,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="remove_bullship_ip.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="0" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="dashboard.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/admin/dashboard.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,6 +107,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="remove_allport_host.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/remove_allport_host.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="0" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="resque_worker_client.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/resque_worker_client.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,7 +128,7 @@
       <file leaf-file-name="resque_worker_client_thread.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/resque_worker_client_thread.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="5" selection-start="2597" selection-end="2597" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="1365">
+            <state line="81" column="15" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -120,24 +138,6 @@
         <entry file="file://$PROJECT_DIR$/tools/uniq_process_url.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="106" selection-start="320" selection-end="320" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resque.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/resque-1.25.2/lib/resque.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="29" selection-start="2321" selection-end="2321" vertical-scroll-proportion="0.0" vertical-offset="1034" max-vertical-offset="7275">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="namespace.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/redis-namespace-1.5.0/lib/redis/namespace.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="211" column="22" selection-start="8403" selection-end="8403" vertical-scroll-proportion="-38.384617" vertical-offset="2167" max-vertical-offset="6915">
               <folding />
             </state>
           </provider>
@@ -1993,7 +1993,11 @@
       <created>1405561672186</created>
       <updated>1405561672187</updated>
     </task>
-    <option name="localTasksCounter" value="293" />
+    <task id="LOCAL-00293" summary="排除垃圾ip&#10;">
+      <created>1405562051569</created>
+      <updated>1405562051569</updated>
+    </task>
+    <option name="localTasksCounter" value="294" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2056,9 +2060,9 @@
     <MESSAGE value="增加管理后台" />
     <MESSAGE value="增加redis统计域名和ip数" />
     <MESSAGE value="增加redis统计域名和ip数&#10;" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="增加组件识别" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加组件识别" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2377,30 +2381,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/remove_allport_host.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="25" selection-start="1137" selection-end="1160" vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fofacli/fofacli.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="149" max-vertical-offset="2175">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/resque_worker_client_thread.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="5" selection-start="2597" selection-end="2597" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>
@@ -2415,13 +2398,6 @@
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/redis-namespace-1.5.0/lib/redis/namespace.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="211" column="22" selection-start="8403" selection-end="8403" vertical-scroll-proportion="-38.384617" vertical-offset="2167" max-vertical-offset="6915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/resque_worker_client.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
           <folding />
         </state>
       </provider>
@@ -2461,9 +2437,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tools/resque_worker_client.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/remove_allport_host.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/resque_worker_client_thread.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="15" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1365">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="1856" selection-start="3936" selection-end="3936" vertical-scroll-proportion="0.5289855" vertical-offset="1131" max-vertical-offset="1545">
+        <state line="248" column="10" selection-start="3607" selection-end="3607" vertical-scroll-proportion="3.536232" vertical-offset="2286" max-vertical-offset="4455">
           <folding />
         </state>
       </provider>
