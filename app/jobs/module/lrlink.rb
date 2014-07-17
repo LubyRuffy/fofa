@@ -59,6 +59,8 @@ module Lrlink
 _百度百科
 _百度认证
 皇冠比分
+台湾佬娱乐网
+草裙社区
 赌场}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
@@ -264,6 +266,7 @@ _百度认证
 208.66.76.
 211.149.187.
 211.149.204.
+216.158.92.
 219.127.222.
 219.139.130.
 222.215.230.
