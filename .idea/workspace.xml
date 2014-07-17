@@ -57,8 +57,8 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7811448" vertical-offset="2823" max-vertical-offset="6099">
-              <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.39730638" vertical-offset="828" max-vertical-offset="6118">
+              <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -97,8 +97,8 @@
       <file leaf-file-name="remove_bullship_ip.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1121">
-              <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1121">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -1993,7 +1993,11 @@
       <created>1405601941338</created>
       <updated>1405601941339</updated>
     </task>
-    <option name="localTasksCounter" value="310" />
+    <task id="LOCAL-00310" summary="排除垃圾ip&#10;">
+      <created>1405602092972</created>
+      <updated>1405602092972</updated>
+    </task>
+    <option name="localTasksCounter" value="311" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2468,16 +2472,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="1121">
-          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1121">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7811448" vertical-offset="2823" max-vertical-offset="6099">
-          <caret line="173" column="10" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.39730638" vertical-offset="828" max-vertical-offset="6118">
+          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
           <folding />
         </state>
       </provider>

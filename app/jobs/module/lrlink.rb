@@ -54,6 +54,7 @@ module Lrlink
 .12market.com
 .1688.com
 .243mm.com
+.51sole.com
 .5d6d.com
 .8671.net
 .alibaba.com
