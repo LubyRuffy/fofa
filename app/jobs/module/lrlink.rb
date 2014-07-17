@@ -57,6 +57,7 @@ module Lrlink
 外围现金
 百家乐
 _百度百科
+_百度认证
 皇冠比分
 赌场}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
