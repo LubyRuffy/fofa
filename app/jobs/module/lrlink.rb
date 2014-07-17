@@ -115,6 +115,7 @@ _百度认证
 .bxlwt.com
 .cailiao.com
 .canalblog.com
+.diarynote.jp
 .deviantart.com
 .digart.pl
 .fc2blog.us
