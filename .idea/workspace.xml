@@ -57,8 +57,8 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5610561" vertical-offset="5056" max-vertical-offset="6935">
-              <caret line="284" column="11" selection-start-line="284" selection-start-column="11" selection-end-line="284" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.52970296" vertical-offset="4201" max-vertical-offset="7011">
+              <caret line="238" column="11" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -2046,7 +2046,15 @@
       <created>1405605416980</created>
       <updated>1405605416980</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <task id="LOCAL-00322" summary="排除垃圾ip&#10;">
+      <created>1405605574579</created>
+      <updated>1405605574579</updated>
+    </task>
+    <task id="LOCAL-00323" summary="排除垃圾ip&#10;">
+      <created>1405605687636</created>
+      <updated>1405605687637</updated>
+    </task>
+    <option name="localTasksCounter" value="324" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2543,8 +2551,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5610561" vertical-offset="5056" max-vertical-offset="6935">
-          <caret line="284" column="11" selection-start-line="284" selection-start-column="11" selection-end-line="284" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.52970296" vertical-offset="4201" max-vertical-offset="7011">
+          <caret line="238" column="11" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="11" />
           <folding />
         </state>
       </provider>
