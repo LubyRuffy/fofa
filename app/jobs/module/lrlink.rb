@@ -72,7 +72,10 @@ _百度认证
 嘟嘟传奇
 我本沉默版本攻略
 赌场
-银行卡【电话}
+银行卡【电话
+成人激情
+丁香五月
+色五月}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
