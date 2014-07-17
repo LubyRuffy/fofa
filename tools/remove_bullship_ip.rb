@@ -13,6 +13,7 @@ include Lrlink
 @bid_file = @root_path+"/bid.txt"
 @id=30000000
 @did=0
+@process_cnt=0
 
 #load id from file
 if File.exist?(@bid_file)
@@ -36,15 +37,16 @@ while true
   if r.size>0
     r.each {|h|
       @id= [h['id'],@id].min
+      @process_cnt+=1
       if (h['ip'] && is_bullshit_ip?(h['ip']) && h['subdomain'].size>4) || (is_bullshit_title?(h['title'], h['subdomain']))
         sql = "delete from subdomain where id=#{@id}"
         #puts sql
         @m.mysql.query(sql)
         @did +=1
-        print "#{h['id']} : [deleted: #{@did}]\r"
+        print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}]\r"
       end
     }
-    print "#{@id} : [deleted: #{@did}]\r"
+    print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}]\r"
     write_to_file @id
   else
     break

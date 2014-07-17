@@ -100,6 +100,7 @@ _百度认证
 .canalblog.com
 .deviantart.com
 .digart.pl
+.fc2blog.us
 .flog.pl
 .fmix.pl
 .goedbegin.nl
