@@ -71,7 +71,8 @@ _百度认证
 迷失传奇
 嘟嘟传奇
 我本沉默版本攻略
-赌场}
+赌场
+银行卡【电话}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -286,6 +287,7 @@ _百度认证
 23.104.19.
 23.104.20.
 23.104.3.
+23.104.36.
 23.105.79.
 23.105.83.
 23.106.236.
