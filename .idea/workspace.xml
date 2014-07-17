@@ -56,7 +56,7 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="10" selection-start="3607" selection-end="3607" vertical-scroll-proportion="3.536232" vertical-offset="2286" max-vertical-offset="4455">
+            <state line="275" column="10" selection-start="3900" selection-end="3900" vertical-scroll-proportion="0.67391306" vertical-offset="3876" max-vertical-offset="4485">
               <folding />
             </state>
           </provider>
@@ -1997,7 +1997,11 @@
       <created>1405562051569</created>
       <updated>1405562051569</updated>
     </task>
-    <option name="localTasksCounter" value="294" />
+    <task id="LOCAL-00294" summary="排除垃圾ip&#10;">
+      <created>1405563221388</created>
+      <updated>1405563221388</updated>
+    </task>
+    <option name="localTasksCounter" value="295" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2467,7 +2471,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="10" selection-start="3607" selection-end="3607" vertical-scroll-proportion="3.536232" vertical-offset="2286" max-vertical-offset="4455">
+        <state line="275" column="10" selection-start="3900" selection-end="3900" vertical-scroll-proportion="0.67391306" vertical-offset="3876" max-vertical-offset="4485">
           <folding />
         </state>
       </provider>
