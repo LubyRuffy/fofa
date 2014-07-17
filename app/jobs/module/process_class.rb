@@ -123,6 +123,7 @@ class Processor
     http_info = get_http(host)
     if http_info && ! http_info[:error]
       return -4 if is_bullshit_ip?(http_info[:ip])
+      return -5 if domain_info && is_bullshit_title?(http_info[:title], domain_info.subdomain)
 
       #puts host
       #pp http_info

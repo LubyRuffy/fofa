@@ -48,6 +48,21 @@ module Lrlink
     arr.uniq
   end
 
+  def is_bullshit_title?(title,subdomain)
+    $titles=%q{娱乐城
+博彩
+赌博
+投注
+时时彩
+外围现金
+百家乐}
+    return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
+    $titles.each_line{|t|
+      return true if t && t.size>1 && title.include?(t.strip)
+    }
+    false
+  end
+
   def is_bullshit_host?(host)
     $hosts=%q{.100ye.com
 .1254.it
