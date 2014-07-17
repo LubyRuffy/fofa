@@ -100,6 +100,7 @@ module Lrlink
 .persianblog.ir
 .pinger.pl
 .qaix.com
+.qjy168.com
 .rock.cz
 .rpod.ru
 .salon24.pl
