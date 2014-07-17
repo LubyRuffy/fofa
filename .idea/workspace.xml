@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/search_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/search_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -53,19 +53,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lrlink.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="3" selection-start="4013" selection-end="4013" vertical-scroll-proportion="2.6111112" vertical-offset="1131" max-vertical-offset="1545">
+            <state line="59" column="1856" selection-start="3936" selection-end="3936" vertical-scroll-proportion="0.5289855" vertical-offset="1131" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_helper.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="search_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="67" selection-start="360" selection-end="360" vertical-scroll-proportion="0.46153846" vertical-offset="75" max-vertical-offset="4425">
+            <state line="19" column="67" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="4425">
               <folding />
             </state>
           </provider>
@@ -210,8 +210,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tools/uniq_process_url.rb" />
         <option value="$PROJECT_DIR$/app/admin/dashboard.rb" />
-        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
         <option value="$PROJECT_DIR$/app/helpers/search_helper.rb" />
+        <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
   </component>
@@ -1989,7 +1989,11 @@
       <created>1405561010531</created>
       <updated>1405561010532</updated>
     </task>
-    <option name="localTasksCounter" value="292" />
+    <task id="LOCAL-00292" summary="增加组件识别">
+      <created>1405561672186</created>
+      <updated>1405561672187</updated>
+    </task>
+    <option name="localTasksCounter" value="293" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2029,7 +2033,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="threadpool只wait_done，不用shutdown&#10;" />
     <MESSAGE value="添加工具" />
     <MESSAGE value="添加工具&#10;" />
     <MESSAGE value="保留一个实时队列" />
@@ -2054,7 +2057,8 @@
     <MESSAGE value="增加redis统计域名和ip数" />
     <MESSAGE value="增加redis统计域名和ip数&#10;" />
     <MESSAGE value="排除垃圾ip&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
+    <MESSAGE value="增加组件识别" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加组件识别" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2450,16 +2454,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="3" selection-start="4013" selection-end="4013" vertical-scroll-proportion="2.6111112" vertical-offset="1131" max-vertical-offset="1545">
+        <state line="19" column="67" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="4425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/search_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="67" selection-start="360" selection-end="360" vertical-scroll-proportion="0.46153846" vertical-offset="75" max-vertical-offset="4425">
+        <state line="59" column="1856" selection-start="3936" selection-end="3936" vertical-scroll-proportion="0.5289855" vertical-offset="1131" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
