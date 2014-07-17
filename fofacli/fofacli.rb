@@ -6,6 +6,7 @@ while File.symlink?(clibase)
 end
 
 $:.unshift(File.expand_path(File.join(File.dirname(clibase), 'lib')))
+.unshift(File.expand_path(File.join(File.dirname(clibase))))
 
 class Fofacli
   def initialize(args)
