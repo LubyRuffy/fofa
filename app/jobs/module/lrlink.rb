@@ -169,11 +169,13 @@ _超变}
 .parsiblog.com
 .persianblog.ir
 .pinger.pl
+.psy.elk.pl
 .qaix.com
 .qjy168.com
 .rock.cz
 .rpod.ru
 .salon24.pl
+.seesaa.net
 .skyrock.com
 .soufun.com
 .soup.io
