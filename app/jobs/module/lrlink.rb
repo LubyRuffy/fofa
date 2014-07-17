@@ -61,6 +61,16 @@ _百度认证
 皇冠比分
 台湾佬娱乐网
 草裙社区
+终结毁灭
+仿盛大传奇
+传奇加速器
+私服
+传奇下载
+传奇SF
+传奇1.85客户端
+迷失传奇
+嘟嘟传奇
+我本沉默版本攻略
 赌场}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
@@ -75,6 +85,7 @@ _百度认证
 .12market.com
 .1688.com
 .243mm.com
+.51cto.com
 .51sole.com
 .5d6d.com
 .8671.net
