@@ -88,7 +88,11 @@ _百度认证
 1.76蓝魔
 我本沉默
 SF_
-热血战神}
+热血战神
+新开神途
+神途传说2_
+盛世三国开服表
+_神途帝国}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
