@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -61,8 +57,8 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7229102" vertical-offset="1623" max-vertical-offset="5776">
-              <caret line="110" column="11" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.51702785" vertical-offset="3010" max-vertical-offset="5852">
+              <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -1957,7 +1953,15 @@
       <created>1405595002591</created>
       <updated>1405595002591</updated>
     </task>
-    <option name="localTasksCounter" value="300" />
+    <task id="LOCAL-00300" summary="排除垃圾ip&#10;">
+      <created>1405595127521</created>
+      <updated>1405595127521</updated>
+    </task>
+    <task id="LOCAL-00301" summary="排除垃圾ip&#10;">
+      <created>1405595175000</created>
+      <updated>1405595175001</updated>
+    </task>
+    <option name="localTasksCounter" value="302" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2043,9 +2047,9 @@
     <MESSAGE value="增加redis统计域名和ip数" />
     <MESSAGE value="增加redis统计域名和ip数&#10;" />
     <MESSAGE value="增加组件识别" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="修改GEM支持windows&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改GEM支持windows&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2439,8 +2443,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7229102" vertical-offset="1623" max-vertical-offset="5776">
-          <caret line="110" column="11" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.51702785" vertical-offset="3010" max-vertical-offset="5852">
+          <caret line="176" column="11" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
           <folding />
         </state>
       </provider>
