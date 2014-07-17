@@ -93,7 +93,9 @@ SF_
 神途传说2_
 盛世三国开服表
 _神途帝国
-[超凡官网]}
+[超凡官网]
+下载_[2014
+_1.7}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
