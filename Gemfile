@@ -23,8 +23,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-gem 'therubyracer'
+gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,7 +45,8 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+gem 'unicorn',   :platform => :ruby
+
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -62,14 +63,16 @@ gem 'font-awesome-rails'
 
 #gem "whenever"
 #gem "chartkick"
-gem "parslet"
-gem "guess_html_encoding"
-gem "nokogiri"
-gem "domainatrix"
+gem 'parslet'
+gem 'guess_html_encoding'
+gem 'nokogiri'
+gem 'domainatrix'
 gem 'sixarm_ruby_magic_number_type'
 
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
+gem 'resque-loner'
+
 gem 'lazy_high_charts'
 gem 'jquery-turbolinks'
 
@@ -79,7 +82,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 
 gem 'diff-lcs'
 gem 'thread'
-gem 'resque-loner'
+
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
