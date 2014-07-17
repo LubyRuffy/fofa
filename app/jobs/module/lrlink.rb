@@ -55,7 +55,8 @@ module Lrlink
 投注
 时时彩
 外围现金
-百家乐}
+百家乐
+_百度百科}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -168,6 +169,7 @@ module Lrlink
 107.178.92.
 107.181.242.
 107.181.245.
+107.182.140.
 107.183.152.
 107.183.22.
 107.183.41.
