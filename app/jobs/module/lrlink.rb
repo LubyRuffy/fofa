@@ -96,7 +96,8 @@ _神途帝国
 [超凡官网]
 下载_[2014
 _1.7
-_1.8}
+_1.8
+网通传奇}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -331,6 +332,7 @@ _1.8}
 23.110.46.
 23.110.58.
 23.224.45.
+23.226.178.
 23.226.64.
 23.226.76.
 23.228.219.
