@@ -97,7 +97,10 @@ _神途帝国
 下载_[2014
 _1.7
 _1.8
-网通传奇}
+网通传奇
+_新开1
+_传奇
+_超变}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
