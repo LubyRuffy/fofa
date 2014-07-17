@@ -121,7 +121,7 @@ module Lrlink
 .yjycw.com
 .ymjx168.com}
     $hosts.each_line{|h|
-      return true if h && host.end_with?(h.strip)
+      return true if h && h.size>5 && host.end_with?(h.strip)
     }
     false
   end
@@ -173,6 +173,7 @@ module Lrlink
 122.9.125.
 124.248.244.
 124.248.251.
+137.175.109
 137.175.124.
 137.175.2.
 137.175.57.
@@ -254,6 +255,7 @@ module Lrlink
 23.228.225.
 23.238.206.
 23.244.147.
+23.244.20.
 23.245.100.
 23.245.134.
 23.245.152.
@@ -300,7 +302,7 @@ module Lrlink
 8.5.1.
 91.195.240.}
     $ips.each_line{|bip|
-      return true if bip && ip.start_with?(bip.strip)
+      return true if bip && bip.size>4 && ip.start_with?(bip.strip)
     }
     false
   end
