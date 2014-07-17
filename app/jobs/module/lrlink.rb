@@ -144,6 +144,7 @@ SF_
 .interia.pl
 .lapozz.hu
 .ltalk.ru
+.makepolo.com
 .mihanblog.com
 .mmfj.com
 .net114.com
