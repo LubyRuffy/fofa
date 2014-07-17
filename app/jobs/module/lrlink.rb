@@ -118,7 +118,7 @@ module Lrlink
 .yjycw.com
 .ymjx168.com}
     $hosts.each_line{|h|
-      return true if host.end_with?(h.strip)
+      return true if h && host.end_with?(h.strip)
     }
     false
   end
@@ -285,7 +285,7 @@ module Lrlink
 8.5.1.
 91.195.240.}
     $ips.each_line{|bip|
-      return true if ip.start_with?(bip.strip)
+      return true if bip && ip.start_with?(bip.strip)
     }
     false
   end
