@@ -73,6 +73,7 @@ module Lrlink
 .blogsky.com
 .bloog.pl
 .blox.pl
+.biz72.com
 .bxlwt.com
 .cailiao.com
 .canalblog.com
