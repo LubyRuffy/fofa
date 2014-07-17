@@ -95,7 +95,8 @@ SF_
 _神途帝国
 [超凡官网]
 下载_[2014
-_1.7}
+_1.7
+_1.8}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -272,6 +273,7 @@ _1.7}
 172.240.60.
 172.240.95.
 172.246.119.
+172.246.228.
 172.247.230.
 172.247.231.
 172.255.207.
