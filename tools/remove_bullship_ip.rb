@@ -31,12 +31,12 @@ def write_to_file(id)
 end # Def end
 
 while true
-  sql = "select id,ip,subdomain from subdomain where id<=#{@id} order by id desc limit 5000"
+  sql = "select id,ip,subdomain,title from subdomain where id<=#{@id} order by id desc limit 5000"
   r = @m.mysql.query(sql)
   if r.size>0
     r.each {|h|
       @id= [h['id'],@id].min
-      if h['ip'] && is_bullshit_ip?(h['ip']) && h['subdomain'].size>4
+      if (h['ip'] && is_bullshit_ip?(h['ip']) && h['subdomain'].size>4) || (is_bullshit_title?(h['title'], h['subdomain']))
         sql = "delete from subdomain where id=#{@id}"
         #puts sql
         @m.mysql.query(sql)
