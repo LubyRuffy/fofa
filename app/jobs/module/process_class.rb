@@ -118,7 +118,7 @@ class Processor
     end
 
     #更新检查时间
-    @webdb.update_subdomain_if_exists(host) unless exists_host
+    @webdb.update_subdomain_if_exists(host, exists_host)
 
     #获取http信息
     http_info = get_http(host)

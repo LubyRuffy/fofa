@@ -130,8 +130,8 @@ class WebDb
   end
 
   #update last check time
-  def update_subdomain_if_exists(host)
-    if db_check_subdomain_exists(@mysql, host)
+  def update_subdomain_if_exists(host, host_exists=false)
+    if host_exists || db_check_subdomain_exists(@mysql, host)
       db_update_subdomain_checktime(host)
     end
   end
