@@ -174,6 +174,7 @@ _超变
 .blogchina.com
 .blogcu.com
 .blogfa.com
+.blogg.se
 .blogsky.com
 .bloog.pl
 .blox.pl
@@ -219,6 +220,7 @@ _超变
 .seesaa.net
 .sharera.com
 .skyrock.com
+.so-net.ne.jp
 .soufun.com
 .soup.io
 .startpagina.nl
