@@ -137,7 +137,9 @@ _超变
 百乐坊娱乐
 足彩
 发票
-开票}
+开票
+反恐精英2_官网免费下载
+反恐精英online官网_官网免费下载}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -405,8 +407,9 @@ _超变
 23.245.152.
 23.244.20.
 23.244.208.
-23.245.213.
 23.245.199.
+23.245.213.
+23.245.24.
 23.245.54.
 23.245.66.
 23.248.213.
