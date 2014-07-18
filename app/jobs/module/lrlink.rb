@@ -163,6 +163,7 @@ _超变
 .bloblo.pl
 .blog.163.com
 .blog.bokee.net
+.blog.fc2.com
 .blog.hexun.com
 .blog.ir
 .blog.is
