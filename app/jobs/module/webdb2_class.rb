@@ -126,7 +126,7 @@ class WebDb
   end
 
   def mysql_exists_host(host)
-    db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}'")
+    db_query_exists(@mysql, "select host from subdomain where host='#{Mysql2::Client.escape(host)}'")
   end
 
   #update last check time
