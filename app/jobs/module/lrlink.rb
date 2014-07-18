@@ -131,7 +131,11 @@ _超变
 便民导航
 领养小孩
 [电话
-}
+赌球
+真人娱乐
+棋牌
+百乐坊娱乐
+足彩}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -306,6 +310,10 @@ _超变
 146.148.152.
 146.148.153.
 146.71.35.
+146.71.56.
+146.71.57.
+146.71.58.
+146.71.59.
 148.163.16.
 148.163.55.
 159.63.88.
