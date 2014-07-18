@@ -214,6 +214,7 @@ _超变
 .rpod.ru
 .salon24.pl
 .seesaa.net
+.sharera.com
 .skyrock.com
 .soufun.com
 .soup.io
