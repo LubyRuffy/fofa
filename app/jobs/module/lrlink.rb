@@ -128,7 +128,10 @@ _超变
 1.76赤月
 绿茵传奇
 热血传奇
-便民导航}
+便民导航
+领养小孩
+[电话
+}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -410,6 +413,7 @@ _超变
 23.82.61.
 23.83.57.
 23.88.183.
+23.89.98.
 23.89.157.
 23.89.160.
 23.89.167.
