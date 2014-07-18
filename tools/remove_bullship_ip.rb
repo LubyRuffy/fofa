@@ -38,7 +38,7 @@ while true
     r.each {|h|
       @id= [h['id'],@id].min
       @process_cnt+=1
-      if (h['ip'] && is_bullshit_ip?(h['ip']) && h['subdomain'].size>4) || (is_bullshit_title?(h['title'], h['subdomain']))
+      if (h['ip'] && is_bullshit_ip?(h['ip']) && (h['subdomain'].size>0 && h['subdomain']!='www')) || (is_bullshit_title?(h['title'], h['subdomain']))
         sql = "delete from subdomain where id=#{@id}"
         #puts sql
         @m.mysql.query(sql)
