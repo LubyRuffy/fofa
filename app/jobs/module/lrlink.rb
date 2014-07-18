@@ -90,6 +90,7 @@ _百度认证
 1.76蓝魔
 我本沉默
 SF_
+sf_
 热血战神
 新开神途
 神途传说2_
@@ -110,7 +111,12 @@ _超变
 最新2
 传奇1.7
 倚天荣耀
-英雄传奇}
+英雄传奇
+仿盛大
+传奇服务
+热血传奇
+合成传世
+天神轻变}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -409,7 +415,8 @@ _超变
 74.82.63.
 76.74.218.
 8.5.1.
-91.195.240.}
+91.195.240.
+98.126.196.}
     $ips.each_line{|bip|
       return true if bip && bip.size>4 && ip.start_with?(bip.strip)
     }
