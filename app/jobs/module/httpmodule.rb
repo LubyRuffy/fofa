@@ -248,15 +248,155 @@ module HttpModule
 
   def get_utf8(c,header=nil)
     encoding = GuessHtmlEncoding.guess(c,header)
-
+=begin
+-
+0
+1245
+1252
+1254
+8859-2
+ALL
+ANSI
+ANSI_X3
+ARIAL
+ASCI
+AUTO
+CHARACTER_SET
+CHARSET
+CHARSET_ENCODING
+CHAR_ENCODING
+CL
+DESCRIPTION
+EN
+EN_US
+EUC
+EUC_JP
+FR_FR
+GB2132
+GB8382
+GREEK
+IDONTUSEDEFAULTCHARSETSANDIKNOWWHATIMDOINGANDPARANOIDSKNOWWHATIAMDOING
+ISO
+ISO-
+ISO-10
+ISO-10059-1
+ISO-101059-1
+ISO-1024-1
+ISO-10646
+ISO-1150-2
+ISO-1252
+ISO-16
+ISO-1759-1
+ISO-5589-1
+ISO-5859-1
+ISO-5889-1
+ISO-5988-15
+ISO-639-1
+ISO-7659-1
+ISO-8
+ISO-8059-1
+ISO-8559-1
+ISO-8559-2
+ISO-8729-1
+ISO-88
+ISO-8829-2
+ISO-88509-1
+ISO-8851-1
+ISO-8851-9
+ISO-8856-1
+ISO-8859
+ISO-8859-
+ISO-8859-0
+ISO-8859-6-I
+ISO-8859-8-I
+ISO-88591
+ISO-88591-1
+ISO-88592
+ISO-8892-2
+ISO-8895-1
+ISO-8909-1
+ISO-9959-1
+ISO-GB2312
+ISO-WINDOWS-1252
+ISO88591
+ISO8859_1
+ISO8899-2
+ISO_8859-2
+JP
+LATIN
+LATIN1_SWEDISH_CI
+LATIN2
+LATIN5
+LEFT_COL
+MACCENTRALEUROPE
+MACINTOSH
+MANUAL
+MS932
+NL-ASCII
+NO
+NONE
+NULL
+OFF
+PL_PL
+REPLACE
+SHFT-JIS
+SHIFT-JS
+SHIFT_JIF
+SHIFT_SJIS
+SHIFT_X-SJIS
+SHIHD_JIS
+SHIHT_JIS
+SKY
+TEXT
+TEXT-HTML
+THAI
+TIS620
+TUF-8
+U-8
+UFT-8
+UNICODE-1-1
+UNKNOWN-8BIT
+US
+UTG-8
+WESTERN
+WINDOW-1252
+WINDOW-874
+WINDOWS
+WINDOWS-
+WINDOWS-1231
+WINDOWS-1234
+WINDOWS-800
+WINDOWS-8859-2
+WINDOWS-932
+WINDOWS_1258
+WTF-8
+X-MAC-CE
+X-MAC-ROMAN
+X-USER-DEFINED
+_AUTODETECT_ALL
+_CHARSET
+=end
     if(encoding)
       encoding = "GB2312" if (encoding=='GBK2312') || (encoding=='GB_2312-80') || encoding.include?('2312')#bug?
       encoding = "UTF-8" if (encoding.include?('UTF')) || (encoding=='U1TF-8') || (encoding=='UF-8') #bug?
       encoding = "SHIFT_JIS" if (encoding=='SHIFT-JIS') || (encoding=='X-SJIS') || encoding==('SHFIT_JIS') || (encoding=='SHIT-JIS') || (encoding=='SHIFT_JS') || (encoding=='S-JIS') || (encoding=='SHIF_JIS') || (encoding=='SJIS-WIN') || (encoding=='S-JIS') || encoding=="X-EUC-JP" || encoding=='X-SJIS-JP'#bug?
       encoding = "cp1251" if encoding.include?('1251') ||  encoding.include?('1250') #bug?
       encoding = "iso-8859-1" if encoding=='ISO-8855-1' || encoding=='IS0-8859-1' || encoding.include?('8859-1') || encoding.include?('8858-1')  #bug?
-      encoding = "iso-8859-2" if encoding=='ISO8859_2' || encoding=='EN_US' #bug?
+      encoding = "iso-8859-2" if encoding=='ISO8859_2' || encoding=='EN_US' || encoding.include?('8859') #bug?
       encoding = "euc-kr" if encoding.include?('5601') || encoding=='EUC_KR' || encoding=='KOREAN' || encoding=='EUK-KR' || encoding=='KO' || encoding=='X-EUC' || encoding=='ECU-KR' || encoding=='MS949'
+
+      if Encoding.name_list.select{|e| e==encoding}.empty?
+        found = false
+        Encoding.name_list.each{|e|
+          if e!=='ASCII-8BIT' && e!=='US-ASCII' && c.force_encoding(e).valid_encoding?
+            encoding = e
+            found = true
+            break
+          end
+          encoding = 'UTF-8' unless found
+        }
+      end
+
       if(encoding.to_s != "UTF-8")
         c = c.force_encoding(encoding)
         c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
