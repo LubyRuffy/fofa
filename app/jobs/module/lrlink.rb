@@ -127,7 +127,8 @@ _超变
 1.76精品
 1.76赤月
 绿茵传奇
-热血传奇}
+热血传奇
+便民导航}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
