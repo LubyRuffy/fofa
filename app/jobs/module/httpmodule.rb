@@ -388,7 +388,7 @@ _CHARSET
       if Encoding.name_list.select{|e| e==encoding}.empty?
         found = false
         Encoding.name_list.each{|e|
-          if e!=='ASCII-8BIT' && e!=='US-ASCII' && c.force_encoding(e).valid_encoding?
+          if e!='ASCII-8BIT' && e!='US-ASCII' && c.force_encoding(e).valid_encoding?
             encoding = e
             found = true
             break
