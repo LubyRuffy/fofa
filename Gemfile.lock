@@ -59,6 +59,7 @@ GEM
     autoprefixer-rails (2.1.1.20140710)
       execjs
     bcrypt (3.1.7)
+    bcrypt (3.1.7-x86-mingw32)
     blankslate (2.1.2.4)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
@@ -138,6 +139,8 @@ GEM
     multi_json (1.10.1)
     mysql2 (0.3.16)
     nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
+    nokogiri (1.6.2.1-x86-mingw32)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
     parslet (1.6.1)
@@ -268,6 +271,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   activeadmin!
