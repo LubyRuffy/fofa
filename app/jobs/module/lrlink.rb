@@ -100,9 +100,17 @@ _神途帝国
 _1.7
 _1.8
 网通传奇
-_新开1
+新开1
 _传奇
-_超变}
+_超变
+最新2.
+外挂
+热血传奇
+霸域传奇
+最新2
+传奇1.7
+倚天荣耀
+英雄传奇}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -353,6 +361,7 @@ _超变}
 23.238.149.
 23.238.206.
 23.245.100.
+23.245.120.
 23.245.134.
 23.244.147.
 23.245.152.
