@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" afterPath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -32,7 +31,7 @@
     <SUITE FILE_PATH="coverage/fofa@Development__fofa.coverage" NAME="Development: fofa Coverage Results" MODIFIED="1405238018727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405680135577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405681100379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_work_test.coverage" NAME="url_work_test Coverage Results" MODIFIED="1404541544907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@fofacli.coverage" NAME="fofacli Coverage Results" MODIFIED="1405419604937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fofacli" MODULE_NAME="fofa" />
@@ -60,8 +59,8 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.497545" vertical-offset="5415" max-vertical-offset="9082">
-              <caret line="301" column="10" selection-start-line="301" selection-start-column="10" selection-end-line="301" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.56206894" vertical-offset="5260" max-vertical-offset="9139">
+              <caret line="294" column="12" selection-start-line="294" selection-start-column="12" selection-end-line="294" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -2258,7 +2257,15 @@
       <created>1405680083269</created>
       <updated>1405680083269</updated>
     </task>
-    <option name="localTasksCounter" value="369" />
+    <task id="LOCAL-00369" summary="排除垃圾ip&#10;">
+      <created>1405680665517</created>
+      <updated>1405680665517</updated>
+    </task>
+    <task id="LOCAL-00370" summary="排除垃圾ip&#10;">
+      <created>1405680780878</created>
+      <updated>1405680780878</updated>
+    </task>
+    <option name="localTasksCounter" value="371" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2772,8 +2779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.497545" vertical-offset="5415" max-vertical-offset="9082">
-          <caret line="301" column="10" selection-start-line="301" selection-start-column="10" selection-end-line="301" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.56206894" vertical-offset="5260" max-vertical-offset="9139">
+          <caret line="294" column="12" selection-start-line="294" selection-start-column="12" selection-end-line="294" selection-end-column="12" />
           <folding />
         </state>
       </provider>
