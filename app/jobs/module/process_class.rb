@@ -146,7 +146,7 @@ class Processor
       Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
       queue_len =Resque.redis.llen("queue:#{@queue}").to_i
       chinese = (http_info[:title] && http_info[:title].chinese?)
-      if queue_len<200000 || host.include?('.cn') || chinese
+      if queue_len<20000 || host.include?('.cn') || chinese
         utf8html = http_info[:utf8html]
         hosts = get_linkes(utf8html).select {|h|
           !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) #&& Resque.redis.zscore("rootdomains", domain)<2000
