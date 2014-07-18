@@ -47,8 +47,8 @@ def send_to_redis
         if (h['ip'] && is_bullshit_ip?(h['ip']) && (h['subdomain'].size>0 && h['subdomain']!='www')) || (is_bullshit_title?(h['title'], h['subdomain']))
           sql = "delete from subdomain where id=#{@id}"
           #puts sql
-          #@m.mysql.query(sql)
-          Resque.redis.redis.rpush("fofa:sql", sql)
+          @m.mysql.query(sql)
+          #Resque.redis.redis.rpush("fofa:sql", sql)
           @did +=1
           print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
         end

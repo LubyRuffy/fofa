@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9833fc-fb01-463d-af5f-e59f88d7a243" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/db_check_need_update.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/fofa.iml" afterPath="$PROJECT_DIR$/.idea/fofa.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" afterPath="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" afterPath="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fofa.iws" />
@@ -25,7 +24,7 @@
     <SUITE FILE_PATH="coverage/fofa@Run_test__test_charset___fofa.coverage" NAME="Run test 'test_charset': fofa Coverage Results" MODIFIED="1405336626430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@test_getutf8__fofa.coverage" NAME="test_getutf8: fofa Coverage Results" MODIFIED="1405336369067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@uniq_process_url.coverage" NAME="uniq_process_url Coverage Results" MODIFIED="1405517988266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@db_check_need_update.coverage" NAME="db_check_need_update Coverage Results" MODIFIED="1405678474501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@db_check_need_update.coverage" NAME="db_check_need_update Coverage Results" MODIFIED="1405680120248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@analysis_fingerprint_from_urls.coverage" NAME="analysis_fingerprint_from_urls Coverage Results" MODIFIED="1404808110158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@ruby_debug_ide.coverage" NAME="ruby-debug-ide Coverage Results" MODIFIED="1404966712155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/.rvm/gems/ruby-2.1.0/gems/ruby-debug-ide-0.4.22/lib" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@link_crawler.coverage" NAME="link_crawler Coverage Results" MODIFIED="1404526260178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
@@ -33,7 +32,7 @@
     <SUITE FILE_PATH="coverage/fofa@Development__fofa.coverage" NAME="Development: fofa Coverage Results" MODIFIED="1405238018727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@remove_allport_host.coverage" NAME="remove_allport_host Coverage Results" MODIFIED="1405247154085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@resque_worker_client.coverage" NAME="resque_worker_client Coverage Results" MODIFIED="1405242563659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
-    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405668963294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
+    <SUITE FILE_PATH="coverage/fofa@remove_bullship_ip.coverage" NAME="remove_bullship_ip Coverage Results" MODIFIED="1405680135577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_work_test.coverage" NAME="url_work_test Coverage Results" MODIFIED="1404541544907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs/test" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@url_worker.coverage" NAME="url_worker Coverage Results" MODIFIED="1404470541559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/jobs" MODULE_NAME="fofa" />
     <SUITE FILE_PATH="coverage/fofa@fofacli.coverage" NAME="fofacli Coverage Results" MODIFIED="1405419604937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/fofacli" MODULE_NAME="fofa" />
@@ -61,8 +60,8 @@
       <file leaf-file-name="lrlink.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62193125" vertical-offset="5358" max-vertical-offset="9025">
-              <caret line="302" column="10" selection-start-line="302" selection-start-column="10" selection-end-line="302" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.497545" vertical-offset="5415" max-vertical-offset="9082">
+              <caret line="301" column="10" selection-start-line="301" selection-start-column="10" selection-end-line="301" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -91,8 +90,8 @@
       <file leaf-file-name="remove_bullship_ip.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1729">
-              <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="1729">
+              <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -220,12 +219,12 @@
         <option value="$PROJECT_DIR$/fofacli/exploits/oa80000_default_account.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
         <option value="$PROJECT_DIR$/tools/execute_redis_sql.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/webdb2_class.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/process_class.rb" />
         <option value="$PROJECT_DIR$/tools/update_id.txt" />
         <option value="$PROJECT_DIR$/tools/db_check_need_update.rb" />
+        <option value="$PROJECT_DIR$/tools/remove_bullship_ip.rb" />
         <option value="$PROJECT_DIR$/app/jobs/module/lrlink.rb" />
       </list>
     </option>
@@ -494,7 +493,7 @@
       <recent name="$PROJECT_DIR$/fofacli/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Ruby.db_check_need_update">
+  <component name="RunManager" selected="Ruby.remove_bullship_ip">
     <configuration default="false" name="fofacli" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <module name="fofa" />
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -2255,7 +2254,11 @@
       <created>1405677089280</created>
       <updated>1405677089280</updated>
     </task>
-    <option name="localTasksCounter" value="368" />
+    <task id="LOCAL-00368" summary="排除垃圾ip&#10;">
+      <created>1405680083269</created>
+      <updated>1405680083269</updated>
+    </task>
+    <option name="localTasksCounter" value="369" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2341,9 +2344,9 @@
     <MESSAGE value="增加redis统计域名和ip数&#10;" />
     <MESSAGE value="增加组件识别" />
     <MESSAGE value="修改GEM支持windows&#10;" />
-    <MESSAGE value="排除垃圾ip&#10;" />
     <MESSAGE value="修改检查更新的语句&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改检查更新的语句&#10;" />
+    <MESSAGE value="排除垃圾ip&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="排除垃圾ip&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2761,16 +2764,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/remove_bullship_ip.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1729">
-          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="1729">
+          <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/module/lrlink.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62193125" vertical-offset="5358" max-vertical-offset="9025">
-          <caret line="302" column="10" selection-start-line="302" selection-start-column="10" selection-end-line="302" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.497545" vertical-offset="5415" max-vertical-offset="9082">
+          <caret line="301" column="10" selection-start-line="301" selection-start-column="10" selection-end-line="301" selection-end-column="10" />
           <folding />
         </state>
       </provider>
