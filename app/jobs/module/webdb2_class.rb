@@ -73,8 +73,8 @@ class WebDb
     body ||= ''
     ip = r[:ip]
 
-    sql = "insert into subdomain (host, hosthash, domain, subdomain, ip, header, title, body, lastchecktime, lastupdatetime)"
-    sql += " values('#{Mysql2::Client.escape(host)}', '#{Digest::MD5.hexdigest(host)}', '#{Mysql2::Client.escape(domain)}', "
+    sql = "insert into subdomain (host, hosthash, domain, reverse_domain, subdomain, ip, header, title, body, lastchecktime, lastupdatetime)"
+    sql += " values('#{Mysql2::Client.escape(host)}', '#{Digest::MD5.hexdigest(host)}', '#{Mysql2::Client.escape(domain)}', '#{Mysql2::Client.escape(domain.reverse)}', "
     sql += "'#{Mysql2::Client.escape(subdomain)}', '#{Mysql2::Client.escape(ip)}', '#{Mysql2::Client.escape(header)}', "
     sql += "'#{Mysql2::Client.escape(title)}', '#{Mysql2::Client.escape(body.force_encoding('UTF-8'))}', now(), now())"
     #puts sql
