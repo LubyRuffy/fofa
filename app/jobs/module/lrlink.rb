@@ -183,6 +183,7 @@ _超变
 .cailiao.com
 .canalblog.com
 .diarynote.jp
+.decoo.jp
 .deviantart.com
 .digart.pl
 .fc2blog.us
