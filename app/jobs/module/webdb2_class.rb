@@ -147,8 +147,8 @@ class WebDb
       db_insert_domain(@mysql, domain)
     end
   end
-  def update_host_to_subdomain( host, domain, subdomain, http_info)
-    if db_check_host_exists(@mysql, host)
+  def update_host_to_subdomain( host, domain, subdomain, http_info, host_exists=false)
+    if host_exists || db_check_host_exists(@mysql, host)
       db_update_host(@mysql, host, http_info)
     else
       db_insert_host(@mysql, host, domain, subdomain, http_info)
@@ -164,7 +164,20 @@ class WebDb
   def need_update_host(host)
     return false if redis_exists_host(host)
     #不存在一条小于90天内的记录就需要更新
-    !db_query_exists(@mysql, "select host from subdomain where host='#{Mysql2::Client.escape(host)}' and DATEDIFF(NOW(),lastchecktime)<90")
+    r = @mysql.query("select host,lastchecktime from subdomain where host='#{Mysql2::Client.escape(host)}'")
+    @need_update = false
+    @exist_host = false
+    if r.size>0
+      @exist_host = true
+      if  ((Time.now - r.first['lastchecktime']).to_i/86400)>90
+        @need_update = true
+      else
+       @need_update = false
+      end
+    else
+      @need_update = true
+    end
+    [@need_update, @exist_host]
   end
 
 end

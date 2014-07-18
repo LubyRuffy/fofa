@@ -111,13 +111,14 @@ class Processor
 
 
     #检查是否需要更新
-    if !force && !@webdb.need_update_host(host)
+    need_update,exists_host=@webdb.need_update_host(host)
+    if !force && !need_update
       #puts "#{host} no need to update"
       return 1
     end
 
     #更新检查时间
-    @webdb.update_subdomain_if_exists(host)
+    @webdb.update_subdomain_if_exists(host) unless exists_host
 
     #获取http信息
     http_info = get_http(host)
@@ -131,12 +132,12 @@ class Processor
       @webdb.insert_ip_to_ipaddr(http_info[:ip])
 
       if domain_is_ip
-        @webdb.update_host_to_subdomain(host, domain, '', http_info)
+        @webdb.update_host_to_subdomain(host, domain, '', http_info, exists_host)
       else
         #更新根域名表
         @webdb.insert_domain_to_rootdomain(domain)
         #更新子域名表
-        @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info)
+        @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info, exists_host)
       end
 
       #队列如果不长，就递归添加，否则只添加中文的网站
