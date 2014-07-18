@@ -163,10 +163,8 @@ class WebDb
 
   def need_update_host(host)
     return false if redis_exists_host(host)
-    #不存在就需要添加
-    return true unless db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}'")
-    #存在则判断最后更新时间, 周期是否超过90天
-    db_query_exists(@mysql, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}' and DATEDIFF(NOW(),lastchecktime)>90")
+    #不存在一条小于90天内的记录就需要更新
+    !db_query_exists(@mysql, "select host from subdomain where host='#{Digest::MD5.escape(host)}' and DATEDIFF(NOW(),lastchecktime)<90")
   end
 
 end
