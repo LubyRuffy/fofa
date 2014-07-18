@@ -47,7 +47,7 @@ class WebDb
   end
 
   def db_check_subdomain_exists(db, host)
-    db_query_exists(db, "select host from subdomain where hosthash='#{Digest::MD5.hexdigest(host)}'")
+    db_query_exists(db, "select host from subdomain where host='#{Mysql2::Client.escape(host)}'")
   end
   alias db_check_host_exists db_check_subdomain_exists
 
