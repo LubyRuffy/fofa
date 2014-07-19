@@ -7,8 +7,11 @@ include Lrlink
 
 @m = WebDb.new(@root_path+"/../config/database.yml")
 
-res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
-res.each{|r|
-  #puts r
-  printf("%-8s%-24s%-20s%-30s%-30s\n", r["cnt"], r["ip"], r["subdomain"], r["domain"], r["title"]) unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
-}
+while true
+  res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
+  res.each{|r|
+    #puts r
+    printf("%-8s%-24s%-20s%-30s%-30s\n", r["cnt"], r["ip"], r["subdomain"], r["domain"], r["title"]) unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
+  }
+  sleep 5
+end
