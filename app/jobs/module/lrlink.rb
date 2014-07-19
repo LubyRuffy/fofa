@@ -140,7 +140,8 @@ _超变
 开票
 反恐精英2_官网免费下载
 反恐精英online官网_官网免费下载
-【平台直属QQ}
+【平台直属QQ
+【信誉匿名银行卡}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -491,6 +492,7 @@ _超变
 23.89.160.
 23.89.167.
 23.90.165.
+23.90.189.
 42.121.52.
 42.96.195.43
 46.28.209.
