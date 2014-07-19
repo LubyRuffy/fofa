@@ -189,6 +189,7 @@ _超变
 .decoo.jp
 .deviantart.com
 .digart.pl
+.fang.com
 .fc2blog.us
 .flog.pl
 .fmix.pl
