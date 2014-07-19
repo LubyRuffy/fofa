@@ -176,6 +176,7 @@ www.296296.com
 .blog.hexun.com
 .blog.ir
 .blog.is
+.blog.jp
 .blog.pl
 .blog.sohu.com
 .blogbus.com
@@ -184,6 +185,7 @@ www.296296.com
 .blogfa.com
 .blogg.se
 .blogsky.com
+.blogspot.com
 .bloog.pl
 .blox.pl
 .biz72.com
