@@ -201,6 +201,7 @@ www.296296.com
 .decoo.jp
 .deviantart.com
 .digart.pl
+.edublogs.org
 .fang.com
 .fc2blog.us
 .flog.pl
@@ -423,6 +424,7 @@ www.296296.com
 192.250.205.
 192.80.155.
 192.80.161.
+192.80.184.
 192.99.215.
 194.79.52.
 198.13.100.
