@@ -186,6 +186,7 @@ www.296296.com
 .blogg.se
 .blogsky.com
 .blogspot.com
+.blogspot.ro
 .bloog.pl
 .blox.pl
 .biz72.com
@@ -210,6 +211,9 @@ www.296296.com
 .huamu.cn
 .i.sohu.com
 .lasporn.com
+.list-manage.com
+.list-manage1.com
+.list-manage2.com
 .porntubeindex.com
 .idnes.cz
 .ieskok.lt
@@ -258,6 +262,7 @@ www.296296.com
 .vip.yl1001.com
 .vk.me
 .wanknews.com
+.wordpress.com
 .yjycw.com
 .ymjx168.com}
     $hosts.each_line{|h|
