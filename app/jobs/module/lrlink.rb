@@ -204,6 +204,7 @@ www.296296.com
 .edublogs.org
 .fang.com
 .fc2blog.us
+.fjsq.org
 .flog.pl
 .fmix.pl
 .gerelateerd.nl
