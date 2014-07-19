@@ -441,6 +441,8 @@ _CHARSET
       end
       http[:title] = http[:title].force_encoding('utf-8')
     end
+    http[:title] ||= ''
+    http[:utf8html] ||= ''
     #puts http[:utf8html]
     http
   end
