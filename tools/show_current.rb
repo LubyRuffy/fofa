@@ -10,5 +10,5 @@ include Lrlink
 res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip order by cnt desc limit 30")
 res.each{|r|
   #puts r
-  printf("%-8s%-24s%-30s%-40s\n", r["cnt"], r["ip"], r["domain"], r["title"]) unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
+  printf("%-8s%-24s%-20s%-30s%-30s\n", r["cnt"], r["ip"], r["subdomain"], r["domain"], r["title"]) unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
 }
