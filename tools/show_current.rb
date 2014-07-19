@@ -8,6 +8,7 @@ include Lrlink
 @m = WebDb.new(@root_path+"/../config/database.yml")
 
 while true
+  puts "="*80
   res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
   res.each{|r|
     #puts r
