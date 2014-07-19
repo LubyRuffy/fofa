@@ -236,6 +236,7 @@ _超变
 .taobao.com
 .tianya.cn
 .tianyablog.com
+.toplinkjes.com
 .tumblr.com
 .uol.ua
 .userapi.com
@@ -486,6 +487,7 @@ _超变
 69.12.87.
 69.165.69.
 69.90.191.
+72.52.4.
 74.82.63.
 76.74.218.
 8.5.1.
