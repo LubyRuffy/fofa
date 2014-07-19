@@ -220,6 +220,7 @@ www.296296.com
 .ieskok.lt
 .interia.pl
 .jouwpagina.nl
+.jt160.com
 .jugem.jp
 .lapozz.hu
 .ltalk.ru
