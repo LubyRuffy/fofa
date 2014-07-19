@@ -1,11 +1,13 @@
 class RulesController < ApplicationController
   before_action :set_rule, only: [:show, :edit, :update, :destroy, :save]
-  #before_filter :require_user
+  before_filter :require_user
+  layout "main"
 
   # GET /rules
   # GET /rules.json
   def index
-    @rules = Rule.all
+    @rules = current_user.rules.paginate(:page => params[:page],
+                                         :per_page => 10).order('id DESC')
   end
 
   # GET /rules/1
@@ -24,17 +26,6 @@ class RulesController < ApplicationController
 
   # GET /rules/1/edit
   def edit
-    require_user
-
-    unless @rule
-      flash[:alert] = "规则不存在！"
-      return redirect_to rules_path
-    end
-
-    unless @rule.user == current_user
-      flash[:alert] = "只能管理自己的规则！"
-      return redirect_to rules_path
-    end
   end
 
   # POST /rules
@@ -48,12 +39,7 @@ class RulesController < ApplicationController
 
     respond_to do |format|
       if @rule.save
-        format.html {
-          @rawrule=@rule.rule
-          @rule = Rule.new
-          @notice= '规则提交成功，审核后将会显示在组件列表页面，感谢您的支持！'
-          render :new
-        }
+        format.html { redirect_to rules_url, notice: '创建成功！' }
         format.json { render :show, status: :created, location: @rule }
       else
         format.html { render :new }
@@ -65,21 +51,10 @@ class RulesController < ApplicationController
   # PATCH/PUT /rules/1
   # PATCH/PUT /rules/1.json
   def update
-    require_user
-
-    unless @rule
-      flash[:alert] = "规则不存在！"
-      return redirect_to rules_path
-    end
-
-    unless @rule.user == current_user
-      flash[:alert] = "只能管理自己的规则！"
-      return redirect_to rules_path
-    end
 
     respond_to do |format|
       if @rule.update(rule_params)
-        format.html { redirect_to @rule, notice: 'Rule was successfully updated.' }
+        format.html { redirect_to @rule, notice: '更新成功！' }
         format.json { render :show, status: :ok, location: @rule }
       else
         format.html { render :edit }
@@ -91,28 +66,16 @@ class RulesController < ApplicationController
   # DELETE /rules/1
   # DELETE /rules/1.json
   def destroy
-    require_user
-
-    unless @rule
-      flash[:alert] = "规则不存在！"
-      return redirect_to rules_path
-    end
-
-    unless @rule.user == current_user
-      flash[:alert] = "只能管理自己的规则！"
-      return redirect_to rules_path
-    end
 
     @rule.destroy
     respond_to do |format|
-      format.html { redirect_to rules_url, notice: 'Rule was successfully destroyed.' }
+      format.html { redirect_to rules_url, notice: '删除成功！' }
       format.json { head :no_content }
     end
   end
 
   #收藏
   def save
-    require_user
 
     @ur = Userruleship.new(user:current_user, rule:@rule)
     respond_to do |format|
@@ -129,7 +92,11 @@ class RulesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rule
-      @rule = Rule.find(params[:id])
+      @rule = current_user.rules.find(params[:id]) rescue nil
+      if @rule.nil?
+        flash[:alert] = "规则不存在！"
+        return redirect_to rules_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

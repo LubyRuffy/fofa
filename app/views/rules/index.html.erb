@@ -1,15 +1,18 @@
 
-<div class="page-header" id="banner">
-  <div class="row">
-    <h3 class="col-xs-12 col-sm-4">规则列表</h3>
-    <div class="col-xs-12 col-sm-8">
-        <div class="pull-right col-sm-auto">
-          <%= link_to raw('<li class="fa fa-plus"></li> 提交规则'), new_rule_path,
-                                                        :class=>"btn btn-info btn-sm " %>
-        </div>
-    </div>
+<div class="row">
+  <div class="col-xs-4 col-sm-4">
+    <h1 class="page-header"><i class="im-screen"></i> 我创建的规则列表</h1>
   </div>
-
+    <div class="col-xs-8 col-sm-8">
+      <div class="pull-right col-sm-auto" style="margin:20px">
+        <%= link_to raw('<li class="fa fa-plus"></li> 提交规则'), new_rule_path,
+                    :class=>"btn btn-info btn-sm " %>
+      </div>
+    </div>
+</div>
+<!-- Start .bredcrumb -->
+<ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="index.html">控制面板</a><i class="en-arrow-right7"></i></li><li><i class="im-screen"></i> 规则列表 </li></ul>
+<!-- End .breadcrumb -->
 <table class="table table-striped table-hover table-bordered">
   <thead>
   <tr>
@@ -22,25 +25,22 @@
   </thead>
 
   <tbody>
-    <% @rules.each do |rule| %>
+  <% @rules.each do |rule| %>
       <tr>
         <td><%= link_to rule.created_at.strftime("%Y-%m-%d"), rule %></td>
         <td><%= link_to rule.product, rule.producturl%></td>
         <td><%if rule.user %><%= link_to rule.user.username, rule.producturl%><% end %></td>
         <td><%= link_to rule.rule, "/search/result?qbase64="+Base64.encode64(rule.rule)%></td>
         <td>
-          <%= link_to '收藏', "/save/#{rule.id}", :class=>"btn btn-success btn-sm "%>
-          <!--
-          <%= link_to '查看', rule %>
-          <%= link_to '编辑', edit_rule_path(rule) %>
-            <%= link_to '删除', rule, method: :delete, data: { confirm: '确定要删除吗?' } %>
-            -->
+          <%= link_to '编辑', edit_rule_path(rule), :class=>"btn btn-success btn-sm " %>
+          <%= link_to '删除', rule, :class=>"btn btn-success btn-sm ", method: :delete, data: { confirm: '确定要删除吗?' } %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
+<div class="col-lg-4">
+  <div class="pull-right">
+    <%= will_paginate @rules,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+  </div>
 </div>
-<br>
-
-

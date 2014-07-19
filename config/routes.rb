@@ -23,10 +23,17 @@ Fofa::Application.routes.draw do
   get 'api/addhost'
 
   get "my/index"
-  get "my/rules"
-  get "my/saverules"
+  #get "my/rules"
+  #get "my/saverules"
   get "my/unsave/:id" => "my#unsave"
+  delete "my/ruledestroy/:id" => "my#ruledestroy"
   get "my" => "my#index"
+
+  scope '/my' do
+    resources :rules
+    resources :saverules
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
