@@ -22,7 +22,6 @@ end # Def end
 @p = Processor.new(@m)
 #@pool = Thread.pool(2)
 @id=0
-write_to_file(@id)
 
 #load id from file
 File.open(@root_path+"/update_id.txt", 'r') {|f|
@@ -32,19 +31,21 @@ File.open(@root_path+"/update_id.txt", 'r') {|f|
   @id = max_id if max_id>@id
 }
 
+@max_id = @m.mysql.query("select max(id) as id from subdomain").first['id'].to_i
+
 while true
-  sql = "select id,title,host from subdomain where id>#{@id} and reverse_domain like 'nc.vog.%' limit 100"
+  sql = "select id,title,host from subdomain where id>#{@id} and id<=#{@id+10000} and reverse_domain like 'nc.vog.%' order by id limit 100"
   r = @m.mysql.query(sql)
+  puts sql
   if r.size>0
     hosts = []
     ids = []
     puts "===================="
     r.each {|h|
       hosts << h['host']
-      @id=h['id']
       ids << h['id']
+      @id = h['id'].to_i
     }
-
     puts ids.join(',')
     puts "host count:"+hosts.size.to_s
     if hosts.size>0
@@ -57,8 +58,10 @@ while true
     #curl_line = "curl http://www.fofa.so/api/addhost?host=#{hosts.uniq.join(',')} >/dev/null 2>&1"
     #puts curl_line
     #`#{curl_line}`
-  else
+  elsif @id >= @max_id
     break
+  else
+    @id+=10000
   end
 
 end

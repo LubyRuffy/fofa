@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= content_for?(:title) ? yield(:title).force_encoding('utf-8') + " :FOFA网站信息库": "我的管理后台 -- FOFA" %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag params[:controller] %>
+  <%= stylesheet_link_tag "my" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -129,7 +129,7 @@
 
   <div class="container">
 
-    <%= render 'sidebar' %>
+    <%= render 'layouts/sidebar' %>
 
     <div id="content">
       <% flash.each do |key,value| %>

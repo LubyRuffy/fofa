@@ -3,9 +3,9 @@
   <div style="position: relative; overflow: hidden; width: auto; height: 100%;" class="slimScrollDiv"><div style="overflow: hidden; width: auto; height: 100%;" class="sidebar-inner">
     <!-- Start #sideNav -->
     <ul id="sideNav" class="nav nav-pills nav-stacked show-arrows">
-      <li><a <% if action_name=="index"%>class="active"<%end%> href="/my">控制面板 <i class="im-screen"></i></a>
+      <li><a <% if controller_name=='my' && action_name=="index"%>class="active"<%end%> href="/my">控制面板 <i class="im-screen"></i></a>
       </li>
-      <li><a <% if action_name=="rules"%>class="active"<%end%> href="/my/rules">我的规则 <i class="st-chart"></i></a>
+      <li><a <% if controller_name=='rules' %>class="active"<%end%> href="/my/rules">我的规则 <i class="st-chart"></i></a>
       </li>
       <li class="hasSub">
         <a <% if action_name=="saverules"%>class="active"<%end%> href="/my/saverules"><i class="en-arrow-down5 sideNav-arrow"></i> 收藏规则 <i class="im-paragraph-justify"></i><span class="notification onhover red">4</span></a>
