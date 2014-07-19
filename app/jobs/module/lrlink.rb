@@ -193,6 +193,7 @@ www.296296.com
 .c-c.com
 .cailiao.com
 .canalblog.com
+.cn21edu.com
 .cs090.com
 .dianhi.com
 .diarynote.jp
