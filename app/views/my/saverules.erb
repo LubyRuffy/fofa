@@ -22,7 +22,7 @@
             <td><%if rule.user %><%= link_to rule.user.username, rule.producturl%><% end %></td>
             <td><%= link_to rule.rule, "/search/result?qbase64="+Base64.encode64(rule.rule)%></td>
             <td>
-              <%= link_to '取消收藏', "/save/#{rule.id}", :class=>"btn btn-success btn-sm "%>
+              <%= link_to '取消收藏', "/my/unsave/#{rule.id}", :class=>"btn btn-success btn-sm "%>
             </td>
           </tr>
       <% end %>

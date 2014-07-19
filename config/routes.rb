@@ -25,6 +25,7 @@ Fofa::Application.routes.draw do
   get "my/index"
   get "my/rules"
   get "my/saverules"
+  get "my/unsave/:id" => "my#unsave"
   get "my" => "my#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
