@@ -139,7 +139,8 @@ _超变
 发票
 开票
 反恐精英2_官网免费下载
-反恐精英online官网_官网免费下载}
+反恐精英online官网_官网免费下载
+【平台直属QQ}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -214,6 +215,7 @@ _超变
 .psy.elk.pl
 .qaix.com
 .qjy168.com
+.radio.de
 .rock.cz
 .rpod.ru
 .salon24.pl
