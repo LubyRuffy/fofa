@@ -18,12 +18,9 @@ class MyController < ApplicationController
 
   #收藏
   def unsave
-    @rule = Rule.find(params[:id])
-
-    @ur = current_user.saverules.find(@rule)
-    @ur.destroy
+    current_user.saverules.delete(@rule)
     respond_to do |format|
-      format.html { redirect_to unsave_url, notice: '取消收藏' }
+      format.html { redirect_to '/my/saverules', notice: '取消收藏' }
       format.json { head :no_content }
     end
 
