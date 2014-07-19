@@ -241,6 +241,7 @@ _超变
 .tumblr.com
 .uol.ua
 .userapi.com
+.vip.yl1001.com/
 .vk.me
 .wanknews.com
 .yjycw.com
