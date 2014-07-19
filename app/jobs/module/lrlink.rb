@@ -162,6 +162,7 @@ www.296296.com
 .47365.com
 .51cto.com
 .51sole.com
+.58.com.cn
 .5d6d.com
 .8671.net
 .alibaba.com
@@ -191,6 +192,7 @@ www.296296.com
 .cailiao.com
 .canalblog.com
 .cs090.com
+.dianhi.com
 .diarynote.jp
 .decoo.jp
 .deviantart.com
