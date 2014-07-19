@@ -210,6 +210,7 @@ module HttpModule
             if resp[:html]=~/location.href\s*=\s*["'](.*?)["']/i
               resp[:html].scan(/location.href\s*=\s*["'](.*?)["']/i).each{|x|
                 ops[:following] += 1
+                return resp if ops[:following]>2
                 loc = x[0]
                 if loc.include?("http://")
                   return get_web_content(loc, ops)
