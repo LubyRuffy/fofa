@@ -268,6 +268,7 @@ www.296296.com
 .vk.me
 .wanknews.com
 .wordpress.com
+.ynshangji.com
 .yjycw.com
 .ymjx168.com}
     $hosts.each_line{|h|
