@@ -191,6 +191,7 @@ _超变
 .fc2blog.us
 .flog.pl
 .fmix.pl
+.gerelateerd.nl
 .goedbegin.nl
 .gyxu.com
 .huamu.cn
@@ -198,9 +199,12 @@ _超变
 .idnes.cz
 .ieskok.lt
 .interia.pl
+.jouwpagina.nl
 .jugem.jp
 .lapozz.hu
 .ltalk.ru
+.maakjestart.nl
+.majorcommand.com
 .makepolo.com
 .mihanblog.com
 .mmfj.com
