@@ -196,6 +196,8 @@ _超变
 .gyxu.com
 .huamu.cn
 .i.sohu.com
+.lasporn.com
+.porntubeindex.com
 .idnes.cz
 .ieskok.lt
 .interia.pl
