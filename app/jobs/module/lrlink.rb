@@ -246,10 +246,11 @@ www.296296.com
 .class.ankang06.org
 .cn21edu.com
 .cs090.com
-.dianhi.com
-.diarynote.jp
+.diarycn.com
 .decoo.jp
 .deviantart.com
+.dianhi.com
+.diarynote.jp
 .digart.pl
 .edublogs.org
 .fang.com
@@ -272,8 +273,10 @@ www.296296.com
 .livejournal.com
 .porntubeindex.com
 .idnes.cz
+.iecity.com
 .ieskok.lt
 .interia.pl
+.job910.com
 .jouwpagina.nl
 .jt160.com
 .jugem.jp
@@ -284,7 +287,6 @@ www.296296.com
 .maakjestart.nl
 .majorcommand.com
 .makepolo.com
-.map.iecity.com
 .mihanblog.com
 .mmfj.com
 .net114.com
@@ -330,6 +332,7 @@ www.296296.com
 .vk.me
 .wanknews.com
 .wordpress.com
+.xyx.84519.com
 .ynshangji.com
 .yjycw.com
 .ymjx168.com
