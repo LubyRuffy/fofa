@@ -11,7 +11,7 @@ include Lrlink
 @bid=0
 if ARGV.size>0
   @max_id = @m.mysql.query("select max(id) as id from subdomain").first['id'].to_i
-  while true
+  while @bid<@max_id
     puts "process id : -#{@bid}"
     sql = %Q{SELECT
       count(*) AS cnt,
@@ -31,7 +31,7 @@ if ARGV.size>0
       HAVING cnt > 100
       ORDER BY cnt DESC}
     res= @m.mysql.query(sql)
-    break unless res.size>0
+    #break unless res.size>0
     res.each{|r|
       unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
         if @last_array.select{|lr| r["ip"] == lr["ip"]}.empty?
