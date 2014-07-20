@@ -304,6 +304,7 @@ www.296296.com
 .soup.io
 .startpagina.nl
 .sublimeblog.net
+.t.sohu.com
 .taobao.com
 .tianya.cn
 .tianyablog.com
@@ -513,6 +514,7 @@ www.296296.com
 198.204.234.
 198.204.238.
 198.27.91.
+198.55.114.
 198.56.150.
 198.56.177.
 198.56.210.
