@@ -67,7 +67,7 @@ class WebDb
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @redis.sadd('black_ips', ip) if @redis.zincrby('ips',1,ip)>200
+    @redis.sadd('black_ips', ip) if @redis.zincrby('ips',1,ip)>100
   end
 
 
