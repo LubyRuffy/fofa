@@ -289,6 +289,7 @@ www.296296.com
 .psy.elk.pl
 .qaix.com
 .qjy168.com
+.qu114.cn
 .radio.de
 .rock.cz
 .rpod.ru
