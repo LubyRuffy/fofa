@@ -339,7 +339,8 @@ www.296296.com
 .yjycw.com
 .ymjx168.com
 .zhuts.com
-.zp300.cn}
+.zp300.cn
+.zulinbao.com}
     $hosts.each_line{|h|
       return true if h && h.size>5 && host.end_with?(h.strip)
     }

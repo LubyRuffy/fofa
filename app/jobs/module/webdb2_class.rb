@@ -21,7 +21,7 @@ end
 
 class WebDb
   @mysql = nil
-  @redis = nil
+  attr_reader :redis
   attr_reader :queryer
 
   def initialize(cfgfile="./config.yml")
@@ -41,6 +41,13 @@ class WebDb
     @redis = Redis.new(:host => config['host'])
   end
 
+  def is_redis_black_domain?(domain)
+    @redis.sismember('black_domains', domain)
+  end
+
+  def is_redis_black_ip?(ip)
+    @redis.sismember('black_ips', ip)
+  end
 
   private
   def db_query_exists(db, sql)
@@ -54,13 +61,14 @@ class WebDb
   end
 
   def redis_inc_rootdomain(domain)
-    @redis.zincrby('rootdomains',1,domain) #ZREVRANGE rootdomains 0 10 WITHSCORES
+    @redis.sadd('black_domains', domain) if @redis.zincrby('rootdomains',1,domain)>200
   end
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @redis.zincrby('ips',1,ip) #ZREVRANGE ips 0 10 WITHSCORES
+    @redis.sadd('black_ips', ip) if @redis.zincrby('ips',1,ip)>1000
   end
+
 
   def db_check_subdomain_exists(db, host)
     db_query_exists(db, "select host from subdomain where host='#{Mysql2::Client.escape(host)}'")

@@ -82,6 +82,12 @@ class Processor
   def initialize(webdb, queue=nil)
     @webdb = webdb
     @queue = queue || "process_url"
+
+    #root_path = File.expand_path(File.dirname(__FILE__))
+    #rails_env = 'production'
+    #resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
+    #Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
+    Resque.redis = @webdb.redis
   end
 
   def self.perform(url)
@@ -97,7 +103,8 @@ class Processor
     host = host.downcase
     return -1 if host.include?('/')
     return -2 if is_bullshit_host?(host)
-    return -3 if is_bullshit_ip?(get_ip_of_host(host_of_url(host)))
+    ip = get_ip_of_host(host_of_url(host))
+    return -3 if is_bullshit_ip?(ip)  || @webdb.is_redis_black_ip?(ip)
 
     domain_is_ip = false
     if host =~ /\d+\.\d+\.\d+\.\d/
@@ -108,8 +115,8 @@ class Processor
       #pp domain_info
       return -4 if !domain_info
       domain = domain_info.domain+'.'+domain_info.public_suffix
+      return -2 if @webdb.is_redis_black_domain?(domain)
     end
-
 
     #检查是否需要更新
     need_update,exists_host=@webdb.need_update_host(host)
@@ -142,10 +149,6 @@ class Processor
       end
 
       #队列如果不长，就递归添加，否则只添加中文的网站
-      root_path = File.expand_path(File.dirname(__FILE__))
-      rails_env = 'production'
-      resque_config = YAML.load_file(root_path+"/../../../config/database.yml")
-      Resque.redis = "#{resque_config[rails_env]['redis']['host']}:#{resque_config[rails_env]['redis']['port']}"
       queue_len =Resque.redis.llen("queue:#{@queue}").to_i
       chinese = (http_info[:title] && http_info[:title].chinese?)
       if queue_len<20000 || host.include?('.cn') || chinese
@@ -184,10 +187,9 @@ class RealtimeProcessor < Processor
   include Resque::Plugins::UniqueJob
 
   @queue = "realtime_process_list"
-  @webdb = nil
 
   def initialize(webdb, queue=nil)
-    @webdb = webdb
+    super(webdb, queue)
     @queue = queue || "realtime_process_list"
   end
 
