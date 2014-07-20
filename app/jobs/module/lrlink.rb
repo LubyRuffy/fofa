@@ -218,6 +218,7 @@ www.296296.com
 .blog.bokee.net
 .blog.fc2.com
 .blog.hexun.com
+.blog.iehua.net
 .blog.ir
 .blog.is
 .blog.jp
@@ -417,6 +418,7 @@ www.296296.com
 116.255.214.
 117.18.5.
 118.99.21.
+118.99.52.
 118.99.57.
 121.37.60.
 122.10.114.
