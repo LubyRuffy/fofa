@@ -34,7 +34,7 @@ File.open(@root_path+"/update_id.txt", 'r') {|f|
 @max_id = @m.mysql.query("select max(id) as id from subdomain").first['id'].to_i
 
 while true
-  sql = "select id,title,host from subdomain where id>#{@id} and id<=#{@id+10000} and reverse_domain like 'nc.vog.%' order by id limit 100"
+  sql = "select id,title,host from subdomain where id>#{@id} and id<=#{@id+10000} and DATEDIFF(NOW(),lastchecktime)>90 and DATEDIFF(lastupdatetime,lastchecktime)<2 order by id limit 100"
   r = @m.mysql.query(sql)
   puts sql
   if r.size>0
