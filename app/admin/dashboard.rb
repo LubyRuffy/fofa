@@ -32,31 +32,33 @@ ActiveAdmin.register_page "Dashboard" do
            end
          end
        end
+
+       column do
+         panel "Redis任务队列" do
+           ul do
+             #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
+             #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
+             Resque.queues.each{|q|
+               li "#{q}任务数：#{Resque.redis.llen("queue:#{q}").to_i}"
+             }
+             li "错误队列：#{Resque::Failure.count}"
+           end
+
+         end
+       end
+
+       column do
+         panel "收录总览" do
+           ul do
+             li "mysql入库个数：#{Subdomain.count(:id)}"
+             li "shpinx索引个数：#{ThinkingSphinx.count}"
+           end
+         end
+       end
     end
 
     columns do
-      column do
-        panel "Redis任务队列" do
-          ul do
-          #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
-          #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
-            Resque.queues.each{|q|
-              li "#{q}任务数：#{Resque.redis.llen("queue:#{q}").to_i}"
-            }
-            li "错误队列：#{Resque::Failure.count}"
-          end
 
-        end
-      end
-
-      column do
-        panel "收录总览" do
-          ul do
-            li "mysql入库个数：#{Subdomain.count(:id)}"
-            li "shpinx索引个数：#{ThinkingSphinx.count}"
-          end
-        end
-      end
 
       column do
         panel "实时根域名排名" do
@@ -79,9 +81,7 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-    end
 
-    columns do
       column do
         panel "黑名单域名" do
           ul do
