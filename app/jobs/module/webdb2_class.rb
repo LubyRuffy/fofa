@@ -89,7 +89,7 @@ class WebDb
   def db_insert_domain(db, domain)
     sql = "insert into rootdomain (domain, domainhash) values('#{Mysql2::Client.escape(domain.downcase)}', '#{Digest::MD5.hexdigest(domain)}')"
     #puts sql
-    db_exec(db, sql)
+    db_exec(db, sql) rescue db_exec(db, "update rootdomain set domain='#{Mysql2::Client.escape(domain.downcase)}', domainhash='#{Digest::MD5.hexdigest(domain)}' where domain='#{Mysql2::Client.escape(domain)}'")
   end
 
   def db_insert_host(db, host, domain, subdomain, r)
