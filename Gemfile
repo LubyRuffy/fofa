@@ -87,3 +87,4 @@ gem 'thread'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'script_detector'
+gem 'celluloid'

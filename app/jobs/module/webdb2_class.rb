@@ -3,11 +3,26 @@ require 'redis'
 require 'digest'
 require 'time'
 require 'yaml'
+require 'celluloid/autostart'
 #require 'hexdump'
+
+#thread-safe when use thread/pool
+class MysqlQueryer
+  include Celluloid
+  attr_accessor :mysql
+  def initialize(mysql)
+    @mysql = mysql
+  end
+
+  def query(sql)
+    @mysql.query sql
+  end
+end
 
 class WebDb
   @mysql = nil
   @redis = nil
+  attr_reader :queryer
 
   def initialize(cfgfile="./config.yml")
     rails_env = ENV['RAILS_ENV'] || 'development'
@@ -15,6 +30,7 @@ class WebDb
     config = g_config[rails_env]
     begin
       @mysql = Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => false)
+      @queryer = MysqlQueryer.new(@mysql)
     rescue Mysql2::Error => e
       puts "Mysql::Error"
       puts "Error code: #{e}"

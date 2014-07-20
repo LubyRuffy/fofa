@@ -40,7 +40,7 @@ def send_to_redis
   @p = Thread.pool(4)
   while true
     sql = "select id,ip,subdomain,title from subdomain where id<=#{@id} order by id desc limit 5000"
-    r = @m.mysql.query(sql)
+    r = @m.queryer.query(sql)
     if r.size>0
       r.each {|h|
         @p.process(h) {|h|
@@ -49,7 +49,7 @@ def send_to_redis
           if (h['ip'] && is_bullshit_ip?(h['ip']) && (h['subdomain'].size>0 && h['subdomain']!='www')) || (is_bullshit_title?(h['title'], h['subdomain']))
             sql = "delete from subdomain where id=#{@id}"
             #puts sql
-            @m.mysql.query(sql)
+            @m.queryer.query(sql)
             #Resque.redis.redis.rpush("fofa:sql", sql)
             @did +=1
             print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
