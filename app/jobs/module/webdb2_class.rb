@@ -42,10 +42,12 @@ class WebDb
   end
 
   def is_redis_black_domain?(domain)
+    return true unless domain
     @redis.sismember('black_domains', domain)
   end
 
   def is_redis_black_ip?(ip)
+    return true unless ip
     ip = ip.split('.')[0..2].join('.')
     @redis.sismember('black_ips', ip)
   end
