@@ -40,9 +40,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :avatar) }
   end
 
-=begin
   def after_sign_in_path_for(resource)
+    if request.referer && request.referer.include?("rules/new")
+      return request.referer
+    end
     '/my/'
   end
-=end
+
 end

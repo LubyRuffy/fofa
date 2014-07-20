@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag params[:controller] %>
 
 <div class="row">
-  <div class="col-lg-7">
+  <div class="col-lg-8">
     <div class="well bs-component">
 <%= form_for(@rule, html: {class: "form-horizontal", id:"validate"} ) do |f| %>
   <% if @rule.errors.any? %>
@@ -47,7 +47,7 @@
 <% end %>
     </div>
   </div>
-  <div class="col-lg-5">
+  <div class="col-lg-4">
     <h2>规则语法参考：</h2>
   </div>
 </div>
