@@ -62,12 +62,12 @@ class WebDb
   end
 
   def redis_inc_rootdomain(domain)
-    @redis.sadd('black_domains', domain) if @redis.zincrby('rootdomains',1,domain)>200
+    @redis.sadd('black_domains', domain) if @redis.zincrby('rootdomains',1,domain)>100
   end
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @redis.sadd('black_ips', rawip) if @redis.zincrby('ips',1,ip)>1000
+    @redis.sadd('black_ips', rawip) if @redis.zincrby('ips',1,ip)>200
   end
 
 
