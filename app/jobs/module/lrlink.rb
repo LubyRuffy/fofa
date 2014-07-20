@@ -219,6 +219,7 @@ www.296296.com
 .blog.ir
 .blog.is
 .blog.jp
+.blog.liangxinge.cn
 .blog.pl
 .blog.sohu.com
 .blogbus.com
@@ -255,6 +256,7 @@ www.296296.com
 .gerelateerd.nl
 .goedbegin.nl
 .gyxu.com
+.gz188.com
 .hn73.com
 .huamu.cn
 .i.sohu.com
