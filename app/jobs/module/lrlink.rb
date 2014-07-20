@@ -595,6 +595,7 @@ www.296296.com
 8.5.1.
 91.195.240.
 98.126.196.
+98.126.89.
 98.131.26.}
     $ips.each_line{|bip|
       return true if bip && bip.size>4 && ip.start_with?(bip.strip)
