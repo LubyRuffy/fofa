@@ -179,7 +179,8 @@ www.296296.com
 五月情色天
 性虐待
 我要性|交网
-【2014百度官网认证】}
+【2014百度官网认证】
+克隆真票}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
@@ -480,6 +481,7 @@ www.296296.com
 174.139.43.
 174.139.6.
 174.139.96.
+174.128.230.
 192.126.115.
 192.151.145.
 192.157.203.
