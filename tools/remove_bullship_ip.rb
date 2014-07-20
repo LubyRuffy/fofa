@@ -37,21 +37,24 @@ def write_to_file(id)
 end # Def end
 
 def send_to_redis
+  @p = Thread.pool(4)
   while true
     sql = "select id,ip,subdomain,title from subdomain where id<=#{@id} order by id desc limit 5000"
     r = @m.mysql.query(sql)
     if r.size>0
       r.each {|h|
-        @id= [h['id'],@id].min
-        @process_cnt+=1
-        if (h['ip'] && is_bullshit_ip?(h['ip']) && (h['subdomain'].size>0 && h['subdomain']!='www')) || (is_bullshit_title?(h['title'], h['subdomain']))
-          sql = "delete from subdomain where id=#{@id}"
-          #puts sql
-          @m.mysql.query(sql)
-          #Resque.redis.redis.rpush("fofa:sql", sql)
-          @did +=1
-          print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
-        end
+        @p.process(h) {|h|
+          @id= [h['id'],@id].min
+          @process_cnt+=1
+          if (h['ip'] && is_bullshit_ip?(h['ip']) && (h['subdomain'].size>0 && h['subdomain']!='www')) || (is_bullshit_title?(h['title'], h['subdomain']))
+            sql = "delete from subdomain where id=#{@id}"
+            #puts sql
+            @m.mysql.query(sql)
+            #Resque.redis.redis.rpush("fofa:sql", sql)
+            @did +=1
+            print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
+          end
+        }
       }
       print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
       write_to_file @id
@@ -59,6 +62,8 @@ def send_to_redis
       break
     end
   end
+  @p.join
+  @p.shutdown
 end
 
 def process_redis
