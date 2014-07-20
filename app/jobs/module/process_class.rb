@@ -151,10 +151,10 @@ class Processor
       #队列如果不长，就递归添加，否则只添加中文的网站
       queue_len =Resque.redis.llen("queue:#{@queue}").to_i
       chinese = (http_info[:title] && http_info[:title].chinese?)
-      if queue_len<20000 || host.include?('.cn') || chinese
+      if queue_len<200000 || host.include?('.cn') || chinese
         utf8html = http_info[:utf8html]
         hosts = get_linkes(utf8html).select {|h|
-          !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) #&& Resque.redis.zscore("rootdomains", domain)<2000
+          !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))  #&& Resque.redis.zscore("rootdomains", domain)<2000
         }
 
         if hosts.size>0
