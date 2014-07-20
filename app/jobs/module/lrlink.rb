@@ -11,6 +11,17 @@ module Lrlink
     nil
   end
 
+  def host_port_of_url(url)
+    begin
+      url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
+      url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
+      uri = URI(url)
+      [uri.host, uri.port]
+    rescue => e
+      nil
+    end
+  end
+
   def host_of_url(url)
     begin
       url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
@@ -46,6 +57,15 @@ module Lrlink
       }
     end
     arr.uniq
+  end
+
+  def get_ip_of_host(host)
+    require 'socket'
+    ip = Socket.getaddrinfo(host, nil)
+    return nil if !ip || !ip[0] || !ip[0][2]
+    ip[0][2]
+  rescue => e
+    nil
   end
 
   def is_bullshit_title?(title,subdomain)

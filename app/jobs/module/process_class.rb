@@ -97,6 +97,7 @@ class Processor
     host = host.downcase
     return -1 if host.include?('/')
     return -2 if is_bullshit_host?(host)
+    return -3 if is_bullshit_ip?(get_ip_of_host(host_of_url(host)))
 
     domain_is_ip = false
     if host =~ /\d+\.\d+\.\d+\.\d/
@@ -105,7 +106,7 @@ class Processor
     else
       domain_info = get_domain_info_by_host(host)
       #pp domain_info
-      return -3 if !domain_info
+      return -4 if !domain_info
       domain = domain_info.domain+'.'+domain_info.public_suffix
     end
 
@@ -123,8 +124,8 @@ class Processor
     #获取http信息
     http_info = get_http(host)
     if http_info && ! http_info[:error]
-      return -4 if is_bullshit_ip?(http_info[:ip])
-      return -5 if domain_info && is_bullshit_title?(http_info[:title], domain_info.subdomain)
+      return -5 if is_bullshit_ip?(http_info[:ip])
+      return -6 if domain_info && is_bullshit_title?(http_info[:title], domain_info.subdomain)
 
       #puts host
       #pp http_info
@@ -171,7 +172,7 @@ class Processor
       return 0
     else
       @webdb.insert_host_to_error_table(host, "#{Socket.gethostname} : http failed! #{http_info[:errstring]}") if http_info[:write_error]
-      return -3
+      return -7
     end
   end
 

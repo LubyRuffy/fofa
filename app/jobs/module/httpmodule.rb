@@ -114,9 +114,13 @@ module HttpModule
       if ip =~ /^[0-9.]*$/
         resp[:ip] = ip
       else
-        ip = Socket.getaddrinfo(uri.host, nil)
-        return resp if !ip || !ip[0] || !ip[0][2]
-        resp[:ip] = Socket.getaddrinfo(uri.host, nil)[0][2]
+        ip = get_ip_of_host(uri.host)
+        return resp unless ip
+        #ip = Socket.getaddrinfo(uri.host, nil)
+        #return resp if !ip || !ip[0] || !ip[0][2]
+        #resp[:ip] = Socket.getaddrinfo(uri.host, nil)[0][2]
+        #ip = resp[:ip]
+        resp[:ip] = ip[0][2]
         ip = resp[:ip]
       end
 
