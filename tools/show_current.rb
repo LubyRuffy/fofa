@@ -8,22 +8,58 @@ include Lrlink
 @m = WebDb.new(@root_path+"/../config/database.yml")
 @last_array = []
 
-while true
-  @current_array= []
-  res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
-  res.each{|r|
-    @current_array << r
-  }
-
-  #puts "="*80
-  @current_array.each{|r|
-    unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
-      if @last_array.select{|lr| r["ip"] == lr["ip"]}.empty?
-        printf("[%s] %-8s%-24s%-20s%-30s%-30s\n", Time.now, r["cnt"], r["ip"], r["subdomain"], r["domain"], r["title"])
+@bid=0
+if ARGV.size>0
+  @max_id = @m.mysql.query("select max(id) as id from subdomain").first['id'].to_i
+  while true
+    puts "process id : -#{@bid}"
+    sql = %Q{SELECT
+      count(*) AS cnt,
+                  ip,
+                  host,
+                  subdomain,
+                  domain,
+                  title
+      FROM
+        subdomain
+      WHERE
+        id < #{@max_id} - #{@bid}
+        AND id > #{@max_id} - #{@bid+100000}
+        AND subdomain != 'www'
+        AND subdomain != ''
+      GROUP BY ip
+      HAVING cnt > 100
+      ORDER BY cnt DESC}
+    res= @m.mysql.query(sql)
+    break unless res.size>0
+    res.each{|r|
+      unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
+        if @last_array.select{|lr| r["ip"] == lr["ip"]}.empty?
+          printf("[%s] %-8s%-24s%-20s%-30s%-30s\n", Time.now, r["cnt"], r["ip"], r["subdomain"], r["domain"], r["title"])
+        end
       end
-    end
-  }
-  @last_array = @current_array
+    }
 
-  sleep 5
+    @bid+=100000
+  end
+else
+  while true
+    @current_array= []
+    res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
+    res.each{|r|
+      @current_array << r
+    }
+
+    #puts "="*80
+    @current_array.each{|r|
+      unless is_bullshit_host?(r["host"]) || is_bullshit_ip?(r["ip"])
+        if @last_array.select{|lr| r["ip"] == lr["ip"]}.empty?
+          printf("[%s] %-8s%-24s%-20s%-30s%-30s\n", Time.now, r["cnt"], r["ip"], r["subdomain"], r["domain"], r["title"])
+        end
+      end
+    }
+    @last_array = @current_array
+
+    sleep 5
+  end
 end

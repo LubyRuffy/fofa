@@ -184,7 +184,9 @@ www.296296.com
 .alibaba.com
 .b2b168.com
 .baike.com
+.bb.babynic.cn
 .beon.ru
+.best73.com
 .bloblo.pl
 .blog.163.com
 .blog.ankang06.org
@@ -212,6 +214,7 @@ www.296296.com
 .c-c.com
 .cailiao.com
 .canalblog.com
+.class.ankang06.org
 .cn21edu.com
 .cs090.com
 .dianhi.com
@@ -229,12 +232,15 @@ www.296296.com
 .gerelateerd.nl
 .goedbegin.nl
 .gyxu.com
+.hn73.com
 .huamu.cn
 .i.sohu.com
 .lasporn.com
+.linkbucks.com
 .list-manage.com
 .list-manage1.com
 .list-manage2.com
+.livejournal.com
 .porntubeindex.com
 .idnes.cz
 .ieskok.lt
