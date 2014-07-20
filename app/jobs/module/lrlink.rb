@@ -180,7 +180,8 @@ www.296296.com
 性虐待
 我要性|交网
 【2014百度官网认证】
-克隆真票}
+克隆真票
+906游戏首页}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
