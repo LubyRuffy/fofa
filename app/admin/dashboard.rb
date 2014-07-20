@@ -80,5 +80,27 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    columns do
+      column do
+        panel "黑名单域名" do
+          ul do
+            Resque.redis.redis.smembers("black_domains").each{|v|
+              li "#{v}"
+            }
+          end
+        end
+      end
+
+      column do
+        panel "黑名单IP" do
+          ul do
+            Resque.redis.redis.smembers("black_ips").each{|v|
+              li "#{v}"
+            }
+          end
+        end
+      end
+    end
   end # content
 end
