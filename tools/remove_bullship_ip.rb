@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #删除数据库中作恶的ip对应的host（只保留根域名或www）
 require 'mysql2'
-require 'thread/pool'
+#require 'thread/pool'
 @root_path = File.expand_path(File.dirname(__FILE__))
 require @root_path+"/../app/jobs/module/webdb2_class.rb"
 require @root_path+"/../app/jobs/module/lrlink.rb"
@@ -37,24 +37,24 @@ def write_to_file(id)
 end # Def end
 
 def send_to_redis
-  @p = Thread.pool(10)
+  #@p = Thread.pool(10)
   while true
     sql = "select id,ip,subdomain,title from subdomain where id<=#{@id} order by id desc limit 5000"
-    r = @m.queryer.query(sql)
+    r = @m.mysql.query(sql)
     if r.size>0
       r.each {|h|
-        @p.process(h) {|h|
+        #@p.process(h) {|h|
           @id= [h['id'],@id].min
           @process_cnt+=1
           if (h['ip'] && is_bullshit_ip?(h['ip']) && (h['subdomain'].size>0 && h['subdomain']!='www')) || (is_bullshit_title?(h['title'], h['subdomain']))
             sql = "delete from subdomain where id=#{@id}"
             #puts sql
-            @m.queryer.query(sql)
+            @m.mysql.query(sql)
             #Resque.redis.redis.rpush("fofa:sql", sql)
             @did +=1
             print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
           end
-        }
+        #}
       }
       print "#{@id} : [deleted: #{@did}] [processed:#{@process_cnt}] [redis_processed:#{@process_redis_cnt}]\r"
       write_to_file @id
@@ -62,8 +62,8 @@ def send_to_redis
       break
     end
   end
-  @p.join
-  @p.shutdown
+  #@p.join
+  #@p.shutdown
 end
 
 def process_redis

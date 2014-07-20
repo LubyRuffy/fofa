@@ -633,6 +633,7 @@ www.296296.com
 98.126.196.
 98.126.89.
 98.131.26.}
+    return true if !ip
     $ips.each_line{|bip|
       return true if bip && bip.size>4 && ip.start_with?(bip.strip)
     }
