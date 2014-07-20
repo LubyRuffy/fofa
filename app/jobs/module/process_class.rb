@@ -170,7 +170,7 @@ class Processor
 
       return 0
     else
-      @webdb.insert_host_to_error_table(host, "#{Socket.gethostname} : http failed! #{http_info[:errstring]}")
+      @webdb.insert_host_to_error_table(host, "#{Socket.gethostname} : http failed! #{http_info[:errstring]}") if http_info[:write_error]
       return -3
     end
   end

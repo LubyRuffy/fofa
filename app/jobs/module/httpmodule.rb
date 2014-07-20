@@ -233,15 +233,18 @@ module HttpModule
     rescue OpenURI::HTTPError => the_error
       resp[:error] = true
       resp[:errstring] = "OpenURI::HTTPError of : #{url}\n error:#{$!} at:#{$@}\nerror : #{the_error}"
+      resp[:write_error] = true
     rescue SystemCallError => the_error
       resp[:error] = true
       resp[:errstring] = "SystemCallError of : #{url}\n error:#{$!} at:#{$@}\nerror : #{the_error}"
+      resp[:write_error] = true
     rescue SocketError => the_error
       resp[:error] = true
       resp[:errstring] = "SocketError of : #{url}\n error:#{$!} at:#{$@}\nerror : #{the_error}"
     rescue => err
       resp[:error] = true
       resp[:errstring] = "Unknown Exception of : #{url}\n error:#{$!} at:#{$@}\nerror : #{err}"
+      resp[:write_error] = true
     end
 
     resp
@@ -249,134 +252,7 @@ module HttpModule
 
   def get_utf8(c,header=nil)
     encoding = GuessHtmlEncoding.guess(c,header)
-=begin
--
-0
-1245
-1252
-1254
-8859-2
-ALL
-ANSI
-ANSI_X3
-ARIAL
-ASCI
-AUTO
-CHARACTER_SET
-CHARSET
-CHARSET_ENCODING
-CHAR_ENCODING
-CL
-DESCRIPTION
-EN
-EN_US
-EUC
-EUC_JP
-FR_FR
-GB2132
-GB8382
-GREEK
-IDONTUSEDEFAULTCHARSETSANDIKNOWWHATIMDOINGANDPARANOIDSKNOWWHATIAMDOING
-ISO
-ISO-
-ISO-10
-ISO-10059-1
-ISO-101059-1
-ISO-1024-1
-ISO-10646
-ISO-1150-2
-ISO-1252
-ISO-16
-ISO-1759-1
-ISO-5589-1
-ISO-5859-1
-ISO-5889-1
-ISO-5988-15
-ISO-639-1
-ISO-7659-1
-ISO-8
-ISO-8059-1
-ISO-8559-1
-ISO-8559-2
-ISO-8729-1
-ISO-88
-ISO-8829-2
-ISO-88509-1
-ISO-8851-1
-ISO-8851-9
-ISO-8856-1
-ISO-8859
-ISO-8859-
-ISO-8859-0
-ISO-8859-6-I
-ISO-8859-8-I
-ISO-88591
-ISO-88591-1
-ISO-88592
-ISO-8892-2
-ISO-8895-1
-ISO-8909-1
-ISO-9959-1
-ISO-GB2312
-ISO-WINDOWS-1252
-ISO88591
-ISO8859_1
-ISO8899-2
-ISO_8859-2
-JP
-LATIN
-LATIN1_SWEDISH_CI
-LATIN2
-LATIN5
-LEFT_COL
-MACCENTRALEUROPE
-MACINTOSH
-MANUAL
-MS932
-NL-ASCII
-NO
-NONE
-NULL
-OFF
-PL_PL
-REPLACE
-SHFT-JIS
-SHIFT-JS
-SHIFT_JIF
-SHIFT_SJIS
-SHIFT_X-SJIS
-SHIHD_JIS
-SHIHT_JIS
-SKY
-TEXT
-TEXT-HTML
-THAI
-TIS620
-TUF-8
-U-8
-UFT-8
-UNICODE-1-1
-UNKNOWN-8BIT
-US
-UTG-8
-WESTERN
-WINDOW-1252
-WINDOW-874
-WINDOWS
-WINDOWS-
-WINDOWS-1231
-WINDOWS-1234
-WINDOWS-800
-WINDOWS-8859-2
-WINDOWS-932
-WINDOWS_1258
-WTF-8
-X-MAC-CE
-X-MAC-ROMAN
-X-USER-DEFINED
-_AUTODETECT_ALL
-_CHARSET
-=end
+
     if(encoding)
       encoding = "GB2312" if (encoding=='GBK2312') || (encoding=='GB_2312-80') || encoding.include?('2312')#bug?
       encoding = "UTF-8" if (encoding.include?('UTF')) || (encoding=='U1TF-8') || (encoding=='UF-8') #bug?
