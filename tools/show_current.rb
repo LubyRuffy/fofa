@@ -10,7 +10,7 @@ include Lrlink
 
 while true
   @current_array= []
-  res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-50000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
+  res= @m.mysql.query("select count(*) as cnt,ip,host,subdomain,domain,title from subdomain where id>(select max(id) from subdomain)-100000 and subdomain!='www' and subdomain!='' GROUP BY ip having cnt>100 order by cnt desc ")
   res.each{|r|
     @current_array << r
   }
