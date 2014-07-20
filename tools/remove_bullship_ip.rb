@@ -37,7 +37,7 @@ def write_to_file(id)
 end # Def end
 
 def send_to_redis
-  @p = Thread.pool(4)
+  @p = Thread.pool(10)
   while true
     sql = "select id,ip,subdomain,title from subdomain where id<=#{@id} order by id desc limit 5000"
     r = @m.queryer.query(sql)
