@@ -120,7 +120,7 @@ module HttpModule
         #return resp if !ip || !ip[0] || !ip[0][2]
         #resp[:ip] = Socket.getaddrinfo(uri.host, nil)[0][2]
         #ip = resp[:ip]
-        resp[:ip] = ip[0][2]
+        resp[:ip] = ip
         ip = resp[:ip]
       end
 
