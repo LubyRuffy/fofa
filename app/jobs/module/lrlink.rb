@@ -181,7 +181,9 @@ www.296296.com
 我要性|交网
 【2014百度官网认证】
 克隆真票
-906游戏首页}
+906游戏首页
+申博官方网站】
+-申博集团}
     return false if !subdomain || subdomain.size<1 || subdomain=='www' #根域名和www先不处理
     $titles.each_line{|t|
       return true if t && t.size>1 && title.include?(t.strip)
