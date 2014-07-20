@@ -223,6 +223,7 @@ www.296296.com
 .blog.is
 .blog.jp
 .blog.liangxinge.cn
+.blog.liangxinge.pw
 .blog.pl
 .blog.sohu.com
 .blogbus.com
