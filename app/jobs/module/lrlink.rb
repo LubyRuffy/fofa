@@ -237,6 +237,7 @@ www.296296.com
 .blox.pl
 .biz72.com
 .boke.babynic.cn
+.bumiu.cn
 .bxlwt.com
 .c-c.com
 .cailiao.com
@@ -263,7 +264,6 @@ www.296296.com
 .hn73.com
 .huamu.cn
 .i.sohu.com
-.lasporn.com
 .linkbucks.com
 .list-manage.com
 .list-manage1.com
@@ -277,6 +277,8 @@ www.296296.com
 .jt160.com
 .jugem.jp
 .lapozz.hu
+.lasporn.com
+.lawyer.m148.com
 .ltalk.ru
 .maakjestart.nl
 .majorcommand.com
