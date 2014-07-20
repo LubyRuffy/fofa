@@ -136,7 +136,7 @@ class Processor
         @webdb.update_host_to_subdomain(host, domain, '', http_info, exists_host)
       else
         #更新根域名表
-        @webdb.insert_domain_to_rootdomain(domain)
+        @webdb.insert_domain_to_rootdomain(domain, exists_host)
         #更新子域名表
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info, exists_host)
       end

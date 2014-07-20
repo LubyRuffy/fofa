@@ -158,8 +158,8 @@ class WebDb
     end
   end
 
-  def insert_domain_to_rootdomain(domain)
-    if !db_check_domain_exists(@mysql, domain)
+  def insert_domain_to_rootdomain(domain, host_exists=false)
+    unless host_exists || db_check_domain_exists(@mysql, domain)
       db_insert_domain(@mysql, domain)
     end
   end
@@ -185,7 +185,8 @@ class WebDb
     @exist_host = false
     if r.size>0
       @exist_host = true
-      if  ((Time.now - r.first['lastchecktime']).to_i/86400)>90
+      diff_time = (Time.now - r.first['lastchecktime']).to_i
+      if  (diff_time/86400)>90
         @need_update = true
       else
        @need_update = false
