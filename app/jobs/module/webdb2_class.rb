@@ -79,7 +79,7 @@ class WebDb
   alias db_check_host_exists db_check_subdomain_exists
 
   def db_check_domain_exists(db, domain)
-    db_query_exists(db, "select domain from rootdomain where domainhash='#{Digest::MD5.hexdigest(domain)}'")
+    db_query_exists(db, "select domain from rootdomain where domain='#{Mysql2::Client.escape(domain)}'")
   end
 
   def db_exec(db, sql)
@@ -87,7 +87,7 @@ class WebDb
   end
 
   def db_insert_domain(db, domain)
-    sql = "insert into rootdomain (domain, domainhash) values('#{Mysql2::Client.escape(domain)}', '#{Digest::MD5.hexdigest(domain)}')"
+    sql = "insert into rootdomain (domain, domainhash) values('#{Mysql2::Client.escape(domain.downcase)}', '#{Digest::MD5.hexdigest(domain)}')"
     #puts sql
     db_exec(db, sql)
   end
