@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719033820) do
+ActiveRecord::Schema.define(version: 20140722191120) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -101,6 +101,9 @@ ActiveRecord::Schema.define(version: 20140719033820) do
     t.boolean  "published"
   end
 
+  add_index "rule", ["product", "rule"], name: "index_rule_on_product_and_rule", unique: true, length: {"product"=>50, "rule"=>nil}, using: :btree
+  add_index "rule", ["rule", "product"], name: "product_rule", unique: true, length: {"rule"=>nil, "product"=>50}, using: :btree
+
   create_table "sph_counter", primary_key: "counter_id", force: true do |t|
     t.integer   "max_id",       limit: 8,               null: false
     t.integer   "min_id",                  default: 1,  null: false
@@ -166,6 +169,13 @@ ActiveRecord::Schema.define(version: 20140719033820) do
   add_index "user", ["email"], name: "index_user_on_email", unique: true, using: :btree
   add_index "user", ["reset_password_token"], name: "index_user_on_reset_password_token", unique: true, using: :btree
   add_index "user", ["username"], name: "index_user_on_username", unique: true, using: :btree
+
+  create_table "user_ruleship", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "rule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "userhost", force: true do |t|
     t.string    "host"

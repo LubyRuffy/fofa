@@ -20,13 +20,13 @@ module ApiHelper
         @results = ThinkingSphinx.search Riddle::Query.escape(@query),options
       end
       @tags = {}
-      if @results
-        @results.each {|x|
-          @tags[x.hosthash] = Tag.find_by_hosthash x.hosthash
-          @error, @msg = Userhost.add_user_host(x.host, '127.0.0.2')
-          puts "error: #{@msg}" if @error
-        }
-      end
+      #if @results
+      #  @results.each {|x|
+      #    @tags[x.hosthash] = Tag.find_by_hosthash x.hosthash
+      #    @error, @msg = Userhost.add_user_host(x.host, '127.0.0.2')
+      #    puts "error: #{@msg}" if @error
+      #  }
+      #end
     rescue ThinkingSphinx::SphinxError => e
       @error = e.to_s
     end
