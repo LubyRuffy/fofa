@@ -14,11 +14,21 @@ module ApiHelper
         @mode = "extended"
         #@results = Subdomain.search Riddle::Query.escape(@query), :per_page => 10, :page => params['page']
         #@results = Subdomain.search @query_l, :index => 'idx1', :match_mode => :extended, :per_page => 10, :page => params['page'], :order => "lastupdatetime DESC"
-        @results = ThinkingSphinx.search @query_l, :index => 'idx1', :match_mode => :extended, :per_page => page_count, :page => params['page'], :order => "lastupdatetime DESC"
+        @results = ThinkingSphinx.search @query_l,
+                                         :match_mode => :extended,
+                                         :index => 'idx1',
+                                         #:retry_stale => 2,
+                                         :sql => { :select => 'id,ip,title,header,host,hosthash,lastupdatetime'}, :per_page => page_count, :page => params['page'], :order => "lastupdatetime DESC"
       else
         @mode = "normal"
         #@results = Subdomain.search Riddle::Query.escape(@query), :index => 'idx1', :per_page => 10, :page => params['page'], :order => "lastupdatetime DESC"
-        @results = ThinkingSphinx.search Riddle::Query.escape(@query), :index => 'idx1', :per_page => page_count, :page => params['page'], :order => "lastupdatetime DESC"
+        @results = ThinkingSphinx.search Riddle::Query.escape(@query),
+                                         :index => 'idx1',
+                                         #:retry_stale => 2,
+                                         :sql => { :select => 'id,ip,title,header,host,hosthash,lastupdatetime'},
+                                         :per_page => page_count,
+                                         :page => params['page'],
+                                         :order => "lastupdatetime DESC"
       end
       @tags = {}
       if @results

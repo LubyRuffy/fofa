@@ -220,7 +220,7 @@ module SearchHelper
     protected
 
     def check_column!(value)
-      indexed = %w|title header body host|
+      indexed = %w|title header body host ip|
       unless indexed.include?(value)
         source = Parslet::Source.new(value.to_s)
         cause = Parslet::Cause.new('Column not found', source, value.offset, [])

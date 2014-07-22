@@ -10,6 +10,34 @@ ActiveAdmin.register_page "Dashboard" do
     #  end
     #end
 
+    columns do
+      column do
+
+        raw(%q{
+<div id="dialog" title="查看数据" style="width:600px, height:400px, overflow:auto">
+  <p></p>
+</div>
+<script>
+  $( "#dialog" ).dialog({
+      autoOpen: false,
+      width: 500,
+      height: "auto",
+      modal: true
+    });
+  function show_subdomain_info_click(ip) {
+      $( "#dialog" ).html("loading...");
+      $( "#dialog" ).load('/search/get_hosts_by_ip.html?ip='+ip).dialog( "open" );
+    }
+
+  function remove_black_ips(ip) {
+      $( "#dialog" ).html("loading...");
+      $( "#dialog" ).load('/search/remove_black_ips.html?ip='+ip).dialog( "open" );
+    }
+
+</script>})
+      end
+    end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     columns do
@@ -83,9 +111,9 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "黑名单域名" do
+        panel "黑名单域名（总数：#{Resque.redis.redis.scard("black_domains")}）" do
           ul do
-            Resque.redis.redis.smembers("black_domains").each{|v|
+            Resque.redis.redis.smembers("black_domains").sort_by{|x| x}.each{|v|
               li "#{v}"
             }
           end
@@ -93,14 +121,16 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "黑名单IP" do
+        panel "黑名单IP（总数：#{Resque.redis.redis.scard("black_ips")}）" do
           ul do
-            Resque.redis.redis.smembers("black_ips").each{|v|
-              li "#{v}"
+            Resque.redis.redis.smembers("black_ips").sort_by{|x| x}.each{|v|
+              li link_to("#{v}", "javascript:show_subdomain_info_click('#{v}')")+" -- "+link_to("移除黑名单", "javascript:remove_black_ips('#{v}')")
             }
           end
         end
       end
     end
+
+
   end # content
 end

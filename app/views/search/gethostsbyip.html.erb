@@ -1,0 +1,14 @@
+
+<% @results.each do |doc| %>
+  <div class="container">
+    <div class="row well-small" style="border: 1px solid #e1e1e8;">
+      <div class="col-lg-4" style="padding: 8px">
+        <%=link_to doc.host, "http://"+doc.host, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank" 
+        %> (<%= link_to doc.ip, "/search/result?qbase64="+CGI.escape(Base64.encode64('ip="'+doc.ip+'"')) %>)
+        <br/><%= doc.title.force_encoding('utf-8') %>
+    <br/> 更新时间：<%= doc.lastupdatetime.to_datetime.strftime('%F') %>
+</div>
+    </div>
+    <p></p>
+  </div>
+<% end %>

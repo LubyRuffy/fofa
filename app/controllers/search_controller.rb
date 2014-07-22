@@ -18,6 +18,22 @@ class SearchController < ApplicationController
     render :text => Subdomain.count
   end
 
+  def get_hosts_by_ip
+    @error, @mode, @results, @tags = search("ip=\"#{params['ip']}.\"")
+    respond_to do |format|
+      format.html {render '/search/gethostsbyip', :layout => false}
+      format.json {render :json => @results}
+    end
+  end
+
+  def remove_black_ips
+    Resque.redis.redis.srem("black_ips", params['ip'])
+    respond_to do |format|
+      format.html {render :text => "已经移除黑名单！"}
+      format.json {render :json => {:status=>"ok"}}
+    end
+  end
+
   def get_host_content
     render :json => {'host'=>Subdomain.find_by_host(params['host']).body}
   end

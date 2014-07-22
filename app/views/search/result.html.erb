@@ -75,7 +75,7 @@
         <%=link_to doc.host, "http://"+doc.host, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank" 
         %>  <a href="javascript:view('<%= doc.host%>')"><img src="/eye.png"></a>
         <br/> <%= doc.title.force_encoding('utf-8') %>
-      <br/> <%= link_to doc.ip, "/search/result?q="+doc.ip %>
+      <br/> <%= link_to doc.ip, "/search/result?qbase64="+CGI.escape(Base64.encode64('ip="'+doc.ip+'"')) %>
     <br/> 更新时间：<%= doc.lastupdatetime.to_datetime.strftime('%F') %>
   <br/> 
   <% if @tags[doc.hosthash] %>
