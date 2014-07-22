@@ -10,6 +10,34 @@ ActiveAdmin.register_page "Dashboard" do
     #  end
     #end
 
+    columns do
+      column do
+
+        raw(%q{
+<div id="dialog" title="查看数据" style="width:600px, height:400px, overflow:auto">
+  <p></p>
+</div>
+<script>
+  $( "#dialog" ).dialog({
+      autoOpen: false,
+      width: 500,
+      height: "auto",
+      modal: true
+    });
+  function show_subdomain_info_click(ip) {
+      $( "#dialog" ).html("loading...");
+      $( "#dialog" ).load('/search/get_hosts_by_ip.html?ip='+ip).dialog( "open" );
+    }
+
+  function remove_black_ips(ip) {
+      $( "#dialog" ).html("loading...");
+      $( "#dialog" ).load('/search/remove_black_ips.html?ip='+ip).dialog( "open" );
+    }
+
+</script>})
+      end
+    end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     columns do
@@ -32,36 +60,38 @@ ActiveAdmin.register_page "Dashboard" do
            end
          end
        end
+
+       column do
+         panel "Redis任务队列" do
+           ul do
+             #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
+             #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
+             Resque.queues.each{|q|
+               li "#{q}任务数：#{Resque.redis.llen("queue:#{q}").to_i}"
+             }
+             li "错误队列：#{Resque::Failure.count}"
+           end
+
+         end
+       end
+
+       column do
+         panel "收录总览" do
+           ul do
+             li "mysql入库个数：#{Subdomain.count(:id)}"
+             li "shpinx索引个数：#{ThinkingSphinx.count}"
+           end
+         end
+       end
     end
 
     columns do
-      column do
-        panel "Redis任务队列" do
-          ul do
-          #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
-          #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
-            Resque.queues.each{|q|
-              li "#{q}任务数：#{Resque.redis.llen("queue:#{q}").to_i}"
-            }
-            li "错误队列：#{Resque::Failure.count}"
-          end
 
-        end
-      end
-
-      column do
-        panel "收录总览" do
-          ul do
-            li "mysql入库个数：#{Subdomain.count(:id)}"
-            li "shpinx索引个数：#{ThinkingSphinx.count}"
-          end
-        end
-      end
 
       column do
         panel "实时根域名排名" do
           ul do
-            Resque.redis.redis.zrevrange("rootdomains", 0, 9, :with_scores => true).each{|kv|
+            Resque.redis.redis.zrevrange("rootdomains", 0, 19, :with_scores => true).each{|kv|
               k,v = kv
               li "#{k} : #{v.to_i}"
             }
@@ -72,20 +102,18 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "实时IP排名" do
           ul do
-            Resque.redis.redis.zrevrange("ips", 0, 9, :with_scores => true).each{|kv|
+            Resque.redis.redis.zrevrange("ips", 0, 19, :with_scores => true).each{|kv|
               k,v = kv
               li "#{k} : #{v.to_i}"
             }
           end
         end
       end
-    end
 
-    columns do
       column do
-        panel "黑名单域名" do
+        panel "黑名单域名（总数：#{Resque.redis.redis.scard("black_domains")}）" do
           ul do
-            Resque.redis.redis.smembers("black_domains").each{|v|
+            Resque.redis.redis.smembers("black_domains").sort_by{|x| x}.each{|v|
               li "#{v}"
             }
           end
@@ -93,14 +121,16 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "黑名单IP" do
+        panel "黑名单IP（总数：#{Resque.redis.redis.scard("black_ips")}）" do
           ul do
-            Resque.redis.redis.smembers("black_ips").each{|v|
-              li "#{v}"
+            Resque.redis.redis.smembers("black_ips").sort_by{|x| x}.each{|v|
+              li link_to("#{v}", "javascript:show_subdomain_info_click('#{v}')")+" -- "+link_to("移除黑名单", "javascript:remove_black_ips('#{v}')")
             }
           end
         end
       end
     end
+
+
   end # content
 end

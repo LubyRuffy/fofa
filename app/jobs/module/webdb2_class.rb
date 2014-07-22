@@ -42,10 +42,12 @@ class WebDb
   end
 
   def is_redis_black_domain?(domain)
+    return true unless domain
     @redis.sismember('black_domains', domain)
   end
 
   def is_redis_black_ip?(ip)
+    return true unless ip
     ip = ip.split('.')[0..2].join('.')
     @redis.sismember('black_ips', ip)
   end
@@ -67,7 +69,7 @@ class WebDb
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @redis.sadd('black_ips', rawip) if @redis.zincrby('ips',1,ip)>200
+    @redis.sadd('black_ips', ip) if @redis.zincrby('ips',1,ip)>100
   end
 
 
@@ -77,7 +79,7 @@ class WebDb
   alias db_check_host_exists db_check_subdomain_exists
 
   def db_check_domain_exists(db, domain)
-    db_query_exists(db, "select domain from rootdomain where domainhash='#{Digest::MD5.hexdigest(domain)}'")
+    db_query_exists(db, "select domain from rootdomain where domain='#{Mysql2::Client.escape(domain)}'")
   end
 
   def db_exec(db, sql)
@@ -85,9 +87,9 @@ class WebDb
   end
 
   def db_insert_domain(db, domain)
-    sql = "insert into rootdomain (domain, domainhash) values('#{Mysql2::Client.escape(domain)}', '#{Digest::MD5.hexdigest(domain)}')"
+    sql = "insert into rootdomain (domain, domainhash) values('#{Mysql2::Client.escape(domain.downcase)}', '#{Digest::MD5.hexdigest(domain)}')"
     #puts sql
-    db_exec(db, sql)
+    db_exec(db, sql) rescue db_exec(db, "update rootdomain set domain='#{Mysql2::Client.escape(domain.downcase)}', domainhash='#{Digest::MD5.hexdigest(domain.downcase)}' where domain='#{Mysql2::Client.escape(domain)}'")
   end
 
   def db_insert_host(db, host, domain, subdomain, r)

@@ -15,6 +15,8 @@ Fofa::Application.routes.draw do
   get "search/result"
   get "search/get_web_cnt"
   get "search/get_host_content"
+  get "search/get_hosts_by_ip(.:format)"
+  get "search/remove_black_ips(.:format)"
   get "userhost/index"
   post "userhost/addhost"
   get "api/addhost"
