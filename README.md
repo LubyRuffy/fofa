@@ -109,3 +109,21 @@ watch -n 5 redis-cli -hlocahost llen resque:queue:process_url
 ./fofacli/fofacli.rb elasticsearch_rce_CVE-2014-3120.rb 'fofaquery=(header="application/json" && body="build_hash") || body="You Know, for Search"' e
 ./fofacli/fofacli.rb oa80000_default_account.rb fofaquery='body="/OAapp/WebObjects/OAapp.woa"' e
 ```
+
+Sphinx安装：
+---
+```
+sudo yum install mysql-devel
+wget http://www.sphinx-search.com/downloads/sphinx-for-chinese-2.2.1-dev-r4311.tar.gz
+tar zxvf sphinx-for-chinese-2.2.1-dev-r4311.tar.gz
+cd sphinx-for-chinese-2.2.1-dev-r4311
+./configure
+make
+sudo make install
+
+wget http://sphinx-for-chinese.googlecode.com/files/xdict_1.1.tar.gz
+tar zxvf xdict_1.1.tar.gz
+~/sphinx-for-chinese-2.2.1-dev-r4311/src/mkdict ./xdict_1.1.txt  xdict
+sudo mkdir -p /usr/local/sphinx-for-chinese/etc/
+sudo cp xdict /usr/local/sphinx-for-chinese/etc/
+```
