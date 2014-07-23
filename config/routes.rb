@@ -32,7 +32,13 @@ Fofa::Application.routes.draw do
   get "my" => "my#index"
 
   scope '/my' do
-    resources :rules
+    resources :rules do
+      member do
+        get :save
+        get :unsave
+      end
+    end
+
     resources :saverules
   end
 
@@ -43,7 +49,6 @@ Fofa::Application.routes.draw do
   # root 'welcome#index'
   root 'search#index'
 
-  resources :rules
   #get "rules" => "rules#index"
   get "save/:id" => "rules#save"
 

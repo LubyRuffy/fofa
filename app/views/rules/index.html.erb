@@ -29,7 +29,11 @@
       <tr>
         <td><%= link_to rule.created_at.strftime("%Y-%m-%d"), rule %></td>
         <td><%= link_to rule.product, rule.producturl%></td>
-        <td><%if rule.user %><%= link_to rule.user.username, rule.producturl%><% end %></td>
+        <td>
+          <% rawrule = rule.parentrule || rule %>
+          <%= rawrule.user.username %>
+          <%#= link_to rawrule.user.username, rule.producturl %>
+        </td>
         <td><%= link_to rule.rule, "/search/result?qbase64="+Base64.encode64(rule.rule)%></td>
         <td>
           <%= link_to '编辑', edit_rule_path(rule), :class=>"btn btn-success btn-sm " %>

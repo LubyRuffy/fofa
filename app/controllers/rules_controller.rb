@@ -76,10 +76,15 @@ class RulesController < ApplicationController
 
   #收藏
   def save
+    new_rule = Rule.new
+    new_rule.user = current_user
+    new_rule.parentrule = @rule
+    new_rule.product = @rule.product
+    new_rule.producturl = @rule.producturl
+    new_rule.rule = @rule.rule
 
-    @ur = Userruleship.new(user:current_user, rule:@rule)
     respond_to do |format|
-      if @ur.save
+      if new_rule.save
         format.html { redirect_to rules_url, notice: '收藏成功！' }
         format.json { head :no_content }
       else
@@ -87,12 +92,21 @@ class RulesController < ApplicationController
         format.json { head :no_content }
       end
     end
+  rescue  ActiveRecord::RecordNotUnique => e
+    respond_to do |format|
+        format.html { redirect_to rules_url, alert: '收藏失败：之前已经收藏！' }
+        format.json { head :no_content }
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rule
-      @rule = current_user.rules.find(params[:id]) rescue nil
+      if action_name == 'save'
+        @rule = Rule.find(params[:id]) rescue nil
+      else
+        @rule = current_user.rules.find(params[:id]) rescue nil
+      end
       if @rule.nil?
         flash[:alert] = "规则不存在！"
         return redirect_to rules_path

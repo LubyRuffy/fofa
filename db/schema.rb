@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722191120) do
+ActiveRecord::Schema.define(version: 20140723053919) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 20140722191120) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "published"
+    t.integer  "from_rule_id"
   end
 
   add_index "rule", ["product", "rule"], name: "index_rule_on_product_and_rule", unique: true, length: {"product"=>50, "rule"=>nil}, using: :btree
-  add_index "rule", ["rule", "product"], name: "product_rule", unique: true, length: {"rule"=>nil, "product"=>50}, using: :btree
 
   create_table "sph_counter", primary_key: "counter_id", force: true do |t|
     t.integer   "max_id",       limit: 8,               null: false
