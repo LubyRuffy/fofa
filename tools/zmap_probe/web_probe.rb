@@ -8,7 +8,18 @@
 #require 'thread/pool'
 require 'net/http'
 require 'uri'
+require 'yaml'
 #require 'celluloid/autostart'
+
+root_path = File.expand_path(File.dirname(__FILE__))
+require "resque"
+require root_path+"/../../app/jobs/module/httpmodule.rb"
+require root_path+"/../../app/jobs/module/process_class.rb"
+cfgfile = "#{root_path}/../../config/database.yml"
+rails_env = ENV['RAILS_ENV'] || 'development'
+g_config = YAML::load(File.open(cfgfile))
+config = g_config[rails_env]['redis']
+Resque.redis = "#{config['host']}:#{config['port']}"
 
 class HostSubmitor
   #include Celluloid
@@ -40,14 +51,16 @@ end
 $port = 80
 $port = ARGV[0].to_i if ARGV.size>0
 puts "port is : #{$port}"
-STDOUT.sync = true
-STDIN.sync = true
+#STDOUT.sync = true
+#STDIN.sync = true
 #@pool = Thread.pool(100)
-@hs = HostSubmitor.new
+#@hs = HostSubmitor.new
 
 while (s = $stdin.gets)
   s.strip!
-  @hs.addhost "#{s}:#{$port}"
+  Resque.enqueue(Processor, "#{s}:#{$port}")
+
+  #@hs.addhost "#{s}:#{$port}"
 =begin
   @pool.process(s) {|s|
     begin
@@ -69,7 +82,7 @@ while (s = $stdin.gets)
 =end
 end
 
-@hs.submit #把剩下的全部提交了
+#@hs.submit #把剩下的全部提交了
 
-@pool.join
-@pool.shutdown
+#@pool.join
+#@pool.shutdown
