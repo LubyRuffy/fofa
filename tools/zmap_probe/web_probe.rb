@@ -8,6 +8,31 @@
 require 'thread/pool'
 require 'net/http'
 require 'uri'
+require 'celluloid/autostart'
+
+class HostSubmitor
+  include Celluloid
+  attr_accessor :hosts
+
+  def initialize()
+    @hosts = []
+  end
+
+  def addhost(host)
+    @hosts << host
+    if @hosts.size == 100
+      submit
+      @hosts = []
+    end
+  end
+
+  private
+  def submit
+    @uri ||= URI('http://www.fofa.so/api/addhostp')
+    res = Net::HTTP.post_form(uri, 'host' => @hosts.join(','))
+    puts "response:"+res.body
+  end
+end
 
 $port = 80
 $port = ARGV[0].to_i if ARGV.size>0
@@ -15,6 +40,8 @@ puts "port is : #{$port}"
 STDOUT.sync = true
 STDIN.sync = true
 @pool = Thread.pool(100)
+@hs = HostSubmitor.new
+
 while (s = $stdin.gets)
   s.strip!
   @pool.process(s) {|s|
@@ -25,9 +52,10 @@ while (s = $stdin.gets)
 
         response = http.head('/')
         if response.code && response.code.to_i<1000
-          addurl = "curl http://fofa.so/api/addhost?host=#{s}:#{$port}"
-          puts addurl
-          `#{addurl}`
+          #addurl = "curl http://fofa.so/api/addhost?host=#{s}:#{$port}"
+          #puts addurl
+          #`#{addurl}`
+          @hs.addhost "#{s}:#{$port}"
         end
       end
       rescue=>e
@@ -35,4 +63,5 @@ while (s = $stdin.gets)
   }
 end
 
+@pool.join
 @pool.shutdown
