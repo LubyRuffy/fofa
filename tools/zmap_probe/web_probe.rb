@@ -27,9 +27,13 @@ class HostSubmitor
   end
 
   def submit
-    @uri ||= URI('http://www.fofa.so/api/addhostp')
-    res = Net::HTTP.post_form(@uri, 'host' => @hosts.join(','))
-    puts "response:"+res.body
+    if @hosts.size>0
+      @uri ||= URI('http://www.fofa.so/api/addhostp')
+      res = Net::HTTP.post_form(@uri, 'host' => @hosts.join(','))
+      res = Net::HTTP.post_form(@uri, 'host' => @hosts.join(',')) if res.code != 200
+      res = Net::HTTP.post_form(@uri, 'host' => @hosts.join(',')) if res.code != 200
+      puts "response:"+res.body
+    end
   end
 end
 
