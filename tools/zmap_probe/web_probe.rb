@@ -5,13 +5,13 @@
 # sudo zmap -p 9200 -o - -w china_cidr.txt | ./web_probe.rb 80
 # ./ip_china.rb > china_cidr.txt
 #/usr/local/sbin/zmap
-require 'thread/pool'
+#require 'thread/pool'
 require 'net/http'
 require 'uri'
-require 'celluloid/autostart'
+#require 'celluloid/autostart'
 
 class HostSubmitor
-  include Celluloid
+  #include Celluloid
   attr_accessor :hosts
 
   def initialize()
@@ -20,7 +20,7 @@ class HostSubmitor
 
   def addhost(host)
     @hosts << host
-    if @hosts.size == 20
+    if @hosts.size == 200
       submit
       @hosts = []
     end
@@ -42,11 +42,13 @@ $port = ARGV[0].to_i if ARGV.size>0
 puts "port is : #{$port}"
 STDOUT.sync = true
 STDIN.sync = true
-@pool = Thread.pool(100)
+#@pool = Thread.pool(100)
 @hs = HostSubmitor.new
 
 while (s = $stdin.gets)
   s.strip!
+  @hs.addhost "#{s}:#{$port}"
+=begin
   @pool.process(s) {|s|
     begin
       Net::HTTP.start(s, $port) do |http|
@@ -64,6 +66,7 @@ while (s = $stdin.gets)
       rescue=>e
     end
   }
+=end
 end
 
 @hs.submit #把剩下的全部提交了
