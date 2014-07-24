@@ -95,13 +95,14 @@ class Fofacli
     p @args[:params]
     if @args[:params]["hostinfo"]
       m.vulnerable(@args[:params]["hostinfo"])
-    elsif @args[:params]["fofaquery"]
+    elsif @args[:params]["fofaquery"] || m.info['FofaQuery']
       require 'net/http'
       require 'json'
       require 'base64'
       require 'cgi'
 
-      uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(@args[:params]["fofaquery"])))
+      fofaquery = @args[:params]["fofaquery"] || m.info['FofaQuery']
+      uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(fofaquery)))
       res = Net::HTTP.get_response(uri)
       JSON.parse(res.body)['results'].each{|h|
         puts h+":"

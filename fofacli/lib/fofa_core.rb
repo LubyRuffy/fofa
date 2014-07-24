@@ -3,6 +3,7 @@ require 'fofa_http'
 module Fofa
 
   class Exploit
+    attr_reader :info
     def initialize(info = {})
       @info = info
     end

@@ -2,6 +2,8 @@
 # 结合zmap查找服务并提交到fofa
 # sudo zmap -p 28017 -o - -N1000 | ./web_probe.rb 28017
 # sudo zmap -p 9200 -o - -N1000 | ./web_probe.rb 9200
+# sudo zmap -p 9200 -o - -w china_cidr.txt | ./web_probe.rb 80
+# ./ip_china.rb > china_cidr.txt
 #/usr/local/sbin/zmap
 require 'thread/pool'
 require 'net/http'
