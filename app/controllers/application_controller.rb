@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if request.referer
+    if request.referer && !request.referer.include?('users')
       return request.referer
     end
     '/my/'
