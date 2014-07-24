@@ -11,7 +11,8 @@ module Fofa
       resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
 
       begin
-        url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
+        url=url+'/' unless url.include?('/')
+        url = 'http://'+url if !url.include?('http://') and !url.include?('https://')
         url = URI.encode(url) unless url.include? '%' #如果包含百分号%，说明已经编码过了
         uri = URI(url)
         ip = uri.host
