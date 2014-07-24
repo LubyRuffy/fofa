@@ -20,7 +20,7 @@ class HostSubmitor
 
   def addhost(host)
     @hosts << host
-    if @hosts.size == 100
+    if @hosts.size == 20
       submit
       @hosts = []
     end
