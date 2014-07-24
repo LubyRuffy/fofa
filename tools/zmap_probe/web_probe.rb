@@ -26,10 +26,9 @@ class HostSubmitor
     end
   end
 
-  private
   def submit
     @uri ||= URI('http://www.fofa.so/api/addhostp')
-    res = Net::HTTP.post_form(uri, 'host' => @hosts.join(','))
+    res = Net::HTTP.post_form(@uri, 'host' => @hosts.join(','))
     puts "response:"+res.body
   end
 end
@@ -62,6 +61,8 @@ while (s = $stdin.gets)
     end
   }
 end
+
+@hs.submit #把剩下的全部提交了
 
 @pool.join
 @pool.shutdown
