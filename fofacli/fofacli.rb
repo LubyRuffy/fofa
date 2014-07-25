@@ -105,8 +105,7 @@ class Fofacli
       uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(fofaquery)))
       res = Net::HTTP.get_response(uri)
       JSON.parse(res.body)['results'].each{|h|
-        puts h+":"
-        m.vulnerable(h)
+        puts "#{h} : #{m.vulnerable(h)?"vulnerable":"-"}"
       }
     else
       puts "no target to scan, set hostinfo=127.0.0.1:80 or fofaquery='body=\"123\"'"
