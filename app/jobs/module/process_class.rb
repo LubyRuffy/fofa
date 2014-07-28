@@ -100,7 +100,7 @@ class Processor
 
   #最上层函数，添加host到数据库
   def add_host_to_webdb(host, force=false)
-    host = host.downcase
+    host = hostinfo_of_url(host.downcase)
     return -1 if host.include?('/')
     return -2 if is_bullshit_host?(host)
     ip = get_ip_of_host(host_of_url(host))

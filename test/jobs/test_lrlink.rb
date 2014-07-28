@@ -15,6 +15,10 @@ class TestLrLink < MiniTest::Unit::TestCase
 
   def test_getipofhost
     assert(!get_ip_of_host('www.baidu.com').nil?)
-    assert(get_ip_of_host('www.baidu.com').nil?)
+    #assert(get_ip_of_host('www.baidu.com').nil?)
+  end
+
+  def test_hostinfo_of_url
+    assert_equal(hostinfo_of_url('127.0.0.1:80'), '127.0.0.1')
   end
 end

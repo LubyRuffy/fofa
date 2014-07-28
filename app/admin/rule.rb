@@ -29,4 +29,24 @@ ActiveAdmin.register Rule do
     f.actions
   end
 
+  batch_action "发布" do |selection|
+    Rule.find(selection).each do |post|
+      unless post.published
+        post.published = true
+        post.save
+      end
+    end
+    redirect_to :back
+  end
+
+  batch_action "取消发布" do |selection|
+    Rule.find(selection).each do |post|
+      if post.published
+        post.published = false
+        post.save
+      end
+    end
+    redirect_to :back
+  end
+
 end

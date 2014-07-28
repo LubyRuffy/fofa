@@ -86,7 +86,21 @@ ActiveAdmin.register_page "Dashboard" do
     end
 
     columns do
-
+      column do
+        panel "Workers(#{Resque.workers.size}/#{Resque.working.size})" do
+          ul do
+            workers = {}
+            Resque.workers.each{|k|
+              host,pid,resque = k.id.split(':')
+              workers[host] = 0 unless workers[host]
+              workers[host] += 1
+            }
+            workers.sort_by{|k,v| -v}.each{|k,v|
+              li "#{k} : #{v}"
+            }
+          end
+        end
+      end
 
       column do
         panel "实时根域名排名" do
