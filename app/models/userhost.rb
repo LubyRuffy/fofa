@@ -40,12 +40,15 @@ class Userhost < ActiveRecord::Base
   def self.add_user_host(submit_host, ip, realtime=false)
     @info = ''
     @error = false
-    if submit_host.include? ","
-      submit_host.split(',').each{|h|
-        error,info = add_single_host(h, ip, realtime)
-        if error
-          @error = error
-          @info = info
+    if submit_host=~/[,\s]/
+      submit_host.split(/[,\s]/).each{|h|
+        if h
+          h.chomp!
+          error,info = add_single_host(h, ip, realtime)
+          if error
+            @error = error
+            @info = info
+          end
         end
 
       }

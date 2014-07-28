@@ -28,6 +28,7 @@ module Fofa
     private
 
     def execute_step(step, hostinfo)
+      puts step['Loginfo'] if step['Loginfo']
       response = make_request(hostinfo, step['Request'])
       check_response(response, step['ResponseTest'])
     end
@@ -69,20 +70,20 @@ module Fofa
         when '$body'
           test_string(response[:utf8html], test[:operation], test[:value])
         when '$head'
-          test_string(response[:head], test[:operation], test[:value])
+          test_string(response[:header], test[:operation], test[:value])
       end
     end
 
     def test_string(value, operation, expect_value)
       case operation
         when 'start_with'
-          value.start_with?(expect_value)
+          value && value.start_with?(expect_value)
         when 'end_with'
-          value.end_with?(expect_value)
+          value && value.end_with?(expect_value)
         when 'contains'
-          value.include?(expect_value)
+          value && value.include?(expect_value)
         when 'regex'
-          value =~ Regexp.new(expect_value)
+          value && value =~ Regexp.new(expect_value)
       end
     end
 
