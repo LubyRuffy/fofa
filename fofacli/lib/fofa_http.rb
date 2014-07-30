@@ -1,7 +1,7 @@
-http_path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'app', 'jobs', 'module', 'httpmodule.rb'))
-require http_path
-
-include HttpModule
+require 'net/http'
+require 'uri'
+require 'open-uri'
+require 'guess_html_encoding'
 
 module Fofa
   module HttpRequest
@@ -27,11 +27,6 @@ module Fofa
           ip = resp[:ip]
         end
 
-        if is_bullshit_ip?(resp[:ip])
-          resp[:error] = true
-          resp[:errstring] = "bullshit ip"
-          return resp
-        end
         resp[:port] = uri.port
 
         http_class = Net::HTTP
@@ -139,6 +134,7 @@ module Fofa
         resp[:error] = true
         resp[:errstring] = "SocketError of : #{url}\n error:#{$!} at:#{$@}\nerror : #{the_error}"
       rescue => err
+      	puts err
         resp[:error] = true
         resp[:errstring] = "Unknown Exception of : #{url}\n error:#{$!} at:#{$@}\nerror : #{err}"
       end
@@ -147,7 +143,54 @@ module Fofa
     end
 
     def self.get_utf8_html(c,header=nil)
-      get_utf8(c,header)
+	    encoding = GuessHtmlEncoding.guess(c,header)
+	
+	    if(encoding)
+	      encoding = "GB2312" if (encoding=='GBK2312') || (encoding=='GB_2312-80') || encoding.include?('2312')#bug?
+	      encoding = "UTF-8" if (encoding.include?('UTF')) || (encoding=='U1TF-8') || (encoding=='UF-8') #bug?
+	      encoding = "SHIFT_JIS" if (encoding=='SHIFT-JIS') || (encoding=='X-SJIS') || encoding==('SHFIT_JIS') || (encoding=='SHIT-JIS') || (encoding=='SHIFT_JS') || (encoding=='S-JIS') || (encoding=='SHIF_JIS') || (encoding=='SJIS-WIN') || (encoding=='S-JIS') || encoding=="X-EUC-JP" || encoding=='X-SJIS-JP'#bug?
+	      encoding = "cp1251" if encoding.include?('1251') ||  encoding.include?('1250') #bug?
+	      encoding = "iso-8859-1" if encoding=='ISO-8855-1' || encoding=='IS0-8859-1' || encoding.include?('8859-1') || encoding.include?('8858-1')  #bug?
+	      encoding = "iso-8859-2" if encoding=='ISO8859_2' || encoding=='EN_US' || encoding.include?('8859') #bug?
+	      encoding = "euc-kr" if encoding.include?('5601') || encoding=='EUC_KR' || encoding=='KOREAN' || encoding=='EUK-KR' || encoding=='KO' || encoding=='X-EUC' || encoding=='ECU-KR' || encoding=='MS949'
+	
+	      if Encoding.name_list.select{|e| e==encoding}.empty?
+	        found = false
+	        Encoding.name_list.each{|e|
+	          if e!='ASCII-8BIT' && e!='US-ASCII' && c.force_encoding(e).valid_encoding?
+	            encoding = e
+	            found = true
+	            break
+	          end
+	          encoding = 'UTF-8' unless found
+	        }
+	      end
+	
+	      if(encoding.to_s != "UTF-8")
+	        c = c.force_encoding(encoding)
+	        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	      else
+	        c = c.force_encoding("UTF-8") if c.encoding != 'UTF-8'
+	        c.encode!('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	        #
+	      end
+	    else
+	      c = c.force_encoding('UTF-8')
+	      if !c.valid_encoding?
+	        c = c.force_encoding("GB18030")
+	        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	      end
+	    end
+	
+	    if !c.valid_encoding?
+	      c = c.force_encoding("GB18030")
+	      if !c.valid_encoding?
+	        return ''
+	      end
+	      c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	    end
+	
+	    c
     end
 
     def self.row_http(hostinfo, req)

@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# -*- encoding : utf-8 -*-
 
 clibase = __FILE__
 while File.symlink?(clibase)
@@ -7,6 +8,7 @@ end
 
 $:.unshift(File.expand_path(File.join(File.dirname(clibase), 'lib')))
 .unshift(File.expand_path(File.join(File.dirname(clibase))))
+.unshift(File.expand_path(File.join(File.dirname(clibase), 'gem_lib')))
 
 class Fofacli
   def initialize(args)
