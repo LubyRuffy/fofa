@@ -16,7 +16,7 @@ class Fofacli
 
     @args[:module_name] = args.shift # First argument should be the module name
     @args[:mode] = args.pop || 's' # Last argument should be the mode
-    @args[:params] = {}
+    @args[:params] = {"showall" => 'true'}
     args.each{|p|
       ps = p.split('=')
       k = ps.shift
@@ -128,7 +128,7 @@ hostinfo\t:\tcheck only one host, format like host:port}
                 vulnerable = fexploit.vulnerable(h)
                 if vulnerable
                   puts "#{h} : vulnerable"
-                elsif showall
+                elsif showall=='true' || showall=='1'
                   puts "#{h} : -"
                 end
               else
