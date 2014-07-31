@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-lg-9">
     <h1 id="quickstart">Fofacli 全网漏洞扫描器</h1>
-    <div class="btn-group"><a class="btn btn-info" href="/fofacli-0.0.1.zip">FOFACLI下载</a></div>
+    <div class="btn-group"><a class="btn btn-info" href="/fofacli/download" target="_blank">FOFACLI下载</a></div>
     <p>结合Fofa进行全网快速漏洞扫描！</p>
     <p>如果你还不了解Fofa，请点击<a href="/fofacli/getstarted">新手入门</a>.</p>
   </div>
@@ -41,7 +41,7 @@
     <h1 id="bookmarklet">Exploits列表<small><%= link_to '查看所有', exploits_path %></small></h1>
     <ol>
       <% @exploits.each{|e| %>
-      <li><p><%= link_to e.filename, exploit_path(e) %></p></li>
+          <li><p><%= link_to e.filename, exploit_path(e) %></p></li>
       <% } %>
     </ol>
   </div>

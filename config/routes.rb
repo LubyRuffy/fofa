@@ -1,5 +1,8 @@
 Fofa::Application.routes.draw do
 
+  get "fofacli/index"
+  get "fofacli/getstarted"
+  get "fofacli/commandline"
   devise_for :users
   #ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -11,6 +14,15 @@ Fofa::Application.routes.draw do
       get :about
       get :contact
       get :gov_cnt
+    end
+  end
+
+  resources :fofacli do
+    collection do
+      get :getstarted
+      get :commandline
+      get :index
+      get :download
     end
   end
 
