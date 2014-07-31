@@ -2,6 +2,8 @@ require 'fofa_http'
 
 module Fofa
 
+  VERSION = "0.0.1"
+
   class Exploit
     attr_reader :info
     def initialize(info = {})

@@ -1,0 +1,58 @@
+
+<div class="row">
+  <div class="col-lg-9">
+    <h1 id="quickstart">Fofacli 全网漏洞扫描器</h1>
+    <div class="btn-group"><a class="btn btn-info" href="/fofacli/download">FOFACLI下载</a></div>
+    <p>结合Fofa进行全网快速漏洞扫描！</p>
+    <p>如果你还不了解Fofa，请点击<a href="/fofacli/about">新手入门</a>.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-9">
+    <h1 id="customization">快速入门</h1>
+    <p>Fofacli是Ruby语言开发的，结合Fofa针对全网做快速扫描的全网漏洞扫描器。在运行前你需要先安装 <a href="http://ruby-lang.org" target="_blank">Ruby环境</a>。</p>
+    <ol>
+      <li><p>下载fofacli-x.x.x.zip并解压</p></li>
+      <li><p>查看帮助：<code>./fofacli.rb -h</code></p></li>
+      <li><p>执行扫描 <code>./fofacli.rb xxxxx s</code></p></li>
+    </ol>
+    <p>完整的命令行帮助点击： <a href="/fofacli/commandline" target="_blank">fofacli命令行详解</a>.</p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-9">
+    <h1 id="bookmarklet">如何贡献</h1>
+    <p>想让fofacli能够更好的运行，需要大家的集体努力，贡献主要围绕如下几个方面：</p>
+    <ol>
+      <li><p>提交扫描规则。目前扫描规则的编写非常简单，请参考《<a href="/fofacli/howtoexploit" target="_blank">fofacli漏洞扫描规则编写指南</a>》</p></li>
+      <li><p>提交网站特征。请参考《<a href="/fofacli/howtorule" target="_blank">fofa应用识别规则编写指南</a>》</p></li>
+      <li><p>提交网站。<a href="/userhost/index" target="_blank">点击此处提交网站收录</a></p></li>
+      <li><p>提交代码，我们想要打造一个web领域的metasploit，需要大量的payload支持，<a href="/fofacli/developer" target="_blank">如何加入开发团队？</a></p></li>
+    </ol>
+    <p></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-9">
+    <h1 id="bookmarklet">Exploits列表<small><%= link_to '查看所有', exploits_path %></small></h1>
+    <ol>
+      <% @exploits.each{|e| %>
+      <li><p><%= link_to e.filename, exploit_path(e) %></p></li>
+      <% } %>
+    </ol>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-9">
+    <h1 id="bookmarklet">贡献者列表</h1>
+    <ol>
+      <li><p>LubyRuffy</p></li>
+      <li><p>suei8423</p></li>
+    </ol>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand" data-no-turbolink="true">FOFA</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+
+
+        <li>
+          <a href="/info/library">组件列表</a>
+        </li>
+        <li>
+          <a href="/info/fofacli">全网漏洞扫描器</a><span style="right:-10px;top:5px;
+                background-color: #f68484;
+                border-radius: 4px;
+                font: 700 11px Arial;
+                color: #fff;
+                line-height: 20px;
+                min-width: 20px;
+                position: absolute;
+                text-align: center;
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+                padding-left: 4px;
+                padding-right: 4px;">NEW</span>
+        </li>
+        <li><%= link_to '数据报表', statistic_index_path, "data-no-turbolink" => true%>
+          <!--<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="themes">
+            <li><a href="../default/">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="../amelia/">Amelia</a></li>
+            <li><a href="../cerulean/">Cerulean</a></li>
+            <li><a href="../cosmo/">Cosmo</a></li>
+            <li><a href="../cyborg/">Cyborg</a></li>
+            <li><a href="../darkly/">Darkly</a></li>
+            <li><a href="../flatly/">Flatly</a></li>
+            <li><a href="../journal/">Journal</a></li>
+            <li><a href="../lumen/">Lumen</a></li>
+            <li><a href="../readable/">Readable</a></li>
+            <li><a href="../simplex/">Simplex</a></li>
+            <li><a href="../slate/">Slate</a></li>
+            <li><a href="../spacelab/">Spacelab</a></li>
+            <li><a href="../superhero/">Superhero</a></li>
+            <li><a href="../united/">United</a></li>
+            <li><a href="../yeti/">Yeti</a></li>
+          </ul>
+          </li>-->
+
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+            <li ><a href="/my" data-no-turbolink="true">管理后台</a></li>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown">
+                <%= image_tag current_user.avatar.url(:thumb), class:"user-avatar" %>
+                <!--<span class="notification">5</span>--><%=current_user.login%><b class="caret"></b></a>
+              <ul class="dropdown-menu right animated fadeInDown" role="menu">
+                <li></i><a href="<%=edit_user_registration_path%>"><i class="fa fa-user"></i> 个人资料</a>
+                </li>
+                <!--<li><a href="#"><i class="fa fa-cog"></i> 设置</a></li>-->
+                <li><%= link_to raw('<i class="fa fa-sign-out">退出登录</i>'), destroy_user_session_path, :method => :delete %>
+                </li>
+              </ul>
+            </li>
+            <!--<li class="dropdown">
+              <a href="#" data-toggle="dropdown">
+                <i class="fa fa-envelope-o"></i><span class="notification blue">2</span></a>
+              <div class="dropdown-menu with-arrow panel panel-default pull-right">
+                <div class="panel-heading">
+                  你有两条新消息：
+                </div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a href="javascript:;" class="media">
+                              <span class="pull-left media-icon">
+                                  <span class="round-icon sm bg-success"><i class="fa fa-bell-o"></i></span>
+                              </span>
+                      <div class="media-body">
+                        <span class="block">New tasks needs to be done</span>
+                        <span class="text-muted block">2min ago</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="javascript:;" class="media">
+                              <span class="pull-left media-icon">
+                                  <span class="round-icon sm bg-info"><i class="fa fa-bell-o"></i></span>
+                              </span>
+                      <div class="media-body">
+                        <span class="block">Change your password</span>
+                        <span class="text-muted">3 hours ago</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="javascript:;" class="media">
+                              <span class="pull-left media-icon">
+                                  <span class="round-icon sm bg-danger"><i class="fa fa-bell-o"></i></span>
+                              </span>
+                      <div class="media-body">
+                        <span class="block">New feature added</span>
+                        <span class="text-muted">9 hours ago</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <div class="panel-footer">
+                  <a href="javascript:;">显示所有通知。</a>
+                </div>
+              </div>
+            </li>-->
+
+        <% else %>
+            <li><%= link_to '登录', new_user_session_path%></li>
+            <li><%= link_to "注册", new_user_registration_path%></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>

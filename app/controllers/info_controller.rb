@@ -21,4 +21,8 @@ class InfoController < ApplicationController
   
   def contact
   end
+
+  def fofacli
+    @exploits = Exploits.all
+  end
 end

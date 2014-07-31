@@ -4,11 +4,26 @@ Fofa::Application.routes.draw do
   #ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  get "info/gov"
-  get "info/library"
-  get "info/about"
-  get "info/contact"
-  get "info/gov_cnt"
+  resources :info do
+    collection do
+      get :fofacli
+      get :library
+      get :about
+      get :contact
+      get :gov_cnt
+    end
+  end
+
+  resources :exploits do
+    collection do
+      get :index
+    end
+
+    member do
+      get :show
+    end
+  end
+
   get "statistic/index"
   get "statistic/get_server_info"
   get "search/index"
@@ -38,8 +53,6 @@ Fofa::Application.routes.draw do
         get :unsave
       end
     end
-
-    resources :saverules
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

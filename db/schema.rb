@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723053919) do
+ActiveRecord::Schema.define(version: 20140730150313) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(version: 20140723053919) do
   end
 
   add_index "error_host", ["hosthash"], name: "hosthash", unique: true, using: :btree
+
+  create_table "exploits", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "filename"
+    t.string   "author"
+    t.string   "product"
+    t.string   "homepage"
+    t.string   "references"
+    t.string   "fofaquery"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exploits", ["filename"], name: "index_exploits_on_filename", unique: true, using: :btree
 
   create_table "gov_site", force: true do |t|
     t.string  "host"
@@ -102,7 +118,7 @@ ActiveRecord::Schema.define(version: 20140723053919) do
     t.integer  "from_rule_id"
   end
 
-  add_index "rule", ["product", "rule"], name: "index_rule_on_product_and_rule", unique: true, length: {"product"=>50, "rule"=>nil}, using: :btree
+  add_index "rule", ["product", "rule", "user_id"], name: "index_rule_on_product_and_rule", unique: true, length: {"product"=>50, "rule"=>nil, "user_id"=>nil}, using: :btree
 
   create_table "sph_counter", primary_key: "counter_id", force: true do |t|
     t.integer   "max_id",       limit: 8,               null: false
