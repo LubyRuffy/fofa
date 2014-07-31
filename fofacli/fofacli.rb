@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 # -*- encoding : utf-8 -*-
 
-
-
 clibase = __FILE__
 while File.symlink?(clibase)
   clibase = File.expand_path(File.readlink(clibase), File.dirname(clibase))
@@ -36,22 +34,31 @@ class Fofacli
 
   def dump_module_list
     $stdout.puts "[*] Please wait while we load the module tree..."
-    $stdout.puts ""
+    $stdout.puts "===== exploit list ====="
     #todo: load exploits in exploits/*.rb
     ext = ''
     Dir["exploits/*.rb"].each do |filename|
-      ext << "\t"+File.basename(filename, '.rb')
+      ext << File.basename(filename, '.rb')
       ext << "\n"
     end
     ext
   end
 
   def dump_modes
-    ext = %Q{===== Show mode =====
-h\t:\tshow mode list [DEFAULT]
+    ext = %Q{===== Mode list =====
+h\t:\tshow mode list
 i\t:\tshow module infomation
 s\t:\tscan vulnerability
 e\t:\texploit vulnerability(in development)}
+    ext
+  end
+
+  def dump_options
+    ext = %Q{===== Option list =====
+showall\t:\tshow all result even it's not vulnerable, default true
+fofaquery\t:\tuser defined fofa query string, if not supplied, then use exploit build-in
+hostinfo\t:\tcheck only one host, format like host:port}
+    ext
   end
 
   def engage_mode(modules)
@@ -59,6 +66,7 @@ e\t:\texploit vulnerability(in development)}
       when 'h'
         ext = dump_modes
         usage(nil, ext)
+        $stdout.puts dump_options
       when 'i'
         show_module_info(modules)
       when 's'
@@ -73,7 +81,7 @@ e\t:\texploit vulnerability(in development)}
 
 
   def show_module_info(modules)
-    modules.info.each{|k,v|
+    modules.new.info.each{|k,v|
       $stdout.printf("%-20s\t:\t%s\n", k, v.to_s ) if k!="ScanSteps"
     }
   end
@@ -89,32 +97,50 @@ e\t:\texploit vulnerability(in development)}
       exit
     end
     require exploits_path
-    return FofaExploits.new
+    return FofaExploits
   end
 
   def execute_module(m, mod='scan')
+    fe = m.new
     #p @args[:params]
     if @args[:params]["hostinfo"]
-      m.vulnerable(@args[:params]["hostinfo"])
-    elsif @args[:params]["fofaquery"] || m.info['FofaQuery']
+      fe.vulnerable(@args[:params]["hostinfo"])
+    elsif @args[:params]["fofaquery"] || fe.info['FofaQuery']
       require 'net/http'
       require 'json'
       require 'base64'
       require 'cgi'
 
-      fofaquery = @args[:params]["fofaquery"] || m.info['FofaQuery']
+      fofaquery = @args[:params]["fofaquery"] || fe.info['FofaQuery']
       uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(fofaquery)))
       res = Net::HTTP.get_response(uri)
       if res['error']
         $stderr.puts "[ERROR] receive fofa results failed: #{res['error']}"
       else
-        JSON.parse(res.body)['results'].each{|h|
-          if mod=='scan'
-            puts "#{h} : #{m.vulnerable(h)?"vulnerable":"-"}"
-          else
-            puts "#{h} : #{m.exploit(h)}"
-          end
-        }
+        results = JSON.parse(res.body)['results']
+        if results.size>0
+          require 'thread/pool'
+          @p = Thread.pool(10)
+          results.each{|h|
+            @p.process(h,mod,m,@args[:params]["showall"]) {|h,mod,m,showall|
+              fexploit = m.new
+              if mod=='scan'
+                vulnerable = fexploit.vulnerable(h)
+                if vulnerable
+                  puts "#{h} : vulnerable"
+                elsif showall
+                  puts "#{h} : -"
+                end
+              else
+                puts "#{h} : #{fexploit.exploit(h)}"
+              end
+            }
+          }
+          @p.join
+          @p.shutdown
+        else
+          $stderr.puts "[WARNING] fofa returns host < 1"
+        end
       end
 
     else
@@ -126,8 +152,10 @@ e\t:\texploit vulnerability(in development)}
   def run!
 
     if @args[:module_name].nil? || @args[:module_name] == "-h"
-      ext = dump_module_list
-      usage(nil, ext)
+      usage()
+      $stdout.puts dump_module_list
+      $stdout.puts dump_options
+      $stdout.puts dump_modes
       exit
     end
 
