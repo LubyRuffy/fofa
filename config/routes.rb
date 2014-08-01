@@ -23,6 +23,7 @@ Fofa::Application.routes.draw do
       get :commandline
       get :index
       get :download
+      get :howtoexploit
     end
   end
 

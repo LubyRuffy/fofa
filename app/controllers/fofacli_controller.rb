@@ -9,6 +9,10 @@ class FofacliController < ApplicationController
   def commandline
   end
 
+  def howtoexploit
+
+  end
+
   def download
     require_user
     redirect_to '/fofacli-0.0.1.zip'

@@ -1,2 +1,83 @@
-<h1>Fofacli#commandline</h1>
-<p>Find me in app/views/fofacli/commandline.html.erb</p>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 id="quickstart">Fofacli命令行详解</h1>
+    <p>先来看一看命令行帮助：<pre>
+$> ./fofacli.rb  -h
+    Usage: ./fofacli.rb <exploit_name> [option=value] <mode>
+
+    [*] Please wait while we load the module tree...
+    ===== exploit list =====
+    elasticsearch_rce_CVE-2014-3120
+    eyou_getshell_storageexplore
+    Hikvision_default_account
+    mongodb_execute_js
+    oa80000_default_account
+    ===== Option list =====
+    showall	:	show all result even it's not vulnerable, default true
+    fofaquery	:	user defined fofa query string, if not supplied, then use exploit build-in
+    hostinfo	:	check only one host, format like host:port
+    ===== Mode list =====
+    h	:	show mode list
+    i	:	show module infomation
+    s	:	scan vulnerability
+    e	:	exploit vulnerability(in development)
+    </pre></p>
+    <p>简单来说，fofacli需要通过几个部分来完成扫描或者漏洞利用：</p>
+    <ol>
+      <li><p>指定需要使用的漏洞库（exploit），对应第一个参数</p></li>
+      <li><p>指定运行模式，对应最后一个参数</p></li>
+      <li><p>指定扫描的目标（如果在exploit中指定了fofaquery配置，则命令行下可选配置）</p></li>
+    </ol>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 id="customization">指定漏洞库</h1>
+    <p>漏洞库对应fofacli/exploits目录下的文件。通过./fofacli.rb -h能够看到所有的漏洞库文件，当然你也可以自己开发，参考：<a href="/fofacli/howtoexploit" target="_blank">fofacli漏洞扫描规则编写指南</a>。</p>
+    <p><a href="<%= exploits_path %>" target="_blank">查看所有漏洞库信息</a>。</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 id="customization">指定运行模式</h1>
+    <p>目前模式分为如下几种：</p>
+    <ul>
+      <li><p>i ：查看漏洞库信息，例如：<code>./fofacli.rb  mongodb_execute_js i</code><pre>
+[*] Initializing modules...
+Name                	:	mongodb execute js
+Description         	:
+Default admin account of tomcat administraotr: admin/htoa. Backdoor?
+
+Author              	:	["LubyRuffy"]
+Product             	:	Mongodb
+Homepage            	:	http://www.mongodb.org/
+References          	:	[["CVE", "2013-1892"], "http://2012.zeronights.org/includes/docs/Firstov%20-%20Attacking%20MongoDB.pdf"]
+DisclosureDate      	:	2014-07-01
+        </pre></p></li>
+      <li><p>s ：进行全网漏洞扫描，例如：<code>./fofacli.rb  mongodb_execute_js s</code></p></li>
+      <li><p>e ：进行漏洞利用（目前还在开发阶段，预计1.0版本时可以发布），例如：<code>./fofacli.rb  mongodb_execute_js e</code></p></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 id="customization">指定扫描的目标</h1>
+    <p>扫描目标有两种制定方式</p>
+    <ul>
+      <li><p>通过hostinfo来指定单个目标，例如：<code>./fofacli.rb mongodb_execute_js hostinfo=1.1.1.1:28017 s</code></p></li>
+      <li><p>通过fofaquery指定多个目标，例如：<code>./fofacli.rb mongodb_execute_js fofaquery='body="&lt;a href=\&quot;/_replSet\&quot;&gt;Replica set status&lt;/a&gt;&lt;/p&gt;"' s</code></p></li>
+    </ul>
+    <p>fofaquery在漏洞库exploit中也可以指定，不过命令行的参数优先级大于漏洞库的优先级。</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 id="customization">其他参数</h1>
+    <p>如果不想显示没有漏洞的服务器，可以通过设定showall=false来完成，例如：<code>./fofacli.rb mongodb_execute_js showall=false s</code></p>
+  </div>
+</div>
