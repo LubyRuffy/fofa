@@ -1,0 +1,28 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 id="quickstart">Fofa规则编写指南</h1>
+    <h4><br/>
+      <h5>直接输入查询语句，将从标题，html内容，http头信息，url字段中搜索<br/>
+        title=abc 从标题中搜索abc。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('title="北京"')%>">标题中有北京的网站</a><br/>
+        header=abc 从http头中搜索abc。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('header="jboss"')%>">jboss服务器</a><br/>
+        body=abc 从html正文中搜索abc。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('body="Hacked by"')%>">正文包含Hacked by</a><br/>
+        host=".gov.cn" 从url中搜索.gov.cn,注意搜索要用host作为名称。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('host=".gov.cn"')%>">政府网站</a>, <a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('host=".edu.cn"')%>">教育网站</a><br/>
+        ip="1.1.1" 从ip中搜索包含1.1.1的网站,注意搜索要用ip作为名称。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('ip="220.181.111."')%>">查询IP为220.181.111.网段的网站</a><br/>
+
+        <br/>
+        高级搜索：可以使用括号 和 &amp;&amp; || !=等符号，如<br/>
+        title="powered by" &amp;&amp; title!=discuz<br/>
+        title!="powered by" &amp;&amp; body=discuz<br/>
+        ( body="content=\"WordPress" || (header="X-Pingback" &amp;&amp; header="/xmlrpc.php" &amp;&amp; body="/wp-includes/") )
+        host="gov.cn" <br/>
+        关于建站软件的搜索语法请参考：<a href="/info/library">组件列表</a><br/><br/>
+
+        <b>注意事项:</b><br/>
+        * 如果查询字段有空格“ ”或者点“.”，需要用双引号括起来;</br>
+        * 如果查询表达式有多个与或关系，尽量在外面用（）包含起来</br>
+        剩下来，就是发挥你想象力的时候了 ；）
+
+      </h5></h4>
+  </div>
+</div>

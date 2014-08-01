@@ -24,6 +24,8 @@ Fofa::Application.routes.draw do
       get :index
       get :download
       get :howtoexploit
+      get :howtorule
+      get :developer
     end
   end
 

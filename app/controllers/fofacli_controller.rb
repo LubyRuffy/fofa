@@ -13,6 +13,14 @@ class FofacliController < ApplicationController
 
   end
 
+  def howtorule
+
+  end
+
+  def developer
+
+  end
+
   def download
     require_user
     redirect_to '/fofacli-0.0.1.zip'
