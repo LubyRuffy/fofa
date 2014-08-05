@@ -73,7 +73,7 @@ class WebDb
   end
 
   def redis_inc_rootdomain(domain)
-    @@redis.sadd('fofa:black_domains', domain) if @@redis.zincrby('fofa:rootdomains',1,domain)>100
+    @@redis.sadd('fofa:black_domains', domain) if @@redis.zincrby('fofa:rootdomains',1,domain)>200
   end
 
   def redis_add_host(host)
@@ -82,7 +82,7 @@ class WebDb
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @@redis.sadd('fofa:black_ips', ip) if @@redis.zincrby('fofa:ips',1,ip)>100
+    @@redis.sadd('fofa:black_ips', ip) if @@redis.zincrby('fofa:ips',1,ip)>200
   end
 
 
