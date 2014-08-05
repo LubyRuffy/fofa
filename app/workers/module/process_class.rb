@@ -6,6 +6,8 @@ require 'thread/pool'
 require 'script_detector'
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/lrlink.rb"
+require root_path+"/webdb2_class.rb"
+require root_path+"/httpmodule.rb"
 
 
 class Processor
@@ -15,9 +17,12 @@ class Processor
 
   sidekiq_options :queue => :process_url, :retry => 3, :backtrace => true
 
-  def initialize()
+  def initialize(webdb=nil)
     root_path = File.expand_path(File.dirname(__FILE__))
+
+    @@g_webdb ||= webdb
     @@g_webdb ||= WebDb.new(root_path+"/../../../config/database.yml")
+
     @webdb = @@g_webdb
   end
 

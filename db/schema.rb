@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730150313) do
+ActiveRecord::Schema.define(version: 20140805083145) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20140730150313) do
   add_index "analysis_info", ["writedate"], name: "writedate", unique: true, using: :btree
 
   create_table "error_host", force: true do |t|
-    t.string    "host"
-    t.timestamp "lastupdatetime"
-    t.text      "reason"
+    t.string   "host"
+    t.datetime "lastupdatetime"
+    t.text     "reason"
   end
 
   add_index "error_host", ["host"], name: "host", unique: true, using: :btree
@@ -75,28 +75,28 @@ ActiveRecord::Schema.define(version: 20140730150313) do
   add_index "rule", ["product", "rule", "user_id"], name: "index_rule_on_product_and_rule", unique: true, length: {"product"=>50, "rule"=>nil, "user_id"=>nil}, using: :btree
 
   create_table "sph_counter", primary_key: "counter_id", force: true do |t|
-    t.integer   "max_id",       limit: 8,               null: false
-    t.integer   "min_id",                  default: 1,  null: false
-    t.string    "index_name",   limit: 32, default: "", null: false
-    t.timestamp "last_updated",                         null: false
+    t.integer  "max_id",       limit: 8,               null: false
+    t.integer  "min_id",                  default: 1,  null: false
+    t.string   "index_name",   limit: 32, default: "", null: false
+    t.datetime "last_updated",                         null: false
   end
 
   add_index "sph_counter", ["index_name"], name: "index_name", using: :btree
 
   create_table "subdomain", force: true do |t|
-    t.string    "host",                      null: false
-    t.string    "subdomain"
-    t.string    "domain"
-    t.string    "reverse_domain"
-    t.string    "ip"
-    t.text      "header"
-    t.string    "title"
-    t.string    "pr"
-    t.timestamp "lastupdatetime"
-    t.timestamp "lastchecktime"
-    t.string    "memo"
-    t.text      "body"
-    t.string    "app"
+    t.string   "host",           null: false
+    t.string   "subdomain"
+    t.string   "domain"
+    t.string   "reverse_domain"
+    t.string   "ip"
+    t.text     "header"
+    t.string   "title"
+    t.string   "pr"
+    t.datetime "lastupdatetime"
+    t.datetime "lastchecktime"
+    t.string   "memo"
+    t.text     "body"
+    t.string   "app"
   end
 
   add_index "subdomain", ["host"], name: "host", unique: true, using: :btree
@@ -129,9 +129,10 @@ ActiveRecord::Schema.define(version: 20140730150313) do
   add_index "user", ["username"], name: "index_user_on_username", unique: true, using: :btree
 
   create_table "userhost", force: true do |t|
-    t.string    "host"
-    t.string    "clientip",  limit: 20
-    t.timestamp "writetime"
-    t.integer   "processed", limit: 1,  default: 0
+    t.string   "host"
+    t.string   "clientip",  limit: 20
+    t.datetime "writetime"
+    t.integer  "processed", limit: 1,  default: 0
   end
+
 end

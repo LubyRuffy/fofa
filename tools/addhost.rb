@@ -9,9 +9,6 @@ if __FILE__==$0
   result = Benchmark.measure do
     @root_path = File.expand_path(File.dirname(__FILE__))
     puts @root_path
-    require "sidekiq"
-    require @root_path+"/../app/workers/module/httpmodule.rb"
-    require @root_path+"/../app/workers/module/webdb2_class.rb"
     require @root_path+"/../app/workers/module/process_class.rb"
   end
   puts "===Require time : "+result.to_s
@@ -20,8 +17,7 @@ if __FILE__==$0
 
   #puts get_http('www.fofa.so')
   result = Benchmark.measure do
-    @webdb = WebDb.new(@root_path+"/../config/database.yml")
-    @p = Processor.new(@webdb)
+    @p = Processor.new
   end
   puts "===Mysql connection time : "+result.to_s
 
