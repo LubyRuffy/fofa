@@ -100,8 +100,8 @@ class WebDb
     body ||= ''
     ip = r[:ip]
 
-    sql = "insert into subdomain (host, hosthash, domain, reverse_domain, subdomain, ip, header, title, body, lastchecktime, lastupdatetime)"
-    sql += " values('#{Mysql2::Client.escape(host)}', '#{Digest::MD5.hexdigest(host)}', '#{Mysql2::Client.escape(domain)}', '#{Mysql2::Client.escape(domain.reverse)}', "
+    sql = "insert into subdomain (host, domain, reverse_domain, subdomain, ip, header, title, body, lastchecktime, lastupdatetime)"
+    sql += " values('#{Mysql2::Client.escape(host)}', '#{Mysql2::Client.escape(domain)}', '#{Mysql2::Client.escape(domain.reverse)}', "
     sql += "'#{Mysql2::Client.escape(subdomain)}', '#{Mysql2::Client.escape(ip)}', '#{Mysql2::Client.escape(header)}', "
     sql += "'#{Mysql2::Client.escape(title)}', '#{Mysql2::Client.escape(body.force_encoding('UTF-8'))}', now(), now())"
     #puts sql
@@ -122,7 +122,7 @@ class WebDb
     sql += ", header='#{Mysql2::Client.escape(header)}'"
     sql += ", title='#{Mysql2::Client.escape(title)}'"
     sql += ", body='#{Mysql2::Client.escape(body.force_encoding('UTF-8'))}'"
-    sql += ", lastupdatetime=now() where hosthash='#{Digest::MD5.hexdigest(host)}'"
+    sql += ", lastupdatetime=now() where host='#{Mysql2::Client.escape(host)}'"
     #puts sql
     db_exec(db, sql)
   end
@@ -138,7 +138,7 @@ class WebDb
   end
 
   def db_update_subdomain_checktime(host)
-    db_exec(@mysql, "update subdomain set lastchecktime=NOW() where hosthash='#{Digest::MD5.hexdigest(host)}'")
+    db_exec(@mysql, "update subdomain set lastchecktime=NOW() where host='#{Mysql2::Client.escape(host)}'")
     redis_update_checktime(host)
   end
 

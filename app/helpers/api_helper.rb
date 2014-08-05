@@ -10,7 +10,7 @@ module ApiHelper
 
     @results = nil
     begin
-      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,hosthash,lastupdatetime'},:per_page => page_count,:page => params['page'],:order => "lastupdatetime DESC"}#:retry_stale => 2,
+      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,lastupdatetime'},:per_page => page_count,:page => params['page'],:order => "lastupdatetime DESC"}#:retry_stale => 2,
       if @query_l
         @mode = "extended"
         options[:match_mode] = :extended
@@ -22,7 +22,7 @@ module ApiHelper
       @tags = {}
       #if @results
       #  @results.each {|x|
-      #    @tags[x.hosthash] = Tag.find_by_hosthash x.hosthash
+      #    @tags[x.host] = Tag.find_by_host x.host
       #    @error, @msg = Userhost.add_user_host(x.host, '127.0.0.2')
       #    puts "error: #{@msg}" if @error
       #  }

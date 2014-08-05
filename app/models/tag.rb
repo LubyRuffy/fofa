@@ -1,7 +1,7 @@
 class Tag < ActiveRecord::Base
   self.table_name = "tags"
 
-  def get(hosthash)
+  def get(host)
     
   end
 end
