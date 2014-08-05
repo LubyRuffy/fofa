@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #删除数据库中作恶的ip对应的host（只保留根域名或www）
 @root_path = File.expand_path(File.dirname(__FILE__))
-require @root_path+"/../app/jobs/module/webdb2_class.rb"
+require @root_path+"/../app/workers/module/webdb2_class.rb"
 #Mysql2::Client.default_query_options[:connect_flags] |= Mysql2::Client::MULTI_STATEMENTS
 
 require "resque"

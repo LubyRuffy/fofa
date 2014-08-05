@@ -3,8 +3,8 @@
 #ARGV[0] url1 url2...
 
 root_path = File.expand_path(File.dirname(__FILE__))
-require root_path+"/../app/jobs/module/webdb2_class.rb"
-require root_path+"/../app/jobs/module/lrlink.rb"
+require root_path+"/../app/workers/module/webdb2_class.rb"
+require root_path+"/../app/workers/module/lrlink.rb"
 require 'diff/lcs'
 require 'diff/lcs/htmldiff'
 require 'uri'

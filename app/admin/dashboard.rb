@@ -62,14 +62,13 @@ ActiveAdmin.register_page "Dashboard" do
        end
 
        column do
-         panel "Redis任务队列" do
+         panel "任务队列" do
            ul do
-             #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
-             #  li "process_url任务队列：#{Resque.redis.llen("queue:process_url").to_i}"
-             Resque.queues.each{|q|
-               li "#{q}任务数：#{Resque.redis.llen("queue:#{q}").to_i}"
+             @stats = Sidekiq::Stats.new
+             Sidekiq::Queue.all.each {|q|
+               li "#{q.name}任务数：#{q.size}"
              }
-             li "错误队列：#{Resque::Failure.count}"
+             li "错误队列：#{@stats.failed}"
            end
 
          end
@@ -79,7 +78,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "收录总览" do
            ul do
              li "mysql入库个数：#{Subdomain.count(:id)}"
-             li "shpinx索引个数：#{ThinkingSphinx.count}"
+             #li "shpinx索引个数：#{ThinkingSphinx.count}"
            end
          end
        end
@@ -87,15 +86,18 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "Workers(#{Resque.workers.size}/#{Resque.working.size})" do
+        workers = Sidekiq::Workers.new
+        s_workers = {}
+        workers.each{|process_id, thread_id, work|
+          host = process_id.split(':')[0]
+          #li "#{process_id} : #{thread_id} : #{work}"
+          s_workers[host] = 0 unless s_workers[host]
+          s_workers[host] += 1
+        }
+
+        panel "Workers(#{workers.size})/Hosts(#{s_workers.size})" do
           ul do
-            workers = {}
-            Resque.workers.each{|k|
-              host,pid,resque = k.id.split(':')
-              workers[host] = 0 unless workers[host]
-              workers[host] += 1
-            }
-            workers.sort_by{|k,v| -v}.each{|k,v|
+            s_workers.sort_by{|k,v| -v}.each{|k,v|
               li "#{k} : #{v}"
             }
           end
@@ -104,45 +106,54 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "实时根域名排名" do
-          ul do
-            Resque.redis.redis.zrevrange("rootdomains", 0, 19, :with_scores => true).each{|kv|
+          Sidekiq.redis {|redis|
+            ul do
+            redis.zrevrange("rootdomains", 0, 19, :with_scores => true).each{|kv|
               k,v = kv
               li "#{k} : #{v.to_i}"
             }
-          end
+            end
+          }
         end
       end
 
       column do
         panel "实时IP排名" do
           ul do
-            Resque.redis.redis.zrevrange("ips", 0, 19, :with_scores => true).each{|kv|
-              k,v = kv
-              li "#{k} : #{v.to_i}"
+            Sidekiq.redis {|redis|
+              redis.zrevrange("ips", 0, 19, :with_scores => true).each{|kv|
+                k,v = kv
+                li "#{k} : #{v.to_i}"
+              }
             }
           end
         end
       end
 
       column do
-        panel "黑名单域名（总数：#{Resque.redis.redis.scard("black_domains")}）" do
+        panel "黑名单域名（总数：#{Sidekiq.redis {|redis| redis.scard("black_domains")}}）" do
           ul do
-            Resque.redis.redis.smembers("black_domains").sort_by{|x| x}.each{|v|
-              li "#{v}"
+            Sidekiq.redis {|redis|
+              redis.smembers("black_domains").sort_by{|x| x}.each{|v|
+                li "#{v}"
+              }
             }
           end
         end
       end
 
       column do
-        panel "黑名单IP（总数：#{Resque.redis.redis.scard("black_ips")}）" do
+        panel "黑名单IP（总数：#{Sidekiq.redis {|redis| redis.scard("black_ips")}}）" do
           ul do
-            Resque.redis.redis.smembers("black_ips").sort_by{|x| x}.each{|v|
-              li link_to("#{v}", "javascript:show_subdomain_info_click('#{v}')")+" -- "+link_to("移除黑名单", "javascript:remove_black_ips('#{v}')")
+            Sidekiq.redis {|redis|
+              redis.smembers("black_ips").sort_by{|x| x}.each{|v|
+                li link_to("#{v}", "javascript:show_subdomain_info_click('#{v}')")+" -- "+link_to("移除黑名单", "javascript:remove_black_ips('#{v}')")
+              }
             }
           end
         end
       end
+
     end
 
 

@@ -12,14 +12,14 @@ require 'yaml'
 #require 'celluloid/autostart'
 
 root_path = File.expand_path(File.dirname(__FILE__))
-require "resque"
-require root_path+"/../../app/jobs/module/httpmodule.rb"
-require root_path+"/../../app/jobs/module/process_class.rb"
+require 'sidekiq'
+require root_path+"/../../app/workers/module/httpmodule.rb"
+require root_path+"/../../app/workers/module/process_class.rb"
 cfgfile = "#{root_path}/../../config/database.yml"
 rails_env = ENV['RAILS_ENV'] || 'development'
 g_config = YAML::load(File.open(cfgfile))
 config = g_config[rails_env]['redis']
-Resque.redis = "#{config['host']}:#{config['port']}"
+Sidekiq.redis = "#{config['host']}:#{config['port']}"
 
 class HostSubmitor
   #include Celluloid
@@ -58,7 +58,7 @@ puts "port is : #{$port}"
 
 while (s = $stdin.gets)
   s.strip!
-  Resque.enqueue(Processor, "#{s}:#{$port}")
+  Sidekiq.Client.enqueue(Processor, "#{s}:#{$port}")
 
   #@hs.addhost "#{s}:#{$port}"
 =begin

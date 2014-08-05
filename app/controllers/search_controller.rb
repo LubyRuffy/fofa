@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
-require "resque"
-require "#{Rails.root}/app/jobs/url_worker.rb"
+require "sidekiq"
+require "#{Rails.root}/app/workers/url_worker.rb"
 
 class SearchController < ApplicationController
   helper SearchHelper
@@ -27,7 +27,9 @@ class SearchController < ApplicationController
   end
 
   def remove_black_ips
-    Resque.redis.redis.srem("black_ips", params['ip'])
+    Sidekiq.redis{|redis|
+      redis.srem("black_ips", params['ip'])
+    }
     respond_to do |format|
       format.html {render :text => "已经移除黑名单！"}
       format.json {render :json => {:status=>"ok"}}
