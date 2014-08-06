@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140805083145) do
     t.string   "homepage"
     t.string   "references"
     t.string   "fofaquery"
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,19 +84,19 @@ ActiveRecord::Schema.define(version: 20140805083145) do
   add_index "sph_counter", ["index_name"], name: "index_name", using: :btree
 
   create_table "subdomain", force: true do |t|
-    t.string   "host",           null: false
-    t.string   "subdomain"
-    t.string   "domain"
-    t.string   "reverse_domain"
-    t.string   "ip"
-    t.text     "header"
-    t.string   "title"
-    t.string   "pr"
-    t.datetime "lastupdatetime"
-    t.datetime "lastchecktime"
-    t.string   "memo"
-    t.text     "body"
-    t.string   "app"
+    t.string    "host",                      null: false
+    t.string    "subdomain"
+    t.string    "domain"
+    t.string    "reverse_domain"
+    t.string    "ip"
+    t.text      "header"
+    t.string    "title"
+    t.string    "pr"
+    t.timestamp "lastupdatetime"
+    t.timestamp "lastchecktime"
+    t.string    "memo"
+    t.text      "body"
+    t.string    "app"
   end
 
   add_index "subdomain", ["host"], name: "host", unique: true, using: :btree
