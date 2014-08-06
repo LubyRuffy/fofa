@@ -21,5 +21,5 @@ puts "port is : #{$port}"
 
 while (s = $stdin.gets)
   s.strip!
-  Sidekiq::Client.enqueue(Processor, "#{s}:#{$port}")
+  Sidekiq::Client.enqueue(Processor, "#{s}:#{$port}") unless s.include? ";" #zmap progress
 end
