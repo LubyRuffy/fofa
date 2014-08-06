@@ -130,3 +130,9 @@ tar zxvf xdict_1.1.tar.gz
 sudo mkdir -p /usr/local/sphinx-for-chinese/etc/
 sudo cp xdict /usr/local/sphinx-for-chinese/etc/
 ```
+
+数据导入（主要是exploits）：
+---
+初次结构建立：RAILS_ENV=production rake db:migrate
+每次更新exploits后：
+RAILS_ENV=production ./tools/import_exploits_to_db.rb

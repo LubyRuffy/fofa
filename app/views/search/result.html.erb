@@ -78,13 +78,13 @@
       <br/> <%= link_to doc.ip, "/search/result?qbase64="+CGI.escape(Base64.encode64('ip="'+doc.ip+'"')) %>
     <br/> 更新时间：<%= doc.lastupdatetime.to_datetime.strftime('%F') %>
   <br/> 
-  <% if @tags[doc.hosthash] %>
-    <% if @tags[doc.hosthash].is_a?(Array) %>
-      <% @tags[doc.hosthash].each do |tag| %>
+  <% if @tags[doc.host] %>
+    <% if @tags[doc.host].is_a?(Array) %>
+      <% @tags[doc.host].each do |tag| %>
         <a type="button" class="btn btn-success" href="/search/result?q=<%=tag.tag%>"><%=tag.tag%></a>
       <% end %>
     <% else %>
-      <a type="button" class="btn btn-success" href="/search/result?q=<%=@tags[doc.hosthash].tag%>"><%=@tags[doc.hosthash].tag%></a>
+      <a type="button" class="btn btn-success" href="/search/result?q=<%=@tags[doc.host].tag%>"><%=@tags[doc.host].tag%></a>
     <% end %>
   <% end %>
 </div>

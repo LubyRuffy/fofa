@@ -33,7 +33,7 @@ class WebDb
     g_config = YAML::load(File.open(cfgfile))
     config = g_config[rails_env]
     begin
-      @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => config['secure_auth'])
+      @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => config['secure_auth'], :encoding => 'utf8')
       @@queryer ||= MysqlQueryer.new(@@mysql)
     rescue Mysql2::Error => e
       puts "Mysql::Error"
