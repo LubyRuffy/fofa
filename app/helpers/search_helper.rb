@@ -285,5 +285,70 @@ module SearchHelper
     end
   end
 
+  #实际检查
+  class AppProcessor
+    attr_accessor :http
+    def self.parse(query, http)
+      instance = self.new()
+      instance.parse(query, http)
+    end
+
+    def parse(query, http)
+      begin
+        @http = http
+        ast = QueryParser.new.parse(query)
+        process(ast)
+      rescue Parslet::ParseFailed => error
+        raise Parslet::ParseFailed, error
+        #pp "ParseError" + error.inspect
+      end
+    end
+
+    def process(ast)
+      operation = ast.keys.first
+      self.send("process_#{operation}".to_sym, ast[operation]) if self.respond_to?("process_#{operation}".to_sym, true)
+    end
+
+    protected
+
+    def check_column!(value)
+      indexed = %w|title header body host ip|
+      unless indexed.include?(value)
+        source = Parslet::Source.new(value.to_s)
+        cause = Parslet::Cause.new('Column not found', source, value.offset, [])
+        raise Parslet::ParseFailed.new('Column not found', cause)
+      end
+    end
+    def process_and(ast)
+      process(ast[:left]) && process(ast[:right])
+    end
+
+    def process_or(ast)
+      process(ast[:left]) || process(ast[:right])
+    end
+
+    def process_eq(ast)
+      check_column!(ast[:left])
+      http[ast[:left]].include?  parse_value(ast[:right])
+    end
+
+    def process_not_eq(ast)
+      check_column!(ast[:left])
+      !http[ast[:left]].include? parse_value(ast[:right])
+    end
+
+    def parse_value(value)
+      type = value.keys.first
+      case type
+        when :nil
+          return nil
+        when :boolean
+          return value[:boolean] == "true"
+        else
+          return value[type].to_s
+      end
+    end
+  end
+
 
 end

@@ -2,6 +2,5 @@ tmp
 log
 config.yml
 database.yml
-resque.yml
 thinking_sphinx.yml
 .idea

@@ -12,7 +12,8 @@ namespace :fofa do
 
   desc "Show running workers"
   task :show_workers do
-    system "ps -eo pid,command | grep resque | grep -v grep"
+    ps = `ps -eo pid,command | grep sidekiq | grep -v grep`
+    puts ps
   end
   
   desc "Restart running workers"
@@ -23,28 +24,24 @@ namespace :fofa do
   
   desc "Quit running workers"
   task :stop_workers => :environment do
-    #pids = Array.new
-    #Resque.workers.each do |worker|
-    #  pids.concat(worker.worker_pids)
-    #end
-    #if pids.empty?
-    #  puts "No workers to kill"
-    #else
-    #  syscmd = "kill -s QUIT #{pids.join(' ')}"
-      syscmd = "ps aux | grep [r]esque | grep -v grep  | awk '{print $2}' | xargs -n 1 kill -s QUIT"
+      syscmd = "ps aux | grep sidekiq | grep -v grep  | awk '{print $2}' | xargs -n 1 kill -s QUIT"
       puts "Running syscmd: #{syscmd}"
       system(syscmd)
     #end
   end
   
-  desc "Start workers (5 process, can set by WCNT environment; WGETLINK for crawler)"
+  desc "Start workers (threads can set by WCNT environment)"
   task :start_workers => :environment do
-    worker_cnt = ENV['WCNT'].to_i if ENV['WCNT']
-    worker_cnt ||= 5
-    run_worker(ENV['QUEUES'] || ENV['QUEUE'] || '*', worker_cnt)
-    #run_worker("process_url", worker_cnt)
-    #run_worker("quick_process_host", 2)
-    run_worker("realtime_process_list", 1)
+    puts "Starting #{ENV['WCNT']} worker(s)"
+    concurrency = ''
+    concurrency = '-c '+ENV['WCNT'] if ENV['WCNT']
+    ops = {:pgroup => true, :err => [(Rails.root + "log/workers_error.log").to_s, "a"],
+           :out => [(Rails.root + "log/workers.log").to_s, "a"]}
+    env_vars = {}
+    cmd = "bundle exec sidekiq -L #{Rails.root}/log/workers.log -C #{Rails.root}/config/sidekiq.yml #{concurrency} -d"
+    puts cmd
+    pid = spawn(env_vars, cmd, ops)
+    Process.detach(pid)
   end
 
   desc "Zero-downtime restart of Unicorn"
@@ -103,18 +100,4 @@ namespace :fofa do
     Rake::Task["fofa:restart_unicorn"].invoke
   end
 
-end
-
-# Start a worker with proper env vars and output redirection
-def run_worker(queue, count = 1)
-  puts "Starting #{count} worker(s) with QUEUE: #{queue}"
-  ops = {:pgroup => true, :err => [(Rails.root + "log/workers_error.log").to_s, "a"],
-                          :out => [(Rails.root + "log/workers.log").to_s, "a"]}
-  env_vars = {"QUEUES" => queue.to_s, "COUNT" => count.to_s}
-  count.times {
-    ## Using Kernel.spawn and Process.detach because regular system() call would
-    ## cause the processes to quit when capistrano finishes
-    pid = spawn(env_vars, "rake resque:work", ops)
-    Process.detach(pid)
-  }
 end

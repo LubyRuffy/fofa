@@ -1,6 +1,6 @@
 # encoding: utf-8
-require "resque"
-require "#{Rails.root}/app/jobs/url_worker.rb"
+require "sidekiq"
+require "#{Rails.root}/app/workers/url_worker.rb"
 
 class UserhostController < ApplicationController
   def index

@@ -11,26 +11,30 @@ class MysqlQueryer
   include Celluloid
   attr_accessor :mysql
   def initialize(mysql)
-    @mysql = mysql
+    @@mysql = mysql
   end
 
   def query(sql)
-    @mysql.query sql
+    @@mysql.query sql
   end
 end
 
 class WebDb
-  @mysql = nil
-  attr_reader :redis
-  attr_reader :queryer
+  def redis
+    return @@redis
+  end
+
+  def queryer
+    return @@queryer
+  end
 
   def initialize(cfgfile="./config.yml")
     rails_env = ENV['RAILS_ENV'] || 'development'
     g_config = YAML::load(File.open(cfgfile))
     config = g_config[rails_env]
     begin
-      @mysql = Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => false)
-      @queryer = MysqlQueryer.new(@mysql)
+      @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => config['secure_auth'], :encoding => 'utf8')
+      @@queryer ||= MysqlQueryer.new(@@mysql)
     rescue Mysql2::Error => e
       puts "Mysql::Error"
       puts "Error code: #{e}"
@@ -38,38 +42,47 @@ class WebDb
       exit
     end
     config = config['redis']
-    @redis = Redis.new(:host => config['host'])
+    @@redis ||= Redis.new(url: "redis://#{config['host']}:#{config['port']}/#{config['db']}")
   end
 
   def is_redis_black_domain?(domain)
     return true unless domain
-    @redis.sismember('black_domains', domain)
+    @@redis.sismember('fofa:black_domains', domain)
   end
 
   def is_redis_black_ip?(ip)
     return true unless ip
     ip = ip.split('.')[0..2].join('.')
-    @redis.sismember('black_ips', ip)
+    @@redis.sismember('fofa:black_ips', ip)
+  end
+
+  def redis_has_host?(host)
+    return true unless host
+    @@redis.sismember('fofa:hosts', host)
   end
 
   private
   def db_query_exists(db, sql)
-    db.query(sql).size>0
+    @@queryer.query(sql).size>0
   end
 
   def redis_update_checktime(host)
     key = "lct_"+host
-    @redis.set(key, Time.now().to_s)
-    @redis.expire(key, 60*60*24*7)
+    @@redis.set(key, Time.now().to_s)
+    @@redis.expire(key, 60*60*24*7)
   end
 
   def redis_inc_rootdomain(domain)
-    @redis.sadd('black_domains', domain) if @redis.zincrby('rootdomains',1,domain)>100
+    @@redis.sadd('fofa:black_domains', domain) if @@redis.zincrby('fofa:rootdomains',1,domain)>200
+  end
+
+  def redis_add_host(host)
+    @@redis.sadd('fofa:fofa_hosts', host)
   end
 
   def redis_inc_ip(ip)
     ip = ip.split('.')[0..2].join('.')
-    @redis.sadd('black_ips', ip) if @redis.zincrby('ips',1,ip)>100
+    @@redis.sadd('fofa:black_ips', ip) if @@redis.zincrby('fofa:ips',1,ip)>200
   end
 
 
@@ -83,7 +96,7 @@ class WebDb
   end
 
   def db_exec(db, sql)
-    db.query sql
+    @@queryer.query sql
   end
 
   def db_insert_domain(db, domain)
@@ -106,7 +119,8 @@ class WebDb
     sql += "'#{Mysql2::Client.escape(title)}', '#{Mysql2::Client.escape(body.force_encoding('UTF-8'))}', now(), now())"
     #puts sql
     db_exec(db, sql)
-    redis_update_checktime(host)
+    #redis_update_checktime(host)
+    redis_add_host(host)
     redis_inc_rootdomain(domain)
     redis_inc_ip(ip)
   end
@@ -128,37 +142,37 @@ class WebDb
   end
 
   def db_check_ip_exists(ip)
-    db_query_exists(@mysql, "select ip from ipaddr where iphash='#{Digest::MD5.hexdigest(ip)}'")
+    db_query_exists(@@mysql, "select ip from ipaddr where iphash='#{Digest::MD5.hexdigest(ip)}'")
   end
 
   def db_insert_ip(ip)
     sql = "insert into ipaddr (ip, iphash) values('#{Mysql2::Client.escape(ip)}', '#{Digest::MD5.hexdigest(ip)}')"
     #puts sql
-    db_exec(@mysql, sql)
+    db_exec(@@mysql, sql)
   end
 
   def db_update_subdomain_checktime(host)
-    db_exec(@mysql, "update subdomain set lastchecktime=NOW() where host='#{Mysql2::Client.escape(host)}'")
+    db_exec(@@mysql, "update subdomain set lastchecktime=NOW() where host='#{Mysql2::Client.escape(host)}'")
     redis_update_checktime(host)
   end
 
   public
   def mysql
-    @mysql
+    @@mysql
   end
 
   def redis_exists_host(host)
     key = "lct_"+host
-    @redis.exists(key)
+    @@redis.exists(key)
   end
 
   def mysql_exists_host(host)
-    db_query_exists(@mysql, "select host from subdomain where host='#{Mysql2::Client.escape(host)}'")
+    db_query_exists(@@mysql, "select host from subdomain where host='#{Mysql2::Client.escape(host)}'")
   end
 
   #update last check time
   def update_subdomain_if_exists(host, host_exists=false)
-    if host_exists || db_check_subdomain_exists(@mysql, host)
+    if host_exists || db_check_subdomain_exists(@@mysql, host)
       db_update_subdomain_checktime(host)
     end
   end
@@ -170,28 +184,29 @@ class WebDb
   end
 
   def insert_domain_to_rootdomain(domain, host_exists=false)
-    unless host_exists || db_check_domain_exists(@mysql, domain)
-      db_insert_domain(@mysql, domain)
+    unless host_exists || db_check_domain_exists(@@mysql, domain)
+      db_insert_domain(@@mysql, domain)
     end
   end
   def update_host_to_subdomain( host, domain, subdomain, http_info, host_exists=false)
-    if host_exists || db_check_host_exists(@mysql, host)
-      db_update_host(@mysql, host, http_info)
+    if host_exists || db_check_host_exists(@@mysql, host)
+      db_update_host(@@mysql, host, http_info)
     else
-      db_insert_host(@mysql, host, domain, subdomain, http_info)
+      db_insert_host(@@mysql, host, domain, subdomain, http_info)
     end
   end
 
   def insert_host_to_error_table(host, reason)
     sql = "insert into error_host (host, reason) values('#{Mysql2::Client.escape(host)}', '#{Mysql2::Client.escape(reason)}') ON DUPLICATE KEY UPDATE reason='#{Mysql2::Client.escape(reason)}'"
     #puts sql
-    db_exec(@mysql, sql)
+    db_exec(@@mysql, sql)
   end
 
   def need_update_host(host)
-    return false if redis_exists_host(host)
+    return false if redis_has_host?(host)
+
     #不存在一条小于90天内的记录就需要更新
-    r = @mysql.query("select host,lastchecktime from subdomain where host='#{Mysql2::Client.escape(host)}'")
+    r = @@queryer.query("select host,lastchecktime from subdomain where host='#{Mysql2::Client.escape(host)}'")
     @need_update = false
     @exist_host = false
     if r.size>0

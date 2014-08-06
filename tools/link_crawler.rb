@@ -6,8 +6,8 @@ require 'pp'
 #require 'awesome_print'
 require 'rubygems'
 require 'domainatrix'
-require root_path+'/../app/jobs/module/httpmodule.rb'
-require root_path+'/../app/jobs/module/lrlink.rb'
+require root_path+'/../app/workers/module/httpmodule.rb'
+require root_path+'/../app/workers/module/lrlink.rb'
 require 'active_record'
 
 include HttpModule

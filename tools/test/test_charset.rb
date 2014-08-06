@@ -1,6 +1,6 @@
 #/usr/bin/env ruby
 @root_path = File.expand_path(File.dirname(__FILE__))
-require @root_path+"/../../app/jobs/module/httpmodule.rb"
+require @root_path+"/../../app/workers/module/httpmodule.rb"
 
 include HttpModule
 

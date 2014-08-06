@@ -1,9 +1,8 @@
-require "resque"
-require 'resque-loner'
 require 'uri'
 require 'open-uri'
-require "#{Rails.root}/app/jobs/url_worker.rb"
-require "#{Rails.root}/app/jobs/module/lrlink.rb"
+require 'sidekiq'
+require "#{Rails.root}/app/workers/url_worker.rb"
+require "#{Rails.root}/app/workers/module/lrlink.rb"
 
 include Lrlink
 
@@ -29,9 +28,9 @@ class Userhost < ActiveRecord::Base
       host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
       if host.size<1
         @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
-        cls = Processor
-        cls = RealtimeProcessor if realtime
-        Resque.enqueue(cls, @host)
+        queue = "process_url"
+        queue = "realtime_process_url" if realtime
+        Sidekiq::Client.enqueue_to(queue, Processor, @host)
       end
     end
     [@error,@info]

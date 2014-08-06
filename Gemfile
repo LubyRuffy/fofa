@@ -69,9 +69,8 @@ gem 'nokogiri'
 gem 'domainatrix'
 gem 'sixarm_ruby_magic_number_type'
 
-gem 'resque'
-gem 'resque-web', require: 'resque_web'
-gem 'resque-loner'
+gem 'sidekiq'
+gem 'sinatra'
 
 gem 'lazy_high_charts'
 gem 'jquery-turbolinks'

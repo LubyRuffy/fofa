@@ -9,11 +9,7 @@ end
 require 'mysql2'
 #require 'thread/pool'
 @root_path = File.expand_path(File.dirname(__FILE__))
-require "resque"
-require @root_path+"/../app/jobs/module/httpmodule.rb"
-require @root_path+"/../app/jobs/module/webdb2_class.rb"
-require @root_path+"/../app/jobs/module/process_class.rb"
-require @root_path+"/../app/jobs/module/lrlink.rb"
+require @root_path+"/../app/workers/module/process_class.rb"
 include Lrlink
 require 'script_detector'
 require 'net/http'

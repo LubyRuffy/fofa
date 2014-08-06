@@ -2,7 +2,6 @@
 if __FILE__==$0
   root_path = File.expand_path(File.dirname(__FILE__))
   puts root_path
-  require "resque"
   require root_path+"/../module/httpmodule.rb"
   require root_path+"/../module/webdb2_class.rb"
   require root_path+"/../module/process_class.rb"

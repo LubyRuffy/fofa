@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 @root_path = File.expand_path(File.dirname(__FILE__))
 require @root_path+"/../../app/helpers/search_helper.rb"
-require @root_path+"/../../app/jobs/module/webdb2_class.rb"
+require @root_path+"/../../app/workers/module/webdb2_class.rb"
 
 include SearchHelper
 

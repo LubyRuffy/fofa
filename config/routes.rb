@@ -128,10 +128,11 @@ Fofa::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  require "resque_web"
-  ResqueWeb::Engine.eager_load!
-  resque_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
-  constraints resque_web_constraint do
-      mount ResqueWeb::Engine => "/resque_web"
+
+  sidekiq_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
+  constraints sidekiq_web_constraint do
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
   end
+
 end

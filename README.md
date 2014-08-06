@@ -81,7 +81,7 @@ worker就是用来执行任务的（也就是爬虫）
 
 查看任务：
 ---
-本机调试时可以通过127.0.0.1/resque_web来查看任务队列执行情况。
+本机调试时可以通过127.0.0.1/sidekiq来查看任务队列执行情况。
 
 
 附带工具：
@@ -101,7 +101,10 @@ worker就是用来执行任务的（也就是爬虫）
 
 查看redis任务队列：
 ---
-watch -n 5 redis-cli -hlocahost llen resque:queue:process_url
+watch -n 5 redis-cli -hlocahost llen fofa:queue:process_url
+如果数据库不同，记得修改-n参数
+watch -n 5 redis-cli -n 15 -hlocahost llen fofa:queue:process_url
+
 
 漏洞测试：
 ---
