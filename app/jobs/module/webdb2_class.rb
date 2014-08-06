@@ -183,7 +183,7 @@ class WebDb
   end
 
   def insert_host_to_error_table(host, reason)
-    sql = "insert into error_host (host, hosthash, reason) values('#{Mysql2::Client.escape(host)}', '#{Digest::MD5.hexdigest(host)}', '#{Mysql2::Client.escape(reason)}') ON DUPLICATE KEY UPDATE reason='#{Mysql2::Client.escape(reason)}'"
+    sql = "insert into error_host (host, reason) values('#{Mysql2::Client.escape(host)}', '#{Mysql2::Client.escape(reason)}') ON DUPLICATE KEY UPDATE reason='#{Mysql2::Client.escape(reason)}'"
     #puts sql
     db_exec(@mysql, sql)
   end
