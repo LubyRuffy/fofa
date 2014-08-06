@@ -78,7 +78,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "收录总览" do
            ul do
              li "mysql入库个数：#{Subdomain.count(:id)}"
-             #li "shpinx索引个数：#{ThinkingSphinx.count}"
+             li "shpinx索引个数：#{ThinkingSphinx.count}"
            end
          end
        end
