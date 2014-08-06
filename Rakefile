@@ -37,7 +37,7 @@ namespace :fofa do
     concurrency = '-c '+ENV['WCNT'] if ENV['WCNT']
     ops = {:pgroup => true, :err => [(Rails.root + "log/workers_error.log").to_s, "a"],
            :out => [(Rails.root + "log/workers.log").to_s, "a"]}
-    env_vars = {}
+    env_vars = {"RAILS_ENV"=>"production"}
     cmd = "bundle exec sidekiq -L #{Rails.root}/log/workers.log -C #{Rails.root}/config/sidekiq.yml #{concurrency} -d"
     puts cmd
     pid = spawn(env_vars, cmd, ops)
