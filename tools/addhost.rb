@@ -10,6 +10,7 @@ if __FILE__==$0
     @root_path = File.expand_path(File.dirname(__FILE__))
     puts @root_path
     require @root_path+"/../app/workers/module/process_class.rb"
+    require @root_path+"/../config/initializers/sidekiq.rb"
   end
   puts "===Require time : "+result.to_s
 

@@ -139,8 +139,8 @@ module HttpModule
       end
       http = http_class.new(ip, uri.port)
       http.use_ssl = true if uri.scheme == 'https'
-      http.open_timeout = 15
-      http.read_timeout = 15
+      http.open_timeout = 10
+      http.read_timeout = 10
       http.start { |h|
         request = Net::HTTP::Get.new uri.request_uri
         request['Host'] = uri.host
