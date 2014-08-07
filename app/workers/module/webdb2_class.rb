@@ -12,7 +12,7 @@ class MysqlQueryer
   include Celluloid
   attr_accessor :mysql
   def initialize(mysql)
-    @@mysql = mysql
+    @@mysql ||= mysql
   end
 
   def query(sql)
@@ -21,7 +21,6 @@ class MysqlQueryer
 end
 
 class WebDb
-  @@mysql ||= nil
   @@semaphore ||= Mutex.new
   def redis
     return @@redis
