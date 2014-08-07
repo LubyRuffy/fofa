@@ -36,16 +36,19 @@ class WebDb
   end
 
   def initialize(cfgfile="./config.yml")
-    rails_env = ENV['RAILS_ENV'] || 'development'
-    g_config = YAML::load(File.open(cfgfile))
-    config = g_config[rails_env]
     begin
       @@semaphore.synchronize {
+        rails_env = ENV['RAILS_ENV'] || 'development'
+        g_config = YAML::load(File.open(cfgfile))
+        config = g_config[rails_env]
         @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'],
                                        :password => config['password'], :database => config['database'],
                                        :port => config['port'], :secure_auth => config['secure_auth'],
                                        :encoding => 'utf8', :reconnect => true)
         @@queryer ||= MysqlQueryer.new(@@mysql)
+
+        config = config['redis']
+        @@redis ||= Redis.new(url: "redis://#{config['host']}:#{config['port']}/#{config['db']}")
       }
     rescue Mysql2::Error => e
       puts "Mysql::Error"
@@ -53,8 +56,7 @@ class WebDb
       puts "Error message: #{e.message}"
       exit
     end
-    config = config['redis']
-    @@redis ||= Redis.new(url: "redis://#{config['host']}:#{config['port']}/#{config['db']}")
+
   end
 
   def is_redis_black_domain?(domain)
