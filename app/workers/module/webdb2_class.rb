@@ -3,6 +3,7 @@ require 'redis'
 require 'digest'
 require 'time'
 require 'yaml'
+require 'thread'
 require 'celluloid/autostart'
 #require 'hexdump'
 
@@ -20,6 +21,8 @@ class MysqlQueryer
 end
 
 class WebDb
+  @@mysql ||= nil
+  @@semaphore ||= Mutex.new
   def redis
     return @@redis
   end
@@ -33,8 +36,10 @@ class WebDb
     g_config = YAML::load(File.open(cfgfile))
     config = g_config[rails_env]
     begin
-      @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => config['secure_auth'], :encoding => 'utf8')
-      @@queryer ||= MysqlQueryer.new(@@mysql)
+      @@semaphore.synchronize {
+        @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => config['secure_auth'], :encoding => 'utf8')
+        @@queryer ||= MysqlQueryer.new(@@mysql)
+      }
     rescue Mysql2::Error => e
       puts "Mysql::Error"
       puts "Error code: #{e}"
