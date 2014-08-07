@@ -17,6 +17,10 @@ class Processor
 
   sidekiq_options :queue => :process_url, :retry => 3, :backtrace => true
 
+  sidekiq_retries_exhausted do |msg|
+    Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
+  end
+
   def initialize(webdb=nil)
     root_path = File.expand_path(File.dirname(__FILE__))
 

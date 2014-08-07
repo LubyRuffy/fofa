@@ -70,6 +70,7 @@ gem 'domainatrix'
 gem 'sixarm_ruby_magic_number_type'
 
 gem 'sidekiq'
+gem 'sidekiq-failures'
 gem 'sinatra'
 
 gem 'lazy_high_charts'

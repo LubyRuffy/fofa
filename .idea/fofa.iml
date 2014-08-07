@@ -555,6 +555,7 @@
     <orderEntry type="library" scope="PROVIDED" name="script_detector (v0.1.2, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.0, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sidekiq (v3.2.1, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sidekiq-failures (v0.4.3, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.4.5, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sixarm_ruby_magic_number_type (v2.0.0, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sphinx (v2.1.1.3712, RVM: ruby-2.1.0 [global]) [gem]" level="application" />
