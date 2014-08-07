@@ -41,7 +41,10 @@ class WebDb
     config = g_config[rails_env]
     begin
       @@semaphore.synchronize {
-        @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'], :password => config['password'], :database => config['database'], :port => config['port'], :secure_auth => config['secure_auth'], :encoding => 'utf8')
+        @@mysql ||= Mysql2::Client.new(:host => config['host'], :username => config['username'],
+                                       :password => config['password'], :database => config['database'],
+                                       :port => config['port'], :secure_auth => config['secure_auth'],
+                                       :encoding => 'utf8', :reconnect => true)
         @@queryer ||= MysqlQueryer.new(@@mysql)
       }
     rescue Mysql2::Error => e
