@@ -4,19 +4,24 @@ require 'digest'
 require 'time'
 require 'yaml'
 require 'thread'
-require 'celluloid/autostart'
+#require 'celluloid/autostart'
 #require 'hexdump'
 
 #thread-safe when use thread/pool
 class MysqlQueryer
-  include Celluloid
+  #include Celluloid
+  @@semaphore ||= Mutex.new
   attr_accessor :mysql
   def initialize(mysql)
-    @@mysql ||= mysql
+    @@semaphore.synchronize {
+      @@mysql ||= mysql
+    }
   end
 
   def query(sql)
-    @@mysql.query sql
+    @@semaphore.synchronize {
+      @@mysql.query sql
+    }
   end
 end
 
