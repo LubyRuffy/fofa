@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #通过数据库的body分析，来提取所有url，通过api提交到fofa（超过90天才更新）
 
-unless `ps aux | grep #{__FILE__} | grep -v grep | awk '{print $2}' | grep -v #{Process.pid}`.empty?
+unless `ps aux | grep "#{File.basename(__FILE__)}" | grep -v grep | awk '{print $2}' | grep -v #{Process.pid}`.empty?
   puts 'already anothor running, now exit...'
   exit(-1)
 end
