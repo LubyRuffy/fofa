@@ -9,7 +9,7 @@ require @root_path+"/../app/workers/module/process_class.rb"
 include Lrlink
 require 'net/http'
 
-MODE='fofa_api' #fofa_api 或者 sidekiq
+MODE='sidekiq' #fofa_api 或者 sidekiq
 
 def write_to_file(id)
   File.open(@root_path+"/id.txt", 'w') do |f|
