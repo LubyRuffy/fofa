@@ -187,7 +187,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/addhost.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="m.93989.com 1" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="220.181.158.81.baidu.com 1" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />

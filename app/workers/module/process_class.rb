@@ -43,6 +43,8 @@ class Processor
       end
     end
     nil
+  rescue => e
+    nil
   end
 
   #最上层函数，添加host到数据库
