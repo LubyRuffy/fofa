@@ -3,9 +3,13 @@
 require 'mysql2'
 #require 'thread/pool'
 @root_path = File.expand_path(File.dirname(__FILE__))
+require 'sidekiq'
+require @root_path+"/../config/initializers/sidekiq.rb"
 require @root_path+"/../app/workers/module/process_class.rb"
 include Lrlink
 require 'net/http'
+
+MODE='fofa_api' #fofa_api 或者 sidekiq
 
 def write_to_file(id)
   File.open(@root_path+"/id.txt", 'w') do |f|
@@ -52,10 +56,19 @@ while true
     puts ""
     puts "host count:"+hosts.size.to_s
     if hosts.size>0
-      uri = URI('http://www.fofa.so/api/addhostp')
-      res = Net::HTTP.post_form(uri, 'host' => hosts.join(','))
-      #puts "id:"+ids.join(",")
-      puts "response:"+res.body
+      case MODE
+        when 'fofa_api'
+          uri = URI('http://www.fofa.so/api/addhostp')
+          res = Net::HTTP.post_form(uri, 'host' => hosts.join(','))
+          #puts "id:"+ids.join(",")
+          puts "response:"+res.body
+        else
+          hosts.each{|h|
+            Sidekiq::Client.enqueue(Processor, h)
+          }
+      end
+
+
     end
     write_to_file ids.max
     #curl_line = "curl http://www.fofa.so/api/addhost?host=#{hosts.uniq.join(',')} >/dev/null 2>&1"
