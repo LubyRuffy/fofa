@@ -34,18 +34,32 @@ class Processor
     add_host_to_webdb(url,false)
   end
 
+  def ip_dec(host)
+    subs = host.split('.')
+    if subs.size == 4
+      zerosubs = subs.map{|s| Integer(s)}
+      if zerosubs.size==4
+        return zerosubs.join('.')
+      end
+    end
+    nil
+  end
+
   #最上层函数，添加host到数据库
   def add_host_to_webdb(host, force=false)
     host = hostinfo_of_url(host.downcase)
     return -1 if host.include?('/')
     return -2 if is_bullshit_host?(host)
-    ip = get_ip_of_host(host_of_url(host))
+    only_host = host_of_url(host)
+    ip = get_ip_of_host(only_host)
     return -3 if is_bullshit_ip?(ip)  || @webdb.is_redis_black_ip?(ip)
 
     domain_is_ip = false
     if host =~ /\d+\.\d+\.\d+\.\d/
       domain = host
       domain_is_ip = true
+    elsif ip_dec(only_host) #这种类型的ip：0x0079.0x000000000000000028.0x0083.00257
+      return -4
     else
       domain_info = get_domain_info_by_host(host)
       #pp domain_info
