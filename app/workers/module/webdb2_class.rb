@@ -12,15 +12,23 @@ class MysqlQueryer
   #include Celluloid
   @@semaphore ||= Mutex.new
   attr_accessor :mysql
-  def initialize(mysql)
+  def initialize(mysql, mysql_write=nil)
     @@semaphore.synchronize {
       @@mysql ||= mysql
+      @@mysql_write ||= mysql_write
+      @@mysql_write ||= mysql
     }
   end
 
   def query(sql)
     @@semaphore.synchronize {
       @@mysql.query sql
+    }
+  end
+
+  def exec(sql)
+    @@semaphore.synchronize {
+      @@mysql_write.query sql
     }
   end
 end
@@ -45,7 +53,16 @@ class WebDb
                                        :password => config['password'], :database => config['database'],
                                        :port => config['port'], :secure_auth => config['secure_auth'],
                                        :encoding => 'utf8', :reconnect => true)
-        @@queryer ||= MysqlQueryer.new(@@mysql)
+        mysql_write_config = config['mysql_write']
+        if mysql_write_config
+          @@mysql_write ||= Mysql2::Client.new(:host => mysql_write_config['host'], :username => mysql_write_config['username'],
+                                       :password => mysql_write_config['password'], :database => mysql_write_config['database'],
+                                       :port => mysql_write_config['port'], :secure_auth => mysql_write_config['secure_auth'],
+                                       :encoding => 'utf8', :reconnect => true)
+        else
+          @@mysql_write = @@mysql
+        end
+        @@queryer ||= MysqlQueryer.new(@@mysql, @@mysql_write)
 
         config = config['redis']
         @@redis ||= Redis.new(url: "redis://#{config['host']}:#{config['port']}/#{config['db']}")
@@ -110,7 +127,7 @@ class WebDb
   end
 
   def db_exec(db, sql)
-    @@queryer.query sql
+    @@queryer.exec sql
   end
 
   def db_insert_domain(db, domain)

@@ -129,8 +129,9 @@ Fofa::Application.routes.draw do
   #     resources :products
   #   end
 
-  sidekiq_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
-  constraints sidekiq_web_constraint do
+  #sidekiq_web_constraint = lambda { |request| request.remote_ip == '127.0.0.1' }
+  #constraints sidekiq_web_constraint do
+  authenticate :user, lambda { |u| u.isadmin } do
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'
   end

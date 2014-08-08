@@ -30,6 +30,7 @@ File.open(@root_path+"/id.txt", 'r') {|f|
   @id = max_id if max_id>@id
 }
 
+STDOUT.sync = true
 while true
   sql = "select * from subdomain where id>#{@id} limit 10"
   r = @m.mysql.query(sql)
