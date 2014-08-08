@@ -3,8 +3,7 @@
 require 'mysql2'
 #require 'thread/pool'
 @root_path = File.expand_path(File.dirname(__FILE__))
-require @root_path+"/../app/workers/module/webdb2_class.rb"
-require @root_path+"/../app/workers/module/lrlink.rb"
+require @root_path+"/../app/workers/module/process.rb"
 include Lrlink
 require 'net/http'
 
