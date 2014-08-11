@@ -10,7 +10,7 @@ redis_url = "redis://#{config['host']}:#{config['port']}/#{config['db']}"
 #end
 
 Sidekiq.configure_server do |cfg|
-  cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 10 }
+  cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 2 }
   cfg.failures_max_count = false
 end
 
