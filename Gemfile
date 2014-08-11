@@ -71,6 +71,7 @@ gem 'sixarm_ruby_magic_number_type'
 
 gem 'sidekiq'
 gem 'sidekiq-failures'
+gem 'sidekiq-unique-jobs'
 gem 'sinatra'
 
 gem 'lazy_high_charts'
