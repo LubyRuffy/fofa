@@ -108,7 +108,7 @@ class WebDb
   end
 
   def redis_add_host(host)
-    @@redis.sadd('fofa:fofa_hosts', host)
+    @@redis.sadd('fofa:hosts', host)
   end
 
   def redis_inc_ip(ip)
@@ -184,7 +184,7 @@ class WebDb
 
   def db_update_subdomain_checktime(host)
     db_exec(@@mysql, "update subdomain set lastchecktime=NOW() where host='#{Mysql2::Client.escape(host)}'")
-    redis_update_checktime(host)
+    #redis_update_checktime(host)
   end
 
   public
