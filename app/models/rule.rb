@@ -1,4 +1,5 @@
 class Rule < ActiveRecord::Base
+  self.table_name="rule"
   belongs_to :user
 
   has_many :subrules, class_name: "Rule"

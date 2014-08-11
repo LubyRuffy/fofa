@@ -38,7 +38,7 @@ module SearchHelper
       ['twcms', '2013-12-18', 'http://www.twcms.cn/', 'body="/twcms/theme/" && body="/css/global.css"'],
       ['Cicro', '2013-12-03', 'http://www.cicro.com/', '(body="Cicro" && body="CWS") || body="content=\"Cicro" || body="index.files/cicro_userdefine.css" || (body="structure/index" && body="window.location.href=")'],
       ['SiteServer', '2013-11-29', 'http://www.siteserver.cn/', '(body="Powered by" && body="http://www.siteserver.cn" && body="SiteServer CMS") || title="Powered by SiteServer CMS" || body="T_系统首页模板" || (body="siteserver" && body="sitefiles")'],
-      ['Joomla', '2013-11-28', 'http://www.Joomla.org', 'body="content=\"Joomla" || body="vbulletin-core.js" || (body="/media/system/js/core.js" && body="/media/system/js/mootools-core.js")'],
+      ['Joomla', '2013-11-28', 'http://www.Joomla.org', 'body="content=\"Joomla" || (body="/media/system/js/core.js" && body="/media/system/js/mootools-core.js")'],
       ['vBulletin', '2013-11-28', 'http://www.vbulletin.com', 'body="content=\"vBulletin" || body="vbulletin-core.js" || body="Powered by vBulletin&trade;"'],
       ['phpbb', '2013-11-28', 'http://www.phpbb.com/','header="Set-Cookie: phpbb3_" || header="HttpOnly, phpbb3_" || (body="&copy;" && body="http://www.longluntan.com/zh/phpbb/" && body="phpBB") || body="phpBB Group\" /\>" || body="START QUICK HACK - phpBB Statistics MOD"'],
       ['HDWiki', '2013-11-26', 'http://kaiyuan.hudong.com/','title="powered by hdwiki!" || body="content=\"HDWiki" || body="http://kaiyuan.hudong.com?hf=hdwiki_copyright_kaiyuan" || header="hd_sid="'],
@@ -329,12 +329,12 @@ module SearchHelper
 
     def process_eq(ast)
       check_column!(ast[:left])
-      http[ast[:left]].include?  parse_value(ast[:right])
+      http[ast[:left].to_s.to_sym].include?  parse_value(ast[:right])
     end
 
     def process_not_eq(ast)
       check_column!(ast[:left])
-      !http[ast[:left]].include? parse_value(ast[:right])
+      !http[ast[:left].to_s.to_sym].include? parse_value(ast[:right])
     end
 
     def parse_value(value)

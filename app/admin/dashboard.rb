@@ -55,7 +55,7 @@ ActiveAdmin.register_page "Dashboard" do
          panel "最新规则（总数：#{Rule.count(:id)}）" do
            ul do
              Rule.order(id: :desc).limit(5).map do |rule|
-               li link_to(rule.rule, admin_user_path(rule))
+               li link_to(rule.rule, admin_rule_path(rule))
              end
            end
          end
