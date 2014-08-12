@@ -136,3 +136,12 @@ sudo cp xdict /usr/local/sphinx-for-chinese/etc/
 初次结构建立：RAILS_ENV=production rake db:migrate
 每次更新exploits后：
 RAILS_ENV=production ./tools/import_exploits_to_db.rb
+
+
+处理URL需要注意的坑：
+---
+* 一个主机带所有端口的形式，这种一般是用来做关键字的垃圾数据，丢弃
+* 一个ip用不同的进制形式表现，也是做关键字的垃圾数据，丢弃。参考：http://www.pc-help.org/obscure.htm
+* 很多GFW原因导致不可以访问的网站需要丢弃（在尝试请求多次失败后，自动加入黑名单，不用去配置）
+* 泛解析域名，通常是随机生成固定的字符串，大多也是做游戏广告等关键字的垃圾站，丢弃
+
