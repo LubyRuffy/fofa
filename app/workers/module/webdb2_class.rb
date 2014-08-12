@@ -243,7 +243,7 @@ class WebDb
   end
 
   def need_update_host(host)
-    return false if redis_has_host?(host)
+    #return false if redis_has_host?(host)
 
     #不存在一条小于90天内的记录就需要更新
     r = @@queryer.query("select host,lastchecktime from subdomain where host='#{Mysql2::Client.escape(host)}'")

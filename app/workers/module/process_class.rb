@@ -102,7 +102,8 @@ class Processor
 
       utf8html = http_info[:utf8html]
       hosts = get_linkes(utf8html).select {|h|
-        !@webdb.redis_black_host?(h) && !@webdb.redis_has_host?(h) && !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))
+        !@webdb.redis_black_host?(h) && !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))
+        #&& !@webdb.redis_has_host?(h)
       }
 
       if hosts.size>0
