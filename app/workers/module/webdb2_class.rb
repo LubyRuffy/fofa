@@ -92,6 +92,15 @@ class WebDb
     @@redis.sismember('fofa:hosts', host)
   end
 
+  def redis_black_host?(host)
+    return true unless host
+    @@redis.sismember('fofa:black_hosts', host)
+  end
+
+  def redis_inc_failed_host(host)
+    @@redis.sadd('fofa:black_hosts', host) if @@redis.zincrby('fofa:failedhosts',1,host)>20
+  end
+
   private
   def db_query_exists(db, sql)
     @@queryer.query(sql).size>0

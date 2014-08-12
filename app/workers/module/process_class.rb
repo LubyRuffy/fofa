@@ -51,7 +51,7 @@ class Processor
   def add_host_to_webdb(host, force=false)
     host = hostinfo_of_url(host.downcase)
     return -1 if host.include?('/')
-    return -2 if is_bullshit_host?(host)
+    return -2 if is_bullshit_host?(host) || @webdb.redis_black_host?(host)
     only_host = host_of_url(host)
     ip = get_ip_of_host(only_host)
     return -3 if is_bullshit_ip?(ip)  || @webdb.is_redis_black_ip?(ip)
@@ -113,6 +113,7 @@ class Processor
 
       return 0
     else
+      @webdb.redis_inc_failed_host(host)
       @webdb.insert_host_to_error_table(host, "#{Socket.gethostname} : http failed! #{http_info[:errstring]}") if http_info[:write_error]
       return -7
     end
