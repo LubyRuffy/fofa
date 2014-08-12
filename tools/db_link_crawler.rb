@@ -60,7 +60,7 @@ while true
     }
 
     hosts = hosts.uniq.select {|h|
-      !@webdb.redis_black_host?(h) && !@webdb.redis_has_host?(h)
+      !@m.redis_black_host?(h) && !@m.redis_has_host?(h)
     }
 
     puts ""
