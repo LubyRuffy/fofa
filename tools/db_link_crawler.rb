@@ -59,7 +59,10 @@ while true
 
     }
 
-    hosts.uniq!
+    hosts = hosts.uniq.select {|h|
+      !@webdb.redis_black_host?(h) && !@webdb.redis_has_host?(h)
+    }
+
     puts ""
     puts "host count:"+hosts.size.to_s
     if hosts.size>0
