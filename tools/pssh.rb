@@ -16,7 +16,7 @@ class OptparseExample
     # We set default values here.
     options = OpenStruct.new
     options.verbose = false
-    options.username = ENV['USERNAME']
+    options.username = ENV['USERNAME'] || `whoami`
     options.password = nil
     options.mode = :sequence
     options.display_results = true
