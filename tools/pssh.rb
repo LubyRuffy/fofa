@@ -102,16 +102,19 @@ servers = options.servers.collect do |s|
   h
 end
 
-puts "execute #{ARGV} as #{options.username} at #{options.servers.size} servers, mode is : #{options.mode}"
+info = "execute #{ARGV} as #{options.username} at #{options.servers.size} servers, mode is : #{options.mode}"
+puts info
 commands = ARGV
-commands = ARGV[0].split(' ') if ARGV.size==1
+#commands = ARGV[0].split(' ') if ARGV.size==1
 on servers, in: options.mode do |s|
   #begin
 
     if options.display_results
+      #puts "=====#{s}=====",capture( commands )
       puts "=====#{s}=====",capture( commands[0], commands[1..-1] )
     else
       execute(commands[0], commands[1..-1])
+      #execute(commands)
     end
   #rescue SSHKit::Runner::ExecuteError => e
   #  puts e
