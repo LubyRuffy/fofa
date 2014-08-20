@@ -4,6 +4,8 @@ require 'sshkit/dsl'
 require 'optparse'
 require 'ostruct'
 
+Version = '0.1'
+
 class OptparseExample
 
   #
@@ -17,7 +19,7 @@ class OptparseExample
     options.username = ENV['USERNAME']
     options.password = nil
     options.mode = :sequence
-    options.display = true
+    options.display_results = true
     options.servers = []
 
     opt_parser = OptionParser.new do |opts|
@@ -49,7 +51,7 @@ class OptparseExample
 
       opts.on("-n", "--no-display",
                  "Do not display results of command execution") do
-        options.display = false
+        options.display_results = false
       end
 
       opts.separator ""
@@ -106,7 +108,7 @@ commands = ARGV[0].split(' ') if ARGV.size==1
 on servers, in: options.mode do |s|
   #begin
 
-    if options.display
+    if options.display_results
       puts s,capture( commands[0], commands[1..-1] )
     else
       puts s,execute(commands[0], commands[1..-1])
