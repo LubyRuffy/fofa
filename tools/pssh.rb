@@ -109,9 +109,9 @@ on servers, in: options.mode do |s|
   #begin
 
     if options.display_results
-      puts s,capture( commands[0], commands[1..-1] )
+      puts "=====#{s}=====",capture( commands[0], commands[1..-1] )
     else
-      puts s,execute(commands[0], commands[1..-1])
+      execute(commands[0], commands[1..-1])
     end
   #rescue SSHKit::Runner::ExecuteError => e
   #  puts e
