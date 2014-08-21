@@ -44,7 +44,7 @@ module SearchHelper
         end
       }
     end
-    return_all ? apps.uniq! : nil
+    return_all ? apps.uniq : nil
   end
 
   def get_cms

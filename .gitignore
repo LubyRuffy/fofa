@@ -2,6 +2,7 @@ tmp
 log
 config.yml
 database.yml
+development.sphinx.conf
 thinking_sphinx.yml
 .idea
 Gemfile.lock
