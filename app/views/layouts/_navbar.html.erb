@@ -13,10 +13,10 @@
 
 
         <li>
-          <a href="/info/library">组件列表</a>
+          <a href="/info/library"><i class="fa fa-wrench"></i>组件列表</a>
         </li>
         <li>
-          <a href="/fofacli">全网漏洞扫描器</a><span style="right:-10px;top:5px;
+          <a href="/fofacli"><i class="fa fa-bomb"></i>全网漏洞扫描器</a><span style="right:-10px;top:5px;
                 background-color: #f68484;
                 border-radius: 4px;
                 font: 700 11px Arial;
@@ -29,7 +29,10 @@
                 padding-left: 4px;
                 padding-right: 4px;">NEW</span>
         </li>
-        <li><%= link_to '数据报表', statistic_index_path, "data-no-turbolink" => true%>
+        <li>
+          <a href="/search/checkapp"><i class="fa fa-eye"></i>网站识别</a>
+        </li>
+        <li><%= link_to raw('<i class="fa fa-bar-chart-o"></i>')+'数据报表', statistic_index_path, "data-no-turbolink" => true%>
           <!--<li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="themes">
@@ -120,7 +123,7 @@
             </li>-->
 
         <% else %>
-            <li><%= link_to '登录', new_user_session_path%></li>
+            <li><%= link_to raw('<i class="fa fa-sign-in"></i>')+'登录', new_user_session_path%></li>
             <li><%= link_to "注册", new_user_registration_path%></li>
         <% end %>
       </ul>

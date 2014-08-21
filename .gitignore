@@ -4,3 +4,4 @@ config.yml
 database.yml
 thinking_sphinx.yml
 .idea
+Gemfile.lock

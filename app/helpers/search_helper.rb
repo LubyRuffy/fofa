@@ -13,6 +13,40 @@ end
 
 
 module SearchHelper
+  def get_http_info_from_db_or_net(url)
+    return nil unless url
+    http_info = nil
+    #try to get from db
+    http_info ||= Subdomain.where(:host=>host_of_url(url)).take
+    unless http_info
+      Processor.new.add_host_to_webdb(url,false,false)
+      http_info ||= Subdomain.nocache_where(:host=>host_of_url(url)).take
+    end
+    http_info
+  end
+
+  def check_info(app, http_info)
+    #puts "checking #{app.product}"
+    AppProcessor.parse(app.rule, http_info)
+  end
+
+  def check_app(url,return_all=false)
+    apps = []
+    http_info = get_http_info_from_db_or_net(url)
+    if http_info
+      Rule.all.each{ |app|
+        if check_info(app, http_info)
+          if return_all
+            apps << app.product
+          else
+            return app.product
+          end
+        end
+      }
+    end
+    return_all ? apps : nil
+  end
+
   def get_cms
     # 大于号>也好转义
     return [
@@ -139,6 +173,8 @@ module SearchHelper
       #['header="Server: Tomcat"'], Server: Tomcat X-Powered-By: WAF/2.0 这个指纹是安全狗
     ]
   end
+
+
 
 
 
@@ -349,6 +385,7 @@ module SearchHelper
       end
     end
   end
+
 
 
 end

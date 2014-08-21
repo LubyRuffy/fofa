@@ -1,0 +1,36 @@
+<div class="page-header" id="banner">
+    <div class="row">
+      <div class="col-lg-3">
+      </div>
+      <div class="col-lg-6">
+        <h1 style='text-align: center;'>识别应用</h1>
+
+        <% if @app %>
+            <div class="alert alert-success alert-dismissible ade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+              <%=@host%>识别的应用是：<strong><%=@app%></strong>
+            </div>
+        <% elsif @host %>
+            <div class="alert alert-warning alert-dismissible ade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+              <strong>无法识别 <%=@host%> 应用类型！</strong>
+            </div>
+		<% end %>
+	    
+	    <%= form_tag('/search/checkapp', method:'post') do %>
+	    <div class="input-group">
+          <input type="hidden" id="all" name="all" value="true"/>
+	      <input type="text" class="form-control" id="host" name="host" placeholder="请输入需要识别的网站，如：fofa.so">
+	      <span class="input-group-btn">
+	        <button class="btn btn-success" type="submit" data-toggle="tooltip" data-placement="right" title data-original-title="Tooltip on right" onclick='search'><i class="fa fa-search"></i> 提交</button>
+	      </span>
+	    </div><!-- /input-group -->
+	    <% end %>
+
+      </div>
+      <div class="col-lg-3">
+      </div>
+    </div>
+    <p><br/><br/></p>
+</div>
+

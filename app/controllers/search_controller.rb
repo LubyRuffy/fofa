@@ -3,7 +3,7 @@ require "sidekiq"
 require "#{Rails.root}/app/workers/url_worker.rb"
 
 class SearchController < ApplicationController
-  helper SearchHelper
+  include SearchHelper
   include ApiHelper
 
   def index
@@ -52,4 +52,10 @@ class SearchController < ApplicationController
     #require 'pp'
     #pp @results
   end
+
+  def checkapp
+    @host = params['host']
+    @app = check_app(@host, params['all']) if @host
+  end
+
 end

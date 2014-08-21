@@ -48,16 +48,25 @@ class Processor
   end
 
   #最上层函数，添加host到数据库
-  def add_host_to_webdb(host, force=false)
+  def add_host_to_webdb(host, force=false, addlinkhosts=true)
     host = hostinfo_of_url(host.downcase)
+    return -1 unless host
     return -1 if host.include?('/')
     return -2 if is_bullshit_host?(host) || @webdb.redis_black_host?(host)
     only_host = host_of_url(host)
     ip = get_ip_of_host(only_host)
     return -3 if is_bullshit_ip?(ip)  || @webdb.is_redis_black_ip?(ip)
 
+    #if ip_dec(only_host)
+    #  host = ip_dec(only_host)
+    #  ip = host
+    #end
+
     domain_is_ip = false
     if host =~ /\d+\.\d+\.\d+\.\d/
+      if ip_dec(only_host) #0000314.00000014.0306.000000375
+        return -4
+      end
       domain = host
       domain_is_ip = true
     elsif ip_dec(only_host) #这种类型的ip：0x0079.0x000000000000000028.0x0083.00257
@@ -101,15 +110,18 @@ class Processor
       end
 
       utf8html = http_info[:utf8html]
-      hosts = get_linkes(utf8html).select {|h|
-        !@webdb.redis_black_host?(h) && !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))
-        #&& !@webdb.redis_has_host?(h)
-      }
 
-      if hosts.size>0
-          hosts.each {|h|
-            Sidekiq::Client.enqueue(Processor, h)
-          }
+      if addlinkhosts
+        hosts = get_linkes(utf8html).select {|h|
+          !@webdb.redis_black_host?(h) && !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))
+          #&& !@webdb.redis_has_host?(h)
+        }
+
+        if hosts.size>0
+            hosts.each {|h|
+              Sidekiq::Client.enqueue(Processor, h)
+            }
+        end
       end
 
       return 0

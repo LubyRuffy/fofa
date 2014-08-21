@@ -39,14 +39,22 @@ Fofa::Application.routes.draw do
     end
   end
 
+  resources :search do
+    collection do
+      get :index
+      get :result
+      get :get_web_cnt
+      get :get_host_content
+      get :get_hosts_by_ip
+      get :remove_black_ips
+      get :checkapp
+      post :checkapp
+    end
+  end
+
   get "statistic/index"
   get "statistic/get_server_info"
-  get "search/index"
-  get "search/result"
-  get "search/get_web_cnt"
-  get "search/get_host_content"
-  get "search/get_hosts_by_ip(.:format)"
-  get "search/remove_black_ips(.:format)"
+
   get "userhost/index"
   post "userhost/addhost"
   get "api/addhost"
