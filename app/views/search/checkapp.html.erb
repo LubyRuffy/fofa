@@ -5,7 +5,7 @@
       <div class="col-lg-6">
         <h1 style='text-align: center;'>识别应用</h1>
 
-        <% if @app %>
+        <% if @app && @app.size>0 %>
             <div class="alert alert-success alert-dismissible ade in" role="alert">
               <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
               <%=@host%>识别的应用是：<strong><%=@app%></strong>
