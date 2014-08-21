@@ -25,7 +25,7 @@ module Sidekiq
           msg = Sidekiq.load_json(message)
           Sidekiq::Client.push(msg)
           $cnt += 1
-          puts $cnt if $cnt%100 == 0
+          puts "#{$cnt}/#{Sidekiq.redis {|c| c.zcard(:failed) }}" if $cnt%100 == 0
         end
       end
     end
