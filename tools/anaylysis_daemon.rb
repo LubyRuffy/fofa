@@ -17,12 +17,12 @@ require @root_path+"/../app/models/subdomain.rb"
 Dir.chdir @root_path+"/../"
 puts "working dir: #{Dir.pwd}"
 
-
-config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))['development']
+rails_env = ENV['RAILS_ENV'] || 'development'
+config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))[rails_env]
 ThinkingSphinx::Configuration.instance.searchd.address = config['address']
 ThinkingSphinx::Configuration.instance.searchd.port = config['port']
 
-config = YAML::load(File.open(@root_path+"/../config/database.yml"))['development']
+config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
 
 @m = WebDb.new(@root_path+"/../config/database.yml")
