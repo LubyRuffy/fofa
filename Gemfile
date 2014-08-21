@@ -91,3 +91,5 @@ gem 'script_detector'
 gem 'celluloid'
 
 gem 'turnout'
+
+gem 'sshkit'

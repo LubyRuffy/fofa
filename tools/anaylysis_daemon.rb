@@ -18,7 +18,7 @@ Dir.chdir @root_path+"/../"
 puts "working dir: #{Dir.pwd}"
 
 rails_env = ENV['RAILS_ENV'] || 'development'
-config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))[rails_env]
+config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))['development']
 ThinkingSphinx::Configuration.instance.searchd.address = config['address']
 ThinkingSphinx::Configuration.instance.searchd.port = config['port']
 
