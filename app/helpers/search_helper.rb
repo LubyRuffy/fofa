@@ -34,7 +34,7 @@ module SearchHelper
     apps = []
     http_info = get_http_info_from_db_or_net(url)
     if http_info
-      Rule.all.each{ |app|
+      Rule.published.each{ |app|
         if check_info(app, http_info)
           if return_all
             apps << app.product
