@@ -38,6 +38,9 @@ File.open(@root_path+"/id.txt", 'r') {|f|
 
 STDOUT.sync = true
 while true
+  #如果队列大小已经>10000000，退出
+  break unless Sidekiq.redis {|redis| redis.llen('queue:process_url') } < 10000000
+
   sql = "select * from subdomain where id>#{@id} limit 10"
   r = @m.mysql.query(sql)
   if r.size>0
