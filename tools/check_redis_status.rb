@@ -24,9 +24,14 @@ def getlen(redis, key, type)
 end
 
 Sidekiq.redis {|redis|
+  arr = []
   redis.keys("*").each{|key|
     type = redis.type(key)
     len = getlen(redis, key, type)
-    puts "#{key}: #{type}: #{len}"
+    arr << {type: type, len: len, key: key} if len>1
   }
+  arr.sort_by{|x| -x[:len].to_i}.each{|a|
+    puts "#{a[:key]}: #{a[:type]}: #{a[:len]}"
+  }
+
 }
