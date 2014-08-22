@@ -10,6 +10,8 @@ def getlen(redis, key, type)
   case type
     when 'string'
       1
+    when 'hash'
+      1
     when 'set'
       redis.scard(key)
     when 'list'
