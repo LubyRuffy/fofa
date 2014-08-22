@@ -98,7 +98,7 @@ class WebDb
   end
 
   def redis_inc_failed_host(host)
-    @@redis.sadd('fofa:black_hosts', host) if @@redis.zincrby('fofa:failedhosts',1,host)>20
+    @@redis.sadd('fofa:black_hosts', host) if @@redis.zincrby('fofa:failedhosts',1,host)>10
   end
 
   private
