@@ -135,11 +135,11 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "黑名单域名（总数：#{Sidekiq.redis {|redis| redis.scard("black_domains")}}）" do
           ul do
-            Sidekiq.redis {|redis|
-              redis.smembers("black_domains").sort_by{|x| x}.each{|v|
-                li "#{v}"
-              }
-            }
+            #Sidekiq.redis {|redis|
+            #  redis.smembers("black_domains").sort_by{|x| x}.each{|v|
+            #    li "#{v}"
+            #  }
+            #}
           end
         end
       end
@@ -147,11 +147,11 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "黑名单IP（总数：#{Sidekiq.redis {|redis| redis.scard("black_ips")}}）" do
           ul do
-            Sidekiq.redis {|redis|
-              redis.smembers("black_ips").sort_by{|x| x}.each{|v|
-                li link_to("#{v}", "javascript:show_subdomain_info_click('#{v}')")+" -- "+link_to("移除黑名单", "javascript:remove_black_ips('#{v}')")
-              }
-            }
+            #Sidekiq.redis {|redis|
+            #  redis.smembers("black_ips").sort_by{|x| x}.each{|v|
+            #    li link_to("#{v}", "javascript:show_subdomain_info_click('#{v}')")+" -- "+link_to("移除黑名单", "javascript:remove_black_ips('#{v}')")
+            #  }
+            #}
           end
         end
       end
@@ -159,11 +159,11 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "黑名单主机（总数：#{Sidekiq.redis {|redis| redis.scard("black_hosts")}}）" do
           ul do
-            Sidekiq.redis {|redis|
-              redis.smembers("black_hosts").sort_by{|x| x}.each{|v|
-                li "#{v}"
-              }
-            }
+            #Sidekiq.redis {|redis|
+            #  redis.smembers("black_hosts").sort_by{|x| x}.each{|v|
+            #    li "#{v}"
+            #  }
+            #}
           end
         end
       end
