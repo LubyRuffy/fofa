@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'yaml'
+require 'benchmark'
 
 @root_path = File.expand_path(File.dirname(__FILE__))
 Dir.chdir @root_path
@@ -14,8 +15,10 @@ end
 
 rs = []
 ips.split(',').each_with_index{|h,i|
-  info = `./test.py -h #{h} -p 9312 -i idx1p#{i} test -l 1`.string_between_markers('times in ',' documents')
-  rs << "------> #{h} => #{info}"
+  result = Benchmark.measure do
+    @info = `./test.py -h #{h} -p 9312 -i idx1p#{i} test -l 1`.string_between_markers('times in ',' documents')
+  end
+  rs << "------> #{h} => #{@info} : cost time :"+result.to_s
 }
 
 rs.each{|r| puts r}

@@ -96,6 +96,7 @@ if not res:
 if cl.GetLastWarning():
 	print 'WARNING: %s\n' % cl.GetLastWarning()
 
+print res
 print 'Query \'%s\' retrieved %d of %d matches in %s sec' % (q, res['total'], res['total_found'], res['time'])
 print 'Query stats:'
 
