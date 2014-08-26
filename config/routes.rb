@@ -76,6 +76,12 @@ Fofa::Application.routes.draw do
         get :unsave
       end
     end
+
+    resources :categories do
+      collection do
+        get :index
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

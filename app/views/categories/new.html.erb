@@ -1,0 +1,10 @@
+
+<h1>提交分组<small>让大家看到你的贡献</small></h1>
+<% if @notice %>
+    <div class="alert <%if @error %>alert-warning<%else%>alert-success<%end%> alert-dismissible ade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+      <strong>提示：</strong> <%=@notice%>
+    </div>
+<% end %>
+<%= render 'form' %>
+

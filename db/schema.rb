@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805083145) do
+ActiveRecord::Schema.define(version: 20140825084031) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 20140805083145) do
   end
 
   add_index "analysis_info", ["writedate"], name: "writedate", unique: true, using: :btree
+
+  create_table "category", force: true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "category_rule", force: true do |t|
+    t.integer  "rule_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "error_host", force: true do |t|
     t.string   "host"
@@ -84,19 +99,19 @@ ActiveRecord::Schema.define(version: 20140805083145) do
   add_index "sph_counter", ["index_name"], name: "index_name", using: :btree
 
   create_table "subdomain", force: true do |t|
-    t.string    "host",                      null: false
-    t.string    "subdomain"
-    t.string    "domain"
-    t.string    "reverse_domain"
-    t.string    "ip"
-    t.text      "header"
-    t.string    "title"
-    t.string    "pr"
-    t.timestamp "lastupdatetime"
-    t.timestamp "lastchecktime"
-    t.string    "memo"
-    t.text      "body"
-    t.string    "app"
+    t.string   "host",           null: false
+    t.string   "subdomain"
+    t.string   "domain"
+    t.string   "reverse_domain"
+    t.string   "ip"
+    t.text     "header"
+    t.string   "title"
+    t.string   "pr"
+    t.datetime "lastupdatetime"
+    t.datetime "lastchecktime"
+    t.string   "memo"
+    t.text     "body"
+    t.string   "app"
   end
 
   add_index "subdomain", ["host"], name: "host", unique: true, using: :btree

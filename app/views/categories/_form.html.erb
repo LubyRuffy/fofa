@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag params[:controller] %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="well bs-component">
+<%= form_for(@category, html: {class: "form-horizontal", id:"validate"} ) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <fieldset>
+        <legend></legend>
+        <div class="form-group">
+          <label for="textArea" class="col-lg-2 control-label">规则组标题</label>
+          <div class="col-lg-10">
+            <%= f.text_field :title, :class=> "form-control required", :placeholder=>'CMS组', :value => @notice?nil:@rawcategory||@category.title%>
+            <span class="help-block">后期用于生成报表的标题。</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">规则列表</label>
+          <div class="col-lg-10">
+            <%= f.collection_check_boxes( :rule_ids, current_user.rules.all, :id, :product) {|b| %>
+            <% @id_cnt ||= 0; @id_cnt += 1; html = b.label(class:"control-label"){ b.check_box + raw("&nbsp&nbsp") + b.text + raw("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp")};  html += raw("<br/>") if @id_cnt%4==0; %>
+            <% html } %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit "提交", class:"btn btn-primary" %>
+          </div>
+        </div>
+      </fieldset>
+<% end %>
+    </div>
+  </div>
+</div>
+
+
+<%= javascript_include_tag params[:controller] %>
