@@ -9,6 +9,7 @@ redis_url = "redis://#{config['host']}:#{config['port']}/#{config['db']}"
 #  Redis::Namespace.new(config['namespace'], :redis => Redis.new(:url => redis_url))
 #end
 
+=begin
 require 'sidekiq'
 require 'sidekiq/fetch'
 
@@ -33,6 +34,9 @@ module Sidekiq
   end
 end
 
+Sidekiq.options[:fetch] = Sidekiq::DynamicFetch
+=end
+
 Sidekiq.configure_server do |cfg|
   cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 2 }
   cfg.failures_max_count = false
@@ -43,4 +47,3 @@ Sidekiq.configure_client do |cfg|
 end
 
 
-Sidekiq.options[:fetch] = Sidekiq::DynamicFetch
