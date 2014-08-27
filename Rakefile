@@ -32,6 +32,7 @@ namespace :fofa do
   
   desc "Start workers (threads can set by WCNT environment)"
   task :start_workers => :environment do
+    `rm -f #{Rails.root}/log/*.log`
     puts "Starting #{ENV['WCNT']} worker(s)"
     concurrency = ''
     concurrency = '-c '+ENV['WCNT'] if ENV['WCNT']
