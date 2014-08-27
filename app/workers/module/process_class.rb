@@ -9,7 +9,6 @@ require root_path+"/lrlink.rb"
 require root_path+"/webdb2_class.rb"
 require root_path+"/httpmodule.rb"
 
-
 class Processor
   include HttpModule
   include Lrlink

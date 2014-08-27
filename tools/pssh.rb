@@ -3,6 +3,7 @@ require 'sshkit'
 require 'sshkit/dsl'
 require 'optparse'
 require 'ostruct'
+require 'yaml'
 
 Version = '0.1'
 
@@ -42,6 +43,21 @@ class OptparseExample
       opts.on("-h", "--hosts HOSTS_FILE_PATH",
               "Each line is a host, could be '1.1.1.1' or 'user@a.com'") do |hostfile|
         options.servers = File.readlines(hostfile).map{|l| l.strip}.select{|l| !l.include?'#'}
+      end
+
+      opts.on("-y", "--ymlhosts HOSTS_FILE_PATH,GROUPKEY",
+              "Each line is a host group, could be 'group1=1.1.1.1,2.2.2.2'") do |hostfile|
+        file,group = hostfile.split(',')
+        unless group
+          puts "[Error]: please specify group of server!"
+          exit
+        end
+        config = YAML::load(File.open(file))
+        unless config[group]
+          puts "[Error]: can not find group of server!"
+          exit
+        end
+        options.servers = config[group].split(',')
       end
 
       opts.on("-m", "--mode MODE",

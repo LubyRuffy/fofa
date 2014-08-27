@@ -55,7 +55,8 @@ class SearchController < ApplicationController
 
   def checkapp
     @host = params['host']
-    @app = check_app(@host, params['all']) if @host
+    #@post = request.post?
+    @app = check_app(@host, params['all']) if @host #&& @post
   end
 
 end

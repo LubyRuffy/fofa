@@ -72,11 +72,14 @@
   <div class="container">
     <div class="row well-small" style="border: 1px solid #e1e1e8;">
       <div class="col-lg-4" style="padding: 8px">
-        <%=link_to doc.host, "http://"+doc.host, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank" 
-        %>  <a href="javascript:view('<%= doc.host%>')"><img src="/eye.png"></a>
+        <%=link_to raw('') + doc.host + raw(' <i class="fa fa-external-link"></i>') , "http://"+doc.host, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank"
+        %>
         <br/> <%= doc.title.force_encoding('utf-8') %>
       <br/> <%= link_to doc.ip, "/search/result?qbase64="+CGI.escape(Base64.encode64('ip="'+doc.ip+'"')) %>
     <br/> 更新时间：<%= doc.lastupdatetime.to_datetime.strftime('%F') %>
+    <br/>
+        <a href="javascript:view('<%= doc.host%>')" style="font-size: 20px"><i class="fa fa-file-code-o"></i></a>
+        <a href="/search/checkapp?host=<%= doc.host%>" style="font-size: 20px" target="_blank"><i class="fa fa-cogs"></i></a>
   <br/> 
   <% if @tags[doc.host] %>
     <% if @tags[doc.host].is_a?(Array) %>

@@ -20,7 +20,7 @@
 	    <%= form_tag('/search/checkapp', method:'post') do %>
 	    <div class="input-group">
           <input type="hidden" id="all" name="all" value="true"/>
-	      <input type="text" class="form-control" id="host" name="host" placeholder="请输入需要识别的网站，如：fofa.so">
+	      <input type="text" class="form-control" id="host" name="host" placeholder="请输入需要识别的网站，如：fofa.so" <%if @host%>value="<%=@host%>"<%end%>>
 	      <span class="input-group-btn">
 	        <button class="btn btn-success" type="submit" data-toggle="tooltip" data-placement="right" title data-original-title="Tooltip on right" onclick='search'><i class="fa fa-search"></i> 提交</button>
 	      </span>
