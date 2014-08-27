@@ -2,7 +2,7 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 require 'turnout/rake_tasks'
 require File.expand_path('../config/application', __FILE__)
-#require 'thinking_sphinx/tasks' 
+#require 'thinking_sphinx/tasks'
 
 Fofa::Application.load_tasks
 
@@ -98,6 +98,22 @@ namespace :fofa do
   task :restart_all do
     Rake::Task["fofa:restart_workers"].invoke
     Rake::Task["fofa:restart_unicorn"].invoke
+  end
+
+  desc 'Runs Sidekiq as a rake task'
+  task :debug_sidekiq => :environment do
+    require 'sidekiq'
+    require 'sidekiq/cli'
+    begin
+      cli = Sidekiq::CLI.instance
+      cli.parse
+      cli.run
+    rescue => e
+      raise e if $DEBUG
+      STDERR.puts e.message
+      STDERR.puts e.backtrace.join("\n")
+      exit 1
+    end
   end
 
 end
