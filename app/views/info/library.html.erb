@@ -8,7 +8,7 @@
   <%
      cat.rules.each { |r|
   %>
-        <%= link_to(r.product, r) + raw('， ') %>
+        <%= link_to(r.product, "/search/result?qbase64="+CGI.escape(Base64.encode64(r.rule))) + raw('， ') %>
   <%
      }
   %>
