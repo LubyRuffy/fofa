@@ -15,8 +15,12 @@ class InfoController < ApplicationController
 
   def library
     @all_cnt = Rule.count
-    @rules = Rule.where(:published=>1).order('created_at desc').paginate(:page => params[:page],
-                                         :per_page => 20)
+    @categories = Category.where(:published=>1).order('created_at desc')
+  end
+
+  def libraryfull
+    @all_cnt = Rule.count
+    @rules = Rule.published
   end
   
   def contact

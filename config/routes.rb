@@ -11,6 +11,7 @@ Fofa::Application.routes.draw do
     collection do
       get :fofacli
       get :library
+      get :libraryfull
       get :about
       get :contact
       get :gov_cnt
