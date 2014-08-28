@@ -126,7 +126,7 @@ class Processor
       return 0
     else
       @webdb.redis_inc_failed_host(host)
-      @webdb.insert_host_to_error_table(host, "#{Socket.gethostname} : http failed! #{http_info[:errstring]}") if http_info[:write_error]
+      #@webdb.insert_host_to_error_table(host, "#{Socket.gethostname} : http failed! #{http_info[:errstring]}") if http_info[:write_error]
       return -7
     end
   end
