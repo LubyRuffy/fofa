@@ -39,6 +39,15 @@
         </div>
 
         <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">规则列表</label>
+          <div class="col-lg-10">
+            <%= f.collection_check_boxes( :category_ids, current_user.categories.all, :id, :title) {|b| %>
+                <% @id_cnt ||= 0; @id_cnt += 1; html = b.label(class:"control-label"){ b.check_box + raw("&nbsp&nbsp") + b.text + raw("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp")};  html += raw("<br/>") if @id_cnt%4==0; %>
+            <% html } %>
+          </div>
+        </div>
+
+        <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
             <%= f.submit "提交", class:"btn btn-primary" %>
           </div>

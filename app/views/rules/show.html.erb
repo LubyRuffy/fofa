@@ -22,4 +22,11 @@
   <%= link_to @rule.rule, "/search/result?qbase64="+Base64.encode64(@rule.rule), :target => "_blank"%>
 </p>
 
+<p>
+  <strong>分组:</strong>
+  <% @rule.categories.each{|r| %>
+      <%= raw('<li>') + link_to(r.title, r) + raw('</li>') %>
+  <% } %>
+</p>
+
 <%= link_to '编辑', edit_rule_path(@rule) %>
