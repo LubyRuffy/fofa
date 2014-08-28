@@ -365,12 +365,16 @@ module SearchHelper
 
     def process_eq(ast)
       check_column!(ast[:left])
-      http[ast[:left].to_s.to_sym].include?  parse_value(ast[:right])
+      value=parse_value(ast[:right])
+      value.gsub! '\"', '"'
+      http[ast[:left].to_s.to_sym].include?  value
     end
 
     def process_not_eq(ast)
       check_column!(ast[:left])
-      !http[ast[:left].to_s.to_sym].include? parse_value(ast[:right])
+      value=parse_value(ast[:right])
+      value.gsub! '\"', '"'
+      !http[ast[:left].to_s.to_sym].include? value
     end
 
     def parse_value(value)
