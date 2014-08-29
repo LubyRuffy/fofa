@@ -42,7 +42,7 @@ class OptparseExample
 
       opts.on("-h", "--hosts HOSTS_FILE_PATH",
               "Each line is a host, could be '1.1.1.1' or 'user@a.com'") do |hostfile|
-        options.servers = File.readlines(hostfile).map{|l| l.strip }.select{|l| l.size>2 && !l.include?'#'}
+        options.servers = File.readlines(hostfile).map{|l| l.strip }.select{|l| l.size>2 && !l.include?('#')}
       end
 
       opts.on("-y", "--ymlhosts HOSTS_FILE_PATH,GROUPKEY",
