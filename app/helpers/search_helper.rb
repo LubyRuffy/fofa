@@ -30,11 +30,13 @@ module SearchHelper
     AppProcessor.parse(app.rule, http_info)
   end
 
-  def check_app(url,return_all=false)
+  def check_app(url,return_all=true,onlyapp=nil)
     apps = []
     http_info = get_http_info_from_db_or_net(url)
     if http_info
-      Rule.published.each{ |app|
+      rules = Rule.published
+      rules = rules.select{|r| onlyapp==r.product} if onlyapp
+      rules.each{ |app|
         if check_info(app, http_info)
           if return_all
             apps << app.product
@@ -367,14 +369,14 @@ module SearchHelper
       check_column!(ast[:left])
       value=parse_value(ast[:right])
       value.gsub! '\"', '"'
-      http[ast[:left].to_s.to_sym].include?  value
+      http[ast[:left].to_s.to_sym].downcase.include?  value.downcase
     end
 
     def process_not_eq(ast)
       check_column!(ast[:left])
       value=parse_value(ast[:right])
       value.gsub! '\"', '"'
-      !http[ast[:left].to_s.to_sym].include? value
+      !http[ast[:left].to_s.to_sym].downcase.include?  value.downcase
     end
 
     def parse_value(value)

@@ -9,7 +9,7 @@ require 'active_record'
 #require @root_path+"/../config/initializers/sidekiq.rb"
 #require 'awesome_print'
 
-rails_env = ENV['RAILS_ENV'] || 'development'
+rails_env = ENV['RAILS_ENV'] || 'production'
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
 require @root_path+"/../app/models/rule.rb"
@@ -17,7 +17,7 @@ require @root_path+"/../app/models/subdomain.rb"
 require @root_path+"/../app/workers/module/process_class.rb"
 
 if ARGV.size>0
-  app = check_app(ARGV[0])
+  app = check_app(ARGV[0], true, ARGV[1])
   if app
     puts app
   else

@@ -2,13 +2,12 @@
 require 'yaml'
 require 'json'
 require 'erb'
+require 'active_record'
+require 'thinking_sphinx'
+
 @root_path = File.expand_path(File.dirname(__FILE__))
 require @root_path+"/../app/workers/module/httpmodule.rb"
 require @root_path+"/../app/workers/module/webdb2_class.rb"
-
-require 'thinking_sphinx'
-ThinkingSphinx::SphinxQL.functions!
-#ThinkingSphinx::Middlewares::DEFAULT.delete ThinkingSphinx::Middlewares::UTF8
 
 require @root_path+"/../app/helpers/search_helper.rb"
 include SearchHelper
@@ -18,23 +17,45 @@ Dir.chdir @root_path+"/../"
 puts "working dir: #{Dir.pwd}"
 
 rails_env = ENV['RAILS_ENV'] || 'development'
-config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))['development']
-ThinkingSphinx::Configuration.instance.searchd.address = config['address']
-ThinkingSphinx::Configuration.instance.searchd.port = config['port']
+thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))['development']
 
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
 
 @m = WebDb.new(@root_path+"/../config/database.yml")
 
+USE_THINKING_SPHINX=false
+if USE_THINKING_SPHINX
+  ThinkingSphinx::SphinxQL.functions!
+  #ThinkingSphinx::Middlewares::DEFAULT.delete ThinkingSphinx::Middlewares::UTF8
+  ThinkingSphinx::Configuration.instance.searchd.address = thinking_config['address']
+  ThinkingSphinx::Configuration.instance.searchd.port = thinking_config['port']
+else
+  @mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
+                              :username => thinking_config['connection_options']['username'],
+                               :password => thinking_config['connection_options']['password'],
+                               :database => thinking_config['connection_options']['database'],
+                               :port => thinking_config['mysql41'],
+                               :encoding => 'utf8', :reconnect => true)
+end
+
 def build_info(query_array, col_name)
   results = {}
   query_array.each {|l|
     query_info = l[3]
-    print query_info
-    cnt = ThinkingSphinx.search(SphinxProcessor.parse(query_info), :match_mode => :extended).meta['total_found']
+    puts query_info
+    match_query =  SphinxProcessor.parse(query_info)
+
+    if USE_THINKING_SPHINX
+      data = ThinkingSphinx.search(match_query, :match_mode => :extended)
+      cnt = data.meta
+    else
+      match_sql = "select count(*) as cnt from subdomain_core where match('#{Mysql2::Client.escape(match_query)}')"
+      puts match_sql
+      cnt = @mysql.query(match_sql).first['cnt']
+    end
     results[ l[0] ] = cnt
-    puts "=>"+cnt
+    puts "=> #{cnt}"
   }
 
   puts results.to_json
