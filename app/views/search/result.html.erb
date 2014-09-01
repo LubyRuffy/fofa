@@ -68,11 +68,14 @@
 </div>
 
 
-<% @results.each do |doc| %>
+<% @results.each do |doc|
+  url = doc.host
+  url = "http://" + url if !url.include?('https://')
+%>
   <div class="container">
     <div class="row well-small" style="border: 1px solid #e1e1e8;">
       <div class="col-lg-4" style="padding: 8px">
-        <%=link_to raw('') + doc.host + raw(' <i class="fa fa-external-link"></i>') , "http://"+doc.host, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank"
+        <%=link_to raw('') + doc.host + raw(' <i class="fa fa-external-link"></i>') , url, :target => "_blank" #link_to doc.host, "http://webscan.360.cn/index/checkwebsite/url/"+doc.host, :target => "_blank"
         %>
         <br/> <%= doc.title.force_encoding('utf-8') %>
       <br/> <%= link_to doc.ip, "/search/result?qbase64="+CGI.escape(Base64.encode64('ip="'+doc.ip+'"')) %>
