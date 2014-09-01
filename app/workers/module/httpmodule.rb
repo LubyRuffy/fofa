@@ -191,10 +191,12 @@ module HttpModule
             return resp if ops[:following]>2
 
             #  puts "redirect"
-            if response['location'].include?("http://")
+            if response['location'].include?("http://") || response['location'].include?("https://")
               return get_web_content(response['location'], ops)
             else
-              return get_web_content("http://"+resp[:host]+"/"+response['location'], ops)
+              new_url = URI.join(url, response['location']).to_s
+              return get_web_content(new_url, ops)
+              #return get_web_content("http://"+resp[:host]+"/"+response['location'], ops)
             end
           end
 
@@ -204,10 +206,12 @@ module HttpModule
                 ops[:following] += 1
                 return resp if ops[:following]>2
                 loc = x[0]
-                if loc.include?("http://")
+                if loc.include?("http://") || loc.include?("https://")
                   return get_web_content(loc, ops)
                 else
-                  return get_web_content("http://"+resp[:host]+"/"+loc, ops)
+                  new_url = URI.join(url, loc).to_s
+                  return get_web_content(new_url, ops)
+                  #return get_web_content("http://"+resp[:host]+"/"+loc, ops)
                 end
               }
             end
@@ -217,10 +221,12 @@ module HttpModule
                 ops[:following] += 1
                 return resp if ops[:following]>2
                 loc = x[0]
-                if loc.include?("http://")
+                if loc.include?("http://") || loc.include?("https://")
                   return get_web_content(loc, ops)
                 else
-                  return get_web_content("http://"+resp[:host]+"/"+loc, ops)
+                  new_url = URI.join(url, loc).to_s
+                  return get_web_content(new_url, ops)
+                  #return get_web_content("http://"+resp[:host]+"/"+loc, ops)
                 end
               }
             end
