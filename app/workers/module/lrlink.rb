@@ -40,6 +40,7 @@ module Lrlink
       uri = URI(url)
       rr = uri.host
       rr = rr+':'+uri.port.to_s if uri.port!=80 && uri.port!=443
+      rr = 'https://'+rr if uri.scheme == 'https'
       rr
     rescue => e
       nil

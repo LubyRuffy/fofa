@@ -6,4 +6,5 @@ ips.yml
 development.sphinx.conf
 thinking_sphinx.yml
 .idea
+fofa.iml
 Gemfile.lock

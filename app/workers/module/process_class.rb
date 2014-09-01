@@ -50,7 +50,7 @@ class Processor
   def add_host_to_webdb(host, force=false, addlinkhosts=true)
     host = hostinfo_of_url(host.downcase)
     return -1 unless host
-    return -1 if host.include?('/')
+    return -1 if host.include?('/') && !host.include?('https://')
     return -2 if is_bullshit_host?(host) || @webdb.redis_black_host?(host)
     only_host = host_of_url(host)
     ip = get_ip_of_host(only_host)
