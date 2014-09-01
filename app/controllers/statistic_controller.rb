@@ -7,6 +7,11 @@ class StatisticController < ApplicationController
    @cloudsec_info_data = get_json_data @ai, 'cloudsec_info'
   end
 
+  def categories
+    @rules_data = Charts.select("#{Charts.table_name}.rule_id, #{Charts.table_name}.value, #{Charts.table_name}.writedate").joins("LEFT JOIN #{Charts.table_name} as i2 ON i2.rule_id = #{Charts.table_name}.rule_id AND #{Charts.table_name}.writedate < i2.writedate").where("i2.writedate IS NULL").order("writedate DESC").to_a
+    @categories = Category.published
+  end
+
 
 
   def get_server_info

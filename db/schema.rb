@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825084031) do
+ActiveRecord::Schema.define(version: 20140901101634) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20140825084031) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "charts", force: true do |t|
+    t.integer  "rule_id"
+    t.integer  "value"
+    t.date     "writedate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "charts", ["writedate", "rule_id"], name: "index_charts_on_writedate_rule", unique: true, using: :btree
 
   create_table "error_host", force: true do |t|
     t.string   "host"

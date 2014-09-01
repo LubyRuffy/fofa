@@ -5,7 +5,7 @@
       <div class="col-lg-6">
         <h1 style='text-align: center;'>佛法<small class="lead">网站信息知识库</small></h1>
 
-        <form style="100%" action='/search/result' method='get'>
+        <form style="100%" action='/search/result' method='get' data-no-turbolink="true">
         <div class="input-group">
           <input type="text" class="form-control" id="q" name="q">
           <%= hidden_field_tag(:qbase64, "") %>

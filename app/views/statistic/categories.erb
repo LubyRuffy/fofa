@@ -1,0 +1,56 @@
+
+<%= stylesheet_link_tag params[:controller] %>
+
+<h1>数据统计报表</h1>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+      <% @categories.each {|cat| %>
+      <!-- Start col-lg-6 -->
+      <div class="panel panel-info toggle panelClose">
+        <!-- Start .panel -->
+        <div class="panel-heading">
+          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> <%=cat.title%></h4>
+        </div>
+        <div class="panel-body">
+          <div id="<%=cat.id%>"></div>
+        </div>
+      </div>
+      <!-- End .panel -->
+      <% } %>
+    </div>
+
+</div>
+
+
+<script>
+    //This will get the first returned node in the jQuery collection.
+    window.onload = function(){
+        <% @categories.each {|cat|
+            chart_rules = cat.rules.map{|r|
+                rinfo = @rules_data.detect{|d|
+                    d.rule_id==r.id
+                }
+                [r.product, rinfo ? rinfo.value : 0]
+            }.sort_by{|r| -r[1]}
+        %>
+            show_pie_chart(<%=cat.id%>, '', <%=raw(chart_rules.to_json
+=begin
+                cat.rules.map{|r|
+                last_data = Charts.where(rule_id: r.id).order(writedate: :desc).limit(1).take
+                cnt = 0
+                cnt = last_data.value if last_data
+                [r.product, cnt ] }.sort_by{|r| -r[1]}.to_json
+=end
+               ) %>);
+        <% } %>
+
+        $('body').sprFlat({
+        });
+
+
+    };
+
+
+</script>
+<%= javascript_include_tag params[:controller] %>

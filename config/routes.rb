@@ -53,8 +53,13 @@ Fofa::Application.routes.draw do
     end
   end
 
-  get "statistic/index"
-  get "statistic/get_server_info"
+  resources :statistic do
+    collection do
+      get :index
+      get :get_server_info
+      get :categories
+    end
+  end
 
   get "userhost/index"
   post "userhost/addhost"
