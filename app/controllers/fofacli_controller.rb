@@ -23,6 +23,6 @@ class FofacliController < ApplicationController
 
   def download
     require_user
-    redirect_to '/fofacli-0.0.1.zip'
+    redirect_to '/fofacli-0.0.2.zip'
   end
 end
