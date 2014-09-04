@@ -127,15 +127,16 @@ hostinfo\t:\tcheck only one host, format like host:port}
         exit -1
       end
       fofacfg = YAML::load( File.open(cfg_file) )
-      puts fofacfg
+      #puts fofacfg
 
       fofaquery = @args[:params]["fofaquery"] || fe.info['FofaQuery']
       uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(fofaquery))+'&key='+fofacfg['key']+'&email='+fofacfg['email'] )
       res = Net::HTTP.get_response(uri)
-      if res['error']
+      info = JSON.parse(res.body)
+      if info['error']
         $stderr.puts "[ERROR] receive fofa results failed: #{res['error']}"
       else
-        results = JSON.parse(res.body)['results']
+        results = info['results']
         if results.size>0
           require 'thread/pool'
           @p = Thread.pool(10)
