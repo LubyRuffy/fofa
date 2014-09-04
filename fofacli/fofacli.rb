@@ -134,7 +134,7 @@ hostinfo\t:\tcheck only one host, format like host:port}
       res = Net::HTTP.get_response(uri)
       info = JSON.parse(res.body)
       if info['error']
-        $stderr.puts "[ERROR] receive fofa results failed: #{res['error']}"
+        $stderr.puts "[ERROR] receive fofa results failed: #{info['error']}"
       else
         results = info['results']
         if results.size>0
