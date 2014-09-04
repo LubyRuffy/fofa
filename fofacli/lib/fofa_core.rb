@@ -58,10 +58,12 @@ module Fofa
           test[:checks].each{|t|
             return false unless check_one(response, t)
           }
+          return true
         when 'OR'
           test[:checks].each{|t|
             return true if check_one(response, t)
           }
+          return false
       end
     end
 

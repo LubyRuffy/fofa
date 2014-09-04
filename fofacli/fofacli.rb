@@ -104,7 +104,12 @@ hostinfo\t:\tcheck only one host, format like host:port}
     fe = m.new
     #p @args[:params]
     if @args[:params]["hostinfo"]
-      fe.vulnerable(@args[:params]["hostinfo"])
+      vulnerable = fe.vulnerable(@args[:params]["hostinfo"])
+      if vulnerable
+        puts "#{@args[:params]["hostinfo"]} : vulnerable"
+      else
+        puts "#{@args[:params]["hostinfo"]} : -"
+      end
     elsif @args[:params]["fofaquery"] || fe.info['FofaQuery']
       require 'net/http'
       require 'json'

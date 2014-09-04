@@ -74,7 +74,7 @@ module Fofa
             if response['location']
               resp[:redirect_url] = response['location']
             end
-
+=begin
             if response.code.to_i == 301 || response.code.to_i == 302
               ops[:following] += 1
               return resp if ops[:following]>2
@@ -113,7 +113,7 @@ module Fofa
                 }
               end
             end
-
+=end
           rescue Timeout::Error => e
             resp[:code] = 999
           rescue =>e
