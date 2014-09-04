@@ -27,7 +27,7 @@ Sidekiq.redis {|redis|
   arr = []
   redis.keys("*").each{|key|
     type = redis.type(key)
-    len = getlen(redis, key, type)
+    len = getlen(redis, key, type).to_i
     arr << {type: type, len: len, key: key} if len>1
   }
   arr.sort_by{|x| -x[:len].to_i}.each{|a|
