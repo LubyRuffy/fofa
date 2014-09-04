@@ -49,17 +49,17 @@ while true
     puts "===================="
     print "id: "
     r.each {|h|
-      #@pool.process(h) { |h|
-        #puts "======#{h['id']} -> #{h['host']}======"
-        print h['id'].to_s+" "
+      print h['id'].to_s+" "
+      begin
         arr = get_linkes(h['body'])
         arr.each{|a|
           hosts << a
         }
-      #}
+      rescue =>e
+        puts "error => #{h['host']}"
+      end
       @id=h['id']
       ids << h['id']
-
     }
 
     hosts = hosts.uniq.select {|h|
