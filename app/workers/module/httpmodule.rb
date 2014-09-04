@@ -110,7 +110,6 @@ module HttpModule
       ip = uri.host
       ip = ops[:hostip] if ops[:hostip]
       resp[:host] = uri.host
-      ip = uri.host
       if ip =~ /^[0-9.]*$/
         resp[:ip] = ip
       else
@@ -137,14 +136,16 @@ module HttpModule
         proxyHost, proxyPort = [ aURL.host, aURL.port ]
         http_class = Net::HTTP.Proxy(proxyHost, proxyPort)
       end
-      http = http_class.new(ip, uri.port)
+      #http = http_class.new(ip, uri.port)
+      http = http_class.new(uri.host, uri.port)
       http.use_ssl = true if uri.scheme == 'https'
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http.open_timeout = 10
       http.read_timeout = 10
+      http.set_debug_output($stdout)
       http.start { |h|
         request = Net::HTTP::Get.new uri.request_uri
-        request['Host'] = uri.host
+        #request['Host'] = uri.host #unless uri.scheme == 'https'
         request['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
         request['Accept-Charset'] = 'GBK,utf-8;q=0.7,*;q=0.3'
         request['Accept-Encoding'] = 'gzip,deflate,sdch' unless (ENV['OS'] == 'Windows_NT')  #windows下处理gzip暂时有点问题
