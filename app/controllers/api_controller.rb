@@ -30,7 +30,7 @@ private
   def get_user
     user = User.where(:email=>params['email'], :key=>params['key']).take
     unless user
-      render :json => {error:'用户认证失败'}
+      render :json => {error:'用户认证失败，请确认conf/fofa.yml文件中的信息配置正确'}
     else
       @query = ''
       @query = Base64.decode64(params['qbase64']) if params['qbase64'] && params['qbase64'].size>2
