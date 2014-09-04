@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901101634) do
+ActiveRecord::Schema.define(version: 20140904095819) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20140901101634) do
 
   add_index "analysis_info", ["writedate"], name: "writedate", unique: true, using: :btree
 
+  create_table "apicall", force: true do |t|
+    t.integer  "user_id"
+    t.string   "query"
+    t.string   "action"
+    t.string   "ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "category", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -51,6 +60,8 @@ ActiveRecord::Schema.define(version: 20140901101634) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "category_rule", ["category_id", "rule_id"], name: "index_rule_on_category_rule", unique: true, using: :btree
 
   create_table "charts", force: true do |t|
     t.integer  "rule_id"
@@ -147,6 +158,7 @@ ActiveRecord::Schema.define(version: 20140901101634) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.boolean  "isadmin"
+    t.string   "key"
   end
 
   add_index "user", ["email"], name: "index_user_on_email", unique: true, using: :btree

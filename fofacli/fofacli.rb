@@ -104,20 +104,33 @@ hostinfo\t:\tcheck only one host, format like host:port}
     fe = m.new
     #p @args[:params]
     if @args[:params]["hostinfo"]
-      vulnerable = fe.vulnerable(@args[:params]["hostinfo"])
-      if vulnerable
-        puts "#{@args[:params]["hostinfo"]} : vulnerable"
+      if mod=='scan'
+        vulnerable = fe.vulnerable(@args[:params]["hostinfo"])
+        if vulnerable
+          puts "#{@args[:params]["hostinfo"]} : vulnerable"
+        else
+          puts "#{@args[:params]["hostinfo"]} : -"
+        end
       else
-        puts "#{@args[:params]["hostinfo"]} : -"
+        puts "#{@args[:params]["hostinfo"]} : #{fe.exploit(@args[:params]["hostinfo"])}"
       end
     elsif @args[:params]["fofaquery"] || fe.info['FofaQuery']
       require 'net/http'
       require 'json'
       require 'base64'
       require 'cgi'
+      require 'yaml'
+
+      cfg_file = File.join(File.expand_path(File.dirname(__FILE__)), 'conf/fofa.yml')
+      unless File.exist? cfg_file
+        $stderr.puts "[ERROR] no config file exists: #{cfg_file}"
+        exit -1
+      end
+      fofacfg = YAML::load( File.open(cfg_file) )
+      puts fofacfg
 
       fofaquery = @args[:params]["fofaquery"] || fe.info['FofaQuery']
-      uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(fofaquery)))
+      uri = URI('http://fofa.so/api/result?qbase64='+CGI.escape(Base64.encode64(fofaquery))+'&key='+fofacfg['key']+'&email='+fofacfg['email'] )
       res = Net::HTTP.get_response(uri)
       if res['error']
         $stderr.puts "[ERROR] receive fofa results failed: #{res['error']}"

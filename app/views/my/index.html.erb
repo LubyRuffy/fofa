@@ -6,3 +6,7 @@
     <!-- Start .bredcrumb -->
     <ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="index.html">首页</a><i class="en-arrow-right7"></i></li><li><i class="im-screen"></i> 控制面板 </li></ul>
     <!-- End .breadcrumb -->
+
+    <div class="alert alert-dismissable alert-info">
+      API KEY：  <font color="#adff2f"><strong><%=current_user.key%></strong></font> 用于调用<%= link_to 'fofacli', '/fofacli'%>，请妥善保管！
+    </div>

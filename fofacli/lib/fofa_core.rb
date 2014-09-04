@@ -2,7 +2,7 @@ require 'fofa_http'
 
 module Fofa
 
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
   class Exploit
     attr_reader :info
@@ -108,8 +108,6 @@ module Fofa
       end
     end
   end
-
-
 
 
 end
