@@ -41,7 +41,7 @@ while true
   #如果队列大小已经>1000000，退出
   break unless Sidekiq.redis {|redis| redis.llen('queue:process_url') } < 1000000
 
-  sql = "select * from subdomain where id>#{@id} limit 10"
+  sql = "select * from subdomain where id>#{@id} limit 100"
   r = @m.mysql.query(sql)
   if r.size>0
     hosts = []
@@ -64,6 +64,14 @@ while true
 
     hosts = hosts.uniq.select {|h|
       !@m.redis_black_host?(h) && !@m.redis_has_host?(h)
+    }.select {|h|
+      allow = true
+      domain_info = get_domain_info_by_host(h)
+      if domain_info
+        domain = domain_info.domain+'.'+domain_info.public_suffix
+        allow = !@m.is_redis_black_domain?(domain)
+      end
+      allow
     }
 
     puts ""
