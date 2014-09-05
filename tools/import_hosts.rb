@@ -3,6 +3,8 @@
 @root_path = File.expand_path(File.dirname(__FILE__))
 require 'sidekiq'
 require @root_path+"/../config/initializers/sidekiq.rb"
+require @root_path+"/../app/workers/module/process_class.rb"
+include Lrlink
 
 @lino = 0
 File.open(ARGV[0], 'r') do |f|
