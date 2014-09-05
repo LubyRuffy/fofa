@@ -51,7 +51,7 @@ class Processor
     host = hostinfo_of_url(host.downcase)
     return -1 unless host
     return -1 if host.include?('/') && !host.include?('https://')
-    return -2 if is_bullshit_host?(host) || @webdb.redis_black_host?(host)
+    return -2 if @webdb.redis_black_host?(host)
     only_host = host_of_url(host)
 
     #if ip_dec(only_host)
@@ -94,7 +94,6 @@ class Processor
     http_info = get_http(host)
     if http_info && ! http_info[:error]
       return -5 if is_bullshit_ip?(http_info[:ip])
-      return -6 if domain_info && is_bullshit_title?(http_info[:title], domain_info.subdomain)
 
       #puts host
       #pp http_info
@@ -114,7 +113,7 @@ class Processor
 
       if addlinkhosts
         hosts = get_linkes(utf8html).select {|h|
-          !@webdb.redis_black_host?(h) && !@webdb.mysql_exists_host(h) && !is_bullshit_host?(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))
+          !@webdb.redis_black_host?(h) && !@webdb.mysql_exists_host(h) && !@webdb.is_redis_black_ip?(get_ip_of_host(host_of_url(h)))
           #&& !@webdb.redis_has_host?(h)
         }
 

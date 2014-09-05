@@ -34,7 +34,7 @@
 
 <div class="row">
   <div class="col-lg-8">
-    搜索 <strong><%= @query.force_encoding('utf-8') %></strong> 
+    搜索 <strong><%= @query.force_encoding('utf-8') %></strong>
     获得 <%= @results.meta['total_found'] %> 条匹配结果，
     用时 <%= @results.meta['time'] %>秒，模式:<%=@mode%>。
     <% if @mode=='extended'%>
