@@ -16,8 +16,7 @@ module SearchHelper
   def get_http_info_from_db_or_net(url)
     return nil unless url
     http_info = nil
-    host=host_of_url(url)
-    host=hostinfo_of_url(url) if url.include?('https://')
+    host=hostinfo_of_url(url)
     #try to get from db
     http_info ||= Subdomain.where(:host=>host).take
     unless http_info
