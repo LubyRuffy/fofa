@@ -202,6 +202,7 @@
       <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
       <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
       <envs>
+        <env name="RAILS_ENV" value="production" />
         <env name="WGETLINK" value="true" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
@@ -213,7 +214,7 @@
       </EXTENSION>
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/tools/addhost.rb" />
-      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="https://ebs.shasteel.cn 1" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="100010329.jyggqt.com" />
       <RunnerSettings RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <method />

@@ -53,8 +53,6 @@ class Processor
     return -1 if host.include?('/') && !host.include?('https://')
     return -2 if is_bullshit_host?(host) || @webdb.redis_black_host?(host)
     only_host = host_of_url(host)
-    ip = get_ip_of_host(only_host)
-    return -3 if is_bullshit_ip?(ip)  || @webdb.is_redis_black_ip?(ip)
 
     #if ip_dec(only_host)
     #  host = ip_dec(only_host)
@@ -77,6 +75,10 @@ class Processor
       domain = domain_info.domain+'.'+domain_info.public_suffix
       return -2 if @webdb.is_redis_black_domain?(domain)
     end
+
+    #泛域名解析这里会超时，尽可能往下放
+    ip = get_ip_of_host(only_host)
+    return -3 if is_bullshit_ip?(ip)  || @webdb.is_redis_black_ip?(ip)
 
     #检查是否需要更新
     need_update,exists_host=@webdb.need_update_host(host)
