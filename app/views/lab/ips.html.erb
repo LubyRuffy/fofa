@@ -1,0 +1,69 @@
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+      <h1 style='text-align: center;'>获取域名IP范围</h1>
+
+      <%= form_tag('/lab/ips', method:'post') do %>
+          <div class="input-group">
+            <input type="hidden" id="all" name="all" value="true"/>
+            <input type="text" class="form-control" id="domain" name="domain" placeholder="请输入根域名，如：fofa.so" <%if @domain%>value="<%=@domain%>"<%end%>>
+	      <span class="input-group-btn">
+	        <button class="btn btn-info" type="submit" data-toggle="tooltip" data-placement="right" title data-original-title="Tooltip on right" onclick='search'><i class="fa fa-search"></i> 查查看</button>
+	      </span>
+          </div><!-- /input-group -->
+      <% end %>
+
+      <p></p>
+
+      <% if @ips && @ips.size>0 %>
+          <div class="alert alert-success alert-dismissible ade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+            为 <%=@domain%> 检索到 <strong><%=@ips.size%></strong> 个网段！
+          </div>
+      <% elsif @domain %>
+          <div class="alert alert-warning alert-dismissible ade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+            <strong>未检索到 <%=@domain%> 的相关信息！</strong>
+          </div>
+      <% end %>
+
+
+    </div>
+    <div class="col-lg-3">
+    </div>
+  </div>
+
+</div>
+
+
+<% @ips.each do |net|
+   ipnet,hosts,ips,netipcnt = net
+%>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4" style="background-color: #f7f7f9; font-size: 12px; padding: 8px; line-height: 14px;">
+            <%= ipnet %>，共有<%= netipcnt %> 个IP<br/>
+          <% ips.split(',') .each{|ip|
+            url = ip
+            url = "http://" + url if !url.include?('https://')
+          %>
+
+              <%= link_to ip , url, :target => "_blank"  %>,
+          <% } %>
+        </div>
+        <div class="col-lg-8" style="padding: 8px">
+            <% hosts.split(',') .each{|host|
+              url = host
+              url = "http://" + url if !url.include?('https://')
+            %>
+
+              <%= link_to host , url, :target => "_blank"  %>,
+            <% } %>
+        </div>
+      </div>
+      <p></p>
+    </div>
+<% end %>
+<p><br/><br/></p>

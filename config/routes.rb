@@ -1,5 +1,7 @@
 Fofa::Application.routes.draw do
 
+  get "lab/ips"
+  post "lab/ips"
   get "fofacli/index"
   get "fofacli/getstarted"
   get "fofacli/commandline"
