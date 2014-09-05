@@ -140,8 +140,8 @@ module HttpModule
       http = http_class.new(uri.host, uri.port)
       http.use_ssl = true if uri.scheme == 'https'
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      http.open_timeout = 10
-      http.read_timeout = 10
+      http.open_timeout = 15
+      http.read_timeout = 15
       #http.set_debug_output($stdout)
       http.start { |h|
         request = Net::HTTP::Get.new uri.request_uri
