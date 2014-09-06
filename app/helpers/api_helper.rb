@@ -1,4 +1,9 @@
 module ApiHelper
+  def search_sphinxql(query, page_count=1000)
+    options = {:match_mode=>:extended, :index => 'idx1',:sql => { :select => 'id,ip,title,header,host,domain,lastupdatetime'},:per_page => page_count,:page => params['page'],:order => "lastupdatetime DESC"}#:retry_stale => 2,
+    @results = ThinkingSphinx.search query,options
+  end
+
   def search(query, page_count=10)
     @query = query
     @query_l = nil
