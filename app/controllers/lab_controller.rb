@@ -21,7 +21,9 @@ class LabController < ApplicationController
         @sphinxql_sql = "(@ip \"#{all_ips.join('" | "')}\") @host -#{@domain}"
       end
       @results = search_sphinxql(@sphinxql_sql)
-      @domains = @results.map{|r| r.domain}.uniq
+
+      b = @results.map{|r| r.domain}.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
+      @domains = b.to_a
     end
   end
 

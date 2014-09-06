@@ -39,7 +39,8 @@
 
 
 <% if @domains
-   @domains.each do |domain|
+   @domains.each do |domain_cnt|
+   domain,cnt=domain_cnt
 %>
     <div class="container">
       <div class="row">
@@ -47,6 +48,7 @@
             <%= domain %>
         </div>
         <div class="col-lg-8" style="padding: 8px">
+            <%= cnt %>
         </div>
       </div>
       <p></p>
