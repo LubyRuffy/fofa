@@ -23,7 +23,7 @@ class LabController < ApplicationController
       @results = search_sphinxql(@sphinxql_sql)
 
       b = @results.map{|r| r.domain}.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
-      @domains = b.to_a
+      @domains = b.to_a.sort_by{|r| -r[1].to_i}
     end
   end
 
