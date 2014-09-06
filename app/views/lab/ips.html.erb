@@ -38,7 +38,8 @@
 </div>
 
 
-<% @ips.each do |net|
+<% if @ips
+   @ips.each do |net|
    ipnet,hosts,ips,netipcnt = net
 %>
     <div class="container">
@@ -65,5 +66,6 @@
       </div>
       <p></p>
     </div>
-<% end %>
+<% end
+end %>
 <p><br/><br/></p>
