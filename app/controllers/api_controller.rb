@@ -23,7 +23,7 @@ class ApiController < ApplicationController
 
     @error, @mode, @results, @tags = search(@query, 10000)
 
-    render :json => {error:@error, query:@query, mode:@mode, results:@results.map{|x| x.host }}
+    render :json => {error:@error, query:@query.force_encoding('utf-8'), mode:@mode, results:@results.map{|x| x.host }}
   end
 
 private
