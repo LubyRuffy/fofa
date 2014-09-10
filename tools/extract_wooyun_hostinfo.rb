@@ -25,7 +25,7 @@ end
   puts "=========#{page}=========="
   list_page = "http://www.wooyun.org/bugs/new_public/page/#{1}"
   http = get_http(list_page, list_page)
-  puts http
+  #puts http
   listhtml = http[:utf8html].string_between_markers '<table class="listTable">', '</table>'
   page = Nokogiri::HTML(listhtml)
   alinks = page.css('tr td a')
