@@ -7,6 +7,7 @@ require @root_path+"/../app/workers/module/httpmodule.rb"
 include Lrlink
 include HttpModule
 require 'colorize'
+require 'openssl'
 
 class String
   def string_between_markers marker1, marker2
@@ -20,10 +21,11 @@ def addhost(hosts)
   puts "response:"+res.body
 end
 
-(1..1100).each{|page|
+(25..1100).each{|page|
   puts "=========#{page}=========="
   list_page = "http://www.wooyun.org/bugs/new_public/page/#{1}"
   http = get_http(list_page, list_page)
+  puts http
   listhtml = http[:utf8html].string_between_markers '<table class="listTable">', '</table>'
   page = Nokogiri::HTML(listhtml)
   alinks = page.css('tr td a')
