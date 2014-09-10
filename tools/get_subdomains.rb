@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 #Description:Script for DNS Recon
 #Author: Carlos Perez carlos_perez[at]darkoperator.com

@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 require 'open-uri'
 @root_path = File.expand_path(File.dirname(__FILE__))
