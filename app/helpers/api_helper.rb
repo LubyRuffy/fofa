@@ -23,13 +23,17 @@ module ApiHelper
         @results = ThinkingSphinx.search @query_l,options
       else
         @mode = "normal"
-        options[:field_weights] = {
-            :host => 20,
-            :ip => 20,
-            :title => 10,
-            :header    => 6,
-            :body => 3
-        }
+        if @query.size>0
+          options[:field_weights] = {
+              :host => 20,
+              :ip => 20,
+              :title => 10,
+              :header    => 6,
+              :body => 3
+          }
+        else
+          options[:order] = "lastupdatetime DESC"
+        end
         @results = ThinkingSphinx.search Riddle::Query.escape(@query),options
       end
       @tags = {}

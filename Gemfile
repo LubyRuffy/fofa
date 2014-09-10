@@ -93,3 +93,9 @@ gem 'celluloid'
 gem 'turnout'
 
 gem 'sshkit'
+
+gem 'whois'
+
+gem 'net-dns'
+
+gem 'ip'
