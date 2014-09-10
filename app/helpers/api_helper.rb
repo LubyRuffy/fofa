@@ -15,13 +15,21 @@ module ApiHelper
 
     @results = nil
     begin
-      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,lastupdatetime'},:per_page => page_count,:page => params['page'],:order => "lastupdatetime DESC"}#:retry_stale => 2,
+      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,lastupdatetime'},:per_page => page_count,:page => params['page']}#:retry_stale => 2,
       if @query_l
         @mode = "extended"
         options[:match_mode] = :extended
+        options[:order] = "lastupdatetime DESC"
         @results = ThinkingSphinx.search @query_l,options
       else
         @mode = "normal"
+        options[:field_weights] = {
+            :host => 20,
+            :ip => 20,
+            :title => 10,
+            :header    => 6,
+            :body => 3
+        }
         @results = ThinkingSphinx.search Riddle::Query.escape(@query),options
       end
       @tags = {}
