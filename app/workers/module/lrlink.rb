@@ -60,6 +60,23 @@ module Lrlink
     arr.uniq
   end
 
+  def get_links_deep(html)
+    arr = []
+    if html
+      html.scan(/((((?:\d{1,3}\.){3}\d{1,3})|([0-9A-Za-z](([0-9A-Za-z]|-){0,61}[0-9A-Za-z]\.){2,}([0-9A-Za-z](([0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\.?))([:]\d+)?)/).each{|x|
+        if x[0].size>8 && x[0].include?('.')
+          parts = x[0].split('.')
+          $bad_ext ||= %w|jpg css js protocol length href icon string fileoutputstream version path url bonecpconnectionprovider provider tmpdir|
+          unless $bad_ext.include?(parts[-1].downcase)
+            hostinfo = hostinfo_of_url(x[0].downcase)
+            arr << hostinfo if hostinfo && hostinfo!='www.' && hostinfo!='ssl.'
+          end
+        end
+      }
+    end
+    arr.uniq
+  end
+
   def get_ip_of_host(host)
     require 'socket'
     ip = Socket.getaddrinfo(host, nil)

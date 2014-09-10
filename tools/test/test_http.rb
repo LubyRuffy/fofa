@@ -6,3 +6,5 @@ include HttpModule
 
 http_info = get_http(ARGV[0])
 puts http_info[:title]
+
+puts get_links_deep(http_info[:html])
