@@ -99,3 +99,5 @@ gem 'whois'
 gem 'net-dns'
 
 gem 'ip'
+
+gem 'geoip'
