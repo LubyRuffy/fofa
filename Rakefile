@@ -29,6 +29,14 @@ namespace :fofa do
       system(syscmd)
     #end
   end
+
+  desc "Quit running workers force"
+  task :stop_workers_force => :environment do
+    syscmd = "ps aux | grep sidekiq | grep -v grep  | awk '{print $2}' | xargs -n 1 kill -9"
+    puts "Running syscmd: #{syscmd}"
+    system(syscmd)
+    #end
+  end
   
   desc "Start workers (threads can set by WCNT environment)"
   task :start_workers => :environment do
