@@ -25,11 +25,11 @@ module ApiHelper
         @mode = "normal"
         if @query.size>0
           options[:field_weights] = {
-              :host => 20,
-              :ip => 20,
-              :title => 10,
-              :header    => 6,
-              :body => 3
+              :ip => 10000,
+              :host => 400,
+              :title => 50,
+              :header    => 20,
+              :body => 1
           }
         else
           options[:order] = "lastupdatetime DESC"
