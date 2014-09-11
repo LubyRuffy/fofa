@@ -2,6 +2,12 @@
 require 'domainatrix'
 require 'uri'
 
+class Object
+  def is_number?
+    Integer(self) rescue false
+  end
+end
+
 module Lrlink
   def get_domain_info_by_host(host)
     url = Domainatrix.parse(host)
@@ -94,6 +100,20 @@ module Lrlink
       return true if bip && bip.size>4 && ip.start_with?(bip.strip)
     }
     false
+  end
+
+  def ip_dec?(host)
+    subs = host.split('.')
+    if host[-1].is_number?
+      zerosubs = subs.select{|s| s.is_number? }
+      zerosubs = zerosubs.map{|s| Integer(s)}
+      if zerosubs.size==subs.size
+        return zerosubs.join('.')!=host
+      end
+    end
+    nil
+  rescue => e
+    nil
   end
 
 end
