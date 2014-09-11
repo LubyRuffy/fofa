@@ -20,7 +20,7 @@ class InfoController < ApplicationController
 
   def libraryfull
     @all_cnt = Rule.count
-    @rules = Rule.published
+    @rules = Rule.published.order('created_at desc')
   end
   
   def contact
