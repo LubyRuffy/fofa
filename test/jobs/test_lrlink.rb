@@ -27,6 +27,7 @@ class TestLrLink < MiniTest::Unit::TestCase
 
   def test_ip_dec
     assert(ip_dec?('0000314.00000014.0306.000000375'))
+    assert(ip_dec?('0000314.00000014.0306.0x0d'))
     assert(ip_dec?('0x0079.0x000000000000000028.0x0083.00257'))
     assert(ip_dec?('0x0079.0x000000000000000028.0x0083.0x0083'))
     assert(ip_dec?('0000314.00000014.0306.000000375'))

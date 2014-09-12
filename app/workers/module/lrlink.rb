@@ -104,7 +104,7 @@ module Lrlink
 
   def ip_dec?(host)
     subs = host.split('.')
-    if host[-1].is_number?
+    if subs[-1].is_number?
       zerosubs = subs.select{|s| s.is_number? }
       zerosubs = zerosubs.map{|s| Integer(s)}
       if zerosubs.size==subs.size
