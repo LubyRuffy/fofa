@@ -9,6 +9,51 @@ require root_path+"/lrlink.rb"
 require root_path+"/webdb2_class.rb"
 require root_path+"/httpmodule.rb"
 
+
+class Uitask
+  include HttpModule
+  include Lrlink
+  include Sidekiq::Worker
+
+  sidekiq_options :queue => :process_url, :retry => 3, :backtrace => true#, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
+
+  sidekiq_retries_exhausted do |msg|
+    Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
+  end
+
+  def initialize(webdb=nil)
+    root_path = File.expand_path(File.dirname(__FILE__))
+
+    @@g_webdb ||= webdb
+    @@g_webdb ||= WebDb.new(root_path+"/../../../config/database.yml")
+
+    @webdb = @@g_webdb
+  end
+
+  def perform(jobid, action, domain)
+
+    addmsg(jobid, 'start dumping...')
+    case action
+      when 'alldomains'
+        res = @webdb.queryer.query("select ym from icp where DWMC=(select DWMC from icp where ym='#{Mysql2::Client.escape(domain)}')")
+        res.each{ |r|
+          addmsg(jobid, r['ym'])
+        }
+      else
+        addmsg(jobid, 'unknown action')
+    end
+    addmsg(jobid, '<<<finished>>>')
+
+  end
+
+  def addmsg(jobid,msg)
+    key = "fofa:task:#{jobid}"
+    @webdb.redis.rpush(key,msg)
+    @webdb.redis.expire(key, 10*60) #10分钟过期
+  end
+
+end
+
 class Processor
   include HttpModule
   include Lrlink
@@ -115,3 +160,5 @@ class Processor
   end
 
 end
+
+

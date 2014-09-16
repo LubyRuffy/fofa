@@ -1,9 +1,47 @@
+require 'sidekiq'
+require "#{Rails.root}/app/workers/url_worker.rb"
+
 class LabController < ApplicationController
   include ApiHelper
 
   def ips
     @domain = params['domain']
     @ips = get_ips_of_domain(@domain)
+  end
+
+  def addtask
+    @action = params['taskaction']
+    unless @action
+      render :json => {error:true, errormsg:'未知操作！' }
+      return
+    end
+    @domain = params['domain']
+    unless @domain && @domain.size>1
+      render :json => {error:true, errormsg:'请输入域名！' }
+      return
+    end
+
+    if @action.downcase=='alldomains' || @action.downcase=='domains'
+      require 'securerandom'
+
+      @jobid = SecureRandom.hex
+      Sidekiq::Client.enqueue_to('ui_task', Uitask, @jobid, @action, @domain)
+      render :json => {error:false, errormsg:'', jobId: @jobid}
+      return
+    else
+      render :json => {error:true, errormsg:'未知操作！'}
+    end
+  end
+
+  def gettask
+    jobId = params['jobId']
+    key = "task:#{jobId}"
+    msgs = Sidekiq.redis {|redis| redis.lrange(key, 0, -1) }
+    render :json => {error:false, msgs:msgs, finished:msgs.include?('<<<finished>>>')}
+  end
+
+  def alldomains
+    @domain = params['domain']
   end
 
   def domains

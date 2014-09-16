@@ -101,6 +101,10 @@ class WebDb
     @@redis.sadd('fofa:black_hosts', host) if @@redis.zincrby('fofa:failedhosts',1,host)>10
   end
 
+  def redis
+    @@redis
+  end
+
   private
   def db_query_exists(db, sql)
     @@queryer.query(sql).size>0

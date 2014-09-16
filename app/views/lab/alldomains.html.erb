@@ -1,0 +1,81 @@
+<div class="page-header" id="banner">
+  <div class="row">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+      <h1 style='text-align: center;'>兄弟域名查询</h1>
+
+          <div class="input-group">
+            <input type="text" class="form-control" id="domain" name="domain" placeholder="请输入根域名，如：fofa.so" <%if @domain%>value="<%=@domain%>"<%end%>>
+	      <span class="input-group-btn">
+	        <button class="btn btn-info" type="submit"  id="loading-example-btn" data-loading-text="正在查询..."><i class="fa fa-search"></i> 查查看</button>
+	      </span>
+          </div><!-- /input-group -->
+
+      <p></p>
+
+
+    </div>
+    <div class="col-lg-3">
+    </div>
+  </div>
+
+</div>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2" style="padding: 8px" >
+        </div>
+        <div class="col-lg-8" style="padding: 8px" id="ajaxLog">
+        </div>
+        <div class="col-lg-2" style="padding: 8px" >
+        </div>
+      </div>
+      <p></p>
+    </div>
+
+<p><br/><br/></p>
+
+<script>
+    function whenfinished(){
+        //alert("finish");
+        $('#ajaxLog').append("完成!<br/>");
+        $('#loading-example-btn').button('reset');
+    }
+    function whenerror(msg){
+        //alert(msg);
+        $('#ajaxLog').append("<font color='red'>"+msg+"</font><br/>");
+        $('#loading-example-btn').button('reset');
+    }
+    function whendata(data){
+       //alert(data);
+        for (index = 0; index < data.length; ++index) {
+            if (data[index]!='start dumping...' && data[index]!='<<<finished>>>')
+            {
+                $('#ajaxLog').append("<a href='http://"+data[index]+"'>"+data[index]+"</a>   <br/>");
+            }
+        }
+
+    }
+    $('#loading-example-btn').click(function () {
+        var btn = $(this)
+        btn.button('loading')
+        if($('#domain').val().length<2)
+        {
+            whenerror('请输入域名！');
+            return;
+        }
+        $('#ajaxLog').text('');
+        StartJob("taskaction=alldomains&domain="+$('#domain').val(), whenfinished, whenerror, whendata);
+    });
+
+    <%if @domain%>
+    $( document ).ready(function() {
+        $('#loading-example-btn').click();
+    });
+    <%end%>
+</script>
+
+<%= javascript_include_tag params[:controller] %>

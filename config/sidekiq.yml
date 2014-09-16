@@ -8,6 +8,7 @@
 # Set timeout to 8 on Heroku, longer if you manage your own systems.
 :timeout: 15
 :queues:
-  - [realtime_process_url, 7]
-  - [process_url, 6]
-  - [default, 5]
+  - [ui_task, 9]
+  - [realtime_process_url, 5]
+  - [process_url, 2]
+  - [default, 1]
