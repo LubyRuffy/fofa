@@ -87,7 +87,7 @@ module Fofa
         when 'contains'
           value && value.include?(expect_value)
         when 'regex'
-          value && value =~ Regexp.new(expect_value)
+          value && value =~ expect_value
       end
     end
 
