@@ -195,16 +195,23 @@ class WhoisTask
     @webdb = @@g_webdb
   end
 
-  def perform(rootdomain)
+  def perform(rootdomain, force=false)
     return if rootdomain.include? '.edu.cn'
-    need_update,exist_domain=@webdb.need_update_domain(rootdomain)
-    if need_update
+    need_update, exist_domain = @webdb.need_update_domain(rootdomain)
+    if need_update || force
       r = Whois.whois(rootdomain)
-      email = ''
-      email = r.properties[:registrant_contacts].first.email if r.properties[:registrant_contacts] && r.properties[:registrant_contacts].first
+      email=''
+      emails = r.to_s.scan(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i).uniq
+      new_emails = emails.delete_if{|e| e.include?('abuse') || e.include?('private') }
+      emails = new_emails if new_emails.size>0
+      email = emails.join(',') if emails
       #r.created_on, r.expires_on, r.updated_on
       whois_com = ''
+      whois_com = r.registrant_contact.name if r.registrant_contact
+      whois_com = r.technical_contact.name if r.technical_contact
       whois_com = r.registrar.name if r.registrar
+      whois_com = r.admin_contacts.name if r.admin_contacts
+
       ns_info = r.nameservers.map{|ns| ns.name}.join(',')
       @webdb.db_insert_domain(rootdomain.downcase, r.to_s, whois_com, email, ns_info)
     end

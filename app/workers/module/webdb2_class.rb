@@ -143,12 +143,6 @@ class WebDb
     @@queryer.exec sql
   end
 
-  def db_insert_domain(db, domain)
-    sql = "insert into rootdomain (domain, domainhash) values('#{Mysql2::Client.escape(domain.downcase)}', '#{Digest::MD5.hexdigest(domain)}')"
-    #puts sql
-    db_exec(db, sql) rescue db_exec(db, "update rootdomain set domain='#{Mysql2::Client.escape(domain.downcase)}', domainhash='#{Digest::MD5.hexdigest(domain.downcase)}' where domain='#{Mysql2::Client.escape(domain)}'")
-  end
-
   def db_insert_host(db, host, domain, subdomain, r)
     title = r[:title]
     title ||= ''
@@ -227,11 +221,6 @@ class WebDb
     end
   end
 
-  def insert_domain_to_rootdomain(domain, host_exists=false)
-    unless host_exists || db_check_domain_exists(@@mysql, domain)
-      db_insert_domain(@@mysql, domain)
-    end
-  end
   def update_host_to_subdomain( host, domain, subdomain, http_info, host_exists=false)
     if host_exists || db_check_host_exists(@@mysql, host)
       db_update_host(@@mysql, host, http_info)
@@ -267,6 +256,35 @@ class WebDb
     [@need_update, @exist_host]
   end
 
+  def need_update_domain(domain)
+    #不存在一条小于90天内的记录就需要更新
+    r = @@queryer.query("select domain,lastchecktime from rootdomain where domain='#{Mysql2::Client.escape(domain)}'")
+    @need_update = false
+    @exist_domain = false
+    if r.size>0
+      @exist_domain = true
+      if r.first['lastchecktime']
+        diff_time = (Time.now - r.first['lastchecktime']).to_i
+        if  (diff_time/86400)>90
+          @need_update = true
+        else
+          @need_update = false
+        end
+      else
+        @need_update = true
+      end
+
+    else
+      @need_update = true
+    end
+    [@need_update, @exist_domain]
+  end
+
+  def db_insert_domain(domain, whois, whois_com, email, ns_info)
+    sql = "insert into rootdomain (domain, whois, whois_com, email, ns_info, lastchecktime) values('#{Mysql2::Client.escape(domain.downcase)}','#{Mysql2::Client.escape(whois)}','#{Mysql2::Client.escape(whois_com)}','#{Mysql2::Client.escape(email)}','#{Mysql2::Client.escape(ns_info)}', NOW()"
+    #puts sql
+    db_exec(@@mysql, sql) rescue db_exec(@@mysql, "update rootdomain set whois='#{Mysql2::Client.escape(whois)}',whois_com='#{Mysql2::Client.escape(whois_com)}',email='#{Mysql2::Client.escape(email)}',ns_info='#{Mysql2::Client.escape(ns_info)}',lastchecktime=NOW() where domain='#{Mysql2::Client.escape(domain.downcase)}'")
+  end
 end
 
 
