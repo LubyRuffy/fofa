@@ -26,7 +26,7 @@ end # Def end
 @m = WebDb.new(@root_path+"/../config/database.yml")
 @p = Processor.new(@m)
 #@pool = Thread.pool(2)
-@id=902660
+@id=0
 
 #load id from file
 File.open(@root_path+"/id.txt", 'r') {|f|
@@ -96,7 +96,7 @@ while true
     #puts curl_line
     #`#{curl_line}`
   else
-    break
+    write_to_file 1
   end
 
 end
