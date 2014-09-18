@@ -22,12 +22,18 @@
       <% if @ips && @ips.size>0 %>
           <div class="alert alert-success alert-dismissible ade in" role="alert">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
-            为 <%=@domain%> 检索到 <strong><%=@ips.size%></strong> 个网段！
+            为 <%=@domain%> 检索到 <strong><%=@ips.size%></strong> 个网段！<br/>
+            <% unless current_user %>
+                <%= link_to raw('<i class="fa fa-unlock"></i>')+'未登录状态下有最大1000条记录的限制，登录后查询可解除限制。', new_user_session_path%>
+            <% end %>
           </div>
       <% elsif @domain %>
           <div class="alert alert-warning alert-dismissible ade in" role="alert">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
-            <strong>未检索到 <%=@domain%> 的相关信息！</strong>
+            <strong>未检索到 <%=@domain%> 的相关信息！</strong><br/>
+            <% unless current_user %>
+                <%= link_to raw('<i class="fa fa-unlock"></i>')+'未登录状态下有最大1000条记录的限制，登录后查询可解除限制。', new_user_session_path%>
+            <% end %>
           </div>
       <% end %>
 

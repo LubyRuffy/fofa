@@ -6,7 +6,9 @@ class LabController < ApplicationController
 
   def ips
     @domain = params['domain']
-    @ips = get_ips_of_domain(@domain)
+    maxsize = 1000
+    maxsize = 10000 if current_user
+    @ips = get_ips_of_domain(@domain, maxsize)
   end
 
   def addtask
@@ -25,7 +27,9 @@ class LabController < ApplicationController
       require 'securerandom'
 
       @jobid = SecureRandom.hex
-      Sidekiq::Client.enqueue_to('ui_task', Uitask, @jobid, @action, @domain)
+      maxsize = 200
+      maxsize = 1000 if current_user
+      Sidekiq::Client.enqueue_to('ui_task', Uitask, @jobid, @action, @domain, maxsize)
       render :json => {error:false, errormsg:'', jobId: @jobid}
       return
     else
@@ -45,8 +49,9 @@ class LabController < ApplicationController
   end
 
   def domains
-    @domain = params['domain']
-    ips = get_ips_of_domain(@domain)
+    maxsize = 1000
+    maxsize = 10000 if current_user
+    @ips = get_ips_of_domain(@domain, maxsize)
     if ips
       all_ips = []
       ips.each do |net|
@@ -66,7 +71,7 @@ class LabController < ApplicationController
   end
 
   private
-  def get_ips_of_domain(domain)
+  def get_ips_of_domain(domain, maxsize=1000)
     if domain
       key = 'domain_net:'+domain.downcase
       @ips = Sidekiq.redis{|redis| redis.get(key) }
@@ -76,7 +81,7 @@ class LabController < ApplicationController
         @ips = Subdomain.connection.execute(%Q{
               select INET_NTOA(INET_ATON(ip) & 0xFFFFFF00) as net,GROUP_CONCAT(hosts) as hosts,GROUP_CONCAT(ip) as ips,count(*) as cnt from(
                 select ip,GROUP_CONCAT(host) as hosts from (select ip, host from subdomain
-                where reverse_domain=reverse(#{Subdomain.connection.quote(@domain)}) limit 10000) t group by ip
+                where reverse_domain=reverse(#{Subdomain.connection.quote(@domain)}) limit #{maxsize}) t group by ip
               )t group by net order by cnt desc,net asc
             })
         Sidekiq.redis{|redis|

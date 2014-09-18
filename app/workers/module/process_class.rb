@@ -31,7 +31,7 @@ class Uitask
     @webdb = @@g_webdb
   end
 
-  def perform(jobid, action, domain)
+  def perform(jobid, action, domain, maxsize=200)
     @@blackc_coms = ['HICHINA ZHICHENG TECHNOLOGY LTD.', 'MARKMONITOR INC.', 'CHENGDU WEST DIMENSION DIGITAL TECHNOLOGY CO., LTD.',
       'Public Interest Registry', 'ENAME TECHNOLOGY CO., LTD.', 'XIN NET TECHNOLOGY CORPORATION',
       'WEB COMMERCE COMMUNICATIONS LIMITED DBA WEBNIC.CC',
@@ -45,8 +45,10 @@ class Uitask
         emails = []
         companys = []
         while ( domains.detect{|d| !d[:finished] } || emails.detect{|e| !e[:finished] } )
-          if domains.size>200
-            puts "max size, now quit..."
+          if domains.size>maxsize
+            msg = "达到最大数限制，未登录状态最多显示200条。登录后可以达到1000条。"
+            puts msg
+            addmsg(jobid, msg)
             break
           end
 

@@ -15,6 +15,12 @@
 
       <p></p>
 
+      <% unless current_user %>
+          <div class="alert alert-success alert-dismissible ade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <%= link_to raw('<i class="fa fa-unlock"></i>')+'未登录状态下有最大200条记录的限制，登录后查询可解除限制。', new_user_session_path%>
+          </div>
+      <% end %>
 
     </div>
     <div class="col-lg-3">
