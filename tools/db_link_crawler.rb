@@ -97,6 +97,7 @@ while true
     #`#{curl_line}`
   else
     write_to_file 1
+    break
   end
 
 end
