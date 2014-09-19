@@ -12,9 +12,13 @@ module Fofa
 
     def excute_scansteps(params)
       oper = 'AND'
+      default_ret = true
       @info['ScanSteps'].each{|step|
         if step.kind_of?(String)
           oper = step
+          if oper == 'OR'
+            default_ret = false
+          end
         else
           if execute_step(step, params)
             if oper=='OR'
@@ -27,7 +31,7 @@ module Fofa
           end
         end
       }
-      true
+      default_ret
     end
 
     def vulnerable(hostinfo)
