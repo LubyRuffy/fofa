@@ -11,9 +11,20 @@ module Fofa
     end
 
     def excute_scansteps(params)
+      oper = 'AND'
       @info['ScanSteps'].each{|step|
-        if !execute_step(step, params)
-          return false #任何一个测试请求失败都返回FALSE
+        if step.kind_of?(String)
+          oper = step
+        else
+          if execute_step(step, params)
+            if oper=='OR'
+              return true
+            end
+          else
+            if oper=='AND'
+              return false #任何一个测试请求失败都返回FALSE
+            end
+          end
         end
       }
       true
