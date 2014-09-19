@@ -8,6 +8,11 @@ module Fofa
     attr_reader :info
     def initialize(info = {})
       @info = info
+      @lastrespnse = nil
+    end
+
+    def self.lasthttp
+      @@lasthttp
     end
 
     def excute_scansteps(params)
@@ -22,6 +27,7 @@ module Fofa
         else
           if execute_step(step, params)
             if oper=='OR'
+              @@lasthttp = @lastrespnse
               return true
             end
           else
@@ -52,6 +58,7 @@ module Fofa
 
     def make_request(hostinfo, request)
       response = Fofa::HttpRequest.row_http(hostinfo, request)
+      @lastrespnse = response
       response
     end
 
