@@ -6,6 +6,8 @@ module Fofa
 
   class Exploit
     attr_reader :info
+    @@lasthttp = nil
+
     def initialize(info = {})
       @info = info
       @lastrespnse = nil
@@ -26,8 +28,8 @@ module Fofa
           end
         else
           if execute_step(step, params)
+            @@lasthttp = @lastrespnse
             if oper=='OR'
-              @@lasthttp = @lastrespnse
               return true
             end
           else

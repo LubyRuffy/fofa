@@ -78,6 +78,9 @@ module DzshellPayload
       break if response[:error]
 
       unless response[:html].include?('Authracation has expirie')
+        if response[:html]!='1'
+          break
+        end
         data2=%q{<?xml version="1.0" encoding="ISO-8859-1"?>
             <root>
             <item id="UC_API">http://B</item>
