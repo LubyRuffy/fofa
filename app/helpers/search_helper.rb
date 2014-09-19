@@ -13,6 +13,17 @@ end
 
 
 module SearchHelper
+  @@geoip = nil
+
+  def get_country_of_ip(ip)
+    unless @@geoip
+      require 'geoip'
+      geodata = File.join(Rails.root, 'tools', 'data' , 'GeoIP.dat')
+      @@geoip = GeoIP.new(geodata)
+    end
+    @@geoip.country(ip).to_hash[:country_code2].downcase
+  end
+
   def get_http_info_from_db_or_net(url)
     return nil unless url
     http_info = nil
