@@ -213,9 +213,9 @@ class WhoisTask
           value = r.properties[name.to_sym]
           if value
             if value.kind_of?(Array)
-              whois_com = value[0][:name] if value.size>0
+              whois_com = value[0][:name] if value.size>0 && value[0][:name]
             else
-              whois_com = value[:name]
+              whois_com = value[:name] if value[:name]
             end
           end
         }
