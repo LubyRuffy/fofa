@@ -196,6 +196,7 @@ class WhoisTask
   end
 
   def perform(rootdomain, force=false)
+    return
     return if rootdomain.include? '.edu.cn'
     need_update, exist_domain = @webdb.need_update_domain(rootdomain)
     if need_update || force
