@@ -137,9 +137,11 @@ hostinfo\t:\tcheck only one host, format like host:port}
         $stderr.puts "[ERROR] receive fofa results failed: #{info['error']}"
       else
         results = info['results']
+        thread_cnt = 10
+        thread_cnt = ENV['FOFATHREADCNT'].to_i if ENV['FOFATHREADCNT']
         if results.size>0
           require 'thread/pool'
-          @p = Thread.pool(10)
+          @p = Thread.pool(thread_cnt)
           results.each{|h|
             @p.process(h,mod,m,@args[:params]["showall"]) {|h,mod,m,showall|
               fexploit = m.new

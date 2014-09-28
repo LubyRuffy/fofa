@@ -42,7 +42,7 @@ module Fofa
         http.use_ssl = true if uri.scheme == 'https'
         http.open_timeout = 15
         http.read_timeout = 15
-        #http.set_debug_output($stdout)
+        http.set_debug_output($stdout) if ENV['FOFADEBUG']
         http.start { |h|
           begin
             response = h.send_request(req[:method], uri.request_uri, req[:data],  req[:header])
