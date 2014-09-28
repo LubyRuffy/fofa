@@ -1,3 +1,9 @@
+0.0.2 201401001
+    * 增加discuz通过UC_KEY上传shell的payload
+    * 增加discuz备份文件的exploit
+    * 增加zimbra的LFI漏洞exploit
+    * 增加代理配置（FOFA_PROXY环境变量实现）
+
 0.0.2 20140904
     * 增加md5破解的payload
     * 增加zabbix的两个漏洞扫描和利用

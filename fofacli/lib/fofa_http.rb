@@ -30,15 +30,19 @@ module Fofa
         resp[:port] = uri.port
 
         http_class = Net::HTTP
-        if req && req[:proxy]
-          aURL = URI.parse('http://'+req[:proxy])
+        proxy = req[:proxy] if req
+        proxy ||= ENV['FOFA_PROXY']
+        if proxy
+          aURL = URI.parse('http://'+proxy)
           proxyHost, proxyPort = [ aURL.host, aURL.port ]
           http_class = Net::HTTP.Proxy(proxyHost, proxyPort)
         end
-        http = http_class.new(ip, uri.port)
+        #http = http_class.new(ip, uri.port)
+        http = http_class.new(uri.host, uri.port)
         http.use_ssl = true if uri.scheme == 'https'
         http.open_timeout = 15
         http.read_timeout = 15
+        #http.set_debug_output($stdout)
         http.start { |h|
           begin
             response = h.send_request(req[:method], uri.request_uri, req[:data],  req[:header])
@@ -206,5 +210,6 @@ module Fofa
       end
       http
     end
+
   end
 end

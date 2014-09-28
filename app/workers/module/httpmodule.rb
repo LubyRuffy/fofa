@@ -131,8 +131,9 @@ module HttpModule
       resp[:port] = uri.port
 
       http_class = Net::HTTP
-      if @options[:proxy]
-        aURL = URI.parse('http://'+@options[:proxy])
+      proxy = @options[:proxy] || ENV['FOFA_PROXY']
+      if proxy
+        aURL = URI.parse('http://'+proxy)
         proxyHost, proxyPort = [ aURL.host, aURL.port ]
         http_class = Net::HTTP.Proxy(proxyHost, proxyPort)
       end
