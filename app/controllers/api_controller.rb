@@ -31,7 +31,7 @@ class ApiController < ApplicationController
   end
 
   def ascii
-    render :html => %q{
+    render :html => raw(%q{
 
 <table cellpadding="3" cellspacing="1" align="center" style="width: 740px; background-color: #cccccc;">
 <tbody><tr>
@@ -339,7 +339,7 @@ class ApiController < ApplicationController
 <tr><td>254</td><td>376</td><td>FE</td><td>11111110</td><td>þ</td><td>&amp;#254;</td><td>&amp;thorn;</td><td class="cl">Latin small letter thorn</td></tr>
 <tr><td>255</td><td>377</td><td>FF</td><td>11111111</td><td>ÿ</td><td>&amp;#255;</td><td>&amp;yuml;</td><td class="cl">Latin small letter y with diaeresis</td></tr>
 </tbody></table>
-    }
+    })
   end
 
 private
