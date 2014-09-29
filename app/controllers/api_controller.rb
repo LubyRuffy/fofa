@@ -32,7 +32,6 @@ class ApiController < ApplicationController
 
   def ascii
     render :html => raw(%q{
-
 <table cellpadding="3" cellspacing="1" align="center" style="width: 740px; background-color: #cccccc;">
 <tbody><tr>
 	<td width="40" class="cellHead"><b>DEC</b></td>
