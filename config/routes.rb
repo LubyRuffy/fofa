@@ -74,6 +74,7 @@ Fofa::Application.routes.draw do
   post "api/addhostp"
   get "api/result"
   get 'api/addhost'
+  get 'ip' => 'api/ip'
 
   get "my/index"
   #get "my/rules"

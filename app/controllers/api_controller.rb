@@ -26,6 +26,10 @@ class ApiController < ApplicationController
     render :json => {error:@error, query:@query.force_encoding('utf-8'), mode:@mode, results:@results.map{|x| x.host }}
   end
 
+  def ip
+    render :text => request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip
+  end
+
 private
   def get_user
     user = User.where(:email=>params['email'], :key=>params['key']).take
