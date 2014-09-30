@@ -40,6 +40,13 @@
     <% if @mode=='extended'%>
         <%= link_to '收藏规则', new_rule_path+"?qbase64="+CGI.escape(Base64.encode64(@query))%>
     <% end %>
+    <% if current_user
+            if @results.meta['total_found'].to_i>1000 %>
+        <span class="label label-info">普通账户显示1000条，高级帐号无限制！</span>
+    <%      end
+       else %>
+        <span class="label label-info">未登录状态只能查看100条记录，登录后可以查看1000条记录！</span>
+    <% end %>
   </div>
   <div class="col-lg-4">
     <div class="pull-right">
