@@ -4,7 +4,7 @@ module ApiHelper
     @results = ThinkingSphinx.search query,options
   end
 
-  def search(query, page_count=10)
+  def search(query, page_count=10, page=1)
     @query = query
     @query_l = nil
     begin
@@ -15,7 +15,7 @@ module ApiHelper
 
     @results = nil
     begin
-      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,lastupdatetime'},:per_page => page_count,:page => params['page']}#:retry_stale => 2,
+      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,lastupdatetime'},:per_page => page_count, :page => page}#:retry_stale => 2,
       if @query_l
         @mode = "extended"
         options[:match_mode] = :extended

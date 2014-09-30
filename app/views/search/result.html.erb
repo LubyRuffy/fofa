@@ -19,18 +19,7 @@
 </div>
 
 <br/>
-<% 
-    #if @error
-    if nil
-  %>
-<div class="alert fade in">
-  <a class="close" data-dismiss="alert" href="#">×</a>
-  <strong>错误！</strong> <%=@error%>
-</div>
-<%
 
-  else
-%>
 
 <div class="row">
   <div class="col-lg-8">
@@ -74,6 +63,18 @@
     </div>
 </div>
 
+<%
+   if @error
+%>
+    <br/>
+    <div class="alert alert-warning alert-dismissible ade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+      <a href="/users/sign_in"><i class="fa fa-unlock"></i><%= @error %></a>
+    </div>
+<%
+
+   else
+%>
 
 <% @results.each do |doc|
   url = doc.host
@@ -110,6 +111,7 @@
   </div>
 <% end %>
 
+<% end # error%>
 <div class="pagination pull-right">
   <%= will_paginate @results,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
 </div>
@@ -127,5 +129,5 @@ function view(hst){
 </script>
 
     <%= javascript_include_tag params[:controller] %>
-<% end %>
+
 
