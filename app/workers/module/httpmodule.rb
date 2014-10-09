@@ -248,6 +248,21 @@ module HttpModule
               }
             end
 
+            if resp[:html]=~/top.location\s*=\s*["'](.*?)["']/i
+              resp[:html].scan(/top.location\s*=\s*["'](.*?)["']/i).each{|x|
+                ops[:following] += 1
+                return resp if ops[:following]>2
+                loc = x[0]
+                if loc.include?("http://") || loc.include?("https://")
+                  return get_web_content(loc, ops)
+                else
+                  new_url = URI.join(url, loc).to_s
+                  return get_web_content(new_url, ops)
+                  #return get_web_content("http://"+resp[:host]+"/"+loc, ops)
+                end
+              }
+            end
+
           end
 
         rescue Timeout::Error => e
