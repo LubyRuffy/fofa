@@ -44,6 +44,7 @@ while true
   sql = "select * from subdomain where id>#{@id} limit 100"
   r = @m.mysql.query(sql)
   if r.size>0
+
     hosts = []
     ids = []
     puts "===================="
@@ -51,6 +52,8 @@ while true
     r.each {|h|
       print h['id'].to_s+" "
       begin
+        Sidekiq::Client.enqueue(Processor, h['host'])
+
         arr = get_linkes(h['body'])
         arr.each{|a|
           hosts << a
