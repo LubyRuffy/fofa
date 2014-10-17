@@ -5,6 +5,6 @@ database.yml
 ips.yml
 development.sphinx.conf
 thinking_sphinx.yml
-.idea
+.idea/*
 fofa.iml
 Gemfile.lock
