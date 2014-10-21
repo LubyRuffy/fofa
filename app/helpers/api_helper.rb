@@ -70,7 +70,7 @@ module ApiHelper
         if @query_l
           @mode = "extended"
           options[:match_mode] = :extended
-          options[:order] = "lastupdatetime DESC"
+          #options[:order] = "lastupdatetime DESC"
           @results = ThinkingSphinx.search @query_l,options
         else
           @mode = "normal"
