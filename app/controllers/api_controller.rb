@@ -21,7 +21,7 @@ class ApiController < ApplicationController
 
   def result
 
-    @error, @mode, @results, @tags = search(@query, 10000)
+    @error, @mode, @results, @tags = search_url(@query, @page, 1000)
 
     render :json => {error:@error, query:@query.force_encoding('utf-8'), mode:@mode, results:@results.map{|x| x.host }}
   end
@@ -40,6 +40,8 @@ private
       render :json => {error:'用户认证失败，请确认conf/fofa.yml文件中的信息配置正确。API KEY请登录到fofa的管理后台获取！'}
     else
       @query = ''
+      @page = 1
+      @page = params['page'].to_i if params['page'] && params['page'].to_i>1
       @query = Base64.decode64(params['qbase64']) if params['qbase64'] && params['qbase64'].size>2
       ip = request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip
       apicall = Apicall.create(user: user, query: @query, ip: ip, action: "result")
