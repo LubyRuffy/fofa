@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  self.table_name="user"
+
+  has_merit
+
   has_many :rules
   has_many :categories
 

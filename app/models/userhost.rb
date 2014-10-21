@@ -7,6 +7,7 @@ require "#{Rails.root}/app/workers/module/lrlink.rb"
 include Lrlink
 
 class Userhost < ActiveRecord::Base
+  self.table_name="userhost"
   has_many :rule
 
   def self.add_single_host(submit_host, ip, realtime=false)

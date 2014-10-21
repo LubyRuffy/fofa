@@ -77,7 +77,7 @@ gem 'sinatra'
 gem 'lazy_high_charts'
 gem 'jquery-turbolinks'
 
-gem 'devise'
+gem 'devise','3.3.0'
 #gem 'paperclip'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
@@ -101,3 +101,5 @@ gem 'net-dns'
 gem 'ip'
 
 gem 'geoip'
+
+gem 'merit'

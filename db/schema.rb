@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904095819) do
+ActiveRecord::Schema.define(version: 20141020083644) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20140904095819) do
     t.datetime "updated_at"
   end
 
+  create_table "badges_sashes", force: true do |t|
+    t.integer  "badge_id"
+    t.integer  "sash_id"
+    t.boolean  "notified_user", default: false
+    t.datetime "created_at"
+  end
+
+  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
+  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
+  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
+
   create_table "category", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -71,8 +82,6 @@ ActiveRecord::Schema.define(version: 20140904095819) do
     t.datetime "updated_at"
   end
 
-  add_index "charts", ["writedate", "rule_id"], name: "index_charts_on_writedate_rule", unique: true, using: :btree
-
   create_table "error_host", force: true do |t|
     t.string   "host"
     t.datetime "lastupdatetime"
@@ -97,6 +106,65 @@ ActiveRecord::Schema.define(version: 20140904095819) do
 
   add_index "exploits", ["filename"], name: "index_exploits_on_filename", unique: true, using: :btree
 
+  create_table "icp", primary_key: "ID", force: true do |t|
+    t.string  "DWMC"
+    t.integer "ZTID",     limit: 8
+    t.string  "DWXZ",     limit: 512
+    t.string  "ZT_BAXH"
+    t.integer "WZID",     limit: 8
+    t.string  "WZMC"
+    t.string  "WZFZR"
+    t.string  "SITE_URL", limit: 512
+    t.string  "YM"
+    t.string  "WZ_BAXH"
+    t.date    "SHSJ"
+    t.string  "NRLX",     limit: 512
+    t.string  "ZJLX"
+    t.string  "ZJHM"
+    t.string  "SHENGID"
+    t.string  "SHIID"
+    t.string  "XIANID"
+    t.string  "XXDZ",     limit: 512
+    t.string  "YMID"
+  end
+
+  add_index "icp", ["DWMC"], name: "DWMC", using: :btree
+  add_index "icp", ["YM"], name: "YM", using: :btree
+  add_index "icp", ["ZJHM"], name: "ZJHM", using: :btree
+
+  create_table "merit_actions", force: true do |t|
+    t.integer  "user_id"
+    t.string   "action_method"
+    t.integer  "action_value"
+    t.boolean  "had_errors",    default: false
+    t.string   "target_model"
+    t.integer  "target_id"
+    t.text     "target_data"
+    t.boolean  "processed",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "merit_activity_logs", force: true do |t|
+    t.integer  "action_id"
+    t.string   "related_change_type"
+    t.integer  "related_change_id"
+    t.string   "description"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_score_points", force: true do |t|
+    t.integer  "score_id"
+    t.integer  "num_points", default: 0
+    t.string   "log"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_scores", force: true do |t|
+    t.integer "sash_id"
+    t.string  "category", default: "default"
+  end
+
   create_table "rule", force: true do |t|
     t.string   "product"
     t.string   "producturl"
@@ -110,6 +178,11 @@ ActiveRecord::Schema.define(version: 20140904095819) do
 
   add_index "rule", ["product", "rule", "user_id"], name: "index_rule_on_product_and_rule", unique: true, length: {"product"=>50, "rule"=>nil, "user_id"=>nil}, using: :btree
 
+  create_table "sashes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sph_counter", primary_key: "counter_id", force: true do |t|
     t.integer  "max_id",       limit: 8,               null: false
     t.integer  "min_id",                  default: 1,  null: false
@@ -120,19 +193,19 @@ ActiveRecord::Schema.define(version: 20140904095819) do
   add_index "sph_counter", ["index_name"], name: "index_name", using: :btree
 
   create_table "subdomain", force: true do |t|
-    t.string   "host",           null: false
-    t.string   "subdomain"
-    t.string   "domain"
-    t.string   "reverse_domain"
-    t.string   "ip"
-    t.text     "header"
-    t.string   "title"
-    t.string   "pr"
-    t.datetime "lastupdatetime"
-    t.datetime "lastchecktime"
-    t.string   "memo"
-    t.text     "body"
-    t.string   "app"
+    t.string    "host",           null: false
+    t.string    "subdomain"
+    t.string    "domain"
+    t.string    "reverse_domain"
+    t.string    "ip"
+    t.text      "header"
+    t.string    "title"
+    t.string    "pr"
+    t.timestamp "lastupdatetime"
+    t.timestamp "lastchecktime"
+    t.string    "memo"
+    t.text      "body"
+    t.string    "app"
   end
 
   add_index "subdomain", ["host"], name: "host", unique: true, using: :btree
@@ -159,6 +232,8 @@ ActiveRecord::Schema.define(version: 20140904095819) do
     t.datetime "avatar_updated_at"
     t.boolean  "isadmin"
     t.string   "key"
+    t.integer  "sash_id"
+    t.integer  "level",                  default: 0
   end
 
   add_index "user", ["email"], name: "index_user_on_email", unique: true, using: :btree
