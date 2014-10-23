@@ -16,10 +16,10 @@ require @root_path+"/../app/models/rule.rb"
 require @root_path+"/../app/models/charts.rb"
 
 Dir.chdir @root_path+"/../"
-puts "working dir: #{Dir.pwd}"
+#puts "working dir: #{Dir.pwd}"
 
 rails_env = ENV['RAILS_ENV'] || 'development'
-thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))['development']
+thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))[rails_env]
 
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
@@ -40,43 +40,36 @@ else
 end
 
 def query(query_info, max_id)
-  headers = []
+  hosts = []
   match_query =  SphinxProcessor.parse(query_info)
 
   options = {:match_mode => :extended, :index => 'subdomain_core',
              :with => {:id => max_id..9999999999},
-             :sql => { :select => 'id,header,host'}, :per_page => 1000,
+             :sql => { :select => 'id,host'}, :per_page => 1000,
              :page => 1, :order => "id asc"}
   ThinkingSphinx.search(match_query, options).each{|r|
-    headers << r.header
+    hosts << r.host
     max_id = r.id
   }
-  [headers, max_id.to_i]
+  [hosts, max_id.to_i]
 end
 
-$maxid = 0
-$keys = []
-$known_keys = %w|Last-Modified Date Content-Length Connection Cache-Control Content-Location Last-Modified Etag Transfer-Encoding Content-Encoding Vary Expires Pragma Content-Language Location|
-while 1
-  headers,$maxid = query('host=".gov.cn"', $maxid)
-  unless headers.size>0
-    break
-  end
+def query_all(query_info)
+  maxid = 0
+  while 1
+    #puts $maxid
+    hosts,maxid = query(query_info, maxid)
+    unless hosts.size>0
+      break
+    end
 
-  headers.each{|header|
-    header.split(/[\r\n]/).each{|l|
-      if l.include? ':'
-        k,v = l.split(':')
-        unless $keys.include?(k) || $known_keys.include?(k)
-          $keys << k
-          puts l
-        end
-      end
+    hosts.each{|h|
+      yield h
     }
-  }
-
-  puts "-----", $maxid
-  $maxid += 1
+    maxid += 1
+  end
 end
 
-
+query_all(ARGV[0]){|h|
+  puts h
+}
