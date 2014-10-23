@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# 加入管道：
+# RAILS_ENV=production ./dump_all_query.rb 'body="shownews.asp?id"' | ./query_processors/shownews_has_comment.rb
 require 'yaml'
 require 'json'
 require 'erb'

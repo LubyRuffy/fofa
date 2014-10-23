@@ -2,7 +2,7 @@
 require 'thread/pool'
 require 'net/http'
 
-pool = Thread.pool(1)
+pool = Thread.pool(100)
 
 while (s = $stdin.gets)
   pool.process(s.strip) {|h|
