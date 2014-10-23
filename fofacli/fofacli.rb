@@ -148,9 +148,11 @@ hostinfo\t:\tcheck only one host, format like host:port}
               if mod=='scan'
                 vulnerable = fexploit.vulnerable(h)
                 if vulnerable
-                  puts "#{h} : vulnerable"
+                  puts "\n#{h} : vulnerable"
                 elsif showall=='true' || showall=='1'
                   puts "#{h} : -"
+                else
+                  print "."
                 end
               else
                 puts "#{h} : #{fexploit.exploit(h)}"
