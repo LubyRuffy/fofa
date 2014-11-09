@@ -62,6 +62,8 @@ ActiveAdmin.register Rule do
       unless post.published
         post.published = true
         post.save
+
+        post.user.add_points(100, category: 'rule')
       end
     end
     redirect_to :back
@@ -72,6 +74,7 @@ ActiveAdmin.register Rule do
       if post.published
         post.published = false
         post.save
+        post.user.subtract_points(100, category: 'rule')
       end
     end
     redirect_to :back

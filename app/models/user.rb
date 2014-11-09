@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :rules
   has_many :categories
+  has_many :userhosts
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

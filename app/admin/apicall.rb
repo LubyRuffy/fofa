@@ -13,5 +13,17 @@ ActiveAdmin.register Apicall do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+
+  index do
+    selectable_column
+    id_column
+    column :query
+    column :action
+    column :ip
+    column :user
+    column :created_at
+
+    actions
+  end
   
 end

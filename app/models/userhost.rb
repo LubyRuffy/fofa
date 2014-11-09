@@ -9,8 +9,9 @@ include Lrlink
 class Userhost < ActiveRecord::Base
   self.table_name="userhost"
   has_many :rule
+  belongs_to :user
 
-  def self.add_single_host(submit_host, ip, realtime=false)
+  def self.add_single_host(user, submit_host, ip, realtime=false)
     @info = ''
     @error = false
     @host = submit_host
@@ -26,25 +27,35 @@ class Userhost < ActiveRecord::Base
       end
     end
     if !@error
-      host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
+      #host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
+      host = Subdomain.select(:id).where("host=?", @host)
       if host.size<1
-        @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0] )
+        @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0], "writetime"=>Time.now )
+
         queue = "process_url"
         queue = "realtime_process_url" if realtime
-        Sidekiq::Client.enqueue_to(queue, Processor, @host)
+
+        if user
+          @userhost.user = user
+          @userhost.save
+          Sidekiq::Client.enqueue_to(queue, Processor, @host, false, true, user.id)
+        else
+          Sidekiq::Client.enqueue_to(queue, Processor, @host)
+        end
+
       end
     end
     [@error,@info]
   end
 
-  def self.add_user_host(submit_host, ip, realtime=false)
+  def self.add_user_host(user, submit_host, ip, realtime=false)
     @info = ''
     @error = false
     if submit_host=~/[,\s]/
       submit_host.split(/[,\s]/).each{|h|
         if h
           h.chomp!
-          error,info = add_single_host(h, ip, realtime)
+          error,info = add_single_host(user, h, ip, realtime)
           if error
             @error = error
             @info = info
@@ -53,7 +64,7 @@ class Userhost < ActiveRecord::Base
 
       }
     else
-      return add_single_host(submit_host, ip, realtime)
+      return add_single_host(user, submit_host, ip, realtime)
     end
     [@error,@info]
   end

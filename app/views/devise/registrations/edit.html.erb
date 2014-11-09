@@ -95,7 +95,15 @@
         <div class="panel-body">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="profile-avatar">
-              <%= current_user.points %>
+              积分：<%= current_user.points %>
+
+              <br/>
+              等级：
+              <ul>
+                <% current_user.badges.each do |badge| %>
+                    <li><%= badge.name %></li>
+                <% end %>
+              </ul>
 
             </div>
           </div>

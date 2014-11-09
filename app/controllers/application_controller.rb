@@ -36,6 +36,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_badge
+    if current_user
+      current_user.rm_badge(1)
+      current_user.rm_badge(2)
+      if current_user.duration && current_user.duration>Time.now
+        current_user.add_badge(1)
+      elsif current_user.points>=1000
+        current_user.add_badge(2)
+      end
+    end
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }

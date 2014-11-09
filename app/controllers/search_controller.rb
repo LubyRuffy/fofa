@@ -41,6 +41,7 @@ class SearchController < ApplicationController
   end
 
   def result
+    check_badge
     @query = params['q']
     @qbase64=params['qbase64']
     @page = params['page'] || 1

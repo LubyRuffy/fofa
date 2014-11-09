@@ -9,10 +9,12 @@
 # (recieves the object as parameter)
 
 module Merit
-  class PointRules
+    class PointRules
     include Merit::PointRulesMethods
 
     def initialize
+      #score 15, :on => 'registrations#create'
+
       # score 10, :on => 'users#update' do
       #   user.name.present?
       # end

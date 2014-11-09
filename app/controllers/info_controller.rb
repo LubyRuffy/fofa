@@ -29,4 +29,10 @@ class InfoController < ApplicationController
   def fofacli
     @exploits = Exploits.all
   end
+
+  def fee
+  end
+
+  def points
+  end
 end

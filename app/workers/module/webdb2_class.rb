@@ -235,6 +235,12 @@ class WebDb
     db_exec(@@mysql, sql)
   end
 
+  def add_points(userid, category, point)
+    sql = "insert into pointcrons (user_id, category, point, created_at) values(#{userid.to_i}, '#{Mysql2::Client.escape(category)}', #{point.to_i}, '#{Time.now.to_s}')"
+    #puts sql
+    db_exec(@@mysql, sql)
+  end
+
   def need_update_host(host)
     #return false if redis_has_host?(host)
 

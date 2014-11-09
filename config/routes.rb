@@ -23,6 +23,7 @@ Fofa::Application.routes.draw do
       get :contact
       get :gov_cnt
       get :fee
+      get :points
     end
   end
 

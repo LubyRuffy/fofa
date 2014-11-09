@@ -255,7 +255,7 @@ class Processor
   end
 
   #最上层函数，添加host到数据库
-  def add_host_to_webdb(host, force=false, addlinkhosts=true)
+  def add_host_to_webdb(host, force=false, addlinkhosts=true, userid=0)
     host = hostinfo_of_url(host.downcase)
     return -1 unless host
     return -1 if host.include?('/') && !host.include?('https://')
@@ -307,11 +307,13 @@ class Processor
         @webdb.update_host_to_subdomain(host, domain, '', http_info, exists_host)
       else
         #更新根域名表
-        Sidekiq::Client.enqueue(WhoisTask, domain)
+        #Sidekiq::Client.enqueue(WhoisTask, domain)
 
         #更新子域名表
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info, exists_host)
       end
+
+      @webdb.add_points(userid, 'host', 1)
 
       utf8html = http_info[:utf8html]
 

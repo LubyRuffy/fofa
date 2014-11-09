@@ -40,7 +40,7 @@ module ApiHelper
       #if @results
       #  @results.each {|x|
       #    @tags[x.host] = Tag.find_by_host x.host
-      #    @error, @msg = Userhost.add_user_host(x.host, '127.0.0.2')
+      #    @error, @msg = Userhost.add_user_host(current_user, x.host, '127.0.0.2')
       #    puts "error: #{@msg}" if @error
       #  }
       #end

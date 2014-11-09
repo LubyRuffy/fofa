@@ -31,3 +31,19 @@ end
 # }].each do |attrs|
 #   Merit::Badge.create! attrs
 # end
+badge_id = 0
+[{
+ id: (badge_id = badge_id+1),
+ name: '高级帐号',
+ description: '付费高级帐号',
+ level: 1,
+ custom_fields: { type: 'time' }
+},{
+  id: (badge_id = badge_id+1),
+  name: '高级帐号',
+  description: '贡献者高级帐号',
+  level: 2,
+  custom_fields: { type: 'point' }
+}].each do |attrs|
+ Merit::Badge.create! attrs
+end
