@@ -313,7 +313,7 @@ class Processor
         @webdb.update_host_to_subdomain(host, domain, domain_info.subdomain, http_info, exists_host)
       end
 
-      @webdb.add_points(userid, 'host', 1)
+      @webdb.add_user_points(userid, 'host', 1)
 
       utf8html = http_info[:utf8html]
 
