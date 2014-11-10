@@ -24,44 +24,29 @@ thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.ym
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
 
-USE_THINKING_SPHINX=false
-if USE_THINKING_SPHINX
-  ThinkingSphinx::SphinxQL.functions!
-  #ThinkingSphinx::Middlewares::DEFAULT.delete ThinkingSphinx::Middlewares::UTF8
-  ThinkingSphinx::Configuration.instance.searchd.address = thinking_config['address']
-  ThinkingSphinx::Configuration.instance.searchd.port = thinking_config['port']
-else
-  @mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
+@mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
                               :username => thinking_config['connection_options']['username'],
                                :password => thinking_config['connection_options']['password'],
                                :database => thinking_config['connection_options']['database'],
                                :port => thinking_config['mysql41'],
                                :encoding => 'utf8', :reconnect => true)
-end
-
-def build_info(r)
-
-    puts r.id
-    query_info = r.rule
-    puts query_info
+puts thinking_config
+def query(query_info, minid=0, limit=1000)
     match_query =  SphinxProcessor.parse(query_info)
-
-    cnt = 0
-    if USE_THINKING_SPHINX
-      data = ThinkingSphinx.search(match_query, :match_mode => :extended)
-      cnt = data.meta
-    else
-      match_sql = "select count(*) as cnt from subdomain_core where match('#{Mysql2::Client.escape(match_query)}')"
-      puts match_sql
-      res = @mysql.query(match_sql).first
-      cnt = res['cnt'] if res
-    end
-    puts "=> #{cnt}"
-    Charts.where(writedate: Time.now.strftime("%Y-%m-%d"), rule_id:r.id).first_or_initialize.update_attributes!(value:cnt, writedate: Time.now.strftime("%Y-%m-%d"), rule_id:r.id)
-
+    maxid = 0
+    match_sql = "select id from subdomain_core where match('#{Mysql2::Client.escape(match_query)}') and id>#{minid} order by id asc limit #{limit};"
+    puts match_sql
+    @mysql.query(match_sql).each{|r|
+      puts r
+      maxid = [r['id'].to_i,maxid].max
+    }
+    maxid
 end
 
-
-Rule.all.each{|r|
-  build_info(r)
-}
+maxid = 0
+while 1
+  maxid = query('title="test"', maxid)
+  break unless maxid>0
+  puts "======"+maxid.to_s
+  maxid += 1
+end

@@ -267,7 +267,7 @@ end
 #-------------------------------------------------------------------------------
 
 dnssrv = nil
-wordlist = File.join(@root_path, 'subdomains-top1mil-5000.txt')
+wordlist = File.join(@root_path, 'data/subdomains-top1mil-5000.txt')
 trgtdom = 'baidu.com'
 opts = GetoptLong.new(
       	[ '--help', '-h', GetoptLong::NO_ARGUMENT ],

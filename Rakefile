@@ -128,7 +128,7 @@ namespace :fofa do
   desc "add point cron task"
   task :pointcron => :environment do
     Pointcrons.all.each{|p|
-      User.find(p.user_id).add_points(p.point, category: p.category)
+      User.find(p.user_id).add_points(p.point, category: p.category) if p.user_id.to_i>0
       #处理完成就删除
       p.destroy
     }

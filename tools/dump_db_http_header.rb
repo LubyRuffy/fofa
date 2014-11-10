@@ -19,7 +19,7 @@ Dir.chdir @root_path+"/../"
 puts "working dir: #{Dir.pwd}"
 
 rails_env = ENV['RAILS_ENV'] || 'development'
-thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))['development']
+thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.yml"))[rails_env]
 
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
