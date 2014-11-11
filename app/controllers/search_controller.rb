@@ -45,6 +45,7 @@ class SearchController < ApplicationController
     @query = params['q']
     @qbase64=params['qbase64']
     @page = params['page'] || 1
+    @current_admin_user = current_admin_user
     @query = Base64.decode64(params['qbase64']) if params['qbase64'] &&  params['qbase64'].size>2
     #puts @query.encoding
     #@query.force_encoding('utf-8')
@@ -61,6 +62,12 @@ class SearchController < ApplicationController
     @host = params['host']
     #@post = request.post?
     @app = check_app(@host, params['all']) if @host #&& @post
+  end
+
+  def refresh
+    @host = params['host']
+    Sidekiq::Client.enqueue_to("realtime_process_url", Processor, @host, true)
+    render :text => "强制刷新成功！"
   end
 
 end

@@ -59,6 +59,7 @@ Fofa::Application.routes.draw do
       get :remove_black_ips
       get :checkapp
       post :checkapp
+      get :refresh
     end
   end
 

@@ -1,4 +1,4 @@
-<% content_for :title, @query %>
+    <% content_for :title, @query %>
 
 
 <div class="row">
@@ -91,6 +91,9 @@
     <br/>
         <a href="javascript:view('<%= doc.host%>')" style="font-size: 20px"><i class="fa fa-file-code-o"></i></a>
         <a href="/search/checkapp?all=true&host=<%= doc.host%>" style="font-size: 20px" target="_blank"><i class="fa fa-cogs"></i></a>
+        <% if @current_admin_user %>
+            <a href="/search/refresh?host=<%= doc.host%>" style="font-size: 20px" target="_blank"><i class="fa fa-refresh"></i></a>
+        <% end %>
   <br/> 
   <% if @tags[doc.host] %>
     <% if @tags[doc.host].is_a?(Array) %>
