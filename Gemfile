@@ -103,3 +103,5 @@ gem 'ip'
 gem 'geoip'
 
 gem 'merit'
+
+gem 'highlight', :require => 'simplabs/highlight'
