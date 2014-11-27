@@ -5,15 +5,15 @@
 
 <div class="row">
     <div class="col-lg-6 col-md-6">
-      <% @categories.each {|cat| @i||=0 ; @i += 1%>
+      <% @categories.each {|c| @i||=0 ; @i += 1; cat,chart_rules = c%>
       <!-- Start col-lg-6 -->
       <div class="panel panel-info toggle panelClose">
         <!-- Start .panel -->
         <div class="panel-heading">
-          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> <%=cat.title%></h4>
+          <h4 class="panel-title"><i class="fa fa-bar-chart-o"></i> <%=cat['title']%></h4>
         </div>
         <div class="panel-body">
-          <div id="<%=cat.id%>"></div>
+          <div id="<%=cat['id']%>"></div>
         </div>
       </div>
       <!-- End .panel -->
@@ -30,15 +30,9 @@
 <script>
     //This will get the first returned node in the jQuery collection.
     window.onload = function(){
-        <% @categories.each {|cat|
-            chart_rules = cat.rules.map{|r|
-                rinfo = @rules_data.detect{|d|
-                    d.rule_id==r.id
-                }
-                [r.product, rinfo ? rinfo.value : 0]
-            }.sort_by{|r| -r[1]}
+        <% @categories.each {|c| cat,chart_rules = c
         %>
-            show_pie_chart(<%=cat.id%>, '', <%=raw(chart_rules.to_json
+            show_pie_chart(<%=cat['id']%>, '', <%=raw(chart_rules.to_json
 =begin
                 cat.rules.map{|r|
                 last_data = Charts.where(rule_id: r.id).order(writedate: :desc).limit(1).take

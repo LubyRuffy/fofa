@@ -8,11 +8,36 @@ class StatisticController < ApplicationController
   end
 
   def categories
-    @rules_data = Charts.select("#{Charts.table_name}.rule_id, #{Charts.table_name}.value, #{Charts.table_name}.writedate").joins("LEFT JOIN #{Charts.table_name} as i2 ON i2.rule_id = #{Charts.table_name}.rule_id AND #{Charts.table_name}.writedate < i2.writedate").where("i2.writedate IS NULL").order("writedate DESC").to_a
-    @categories = Category.published
+    @rules_data = get_data_from_redis_or_db('rules_data', 60*60*24){Charts.select("#{Charts.table_name}.rule_id, #{Charts.table_name}.value, #{Charts.table_name}.writedate").where("writedate=(select max(writedate) from charts)").order("writedate DESC").to_a}
+    @categories = get_data_from_redis_or_db('categories', 60*60*24){
+      cats = Category.published
+      cats = cats.map {|c|
+        chart_rules = c.rules.map{|r|
+          rinfo = @rules_data.detect{|d|
+            d['rule_id']==r.id
+          }
+          [r.product, rinfo ? rinfo['value'] : 0]
+        }.sort_by{|r| -r[1]}
+        [c, chart_rules]
+      }
+      cats
+    }
   end
 
-
+  def get_data_from_redis_or_db(key, expire)
+    data = Sidekiq.redis{|redis|
+      redis.get(key)
+    }
+    if data
+      data = JSON.parse(data)
+    else
+      data = yield
+      Sidekiq.redis{|redis|
+        redis.setex(key, expire, data.to_json)
+      }
+    end
+    data
+  end
 
   def get_server_info
    @ai = AnalysisInfo.last
