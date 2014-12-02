@@ -35,9 +35,10 @@ class Fofacli
   def dump_module_list
     $stdout.puts "[*] Please wait while we load the module tree..."
     $stdout.puts "===== exploit list ====="
-    #todo: load exploits in exploits/*.rb
     ext = ''
-    Dir["exploits/*.rb"].each do |filename|
+    @root_path = File.expand_path(File.dirname(__FILE__))
+    epath = File.join(@root_path, "exploits/*.rb")
+    Dir[epath].each do |filename|
       ext << File.basename(filename, '.rb')
       ext << "\n"
     end
@@ -193,3 +194,4 @@ if __FILE__ == $PROGRAM_NAME
   cli = Fofacli.new(ARGV)
   cli.run!
 end
+
