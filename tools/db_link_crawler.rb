@@ -82,7 +82,7 @@ while true
     if hosts.size>0
       case MODE
         when 'fofa_api'
-          uri = URI('http://www.fofa.so/api/addhostp')
+          uri = URI('http://fofa.so/api/addhostp')
           res = Net::HTTP.post_form(uri, 'host' => hosts.join(','))
           #puts "id:"+ids.join(",")
           puts "response:"+res.body

@@ -16,7 +16,7 @@ class String
 end
 
 def addhost(hosts)
-  uri = URI('http://www.fofa.so/api/addhostp')
+  uri = URI('http://fofa.so/api/addhostp')
   res = Net::HTTP.post_form(uri, 'host' => hosts.join(','))
   puts "response:"+res.body
 end

@@ -32,7 +32,7 @@ def add_host(host, src)
       info = "#{src} -> #{host}"
       puts info
       @hosts << h
-      r = `curl http://www.fofa.so/api/addhost?host=#{host} >/dev/null 2>&1`
+      r = `curl http://fofa.so/api/addhost?host=#{host} >/dev/null 2>&1`
     end
   end
 end
