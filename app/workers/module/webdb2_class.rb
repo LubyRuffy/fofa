@@ -236,7 +236,7 @@ class WebDb
   end
 
   def add_user_points(userid, category, point)
-    sql = "insert into pointcrons (user_id, category, point, created_at) values(#{userid.to_i}, '#{Mysql2::Client.escape(category)}', #{point.to_i}, '#{Time.now.to_s}')"
+    sql = "insert into pointcrons (user_id, category, point, created_at) values(#{userid.to_i}, '#{Mysql2::Client.escape(category)}', #{point.to_i}, 'Now()')"
     #puts sql
     db_exec(@@mysql, sql)
   end
