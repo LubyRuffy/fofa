@@ -296,8 +296,8 @@ class Processor
     @webdb = @@g_webdb
   end
 
-  def perform(url, force=false)
-    add_host_to_webdb(url, force)
+  def perform(url, force=false, addlinkhosts=true, userid=0)
+    add_host_to_webdb(url, force, addlinkhosts, userid)
   end
 
   #最上层函数，添加host到数据库
