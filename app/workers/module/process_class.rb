@@ -5,6 +5,7 @@ require 'sidekiq'
 require 'thread/pool'
 require 'script_detector'
 require 'whois'
+require 'json'
 root_path = File.expand_path(File.dirname(__FILE__))
 require root_path+"/lrlink.rb"
 require root_path+"/webdb2_class.rb"
@@ -16,7 +17,7 @@ class Uitask
   include Lrlink
   include Sidekiq::Worker
 
-  sidekiq_options :queue => :ui_task, :retry => 3, :backtrace => true#, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
+  sidekiq_options :queue => :ui_task, :retry => 1, :backtrace => true#, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
 
   sidekiq_retries_exhausted do |msg|
     Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
@@ -31,6 +32,155 @@ class Uitask
     @webdb = @@g_webdb
   end
 
+  def getallhosts(domain, maxsize)
+    black_host = [ /\d+\.qzone\.qq\.com/i,
+                   /\d+\.qzone\.com/i,
+                   /\d+\.foxmail\.com/i,
+                   /\d+\.qq.qzone.com/i,
+                   /\d+qq.qzone.com/i, ]
+    res = @webdb.queryer.query("select host from subdomain where reverse_domain='#{Mysql2::Client.escape(domain.downcase.reverse)}' limit #{maxsize.to_i}")
+    res.each{ |r|
+      if r['host']
+        unless black_host.find{|b| r['host']=~b }
+          yield(r['host'])
+        end
+      end
+    }
+  end
+
+  def getallips(host, maxsize)
+    res = @webdb.queryer.query("select ip from subdomain where host='#{Mysql2::Client.escape(host.downcase)}'")
+    res.each{ |r|
+      if r['ip']
+        yield(r['ip'])
+      end
+    }
+  end
+
+  def getalldomains(domain, maxsize)
+    domains = [{domain:domain, finished:false}]
+    emails = []
+    companys = []
+    while ( domains.detect{|d| !d[:finished] } || emails.detect{|e| !e[:finished] } )
+      if domains.size>maxsize
+        msg = "达到最大数限制，未登录状态最多显示200条。登录后可以达到1000条。"
+        #puts msg
+        yield(msg)
+        break
+      end
+
+      #处理domains
+      process_domain = domains.detect{|d| !d[:finished]}
+      if process_domain
+        puts "========= #{process_domain[:domain]} =========="
+        res = @webdb.queryer.query("select ym from icp where DWMC=(select DWMC from icp where ym='#{Mysql2::Client.escape(process_domain[:domain])}' limit 1)")
+        res.each{ |r|
+          if r['ym']
+            found_domain = domains.detect{|d| d[:domain].downcase==r['ym'].downcase}
+            unless found_domain
+              domains << {domain:r['ym'], finished:false}
+              yield(r['ym'])
+            end
+          end
+        }
+
+        res = @webdb.queryer.query("select DWMC from icp where ym='#{Mysql2::Client.escape(process_domain[:domain])}' and DWXZ!='个人'")
+        res.each{ |r|
+          if r['DWMC']
+            found_company = companys.detect{|d| d[:company].downcase==r['DWMC'].downcase}
+            unless found_company
+              unless @@blackc_coms.detect{|c| c && r['DWMC'].include?(c)}
+                puts " #{process_domain[:domain]} -> #{r['DWMC']}"
+                companys << {company:r['DWMC'], finished:false}
+              end
+            end
+          end
+        }
+=begin
+        res = @webdb.queryer.query("select whois_com from rootdomain where domain='#{Mysql2::Client.escape(process_domain[:domain])}'")
+        res.each{ |r|
+          if r['whois_com']
+            found_company = companys.detect{|d| d[:company].downcase==r['whois_com'].downcase}
+            unless found_company
+              unless @@blackc_coms.detect{|c| c && r['whois_com'].include?(c)}
+                puts " #{process_domain[:domain]} -> #{r['whois_com']}"
+                companys << {company:r['whois_com'], finished:false}
+              end
+            end
+          end
+        }
+
+        res = @webdb.queryer.query("select email from rootdomain where domain='#{Mysql2::Client.escape(process_domain[:domain])}'")
+        res.each{ |rs|
+          if rs['email']
+            rs['email'].split(',').each{|email|
+              email = email.split('\t').detect{|e| e.include?('@')}
+              unless @@blackc_emails.detect{|e| e && email.include?(e)}
+                found_email = emails.detect{|e| e[:email].downcase==email.downcase}
+                unless found_email
+                  puts " #{process_domain[:domain]} -> #{email}"
+                  emails << {email:email, finished:false}
+                end
+              end
+            }
+          end
+        }
+=end
+        process_domain[:finished] = true
+
+      end
+
+=begin
+      #处理emails
+      process_email = emails.detect{|e| !e[:finished]}
+      if process_email
+        puts "========= #{process_email[:email]} =========="
+        res = @webdb.queryer.query("select domain from rootdomain where email='#{Mysql2::Client.escape(process_email[:email])}'")
+        res.each{ |r|
+          found_domain = domains.detect{|d| d[:domain].downcase==r['domain'].downcase}
+          unless found_domain
+            domains << {domain:r['domain'], finished:false}
+            yield(r['domain'])
+          end
+        }
+        process_email[:finished] = true
+      end
+=end
+      #处理companys
+      process_company = companys.detect{|c| !c[:finished]}
+      if process_company
+        puts "========= #{process_company[:company]} =========="
+=begin
+        res = @webdb.queryer.query("select domain from rootdomain where whois_com='#{Mysql2::Client.escape(process_company[:company])}' limit 1000")
+        if res.size<1000
+          res.each{ |r|
+            found_domain = domains.detect{|d| d[:domain].downcase==r['domain'].downcase}
+            unless found_domain
+              domains << {domain:r['domain'], finished:false}
+              yield(r['domain'])
+            end
+          }
+        else
+          #可能是个域名注册商
+          puts "===> bad company name: #{process_company[:company]}"
+        end
+=end
+        res = @webdb.queryer.query("select ym from icp where DWMC='#{Mysql2::Client.escape(process_company[:company])}'")
+        res.each{ |r|
+          if r['ym']
+            found_domain = domains.detect{|d| d[:domain].downcase==r['ym'].downcase}
+            unless found_domain
+              domains << {domain:r['ym'], finished:false}
+              yield(r['ym'])
+            end
+          end
+        }
+
+        process_company[:finished] = true
+      end
+    end
+  end
+
   def perform(jobid, action, domain, maxsize=200)
     @@blackc_coms = ['HICHINA ZHICHENG TECHNOLOGY LTD.', 'MARKMONITOR INC.', 'CHENGDU WEST DIMENSION DIGITAL TECHNOLOGY CO., LTD.',
       'Public Interest Registry', 'ENAME TECHNOLOGY CO., LTD.', 'XIN NET TECHNOLOGY CORPORATION',
@@ -40,127 +190,23 @@ class Uitask
     @@blackc_emails = ['domainadm@hichina.com', 'whoisprivacyprotectionservices.com', 'whois.private.service@gmail.com', 'China NIC']
     addmsg(jobid, 'start dumping...')
     case action
-      when 'alldomains'
-        domains = [{domain:domain, finished:false}]
-        emails = []
-        companys = []
-        while ( domains.detect{|d| !d[:finished] } || emails.detect{|e| !e[:finished] } )
-          if domains.size>maxsize
-            msg = "达到最大数限制，未登录状态最多显示200条。登录后可以达到1000条。"
-            puts msg
-            addmsg(jobid, msg)
-            break
-          end
-
-          #处理domains
-          process_domain = domains.detect{|d| !d[:finished]}
-          if process_domain
-            puts "========= #{process_domain[:domain]} =========="
-            res = @webdb.queryer.query("select ym from icp where DWMC=(select DWMC from icp where ym='#{Mysql2::Client.escape(process_domain[:domain])}' limit 1)")
-            res.each{ |r|
-              if r['ym']
-                found_domain = domains.detect{|d| d[:domain].downcase==r['ym'].downcase}
-                unless found_domain
-                  domains << {domain:r['ym'], finished:false}
-                  addmsg(jobid, r['ym'])
-                end
-              end
-            }
-
-            res = @webdb.queryer.query("select DWMC from icp where ym='#{Mysql2::Client.escape(process_domain[:domain])}' and DWXZ!='个人'")
-            res.each{ |r|
-              if r['DWMC']
-                found_company = companys.detect{|d| d[:company].downcase==r['DWMC'].downcase}
-                unless found_company
-                  unless @@blackc_coms.detect{|c| c && r['DWMC'].include?(c)}
-                    puts " #{process_domain[:domain]} -> #{r['DWMC']}"
-                    companys << {company:r['DWMC'], finished:false}
-                  end
-                end
-              end
-            }
-
-            res = @webdb.queryer.query("select whois_com from rootdomain where domain='#{Mysql2::Client.escape(process_domain[:domain])}'")
-            res.each{ |r|
-              if r['whois_com']
-                found_company = companys.detect{|d| d[:company].downcase==r['whois_com'].downcase}
-                unless found_company
-                  unless @@blackc_coms.detect{|c| c && r['whois_com'].include?(c)}
-                    puts " #{process_domain[:domain]} -> #{r['whois_com']}"
-                    companys << {company:r['whois_com'], finished:false}
-                  end
-                end
-              end
-            }
-
-            res = @webdb.queryer.query("select email from rootdomain where domain='#{Mysql2::Client.escape(process_domain[:domain])}'")
-            res.each{ |rs|
-              if rs['email']
-                rs['email'].split(',').each{|email|
-                  email = email.split('\t').detect{|e| e.include?('@')}
-                  unless @@blackc_emails.detect{|e| e && email.include?(e)}
-                    found_email = emails.detect{|e| e[:email].downcase==email.downcase}
-                    unless found_email
-                      puts " #{process_domain[:domain]} -> #{email}"
-                      emails << {email:email, finished:false}
-                    end
-                  end
-                }
-              end
-            }
-
-            process_domain[:finished] = true
-
-          end
-
-          #处理emails
-          process_email = emails.detect{|e| !e[:finished]}
-          if process_email
-            puts "========= #{process_email[:email]} =========="
-            res = @webdb.queryer.query("select domain from rootdomain where email='#{Mysql2::Client.escape(process_email[:email])}'")
-            res.each{ |r|
-              found_domain = domains.detect{|d| d[:domain].downcase==r['domain'].downcase}
-              unless found_domain
-                domains << {domain:r['domain'], finished:false}
-                addmsg(jobid, r['domain'])
-              end
-            }
-            process_email[:finished] = true
-          end
-
-          #处理companys
-          process_company = companys.detect{|c| !c[:finished]}
-          if process_company
-            puts "========= #{process_company[:company]} =========="
-            res = @webdb.queryer.query("select domain from rootdomain where whois_com='#{Mysql2::Client.escape(process_company[:company])}' limit 1000")
-            if res.size<1000
-              res.each{ |r|
-                found_domain = domains.detect{|d| d[:domain].downcase==r['domain'].downcase}
-                unless found_domain
-                  domains << {domain:r['domain'], finished:false}
-                  addmsg(jobid, r['domain'])
-                end
-              }
-            else
-              #可能是个域名注册商
-              puts "===> bad company name: #{process_company[:company]}"
-            end
-
-            res = @webdb.queryer.query("select ym from icp where DWMC='#{Mysql2::Client.escape(process_company[:company])}'")
-            res.each{ |r|
-              if r['ym']
-                found_domain = domains.detect{|d| d[:domain].downcase==r['ym'].downcase}
-                unless found_domain
-                  domains << {domain:r['ym'], finished:false}
-                  addmsg(jobid, r['ym'])
-                end
-              end
-            }
-
-            process_company[:finished] = true
-          end
-        end
-
+      when 'alldomains' #格式就是一行一个domain
+        getalldomains(domain, maxsize){|d|
+          addmsg(jobid, d)
+        }
+      when 'alldomainsfrom' #格式就是from: domain, to: d
+        getalldomains(domain, maxsize){|d|
+          addmsg(jobid, {from:domain, to:{value:d, type:"domain"}}.to_json)
+        }
+      when 'gethosts' #格式就是from: domain, to: host
+        getallhosts(domain, 1000){|d|
+          addmsg(jobid, {from:domain, to:{value:d, type:"host"}}.to_json)
+        }
+      when 'getips' #格式就是from: domain, to: host
+        getallips(domain, maxsize){|d|
+          ipnet = d.split('.')[0..2].join('.')
+          addmsg(jobid, {from:domain, to:{value:ipnet, type:"ip", ip:d}}.to_json)
+        }
       else
         addmsg(jobid, 'unknown action')
     end
@@ -170,8 +216,8 @@ class Uitask
 
   def addmsg(jobid,msg)
     key = "fofa:task:#{jobid}"
-    @webdb.redis.rpush(key,msg)
-    @webdb.redis.expire(key, 10*60) #10分钟过期
+    @webdb.redis.rpush(key, msg)
+    @webdb.redis.expire(key, 2*60) #2分钟过期
   end
 
 end

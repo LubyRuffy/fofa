@@ -7,6 +7,7 @@ Fofa::Application.routes.draw do
   get "lab/alldomains"
   post "lab/addtask"
   get "lab/gettask"
+  get "lab/target"
   get "fofacli/index"
   get "fofacli/getstarted"
   get "fofacli/commandline"

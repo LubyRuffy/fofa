@@ -23,7 +23,7 @@ class LabController < ApplicationController
       return
     end
 
-    if @action.downcase=='alldomains' || @action.downcase=='domains'
+    if @action.downcase=='alldomains' || @action.downcase=='domains' || @action.downcase=='alldomainsfrom' || @action.downcase=='gethosts' || @action.downcase=='getips'
       require 'securerandom'
 
       @jobid = SecureRandom.hex
@@ -45,6 +45,10 @@ class LabController < ApplicationController
   end
 
   def alldomains
+    @domain = params['domain']
+  end
+
+  def target
     @domain = params['domain']
   end
 

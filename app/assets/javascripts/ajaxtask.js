@@ -29,7 +29,7 @@ function StartJob(taskdata, jobFinished, onError, onData) {
 
                         if ($has_data || $get_cnt<10)
                         {
-                            if($get_cnt>30)
+                            if($get_cnt>60)
                             {
                                 onError('任务超时，请稍后再试！');
                             }
