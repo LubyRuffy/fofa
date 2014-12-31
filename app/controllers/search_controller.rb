@@ -7,15 +7,14 @@ class SearchController < ApplicationController
   include ApiHelper
 
   def index
-    #@tbl_cnt = Subdomain.search_count 
-    @site_cnt = Subdomain.count
+    #@tbl_cnt = Subdomain.search_count
     @last = Subdomain.last
     #@show_ws_link = true
   end
   
   def get_web_cnt
-    #@tbl_cnt = Subdomain.search_count 
-    render :text => Subdomain.count
+    #@tbl_cnt = Subdomain.search_count
+    render :text => get_table_cnt('subdomain') #Subdomain.count
   end
 
   def get_hosts_by_ip

@@ -24,6 +24,11 @@ module SearchHelper
     @@geoip.country(ip).to_hash[:country_code2].downcase
   end
 
+  def get_table_cnt(table)
+    h = ActiveRecord::Base.connection.execute("SHOW TABLE STATUS LIKE '#{table}'")
+    h.first[4]
+  end
+
   def get_http_info_from_db_or_net(url)
     return nil unless url
     http_info = nil
