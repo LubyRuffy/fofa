@@ -25,8 +25,8 @@ module SearchHelper
   end
 
   def get_table_cnt(table)
-    h = ActiveRecord::Base.connection.execute("SHOW TABLE STATUS LIKE '#{table}'")
-    h.first[4]
+    h = ActiveRecord::Base.connection.execute("select max(id)-min(id) as cnt from #{table}")
+    h.first[0]
   end
 
   def get_http_info_from_db_or_net(url)
