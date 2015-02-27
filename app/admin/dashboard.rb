@@ -1,3 +1,5 @@
+include SearchHelper
+
 ActiveAdmin.register_page "Dashboard" do
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
@@ -77,7 +79,7 @@ ActiveAdmin.register_page "Dashboard" do
        column do
          panel "收录总览" do
            ul do
-             li "mysql入库个数：#{Subdomain.count(:id)}"
+             li "mysql入库个数：#{get_table_cnt('subdomain')}"
              li "shpinx索引个数：#{ThinkingSphinx.count}"
            end
          end
