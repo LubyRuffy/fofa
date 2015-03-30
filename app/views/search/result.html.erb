@@ -77,7 +77,7 @@
 %>
 
 <% @results.each do |doc|
-  unless doc.host.include?('qihoo.net')
+  unless doc.host.include?('qihoo.net') || doc.ip.start_with?('10.')
   url = doc.host
   url = "http://" + url if !url.include?('https://')
 %>
