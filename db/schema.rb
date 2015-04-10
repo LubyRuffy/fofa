@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020083644) do
+ActiveRecord::Schema.define(version: 20141109112524) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20141020083644) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "autoloading", force: true do |t|
+    t.boolean "in_use"
+    t.integer "command_id", null: false
+  end
+
+  add_index "autoloading", ["command_id"], name: "index_autoloading_command", using: :btree
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -82,6 +89,64 @@ ActiveRecord::Schema.define(version: 20141020083644) do
     t.datetime "updated_at"
   end
 
+  create_table "commands", force: true do |t|
+    t.text    "data"
+    t.string  "creationdate",      limit: 15
+    t.text    "label"
+    t.boolean "instructions_sent",            default: false
+    t.integer "command_module_id",                            null: false
+    t.integer "hooked_browser_id",                            null: false
+  end
+
+  add_index "commands", ["command_module_id"], name: "index_commands_command_module", using: :btree
+  add_index "commands", ["hooked_browser_id"], name: "index_commands_hooked_browser", using: :btree
+
+  create_table "core_browserdetails", id: false, force: true do |t|
+    t.string "session_id",   null: false
+    t.string "detail_key",   null: false
+    t.text   "detail_value"
+  end
+
+  create_table "core_commandmodules", force: true do |t|
+    t.text "name"
+    t.text "path"
+  end
+
+  create_table "core_hookedbrowsers", force: true do |t|
+    t.text    "session"
+    t.text    "ip"
+    t.string  "firstseen",   limit: 15
+    t.string  "lastseen",    limit: 15
+    t.text    "httpheaders"
+    t.text    "domain"
+    t.integer "port",                   default: 80
+    t.integer "count"
+    t.boolean "has_init",               default: false
+    t.boolean "is_proxy",               default: false
+  end
+
+  create_table "core_logs", force: true do |t|
+    t.text     "type"
+    t.text     "event"
+    t.datetime "date"
+    t.text     "hooked_browser_id"
+  end
+
+  create_table "core_optioncache", force: true do |t|
+    t.text "name"
+    t.text "value"
+  end
+
+  create_table "core_results", force: true do |t|
+    t.string  "date",              limit: 15
+    t.text    "data"
+    t.integer "hooked_browser_id",            null: false
+    t.integer "command_id",                   null: false
+  end
+
+  add_index "core_results", ["command_id"], name: "index_core_results_command", using: :btree
+  add_index "core_results", ["hooked_browser_id"], name: "index_core_results_hooked_browser", using: :btree
+
   create_table "error_host", force: true do |t|
     t.string   "host"
     t.datetime "lastupdatetime"
@@ -105,6 +170,76 @@ ActiveRecord::Schema.define(version: 20141020083644) do
   end
 
   add_index "exploits", ["filename"], name: "index_exploits_on_filename", unique: true, using: :btree
+
+  create_table "extension_adminui_users", force: true do |t|
+    t.string "session_id"
+    t.text   "ip"
+  end
+
+  create_table "extension_distributedengine_rules", force: true do |t|
+    t.text    "data"
+    t.boolean "enabled"
+  end
+
+  create_table "extension_dns_rules", force: true do |t|
+    t.text "pattern",  null: false
+    t.text "resource", null: false
+    t.text "response", null: false
+    t.text "callback", null: false
+  end
+
+  create_table "extension_requester_http", force: true do |t|
+    t.text     "hooked_browser_id"
+    t.text     "request"
+    t.text     "allow_cross_domain"
+    t.binary   "response_data",        limit: 16777215
+    t.integer  "response_status_code"
+    t.text     "response_status_text"
+    t.text     "response_port_status"
+    t.text     "response_headers"
+    t.text     "method"
+    t.text     "content_length"
+    t.text     "domain"
+    t.text     "port"
+    t.text     "has_ran"
+    t.text     "path"
+    t.datetime "response_date"
+    t.datetime "request_date"
+  end
+
+  create_table "extension_seng_interceptor", force: true do |t|
+    t.text    "ip"
+    t.text    "post_data"
+    t.integer "webcloner_id", null: false
+  end
+
+  add_index "extension_seng_interceptor", ["webcloner_id"], name: "index_extension_seng_interceptor_webcloner", using: :btree
+
+  create_table "extension_seng_webcloner", force: true do |t|
+    t.text "uri"
+    t.text "mount"
+  end
+
+  create_table "extension_xssrays_details", force: true do |t|
+    t.text    "hooked_browser_id"
+    t.text    "vector_name"
+    t.text    "vector_method"
+    t.text    "vector_poc"
+    t.integer "xssraysscan_id",    null: false
+  end
+
+  add_index "extension_xssrays_details", ["xssraysscan_id"], name: "index_extension_xssrays_details_xssraysscan", using: :btree
+
+  create_table "extension_xssrays_scans", force: true do |t|
+    t.text     "hooked_browser_id"
+    t.datetime "scan_start"
+    t.datetime "scan_finish"
+    t.text     "domain"
+    t.text     "cross_domain"
+    t.integer  "clean_timeout"
+    t.boolean  "is_started",        default: false
+    t.boolean  "is_finished",       default: false
+  end
 
   create_table "icp", primary_key: "ID", force: true do |t|
     t.string  "DWMC"
@@ -164,6 +299,28 @@ ActiveRecord::Schema.define(version: 20141020083644) do
     t.integer "sash_id"
     t.string  "category", default: "default"
   end
+
+  create_table "pointcrons", force: true do |t|
+    t.integer  "user_id"
+    t.string   "category"
+    t.integer  "point"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rootdomain", primary_key: "did", force: true do |t|
+    t.string   "domain",                    null: false
+    t.string   "telephone",     limit: 50
+    t.string   "email",         limit: 200
+    t.text     "whois"
+    t.string   "whois_com"
+    t.text     "ns_info"
+    t.datetime "lastchecktime"
+  end
+
+  add_index "rootdomain", ["domain"], name: "idx_rootdomain_1", using: :btree
+  add_index "rootdomain", ["email"], name: "idx_2", using: :btree
+  add_index "rootdomain", ["whois_com"], name: "idx_3", using: :btree
 
   create_table "rule", force: true do |t|
     t.string   "product"
@@ -234,6 +391,7 @@ ActiveRecord::Schema.define(version: 20141020083644) do
     t.string   "key"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
+    t.datetime "duration"
   end
 
   add_index "user", ["email"], name: "index_user_on_email", unique: true, using: :btree

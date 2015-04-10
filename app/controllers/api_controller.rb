@@ -3,7 +3,7 @@
 class ApiController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  before_action :get_user, only: [:result]
+  before_action :get_user, only: [:result, :resultjs]
 
   include ApiHelper
 
@@ -22,8 +22,15 @@ class ApiController < ApplicationController
   end
 
   def result
+    #response.headers["Content-Type"] = 'application/json'
     @error, @mode, @results, @tags = search_url(@query, @page, 1000)
-    render :json => {error:@error, query:@query.force_encoding('utf-8'), mode:@mode, results:@results.map{|x| x.host }}
+    render :json => {error:@error, query:@query.force_encoding('utf-8'), mode:@mode, results:@results.map{|x| x.host }}.to_json
+  end
+
+  def resultjs
+    response.headers["Content-Type"] = 'application/x-javascript'
+    @error, @mode, @results, @tags = search_url(@query, @page, 1000)
+    render :json => {error:@error, query:@query.force_encoding('utf-8'), mode:@mode, results:@results.map{|x| x.host }}.to_json, :callback=>params['callback']
   end
 
   def ip
