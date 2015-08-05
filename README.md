@@ -1,4 +1,4 @@
-fofa
+fofa 2.0
 ==
 
 简介
@@ -15,46 +15,17 @@ fofa的理想是建立一个针对全球范围的最全的网站数据信息库�
 $ git clone https://github.com/LubyRuffy/fofa.git
 $ cd fofa
 $ bundle install
-配置和启动sphinx
-配置和启动mysql
+配置和启动es
 配置和启动redis
-配置database.yml，编辑redis和mysql服务器地址端口
-配置thinking_sphinx.yml，编辑sphinx的服务器地址端口
-如果MySQL结构都建立了，sphinx和redis都启动了，那么：
+配置和启动mysql
+配置database.yml，编辑es,redis和mysql服务器地址端口
+如果MySQL结构都建立了，es和redis都启动了，那么：
 $ rake fofa:restart_all
 ```
 
-sphinx配置
+elasticsearch配置
 ---
-1. 配置config/sphinx.conf.template，修改服务器ip和帐号信息，默认的模板是5个sphinx分布式服务器的，如果只是单个，需要做相应的修改(可以参考config/development.sphinx.conf.template）。
-2. 启动sphinx索引查询服务：
-    1. 主服务器：searchd -c ./distributed_sphinx.conf -i
-    2. 集群服务器：
-```
-searchd -c ./distributed_sphinx.conf -i idx1p1
-searchd -c ./distributed_sphinx.conf -i idx1p2
-searchd -c ./distributed_sphinx.conf -i idx1p3
-            ......
-            ......
-searchd -c ./distributed_sphinx.conf -i idx1p10
-```
-3. 在每个分布式sphinx服务器上，通过crontab执行定期索引
-    1. 增量索引放到主服务器
-```
-#每分钟执行执行一次
-*/1 * * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1delta --rotate >> $SS_DIR/sphinx_crontab_delta.log
-```
-    2. 每个分布式服务器写入定时任务，处理不同的index分区
-```
-主服务器：
-01 00 * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1p0 --rotate >> $SS_DIR/sphinx_crontab.log
-集群服务器：
-    01 00 * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1p1 --rotate >> $SS_DIR/sphinx_crontab.log
-    01 00 * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1p2 --rotate >> $SS_DIR/sphinx_crontab.log
-    …………………………
-    …………………………
-    01 00 * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1p10 --rotate >> $SS_DIR/sphinx_crontab.log
-```
+搭建好es服务器，然后配置database.yml。
 
 mysql配置
 ---
@@ -96,8 +67,6 @@ worker就是用来执行任务的（也就是爬虫）
 ---
 * 每天3点更新一下统计数据：
     03 00 * * * $SS_DIR/fofa/tools/anaylysis_daemon.rb >> $SS_DIR/analysis_cms_crontab.log
-* 每5分钟执行一次增量索引：
-    */1 * * * * indexer -c $SS_DIR/distributed_sphinx.conf idx1delta --rotate >> $SS_DIR/sphinx_crontab_delta.log
 
 查看redis任务队列：
 ---
@@ -112,24 +81,6 @@ watch -n 5 redis-cli -n 15 -hlocahost llen fofa:queue:process_url
 ./fofacli/fofacli.rb elasticsearch_rce_CVE-2014-3120.rb 'fofaquery=(header="application/json" && body="build_hash") || body="You Know, for Search"' e
 ./fofacli/fofacli.rb oa80000_default_account.rb fofaquery='body="/OAapp/WebObjects/OAapp.woa"' e
 通过FOFA_PROXY=1.1.1.1:8080这种形式来设置代理
-```
-
-Sphinx安装：
----
-```
-sudo yum install mysql-devel
-wget http://www.sphinx-search.com/downloads/sphinx-for-chinese-2.2.1-dev-r4311.tar.gz
-tar zxvf sphinx-for-chinese-2.2.1-dev-r4311.tar.gz
-cd sphinx-for-chinese-2.2.1-dev-r4311
-./configure
-make
-sudo make install
-
-wget http://sphinx-for-chinese.googlecode.com/files/xdict_1.1.tar.gz
-tar zxvf xdict_1.1.tar.gz
-~/sphinx-for-chinese-2.2.1-dev-r4311/src/mkdict ./xdict_1.1.txt  xdict
-sudo mkdir -p /usr/local/sphinx-for-chinese/etc/
-sudo cp xdict /usr/local/sphinx-for-chinese/etc/
 ```
 
 数据导入（主要是exploits）：

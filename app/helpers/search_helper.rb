@@ -3,11 +3,21 @@
 class String
   def and(a)
     #"( #{self} && #{a} )"
-    "( #{self} #{a} )"
+    "( #{self} && #{a} )"
   end
 
   def or(a)
-    "( #{self} | #{a} )"
+    "( #{self} || #{a} )"
+  end
+
+  def query_escape
+    v = self
+    tr = %w'+ - & | > < ! ( ) { } [ ] ^ " ~ * ? : /' # =
+    v.gsub!('\\', "\\\\")
+    tr.each{|t|
+      v.gsub!(t, "\\#{t}")
+    }
+    v
   end
 end
 
@@ -24,10 +34,6 @@ module SearchHelper
     @@geoip.country(ip).to_hash[:country_code2].downcase
   end
 
-  def get_table_cnt(table)
-    h = ActiveRecord::Base.connection.execute("select max(id)-min(id) as cnt from #{table}")
-    h.first[0]
-  end
 
   def get_http_info_from_db_or_net(url)
     return nil unless url
@@ -206,6 +212,7 @@ module SearchHelper
     rule(:right_parenthesis) { str(')') }
 
     # Comparisons
+    rule(:fulleq) { str('==') } #完整匹配
     rule(:eq) { str('=') }
     rule(:not_eq) { str('!=') }
     rule(:matches) { str('~=') }
@@ -234,6 +241,7 @@ module SearchHelper
     rule(:identifier) { null | boolean | number | double_quote_string | literal.as(:string) }
 
     # Grammar
+    rule(:compare_fulleq) { (literal.as(:left) >> space? >> fulleq >> space? >> identifier.as(:right)).as(:fulleq) }
     rule(:compare_eq) { (literal.as(:left) >> space? >> eq >> space? >> identifier.as(:right)).as(:eq) }
     rule(:compare_not_eq) { (literal.as(:left) >> space? >> not_eq >> space? >> identifier.as(:right)).as(:not_eq) }
     rule(:compare_matches) { (literal.as(:left) >> space? >> matches >> space? >> identifier.as(:right)).as(:matches) }
@@ -242,7 +250,7 @@ module SearchHelper
     rule(:compare_gt) { (literal.as(:left) >> space? >> gt >> space? >> identifier.as(:right)).as(:gt) }
     rule(:compare_gteq) { (literal.as(:left) >> space? >> gteq >> space? >> identifier.as(:right)).as(:gteq) }
 
-    rule(:compare) { compare_eq | compare_not_eq | compare_matches | compare_lteq | compare_lt | compare_gteq | compare_gt }
+    rule(:compare) { compare_fulleq | compare_eq | compare_not_eq | compare_matches | compare_lteq | compare_lt | compare_gteq | compare_gt }
 
     rule(:primary) { left_parenthesis >> space? >> or_operation >> space? >> right_parenthesis | compare }
     rule(:and_operation) { (primary.as(:left) >> space? >> and_operator >> space? >> and_operation.as(:right)).as(:and) | primary }
@@ -251,7 +259,8 @@ module SearchHelper
     root :or_operation
   end
 
-  class SphinxProcessor
+  #生成query_string 格式，
+  class ElasticProcessor
     def self.parse(query)
       instance = self.new()
       instance.parse(query)
@@ -275,12 +284,14 @@ module SearchHelper
     protected
 
     def check_column!(value)
-      indexed = %w|title header body host ip|
+      indexed = %w|title header body host ip ipstr domain lastupdatetime|
       unless indexed.include?(value)
         source = Parslet::Source.new(value.to_s)
         cause = Parslet::Cause.new('Column not found', source, value.offset, [])
         raise Parslet::ParseFailed.new('Column not found', cause)
       end
+      value = "ipstr" if value=="ip"
+      value
     end
     def process_and(ast)
       process(ast[:left]).and(process(ast[:right]))
@@ -291,19 +302,19 @@ module SearchHelper
     end
 
     def process_eq(ast)
-      check_column!(ast[:left])
-      "@#{ast[:left]} \"#{Riddle::Query.escape(parse_value(ast[:right]))}\""
+      field = check_column!(ast[:left])
+      "#{field}:(*#{parse_value(ast[:right]).query_escape}*)"
       #table[ast[:left].to_sym].eq(parse_value(ast[:right]))
     end
 
     def process_not_eq(ast)
-      check_column!(ast[:left])
-      "@#{ast[:left]} -\"#{Riddle::Query.escape(parse_value(ast[:right]))}\""
+      field = check_column!(ast[:left])
+      "-#{field}:(*#{parse_value(ast[:right]).query_escape}*)"
       #table[ast[:left].to_sym].not_eq(parse_value(ast[:right]))
     end
 
     def process_matches(ast)
-      check_column!(ast[:left])
+      field = check_column!(ast[:left])
       table[ast[:left].to_sym].matches(parse_value(ast[:right]))
     end
 
@@ -318,8 +329,8 @@ module SearchHelper
     end
 
     def process_gt(ast)
-      check_column!(ast[:left])
-      table[ast[:left].to_sym].gt(parse_value(ast[:right]))
+      field = check_column!(ast[:left])
+      "#{field}:([\"#{parse_value(ast[:right]).query_escape}\" TO *])"
     end
 
     def process_gteq(ast)
@@ -330,15 +341,137 @@ module SearchHelper
     def parse_value(value)
       type = value.keys.first
       case type
-      when :nil
-        return nil
-      when :boolean
-        return value[:boolean] == "true"
-      else
-        return value[type].to_s
+        when :nil
+          return nil
+        when :boolean
+          return value[:boolean] == "true"
+        else
+          return value[type].to_s
       end
     end
   end
+
+  class ElasticProcessorBool
+    def self.parse(query)
+      instance = self.new()
+      instance.parse(query)
+    end
+
+    def parse(query)
+      begin
+        ast = QueryParser.new.parse(query)
+        v = process(ast)
+        unless v.include?('bool')
+          v = %Q|{"bool":{"must":[#{v}]}}|
+        end
+        v
+
+      rescue Parslet::ParseFailed => error
+        raise Parslet::ParseFailed, error
+        #pp "ParseError" + error.inspect
+      end
+    end
+
+    def process(ast)
+      operation = ast.keys.first
+      self.send("process_#{operation}".to_sym, ast[operation]) if self.respond_to?("process_#{operation}".to_sym, true)
+
+    end
+
+    protected
+
+    def check_column!(value)
+      indexed = %w|title header body host ip ipstr domain lastupdatetime|
+      unless indexed.include?(value)
+        source = Parslet::Source.new(value.to_s)
+        cause = Parslet::Cause.new('Column not found', source, value.offset, [])
+        raise Parslet::ParseFailed.new('Column not found', cause)
+      end
+      value = "ipstr" if value=="ip"
+      value
+    end
+
+    def process_and(ast)
+      lv = process(ast[:left])
+      rv = process(ast[:right])
+      %Q|{"bool":{"must":[#{lv},#{rv}]}}|
+    end
+
+    def process_or(ast)
+      lv = process(ast[:left])
+      rv = process(ast[:right])
+      %Q|{"bool":{"should":[#{lv},#{rv}]}}|
+    end
+
+    def process_eq(ast)
+      field = check_column!(ast[:left])
+      "#{field}:(*#{parse_value(ast[:right]).query_escape}*)"
+      field = check_column!(ast[:left])
+      if field=='body'
+        %Q|{"query_string":{"query":"#{field}:(\\"#{parse_value(ast[:right]).query_escape}\\")"}}|
+      else
+        %Q|{"wildcard":{"#{field}":"*#{parse_value(ast[:right]).query_escape}*"}}|
+      end
+    end
+
+    def process_fulleq(ast)
+      field = check_column!(ast[:left])
+      if field=='body'
+        %Q|{"query_string":{"query":"#{field}:(\\"#{parse_value(ast[:right]).query_escape}\\")"}}|
+      else
+        %Q|{"term":{"#{field}":"#{parse_value(ast[:right]).query_escape}"}}|
+      end
+    end
+
+    def process_not_eq(ast)
+      field = check_column!(ast[:left])
+      v = ''
+      if field=='body'
+        v = %Q|{"query_string":{"query":"#{field}:(\\"#{parse_value(ast[:right]).query_escape}\\")"}}|
+      else
+        v = %Q|{"wildcard":{"#{field}":"*#{parse_value(ast[:right]).query_escape}*"}}|
+      end
+      %Q|{"bool":{"must_not":[#{v}]}}|
+    end
+
+    def process_matches(ast)
+      field = check_column!(ast[:left])
+      table[ast[:left].to_sym].matches(parse_value(ast[:right]))
+    end
+
+    def process_lt(ast)
+      check_column!(ast[:left])
+      table[ast[:left].to_sym].lt(parse_value(ast[:right]))
+    end
+
+    def process_lteq(ast)
+      check_column!(ast[:left])
+      table[ast[:left].to_sym].lteq(parse_value(ast[:right]))
+    end
+
+    def process_gt(ast)
+      field = check_column!(ast[:left])
+      "#{field}:([\"#{parse_value(ast[:right]).query_escape}\" TO *])"
+    end
+
+    def process_gteq(ast)
+      check_column!(ast[:left])
+      table[ast[:left].to_sym].gteq(parse_value(ast[:right]))
+    end
+
+    def parse_value(value)
+      type = value.keys.first
+      case type
+        when :nil
+          return nil
+        when :boolean
+          return value[:boolean] == "true"
+        else
+          return value[type].to_s
+      end
+    end
+  end
+
 
   #实际检查
   class AppProcessor

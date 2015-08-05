@@ -123,11 +123,6 @@ module HttpModule
         ip = resp[:ip]
       end
 
-      if is_bullshit_ip?(resp[:ip])
-        resp[:error] = true
-        resp[:errstring] = "bullshit ip"
-        return resp
-      end
       resp[:port] = uri.port
 
       http_class = Net::HTTP
@@ -348,6 +343,7 @@ module HttpModule
   def get_http(url, refer=nil)
     http = get_web_content url, referer: refer
     http[:utf8html] = get_utf8(http[:html],http[:header]) if http[:html] and http[:html].size > 2
+    http[:header] = get_utf8(http[:header],http[:header]) if http[:header] and http[:header].size > 2
     #http[:utf8html] = Redmine::CodesetUtil::to_utf8( http[:html], GuessHtmlEncoding.guess(http[:html])) if http[:html] and http[:html].size > 2
     if http[:utf8html]
       arr = http[:utf8html].scan(/<title>(.*?)<\/title>/i)

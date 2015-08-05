@@ -3,8 +3,6 @@ log
 config.yml
 database.yml
 ips.yml
-development.sphinx.conf
-thinking_sphinx.yml
 .idea/*
 fofa.iml
 Gemfile.lock

@@ -79,8 +79,7 @@ ActiveAdmin.register_page "Dashboard" do
        column do
          panel "收录总览" do
            ul do
-             li "mysql入库个数：#{get_table_cnt('subdomain')}"
-             li "shpinx索引个数：#{ThinkingSphinx.count}"
+             li "elasticsearch索引个数：#{Subdomain.es_size}"
            end
          end
        end

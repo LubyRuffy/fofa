@@ -1,8 +1,8 @@
 require 'uri'
 require 'open-uri'
 require 'sidekiq'
-require "#{Rails.root}/app/workers/url_worker.rb"
-require "#{Rails.root}/app/workers/module/lrlink.rb"
+#require "#{Rails.root}/app/workers/url_worker.rb"
+require "#{Rails.root}/app/workers/lrlink.rb"
 
 include Lrlink
 

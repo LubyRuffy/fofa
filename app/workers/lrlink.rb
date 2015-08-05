@@ -97,6 +97,7 @@ module Lrlink
 127.0.0.}
     return true if !ip
     $ips.each_line{|bip|
+      bip.strip!
       return true if bip && bip.size>4 && ip.start_with?(bip.strip)
     }
     false

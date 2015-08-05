@@ -24,13 +24,13 @@
 <div class="row">
   <div class="col-lg-8">
     搜索 <strong><%= @query.force_encoding('utf-8') %></strong>
-    获得 <%= @results.meta['total_found'] %> 条匹配结果，
-    用时 <%= @results.meta['time'] %>秒，模式:<%=@mode%>。
+    获得 <%= @results.response['hits']['total'] %> 条匹配结果，
+    用时 <%= @results.response['took'] %>毫秒，模式:<%=@mode%>。
     <% if @mode=='extended'%>
         <%= link_to '收藏规则', new_rule_path+"?qbase64="+CGI.escape(Base64.encode64(@query))%>
     <% end %>
     <% if current_user
-            if @results.meta['total_found'].to_i>1000 %>
+            if @results.response['hits']['total'].to_i>1000 %>
         <span class="label label-info">普通账户显示1000条，高级帐号无限制！</span>
     <%      end
        else %>
@@ -125,7 +125,7 @@
 function view(hst){
   url = '/search/get_host_content?host='+hst;
     $.getJSON(url).done(function(data) {
-        $("#dataddd").text(data['host']);//显示到tbody中 
+        $("#dataddd").text(data['host']['body']);//显示到tbody中
         $("#mySmallModalLabel").text(hst+" 网站正文"); 
         $('#htmlcontent').modal({show:true});
         //$("#htmlcontent").dialog({modal:true,height: 530,width:600, title: hst+" 网站正文"}).dialog('open');

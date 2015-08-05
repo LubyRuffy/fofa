@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20141109112524) do
     t.text     "reason"
   end
 
-  add_index "error_host", ["host"], name: "host", unique: true, using: :btree
+  add_index "error_host", ["host"], name: "error_host_index", unique: true, using: :btree
 
   create_table "exploits", force: true do |t|
     t.string   "name"
@@ -365,7 +365,7 @@ ActiveRecord::Schema.define(version: 20141109112524) do
     t.string    "app"
   end
 
-  add_index "subdomain", ["host"], name: "host", unique: true, using: :btree
+  add_index "subdomain", ["host"], name: "subdomain_host_index", unique: true, using: :btree
   add_index "subdomain", ["lastupdatetime"], name: "updatetime", using: :btree
   add_index "subdomain", ["reverse_domain"], name: "reverse_domain", using: :btree
 

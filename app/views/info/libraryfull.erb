@@ -16,7 +16,7 @@
      @rules.each { |r|
   %>
       <tr>
-        <td>【<%=r['created_at'].strftime('%Y-%m-%d')%>】</td>
+        <td>【<%=Time.parse(r['created_at']).strftime('%Y-%m-%d')%>】</td>
         <td><a href='<%=r['producturl']%>' target='_blank'><%=r['product']%></a> </td>
         <td><a href="/search/result?qbase64=<%=CGI.escape Base64.encode64(r['rule'])%>"><%=r['rule']%></a></td>
         <td><%=r.user ? r.user.username : '-'%></td>

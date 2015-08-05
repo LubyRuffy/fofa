@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 require "sidekiq"
-require "#{Rails.root}/app/workers/url_worker.rb"
 
 class SearchController < ApplicationController
   include SearchHelper
@@ -8,13 +7,13 @@ class SearchController < ApplicationController
 
   def index
     #@tbl_cnt = Subdomain.search_count
-    @last = Subdomain.last
+    #@last = Subdomain.last
     #@show_ws_link = true
   end
   
   def get_web_cnt
     #@tbl_cnt = Subdomain.search_count
-    render :text => get_table_cnt('subdomain') #Subdomain.count
+    render :text => Subdomain.es_size
   end
 
   def get_hosts_by_ip
@@ -37,7 +36,7 @@ class SearchController < ApplicationController
 
   def get_host_content
   	unless params['host'].downcase.include?('qihoo.net')
-    	render :json => {'host'=>Subdomain.find_by_host(params['host']).body}
+    	render :json => {'host'=>Subdomain.es_get(params['host'])['_source']}
     else
       render :json => {'host'=>''}
     end

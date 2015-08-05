@@ -1,51 +1,68 @@
 module ApiHelper
   def search_sphinxql(query, page_count=1000)
-    options = {:match_mode=>:extended, :index => 'idx1',:sql => { :select => 'id,ip,title,header,host,domain,lastupdatetime'},:per_page => page_count,:page => params['page'],:order => "lastupdatetime DESC"}#:retry_stale => 2,
-    @results = ThinkingSphinx.search query,options
+    @results = Subdomain.search query
   end
 
   def search(query, page_count=10, page=1)
     @query = query
-    @query_l = nil
-    begin
-      @query_l = SearchHelper::SphinxProcessor.parse(@query)
-    rescue => e #Parslet::ParseFailed
-      puts "QueryParser failed:"+e.inspect+e.backtrace.to_s
-    end
+    @error = nil
+    @mode = "normal"
+    @tags = {}
 
-    @results = nil
-    begin
-      options = {:index => 'idx1',:sql => { :select => 'id,ip,title,header,host,lastupdatetime'},:per_page => page_count, :page => page}#:retry_stale => 2,
-      if @query_l
-        @mode = "extended"
-        options[:match_mode] = :extended
-        options[:order] = "lastupdatetime DESC"
-        @results = ThinkingSphinx.search @query_l,options
-      else
-        @mode = "normal"
-        if @query.size>0
-          options[:field_weights] = {
-              :ip => 10000,
-              :host => 400,
-              :title => 50,
-              :header    => 20,
-              :body => 1
-          }
-        else
-          options[:order] = "lastupdatetime DESC"
-        end
-        @results = ThinkingSphinx.search Riddle::Query.escape(@query),options
+    if @query.nil? || @query.size<1
+      @results = Subdomain.__elasticsearch__.search(query: {match_all: {}},
+                                         _source: ['host', 'title', 'lastupdatetime', 'ip', 'header'],
+                                         sort: [
+                                             {
+                                                 lastupdatetime: "desc"
+                                             }
+                                         ]).paginate(page: page, per_page: page_count)
+    else
+      @query_l = nil
+      begin
+        @query_l = SearchHelper::ElasticProcessorBool.parse(@query)
+      rescue => e #Parslet::ParseFailed
+        puts "QueryParser failed:"+e.inspect+e.backtrace.to_s
       end
-      @tags = {}
-      #if @results
-      #  @results.each {|x|
-      #    @tags[x.host] = Tag.find_by_host x.host
-      #    @error, @msg = Userhost.add_user_host(current_user, x.host, '127.0.0.2')
-      #    puts "error: #{@msg}" if @error
-      #  }
+
+      @results = nil
+      #begin
+        if @query_l
+          @mode = "extended"
+        else
+
+        end
+        #if @results
+        #  @results.each {|x|
+        #    @tags[x.host] = Tag.find_by_host x.host
+        #    @error, @msg = Userhost.add_user_host(current_user, x.host, '127.0.0.2')
+        #    puts "error: #{@msg}" if @error
+        #  }
+        #end
+      puts @query_l
+        @results = Subdomain.__elasticsearch__.search(_source: ['host', 'title', 'lastupdatetime', 'ip', 'header'],
+=begin
+                                    query: {
+                                        filtered: {
+                                            filter: {
+                                                query: {
+                                                    query_string: {
+                                                        query: @query_l ? @query_l : @query
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+=end
+                                    query: JSON.parse(@query_l),
+                                    sort: [
+                                        {
+                                            lastupdatetime: "desc"
+                                        }
+                                    ]).paginate(page: page, per_page: page_count)
+      #rescue => e
+      #  @error = e.to_s
       #end
-    rescue ThinkingSphinx::SphinxError => e
-      @error = e.to_s
     end
     [@error, @mode, @results, @tags]
   end
@@ -54,7 +71,7 @@ module ApiHelper
     @query = query
     @query_l = nil
     begin
-      @query_l = SearchHelper::SphinxProcessor.parse(@query)
+      @query_l = SearchHelper::ElasticProcessor.parse(@query)
     rescue => e #Parslet::ParseFailed
       puts "QueryParser failed:"+e.inspect+e.backtrace.to_s
     end

@@ -7,11 +7,11 @@
 <br/>
 <h3>流程：</h3><br/>
 1、提交域名<br/>
-2、请求gearman任务，请求http<br/>
+2、请求sidekiq任务，请求http<br/>
 3、提取title、header、body<br/>
 4、提取ip<br/>
 5、提取tag，包括server、applicationserver、cms、中间件等<br/>
-6、提交sphinx进行索引<br/>
+6、提交elasticsearch进行索引<br/>
 <br/>
 <h3>触发事件：</h3><br/>
 1、每7天自动更新一次<br/>
@@ -21,8 +21,8 @@
 5、每天根据cms打tag<br/>
 <br/>
 <h3>依赖开源项目，感谢所有无私奉献的开源工作者：</h3><br/>
-1、sphinx<br/>
-2、gearman<br/>
+1、elasticsearch<br/>
+2、sidekiq<br/>
 3、mysql<br/>
 4、ruby & rails<br/>
    使用的依赖库：will_paginate、mysql2、twitter-bootstrap-rails、Sidekiq、whenever、chartkick、gearman-ruby、guess_html_encoding、nokogiri、redis、domainatrix、parslet<br/>

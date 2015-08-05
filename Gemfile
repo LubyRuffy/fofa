@@ -1,10 +1,6 @@
 #source 'https://rubygems.org'
 source 'https://ruby.taobao.org'
 
-gem 'sphinx'
-gem 'thinking-sphinx'
-gem 'will_paginate'
-
 #gem 'hexdump'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -12,9 +8,10 @@ gem 'rails'#, '4.0.3'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
@@ -48,6 +45,10 @@ end
 gem 'unicorn',   :platform => :ruby
 
 
+gem 'will_paginate'
+
+gem "elasticsearch-model", require: 'elasticsearch/model' #一定要放到will_paginate后面，否则分页无效
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
@@ -77,7 +78,7 @@ gem 'sinatra'
 gem 'lazy_high_charts'
 gem 'jquery-turbolinks'
 
-gem 'devise','3.3.0'
+gem 'devise'#,'3.3.0'
 #gem 'paperclip'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
