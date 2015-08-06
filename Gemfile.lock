@@ -97,7 +97,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    colorize (0.7.7)
     connection_pool (2.2.0)
     devise (3.5.1)
       bcrypt (~> 3.0)
@@ -183,9 +182,6 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.3.19)
     net-dns (0.8.0)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -271,10 +267,6 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
-    sshkit (1.7.1)
-      colorize (>= 0.7.0)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -300,8 +292,6 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
-    whois (3.6.0)
-      activesupport (>= 3)
     will_paginate (3.0.7)
 
 PLATFORMS
@@ -343,14 +333,12 @@ DEPENDENCIES
   sinatra
   sixarm_ruby_magic_number_type
   sqlite3
-  sshkit
   therubyracer
   thread
   turbolinks
   turnout
   uglifier
   unicorn
-  whois
   will_paginate
 
 BUNDLED WITH

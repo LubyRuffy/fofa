@@ -93,9 +93,9 @@ gem 'celluloid'
 
 gem 'turnout'
 
-gem 'sshkit'
+#gem 'sshkit'
 
-gem 'whois'
+#gem 'whois'
 
 gem 'net-dns'
 

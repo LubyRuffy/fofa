@@ -1,5 +1,4 @@
 require 'sidekiq'
-require "#{Rails.root}/app/workers/url_worker.rb"
 
 class LabController < ApplicationController
   include ApiHelper
