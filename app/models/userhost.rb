@@ -1,7 +1,6 @@
 require 'uri'
 require 'open-uri'
 require 'sidekiq'
-#require "#{Rails.root}/app/workers/url_worker.rb"
 require "#{Rails.root}/app/workers/lrlink.rb"
 
 include Lrlink
@@ -28,8 +27,7 @@ class Userhost < ActiveRecord::Base
     end
     if !@error
       #host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
-      host = Subdomain.select(:id).where("host=?", @host)
-      if host.size<1
+      if Subdomain.es_exists(@host)
         @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0], "writetime"=>Time.now )
 
         queue = "process_url"
@@ -38,9 +36,9 @@ class Userhost < ActiveRecord::Base
         if user
           @userhost.user = user
           @userhost.save
-          Sidekiq::Client.enqueue_to(queue, Processor, @host, false, true, user.id)
+          Sidekiq::Client.enqueue_to(queue, CheckUrlWorker, @host, false, true, user.id)
         else
-          Sidekiq::Client.enqueue_to(queue, Processor, @host)
+          Sidekiq::Client.enqueue_to(queue, CheckUrlWorker, @host)
         end
 
       end
