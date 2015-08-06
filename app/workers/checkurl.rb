@@ -32,7 +32,13 @@ def need_update_host(host)
 end
 
 #最上层函数，添加host到数据库
-def checkurl(host, force=false, addlinkhosts=true, userid=0)
+def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false)
+  $ip_setted = false
+  unless $ip_setted
+    $invalid_id = get_ip_of_host_resolv('nevercouldexists.qq.com')
+    $ip_setted = true
+  end
+
   host = hostinfo_of_url(host.downcase)
   return ERROR_INVALID_HOST unless host
   return ERROR_INVALID_HOST if host.include?('/') && !host.include?('https://')
@@ -58,7 +64,7 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0)
 
   #泛域名解析这里会超时，尽可能往下放
   ip = get_ip_of_host(only_host)
-  return ERROR_HOST_DNS unless ip
+  return ERROR_HOST_DNS unless ip && ($invalid_id && ip!=$invalid_id)
   return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
   #检查是否需要更新
@@ -69,9 +75,9 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0)
   end
 
   #更新检查时间
-  FofaES.update_checktime_of_host(host) if exists_host
+  Subdomain.update_checktime_of_host(host) if exists_host
 
-  #return 1 if @@just_for_test #测试桩，在rspec中用到，并不实际提交到Sidekiq
+  return '12345678901234567890abcd' if just_for_test #测试桩，在rspec中用到，并不实际提交到Sidekiq
 
   #提交下一个队列
   Sidekiq::Client.enqueue(ProcessUrlWorker, host, domain, domain_is_ip ? '':domain_info.subdomain, addlinkhosts, userid)
@@ -87,13 +93,14 @@ class CheckUrlWorker
     Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
   end
 
+  @@just_for_test = false
+
   def initialize
-    @@just_for_test = false
   end
 
   def perform(url, force=false, addlinkhosts=true, userid=0)
     logger.debug "[#{self.class}] checkurl of #{url}"
-    ret = checkurl(url, force, addlinkhosts, userid)
+    ret = checkurl(url, force, addlinkhosts, userid, @@just_for_test)
     logger.debug "[#{self.class}] checkurl return #{ret}"
     ret
   end

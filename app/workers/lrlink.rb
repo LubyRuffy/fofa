@@ -92,6 +92,11 @@ module Lrlink
     nil
   end
 
+  def get_ip_of_host_resolv(host)
+    require 'resolv'
+    Resolv.getaddress(host)
+  end
+
   def is_bullshit_ip?(ip)
     $ips = %q{0.0.0.0
 127.0.0.}
