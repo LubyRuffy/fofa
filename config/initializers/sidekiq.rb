@@ -12,11 +12,11 @@ end
 Sidekiq::Logging.logger.level = Logger::ERROR
 
 Sidekiq.configure_server do |cfg|
-  cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 2, :pool_timeout => 5}
+  cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 2, :pool_timeout => 15}
 end
 
 Sidekiq.configure_client do |cfg|
-  cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 2, :pool_timeout => 5 }
+  cfg.redis = { :url => redis_url, :namespace => "#{config['namespace']}", :size => 2, :pool_timeout => 15 }
 end
 
 

@@ -36,7 +36,7 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0)
   host = hostinfo_of_url(host.downcase)
   return ERROR_INVALID_HOST unless host
   return ERROR_INVALID_HOST if host.include?('/') && !host.include?('https://')
-  return ERROR_BLACK_HOST if FofaDB.redis_black_host?(host)
+  return ERROR_BLACK_HOST if FofaDB.redis_black_host?(host) && !force
   only_host = host_of_url(host)
 
   domain_is_ip = false
@@ -53,13 +53,13 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0)
     #pp domain_info
     return ERROR_INVALID_DOMAIN if !domain_info
     domain = domain_info.domain+'.'+domain_info.public_suffix
-    return ERROR_BLACK_DOMAIN if FofaDB.redis_black_domain?(domain)
+    return ERROR_BLACK_DOMAIN if FofaDB.redis_black_domain?(domain)  && !force
   end
 
   #泛域名解析这里会超时，尽可能往下放
   ip = get_ip_of_host(only_host)
   return ERROR_HOST_DNS unless ip
-  return ERROR_BLACK_IP if is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip)
+  return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
   #检查是否需要更新
   need_update,exists_host = need_update_host(host)

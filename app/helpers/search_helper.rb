@@ -260,6 +260,7 @@ module SearchHelper
   end
 
   #生成query_string 格式，
+=begin
   class ElasticProcessor
     def self.parse(query)
       instance = self.new()
@@ -350,6 +351,7 @@ module SearchHelper
       end
     end
   end
+=end
 
   class ElasticProcessorBool
     def self.parse(query)
@@ -358,6 +360,7 @@ module SearchHelper
     end
 
     def parse(query)
+      @string_query_fields = ['body', 'header_ok']
       begin
         ast = QueryParser.new.parse(query)
         v = process(ast)
@@ -381,13 +384,14 @@ module SearchHelper
     protected
 
     def check_column!(value)
-      indexed = %w|title header body host ip ipstr domain lastupdatetime|
+      indexed = %w|title header header_ok body host ip ipstr domain lastupdatetime|
       unless indexed.include?(value)
         source = Parslet::Source.new(value.to_s)
         cause = Parslet::Cause.new('Column not found', source, value.offset, [])
         raise Parslet::ParseFailed.new('Column not found', cause)
       end
       value = "ipstr" if value=="ip"
+      value = "header_ok" if value=="header"
       value
     end
 
@@ -407,7 +411,7 @@ module SearchHelper
       field = check_column!(ast[:left])
       "#{field}:(*#{parse_value(ast[:right]).query_escape}*)"
       field = check_column!(ast[:left])
-      if field=='body'
+      if @string_query_fields.include?(field)
         %Q|{"query_string":{"query":"#{field}:(\\"#{parse_value(ast[:right]).query_escape}\\")"}}|
       else
         %Q|{"wildcard":{"#{field}":"*#{parse_value(ast[:right]).query_escape}*"}}|
@@ -416,7 +420,7 @@ module SearchHelper
 
     def process_fulleq(ast)
       field = check_column!(ast[:left])
-      if field=='body'
+      if @string_query_fields.include?(field)
         %Q|{"query_string":{"query":"#{field}:(\\"#{parse_value(ast[:right]).query_escape}\\")"}}|
       else
         %Q|{"term":{"#{field}":"#{parse_value(ast[:right]).query_escape}"}}|
@@ -426,7 +430,7 @@ module SearchHelper
     def process_not_eq(ast)
       field = check_column!(ast[:left])
       v = ''
-      if field=='body'
+      if @string_query_fields.include?(field)
         v = %Q|{"query_string":{"query":"#{field}:(\\"#{parse_value(ast[:right]).query_escape}\\")"}}|
       else
         v = %Q|{"wildcard":{"#{field}":"*#{parse_value(ast[:right]).query_escape}*"}}|
