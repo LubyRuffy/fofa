@@ -68,10 +68,13 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
   return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
   #检查是否需要更新
-  need_update,exists_host = need_update_host(host)
-  unless (need_update || force)
-    #logger.debug "[#{self.class}] #{host} no need to update"
-    return HOST_NONEED_UPDATE
+  exists_host = false
+  unless force
+    need_update,exists_host = need_update_host(host)
+    unless need_update
+      #logger.debug "[#{self.class}] #{host} no need to update"
+      return HOST_NONEED_UPDATE
+    end
   end
 
   #更新检查时间
