@@ -13,9 +13,9 @@ class String
   def query_escape
     v = self
     tr = %w'+ - & | > < ! ( ) { } [ ] ^ " ~ * ? : /' # =
-    v.gsub!('\\', "\\\\")
+    v = v.gsub('\\', "\\\\")
     tr.each{|t|
-      v.gsub!(t, "\\#{t}")
+      v = v.gsub(t, "\\#{t}")
     }
     v
   end

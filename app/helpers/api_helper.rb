@@ -30,7 +30,19 @@ module ApiHelper
         if @query_l
           @mode = "extended"
         else
-
+          @query_l = %Q|
+          {
+              "filtered": {
+                  "filter": {
+                      "query": {
+                          "query_string": {
+                              "query": "#{@query.query_escape}",
+                              "analyze_wildcard": true
+                          }
+                      }
+                  }
+              }
+          }|
         end
         #if @results
         #  @results.each {|x|
@@ -39,8 +51,8 @@ module ApiHelper
         #    puts "error: #{@msg}" if @error
         #  }
         #end
-      puts @query_l
         @results = Subdomain.__elasticsearch__.search(_source: ['host', 'title', 'lastupdatetime', 'ip', 'header'],
+
 =begin
                                     query: {
                                         filtered: {
@@ -56,8 +68,12 @@ module ApiHelper
 =end
                                     query: JSON.parse(@query_l),
                                     sort: [
+
                                         {
                                             lastupdatetime: "desc"
+                                        },
+                                        {
+                                            _score: "desc"
                                         }
                                     ]).paginate(page: page, per_page: page_count)
       #rescue => e
