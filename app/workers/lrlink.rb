@@ -95,6 +95,8 @@ module Lrlink
   def get_ip_of_host_resolv(host)
     require 'resolv'
     Resolv.getaddress(host)
+  rescue => e
+    nil
   end
 
   def is_bullshit_ip?(ip)
