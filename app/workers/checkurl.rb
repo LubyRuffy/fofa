@@ -36,7 +36,12 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
   $ip_setted = false
   unless $ip_setted
     puts "check invalid_ip" if ENV['FOFA_DEBUG']
-    $invalid_ip = get_ip_of_host_resolv('nevercouldexists.qq.com')
+    begin
+      $invalid_ip = get_ip_of_host_resolv('nevercouldexists.qq.com')
+    rescue => e
+      puts e
+    end
+
     puts "invalid_ip is : #{$invalid_ip}" if ENV['FOFA_DEBUG']
     $ip_setted = true
   end
