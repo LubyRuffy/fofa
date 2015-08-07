@@ -76,7 +76,7 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
 
   #泛域名解析这里会超时，尽可能往下放
   ip = get_ip_of_host(only_host)
-  return ERROR_HOST_DNS unless ip && ($invalid_ip && ip!=$invalid_ip)
+  return ERROR_HOST_DNS if !ip || ($invalid_ip && ip==$invalid_ip)
   return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
   puts "4" if ENV['FOFA_DEBUG']
