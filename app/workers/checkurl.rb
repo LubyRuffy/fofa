@@ -41,6 +41,7 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
       $invalid_ip = get_ip_of_host_resolv('nevercouldexists.qq.com')
     rescue Resolv::ResolvError => e
       #puts "Unknown Exception of : #{host}\n error:#{$!} at:#{$@}\nerror : #{e}"
+      $invalid_ip = nil
     end
     puts "invalid_ip is : #{$invalid_ip}" if ENV['FOFA_DEBUG']
   end
