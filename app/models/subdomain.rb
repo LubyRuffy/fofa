@@ -139,6 +139,29 @@ class Subdomain < ActiveRecord::Base
                          }
                      }, refresh: refresh
     end
+
+    def get_hosts_of_domain(domain, count=100)
+      @query_l = %Q|
+          {
+              "filtered": {
+                  "filter": {
+                      "query": {
+                          "term": {
+                              "domain": "#{domain}"
+                          }
+                      }
+                  }
+              }
+          }|
+      __elasticsearch__.search(_source: ['host'],
+                                          query: JSON.parse(@query_l),
+                                          sort: [
+                                              {
+                                                  lastupdatetime: "desc"
+                                              }
+                                          ],
+                                          size:count )
+    end
   end
 
 
