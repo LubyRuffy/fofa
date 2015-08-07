@@ -35,7 +35,9 @@ end
 def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false)
   $ip_setted = false
   unless $ip_setted
-    $invalid_id = get_ip_of_host_resolv('nevercouldexists.qq.com')
+    puts "check invalid_ip" if ENV['FOFA_DEBUG']
+    $invalid_ip = get_ip_of_host_resolv('nevercouldexists.qq.com')
+    puts "invalid_ip is : #{$invalid_ip}" if ENV['FOFA_DEBUG']
     $ip_setted = true
   end
 
@@ -64,7 +66,7 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
 
   #泛域名解析这里会超时，尽可能往下放
   ip = get_ip_of_host(only_host)
-  return ERROR_HOST_DNS unless ip && ($invalid_id && ip!=$invalid_id)
+  return ERROR_HOST_DNS unless ip && ($invalid_id && ip!=$invalid_ip)
   return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
   #检查是否需要更新
