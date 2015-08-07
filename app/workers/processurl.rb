@@ -49,7 +49,9 @@ class ProcessUrlWorker
   end
 
   def perform(host, domain, subdomain, addlinkhosts=true, userid=0)
-    process_url(host, domain, subdomain, addlinkhosts, userid)
+    puts "[#{self.class}] process_url of #{url}" if ENV['FOFA_DEBUG']
+    ret = process_url(host, domain, subdomain, addlinkhosts, userid)
+    puts "[#{self.class}] process_url return #{ret}" if ENV['FOFA_DEBUG']
   end
 
 

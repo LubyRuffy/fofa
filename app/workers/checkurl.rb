@@ -102,9 +102,9 @@ class CheckUrlWorker
   end
 
   def perform(url, force=false, addlinkhosts=true, userid=0)
-    logger.debug "[#{self.class}] checkurl of #{url}"
+    puts "[#{self.class}] checkurl of #{url}" if ENV['FOFA_DEBUG']
     ret = checkurl(url, force, addlinkhosts, userid, @@just_for_test)
-    logger.debug "[#{self.class}] checkurl return #{ret}"
+    puts "[#{self.class}] checkurl return #{ret}" if ENV['FOFA_DEBUG']
     ret
   end
 

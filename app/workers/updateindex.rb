@@ -26,6 +26,8 @@ class UpdateIndexWorker
   end
 
   def perform(host, domain, subdomain, http_info, addlinkhosts, userid=0)
-    update_index(host, domain, subdomain, http_info, addlinkhosts, userid)
+    puts "[#{self.class}] update_index of #{url}" if ENV['FOFA_DEBUG']
+    ret = update_index(host, domain, subdomain, http_info, addlinkhosts, userid)
+    puts "[#{self.class}] update_index return #{ret}" if ENV['FOFA_DEBUG']
   end
 end
