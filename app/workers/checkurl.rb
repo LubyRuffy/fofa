@@ -46,14 +46,11 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
     puts "invalid_ip is : #{$invalid_ip}" if ENV['FOFA_DEBUG']
   end
 
-  puts "1" if ENV['FOFA_DEBUG']
   host = hostinfo_of_url(host.downcase)
   return ERROR_INVALID_HOST unless host
   return ERROR_INVALID_HOST if host.include?('/') && !host.include?('https://')
   return ERROR_BLACK_HOST if FofaDB.redis_black_host?(host) && !force
   only_host = host_of_url(host)
-
-  puts "2" if ENV['FOFA_DEBUG']
 
   domain_is_ip = false
   if only_host =~ /\d+\.\d+\.\d+\.\d/
@@ -72,14 +69,11 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
     return ERROR_BLACK_DOMAIN if FofaDB.redis_black_domain?(domain)  && !force
   end
 
-  puts "3" if ENV['FOFA_DEBUG']
-
   #泛域名解析这里会超时，尽可能往下放
   ip = get_ip_of_host(only_host)
   return ERROR_HOST_DNS if !ip || ($invalid_ip && ip==$invalid_ip)
   return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
-  puts "4" if ENV['FOFA_DEBUG']
   #检查是否需要更新
   exists_host = false
   unless force
@@ -89,13 +83,9 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
       return HOST_NONEED_UPDATE
     end
   end
-  puts "5" if ENV['FOFA_DEBUG']
-
 
   #更新检查时间
   Subdomain.update_checktime_of_host(host) if exists_host
-
-
 
   return '12345678901234567890abcd' if just_for_test #测试桩，在rspec中用到，并不实际提交到Sidekiq
 
