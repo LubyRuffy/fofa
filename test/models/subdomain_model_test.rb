@@ -107,6 +107,7 @@ class SubdomainModelTest < ActiveSupport::TestCase
                                  {'title'=>'title1', 'utf8html'=>'body2', 'ip'=>'ip2', 'header'=>'header2', 'host'=>'2.test.com', 'domain'=>'test.com', 'subdomain'=>'2'}
                              ], true)
     result = Subdomain.get_hosts_of_domain('test.com')
+    #puts result
     assert_equal(result.size, 2)
     result = Subdomain.get_hosts_of_domain('test1.com')
     assert_equal(result.size, 0)

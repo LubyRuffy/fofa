@@ -153,14 +153,15 @@ class Subdomain < ActiveRecord::Base
                   }
               }
           }|
-      __elasticsearch__.search(_source: ['host'],
+      result = __elasticsearch__.search(_source: ['host'],
                                           query: JSON.parse(@query_l),
                                           sort: [
                                               {
                                                   lastupdatetime: "desc"
                                               }
                                           ],
-                                          size:count )
+                                          size: count )
+      result.map{|r| r.host}
     end
   end
 
