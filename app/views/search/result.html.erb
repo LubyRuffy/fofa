@@ -23,6 +23,7 @@
 
 <div class="row">
   <div class="col-lg-8">
+    <%= (current_user && current_user.id==1) ? @es_query_string.to_json : '' %> <br/>
     搜索 <strong><%= @query.force_encoding('utf-8') %></strong>
     获得 <%= @results.response['hits']['total'] %> 条匹配结果，
     用时 <%= @results.response['took'] %>毫秒，模式:<%=@mode%>。

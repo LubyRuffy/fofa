@@ -32,15 +32,9 @@ module ApiHelper
         else
           @query_l = %Q|
           {
-              "filtered": {
-                  "filter": {
-                      "query": {
-                          "query_string": {
-                              "query": "#{@query.query_escape}",
-                              "analyze_wildcard": true
-                          }
-                      }
-                  }
+              "query_string": {
+                  "query": "#{@query.query_escape}",
+                  "analyze_wildcard": true
               }
           }|
         end
@@ -51,36 +45,25 @@ module ApiHelper
         #    puts "error: #{@msg}" if @error
         #  }
         #end
-        @results = Subdomain.__elasticsearch__.search(_source: ['host', 'title', 'lastupdatetime', 'ip', 'header'],
+      @query_l = {
+          _source: ['host', 'title', 'lastupdatetime', 'ip', 'header'],
+          query: JSON.parse(@query_l),
+          sort: [
 
-=begin
-                                    query: {
-                                        filtered: {
-                                            filter: {
-                                                query: {
-                                                    query_string: {
-                                                        query: @query_l ? @query_l : @query
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-=end
-                                    query: JSON.parse(@query_l),
-                                    sort: [
-
-                                        {
-                                            lastupdatetime: "desc"
-                                        },
-                                        {
-                                            _score: "desc"
-                                        }
-                                    ]).paginate(page: page, per_page: page_count)
+              {
+                  lastupdatetime: "desc"
+              },
+              {
+                  _score: "desc"
+              }
+          ]
+      }
+        @results = Subdomain.__elasticsearch__.search(@query_l).paginate(page: page, per_page: page_count)
       #rescue => e
       #  @error = e.to_s
       #end
     end
-    [@error, @mode, @results, @tags]
+    [@error, @mode, @results, @tags, @query_l]
   end
 
   def search_url(query, page, per_page=1000)
