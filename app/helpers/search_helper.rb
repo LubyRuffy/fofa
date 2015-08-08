@@ -12,10 +12,13 @@ class String
 
   def query_escape
     v = self
-    tr = %w'+ & | > < ! ( ) { } [ ] ^ " ~ * /' # = - ? :
-    v = v.gsub('\\', "\\\\")
+    tr = %w'" + & | > < ! ( ) { } [ ] ^ ~ */' # = - ? : "
+    v = v.gsub('\\', "\\\\\\")
     tr.each{|t|
-      v = v.gsub(t, "\\#{t}")
+      if v.include?(t)
+        v = v.gsub(t, '\\'+t)
+      end
+
     }
     v
   end

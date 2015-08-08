@@ -15,14 +15,12 @@ class SearchHelperTest < ActionView::TestCase
   end
 =end
   test "ElasticProcessorBool测试" do
-
-    a = "content=\\\"WordPress"
-    puts a.query_escape
+    printf "%s\n", 'location.href=\"homeLogin.action'.query_escape
     assert_equal '{"bool":{"must":[{"term":{"domain":"360.cn"}}]}}', ElasticProcessorBool.parse('domain=="360.cn"')
     assert_equal '{"bool":{"must":[{"query_string":{"query":"body:(\"360.cn\")"}}]}}', ElasticProcessorBool.parse('body=="360.cn"')
     assert_equal '{"bool":{"must":[{"wildcard":{"domain":"*360.cn*"}}]}}', ElasticProcessorBool.parse('domain="360.cn"')
-    assert_equal '{"bool":{"must":[{"wildcard":{"title":"* \\\\- 融360*"}}]}}', ElasticProcessorBool.parse('title=" - 融360"')
-    assert_equal '{"bool":{"must":[{"query_string":{"query":"body:(\"财富说 \\\\- 年轻人的银行\")"}}]}}', ElasticProcessorBool.parse('body="财富说 - 年轻人的银行"')
+    assert_equal '{"bool":{"must":[{"wildcard":{"title":"* - 融360*"}}]}}', ElasticProcessorBool.parse('title=" - 融360"')
+    assert_equal '{"bool":{"must":[{"query_string":{"query":"body:(\"财富说 - 年轻人的银行\")"}}]}}', ElasticProcessorBool.parse('body="财富说 - 年轻人的银行"')
 
     assert_equal '{"bool":{"must_not":[{"wildcard":{"domain":"*360.cn*"}}]}}', ElasticProcessorBool.parse('domain!="360.cn"')
 
@@ -30,5 +28,7 @@ class SearchHelperTest < ActionView::TestCase
     assert_equal '{"bool":{"must":[{"term":{"domain":"360.cn"}},{"term":{"domain":"baidu.com"}}]}}', ElasticProcessorBool.parse('domain=="360.cn" && domain=="baidu.com"')
 
     assert_equal '{"bool":{"must":[{"term":{"domain":"360.cn"}},{"bool":{"must_not":[{"wildcard":{"host":"*webscan.360.cn*"}}]}}]}}', ElasticProcessorBool.parse('domain=="360.cn" && host!="webscan.360.cn"')
+
+    assert_equal '{"bool":{"should":[{"term":{"title":"金龙卡金融化一卡通网站查询子系统"}},{"query_string":{"query":"body:(\"location.href=\"homeLogin.action\")"}}]}}', ElasticProcessorBool.parse('title=="金龙卡金融化一卡通网站查询子系统" || body="location.href=\"homeLogin.action"')
   end
 end
