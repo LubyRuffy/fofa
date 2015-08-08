@@ -25,5 +25,7 @@ module Fofa
     # config.i18n.default_locale = :de
     config.autoload_paths += %W(#{config.root}/app/workers)
     config.i18n.default_locale = "zh-CN"
+
+    config.relative_url_root = "/"
   end
 end

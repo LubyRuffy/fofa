@@ -27,7 +27,7 @@ class Userhost < ActiveRecord::Base
     end
     if !@error
       #host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
-      if Subdomain.es_exists(@host)
+      if Subdomain.es_exists?(@host)
         @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0], "writetime"=>Time.now )
 
         queue = "process_url"
