@@ -57,7 +57,9 @@ class Subdomain < ActiveRecord::Base
 
     #是否存在某条文档
     def es_exists?(host)
-      @client.exists index: @index, type: @type, id: host
+      v = @client.exists index: @index, type: @type, id: host
+      puts v
+      v
     end
 
     #按id查找document

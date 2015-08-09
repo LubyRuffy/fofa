@@ -2,6 +2,8 @@ require 'uri'
 require 'open-uri'
 require 'sidekiq'
 require "#{Rails.root}/app/workers/lrlink.rb"
+require "#{Rails.root}/app/workers/checkurl.rb"
+require "#{Rails.root}/app/workers/realtimeprocess.rb"
 
 include Lrlink
 
@@ -27,20 +29,22 @@ class Userhost < ActiveRecord::Base
     end
     if !@error
       #host = Userhost.select(:id).where("host=? and DATEDIFF(NOW(),writetime)<90", @host)
-      if Subdomain.es_exists?(@host)
+      unless Subdomain.es_exists?(@host)
         @userhost = Userhost.create("host"=>@host, "clientip"=>ip.split(',')[0], "writetime"=>Time.now )
 
-        queue = "process_url"
-        queue = "realtime_process_url" if realtime
+        klass = CheckUrlWorker
+        klass = RealtimeprocessWorker if realtime
 
         if user
           @userhost.user = user
           @userhost.save
-          Sidekiq::Client.enqueue_to(queue, CheckUrlWorker, @host, false, true, user.id)
+          klass.perform_async(@host, false, true, user.id)
         else
-          Sidekiq::Client.enqueue_to(queue, CheckUrlWorker, @host)
+          klass.perform_async(@host)
         end
-
+      else
+        @info = "已经存在相同的记录: #{@host}"
+        @error = true
       end
     end
     [@error,@info]

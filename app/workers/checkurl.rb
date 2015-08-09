@@ -12,6 +12,7 @@ ERROR_BLACK_DOMAIN = -5
 ERROR_BLACK_IP = -6
 ERROR_HOST_DNS = -7
 HOST_NONEED_UPDATE = -8
+HOST_BREAK_BY_BLOCK = -9
 
 def need_update_host(host)
   need_update = false
@@ -32,6 +33,7 @@ def need_update_host(host)
 end
 
 #最上层函数，添加host到数据库
+#如果有block，那么会直接返回不进入下一个worker
 def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false)
   $ip_setted = false
   unless $ip_setted
@@ -88,6 +90,8 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
   Subdomain.update_checktime_of_host(host) if exists_host
 
   return '12345678901234567890abcd' if just_for_test #测试桩，在rspec中用到，并不实际提交到Sidekiq
+
+  return yield(host, domain, domain_is_ip ? '':domain_info.subdomain, addlinkhosts, userid) if block_given?
 
   #提交下一个队列
   Sidekiq::Client.enqueue(ProcessUrlWorker, host, domain, domain_is_ip ? '':domain_info.subdomain, addlinkhosts, userid)

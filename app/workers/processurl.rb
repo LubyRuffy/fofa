@@ -13,10 +13,6 @@ def process_url(host, domain, subdomain, addlinkhosts=true, userid=0)
   if http_info && ! http_info[:error]
     return ERROR_BLACK_IP if is_bullshit_ip?(http_info[:ip])
 
-    #提交下一个队列
-    mini_info={host:host, domain:domain, subdomain:subdomain, ip:http_info[:ip], title:http_info[:title], header:http_info[:header], utf8html:http_info[:utf8html]}
-    Sidekiq::Client.enqueue(UpdateIndexWorker, host, domain, subdomain, mini_info, addlinkhosts, userid)
-
     if addlinkhosts
       utf8html = http_info[:utf8html]
       get_linkes(utf8html).each {|h|
@@ -28,6 +24,10 @@ def process_url(host, domain, subdomain, addlinkhosts=true, userid=0)
       }
     end
 
+    #提交下一个队列
+    mini_info={host:host, domain:domain, subdomain:subdomain, ip:http_info[:ip], title:http_info[:title], header:http_info[:header], utf8html:http_info[:utf8html]}
+    return yield(host, domain, subdomain, mini_info, addlinkhosts, userid) if block_given?
+    Sidekiq::Client.enqueue(UpdateIndexWorker, host, domain, subdomain, mini_info, addlinkhosts, userid)
     return 0
   elsif http_info
     Sidekiq::Client.enqueue(HttpErrorWorker, host, domain, subdomain, http_info)
