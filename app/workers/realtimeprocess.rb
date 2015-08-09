@@ -5,6 +5,16 @@ require File.join(FOFA_ROOT_PATH, 'workers', 'processurl.rb')
 require File.join(FOFA_ROOT_PATH, 'workers', 'updateindex.rb')
 require File.join(FOFA_ROOT_PATH, 'models', 'subdomain.rb')
 
+def realtimeprocess(url, force=false, addlinkhosts=true, userid=0)
+  ret_http_info = nil
+  checkurl(url, force, addlinkhosts, userid){ |host, domain, subdomain, addlinkhosts, userid|
+    process_url(host, domain, subdomain, addlinkhosts, userid){|host, domain, subdomain, http_info, addlinkhosts, userid|
+      ret_http_info = JSON.parse(http_info.to_json)
+      update_index(host, domain, subdomain, ret_http_info, addlinkhosts, userid)
+    }
+  }
+  ret_http_info
+end
 
 class RealtimeprocessWorker
   def initialize
@@ -14,12 +24,7 @@ class RealtimeprocessWorker
 
 
   def perform(url, force=false, addlinkhosts=true, userid=0)
-    checkurl(url, force, addlinkhosts, userid){ |host, domain, subdomain, addlinkhosts, userid|
-      process_url(host, domain, subdomain, addlinkhosts, userid){|host, domain, subdomain, http_info, addlinkhosts, userid|
-        http_info = JSON.parse(http_info.to_json)
-        update_index(host, domain, subdomain, http_info, addlinkhosts, userid)
-      }
-    }
+    realtimeprocess(url, force, addlinkhosts, userid)
   end
 
 end

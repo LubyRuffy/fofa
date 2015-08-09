@@ -63,7 +63,9 @@ class SearchController < ApplicationController
   def checkapp
     @host = params['host']
     #@post = request.post?
+    t1 = Time.now.to_f
     @app = check_app(@host, params['all']) if @host #&& @post
+    @time_delta = Time.now.to_f - t1
   end
 
   def refresh

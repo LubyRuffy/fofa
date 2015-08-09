@@ -43,10 +43,11 @@ module SearchHelper
     http_info = nil
     host=hostinfo_of_url(url)
     #try to get from db
-    http_info ||= Subdomain.where(:host=>host).take
-    unless http_info
-      Processor.new.add_host_to_webdb(url,false,false)
-      http_info ||= Subdomain.nocache_where(:host=>host).take
+    doc = Subdomain.es_get(host)
+    if doc
+      http_info = doc['_source']
+    else
+      http_info ||= realtimeprocess(host)
     end
     http_info
   end
@@ -526,14 +527,14 @@ module SearchHelper
       check_column!(ast[:left])
       value=parse_value(ast[:right])
       value.gsub! '\"', '"'
-      http[ast[:left].to_s.to_sym].downcase.include?  value.downcase
+      @http[ast[:left].to_s].downcase.include?  value.downcase
     end
 
     def process_not_eq(ast)
       check_column!(ast[:left])
       value=parse_value(ast[:right])
       value.gsub! '\"', '"'
-      !http[ast[:left].to_s.to_sym].downcase.include?  value.downcase
+      !@http[ast[:left].to_s].downcase.include?  value.downcase
     end
 
     def parse_value(value)
