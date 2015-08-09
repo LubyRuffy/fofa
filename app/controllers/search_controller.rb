@@ -68,7 +68,7 @@ class SearchController < ApplicationController
 
   def refresh
     @host = params['host']
-    Sidekiq::Client.enqueue_to("realtime_process_url", Processor, @host, true)
+    RealtimeprocessWorker.perform_async(@host, true)
     render :text => "强制刷新成功！"
   end
 
