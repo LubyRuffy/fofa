@@ -30,7 +30,7 @@ def process_url(host, domain, subdomain, addlinkhosts=true, userid=0)
   #获取http信息
   http_info = get_http(host)
   if http_info && ! http_info[:error]
-    return ERROR_BLACK_IP if is_bullshit_ip?(http_info[:ip])
+    #return ERROR_BLACK_IP if is_bullshit_ip?(http_info[:ip])
 
     if addlinkhosts
       utf8html = http_info[:utf8html]
