@@ -8,6 +8,25 @@ include HttpModule
 ERROR_BLACK_IP = -6
 
 def process_url(host, domain, subdomain, addlinkhosts=true, userid=0)
+  #泛域名解析这里会超时，尽可能往下放
+  ENV['FOFA_IP_SETTED'] ||= '0'
+  ENV['FOFA_INVALID_IP'] ||= ''
+  if ENV['FOFA_IP_SETTED']=='0'
+    ENV['FOFA_IP_SETTED'] = '1'
+    puts "check invalid_ip" if ENV['FOFA_DEBUG']
+    begin
+      ENV['FOFA_INVALID_IP'] = get_ip_of_host_resolv('nevercouldexists.qq.com')
+    rescue Resolv::ResolvError => e
+      #puts "Unknown Exception of : #{host}\n error:#{$!} at:#{$@}\nerror : #{e}"
+      ENV['FOFA_INVALID_IP'] = ''
+    end
+    puts "invalid_ip is : #{ENV['FOFA_INVALID_IP']}" if ENV['FOFA_DEBUG']
+  end
+  only_host = host_of_url(host)
+  ip = get_ip_of_host(only_host)
+  return ERROR_HOST_DNS if !ip || (ENV['FOFA_INVALID_IP'].size>0 && ip==ENV['FOFA_INVALID_IP'])
+  return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))
+
   #获取http信息
   http_info = get_http(host)
   if http_info && ! http_info[:error]

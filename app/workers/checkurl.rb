@@ -35,20 +35,6 @@ end
 #最上层函数，添加host到数据库
 #如果有block，那么会直接返回不进入下一个worker
 def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false)
-  ENV['FOFA_IP_SETTED'] ||= '0'
-  ENV['FOFA_INVALID_IP'] ||= ''
-  if ENV['FOFA_IP_SETTED']=='0'
-    ENV['FOFA_IP_SETTED'] = '1'
-    puts "check invalid_ip" if ENV['FOFA_DEBUG']
-    begin
-      ENV['FOFA_INVALID_IP'] = get_ip_of_host_resolv('nevercouldexists.qq.com')
-    rescue Resolv::ResolvError => e
-      #puts "Unknown Exception of : #{host}\n error:#{$!} at:#{$@}\nerror : #{e}"
-      ENV['FOFA_INVALID_IP'] = ''
-    end
-    puts "invalid_ip is : #{ENV['FOFA_INVALID_IP']}" if ENV['FOFA_DEBUG']
-  end
-
   host = hostinfo_of_url(host.downcase)
   return ERROR_INVALID_HOST unless host
   return ERROR_INVALID_HOST if host.include?('/') && !host.include?('https://')
@@ -82,17 +68,12 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
     end
   end
 
-  #泛域名解析这里会超时，尽可能往下放
-  ip = get_ip_of_host(only_host)
-  return ERROR_HOST_DNS if !ip || (ENV['FOFA_INVALID_IP'].size>0 && ip==ENV['FOFA_INVALID_IP'])
-  return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
-
   #更新检查时间
   Subdomain.update_checktime_of_host(host) if exists_host
 
-  return '12345678901234567890abcd' if just_for_test #测试桩，在rspec中用到，并不实际提交到Sidekiq
-
   return yield(host, domain, domain_is_ip ? '':domain_info.subdomain, addlinkhosts, userid) if block_given?
+
+  return '12345678901234567890abcd' if just_for_test #测试桩，在rspec中用到，并不实际提交到Sidekiq
 
   #提交下一个队列
   Sidekiq::Client.enqueue(ProcessUrlWorker, host, domain, domain_is_ip ? '':domain_info.subdomain, addlinkhosts, userid)

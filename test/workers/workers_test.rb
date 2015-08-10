@@ -12,7 +12,11 @@ class WorkersTest < ActiveSupport::TestCase
 
   test '非法host测试' do
     assert_equal CheckUrlWorker.new.perform('',false,false,0), ERROR_INVALID_HOST
-    assert_equal CheckUrlWorker.new.perform('nevercouldexists.qq.com',false,false,0), ERROR_HOST_DNS
+    v = checkurl('nevercouldexists.qq.com',false,false,0){ |host, domain, subdomain, addlinkhosts, userid|
+      process_url(host, domain, subdomain, addlinkhosts, userid){|host, domain, subdomain, http_info, addlinkhosts, userid|
+      }
+    }
+    assert_equal v, ERROR_HOST_DNS
   end
 
   test '非法ip测试' do
@@ -21,14 +25,27 @@ class WorkersTest < ActiveSupport::TestCase
   end
 
   test '加黑ip测试（ip网段）' do
-    assert_equal CheckUrlWorker.new.perform('0.0.0.0',false,false,0), ERROR_BLACK_IP
-    assert_equal CheckUrlWorker.new.perform('127.0.0.1',false,false,0), ERROR_BLACK_IP
+    v = checkurl('0.0.0.0',false,false,0){ |host, domain, subdomain, addlinkhosts, userid|
+      process_url(host, domain, subdomain, addlinkhosts, userid){|host, domain, subdomain, http_info, addlinkhosts, userid|
+      }
+    }
+    assert_equal v, ERROR_BLACK_IP
+
+    v = checkurl('127.0.0.1',false,false,0){ |host, domain, subdomain, addlinkhosts, userid|
+      process_url(host, domain, subdomain, addlinkhosts, userid){|host, domain, subdomain, http_info, addlinkhosts, userid|
+      }
+    }
+    assert_equal v, ERROR_BLACK_IP
 
     Test_IP_NET = '1.1.1'
     FofaDB.redis.srem('fofa:black_ips', Test_IP_NET)
     assert_not FofaDB.redis.sismember('fofa:black_ips', Test_IP_NET)
     FofaDB.redis.sadd('fofa:black_ips', Test_IP_NET)
-    assert_equal CheckUrlWorker.new.perform('1.1.1.1',false,false,0), ERROR_BLACK_IP
+    v = checkurl('1.1.1.1',false,false,0){ |host, domain, subdomain, addlinkhosts, userid|
+      process_url(host, domain, subdomain, addlinkhosts, userid){|host, domain, subdomain, http_info, addlinkhosts, userid|
+      }
+    }
+    assert_equal v, ERROR_BLACK_IP
     FofaDB.redis.srem('fofa:black_ips', Test_IP_NET)
   end
 
