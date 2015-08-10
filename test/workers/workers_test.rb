@@ -50,10 +50,15 @@ class WorkersTest < ActiveSupport::TestCase
 
   test '90天更新机制测试' do
     Subdomain.es_delete('just-for-test.fofa.so') if Subdomain.es_exists?('just-for-test.fofa.so')
-    Subdomain.es_insert('just-for-test.fofa.so', 'fofa.so','just-for-test', {'lastchecktime'=>Time.now().to_s}, true)
+    Subdomain.es_insert('just-for-test.fofa.so', 'fofa.so','just-for-test', {'lastchecktime'=>Time.now.strftime("%Y-%m-%d %H:%M:%S")}, true)
     assert_equal CheckUrlWorker.new.perform('just-for-test.fofa.so',false,false,0), HOST_NONEED_UPDATE
-    Subdomain.es_insert('just-for-test.fofa.so', 'fofa.so','www', {'lastchecktime'=>(Time.now - 91*24*60*60).to_s}, true)
+    Subdomain.es_insert('just-for-test.fofa.so', 'fofa.so','www', {'lastchecktime'=>(Time.now - 91*24*60*60).strftime("%Y-%m-%d %H:%M:%S")}, true)
     assert_equal CheckUrlWorker.new.perform('just-for-test.fofa.so',false,false,0).size, 24
     Subdomain.es_delete('just-for-test.fofa.so')
+  end
+
+  test 'invalid_ip机制测试' do
+    RealtimeprocessWorker.new.perform('webscan.360.cn')
+    RealtimeprocessWorker.new.perform('abc.360.cn')
   end
 end

@@ -35,17 +35,18 @@ end
 #最上层函数，添加host到数据库
 #如果有block，那么会直接返回不进入下一个worker
 def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false)
-  $ip_setted = false
-  unless $ip_setted
-    $ip_setted = true
+  ENV['FOFA_IP_SETTED'] ||= '0'
+  ENV['FOFA_INVALID_IP'] ||= ''
+  if ENV['FOFA_IP_SETTED']=='0'
+    ENV['FOFA_IP_SETTED'] = '1'
     puts "check invalid_ip" if ENV['FOFA_DEBUG']
     begin
-      $invalid_ip = get_ip_of_host_resolv('nevercouldexists.qq.com')
+      ENV['FOFA_INVALID_IP'] = get_ip_of_host_resolv('nevercouldexists.qq.com')
     rescue Resolv::ResolvError => e
       #puts "Unknown Exception of : #{host}\n error:#{$!} at:#{$@}\nerror : #{e}"
-      $invalid_ip = nil
+      ENV['FOFA_INVALID_IP'] = ''
     end
-    puts "invalid_ip is : #{$invalid_ip}" if ENV['FOFA_DEBUG']
+    puts "invalid_ip is : #{ENV['FOFA_INVALID_IP']}" if ENV['FOFA_DEBUG']
   end
 
   host = hostinfo_of_url(host.downcase)
@@ -71,11 +72,6 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
     return ERROR_BLACK_DOMAIN if FofaDB.redis_black_domain?(domain)  && !force
   end
 
-  #泛域名解析这里会超时，尽可能往下放
-  ip = get_ip_of_host(only_host)
-  return ERROR_HOST_DNS if !ip || ($invalid_ip && ip==$invalid_ip)
-  return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
-
   #检查是否需要更新
   exists_host = false
   unless force
@@ -85,6 +81,11 @@ def checkurl(host, force=false, addlinkhosts=true, userid=0, just_for_test=false
       return HOST_NONEED_UPDATE
     end
   end
+
+  #泛域名解析这里会超时，尽可能往下放
+  ip = get_ip_of_host(only_host)
+  return ERROR_HOST_DNS if !ip || (ENV['FOFA_INVALID_IP'].size>0 && ip==ENV['FOFA_INVALID_IP'])
+  return ERROR_BLACK_IP if (is_bullshit_ip?(ip)  || FofaDB.redis_black_ip?(ip))  && !force
 
   #更新检查时间
   Subdomain.update_checktime_of_host(host) if exists_host
