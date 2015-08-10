@@ -108,8 +108,12 @@
   <% end %>
 </div>
 <div class="col-lg-8" style="background-color: #f7f7f9; font-size: 12px; padding: 8px; line-height: 14px;">
-  <% header = raw(doc.header.gsub("\n", "<br>")) %>
-  <%= highlight(header, @query)%>
+  <% if doc.highlight?  %>
+      <%= raw(doc.highlight.header_ok[0].gsub("\n", "<br>"))%>
+  <% else %>
+      <% header = raw(doc.header.gsub("\n", "<br>")) %>
+      <%= highlight(header, @query)%>
+  <% end %>
 </div>
     </div>
     <p></p>

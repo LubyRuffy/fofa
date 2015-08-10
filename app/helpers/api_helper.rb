@@ -3,7 +3,7 @@ module ApiHelper
     @results = Subdomain.search query
   end
 
-  def search(query, page_count=10, page=1)
+  def search(query, page_count=10, page=1, highlight=false)
     @query = query
     @error = nil
     @mode = "normal"
@@ -30,6 +30,7 @@ module ApiHelper
         if @query_l
           @mode = "extended"
         else
+          highlight = false
           @query_l = %Q|
           {
               "query_string": {
@@ -58,6 +59,7 @@ module ApiHelper
               }
           ]
       }
+      @query_l[:highlight] = {pre_tags: ["<mark>"],post_tags: ["</mark >"],fields: {header_ok: {fragment_size: 2000}}} if highlight
         @results = Subdomain.__elasticsearch__.search(@query_l).paginate(page: page, per_page: page_count)
       #rescue => e
       #  @error = e.to_s

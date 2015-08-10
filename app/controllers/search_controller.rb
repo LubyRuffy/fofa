@@ -52,7 +52,7 @@ class SearchController < ApplicationController
     #puts @query.encoding
     #@query.force_encoding('utf-8')
     #render :text => @query
-    @error, @mode, @results, @tags, @es_query_string = search(@query, 10, @page)
+    @error, @mode, @results, @tags, @es_query_string = search(@query, 10, @page, true)
     if @page && @page.to_i>10 && !current_user
       @error = "未登录状态只能查看100条记录，登录后可查看1000条记录！";
     end
