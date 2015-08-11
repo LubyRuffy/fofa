@@ -47,6 +47,7 @@
 
 
 <% if @ips
+     @ips.sort! { |x,y| y[3] <=> x[3] }
    @ips.each do |net|
    ipnet,hosts,ips,netipcnt = net
    unless ipnet.start_with?('10.')
