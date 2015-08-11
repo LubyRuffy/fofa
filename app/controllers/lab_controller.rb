@@ -110,7 +110,17 @@ class LabController < ApplicationController
                 "hosts": {
                   "terms": {
                     "field": "host",
-                    "size": 1000
+                    "size": 100,
+                    "order": {
+                      "url_size": "asc"
+                    }
+                  },
+                  "aggs": {
+                    "url_size": {
+                      "min": {
+                        "script_file": "hostsize"
+                      }
+                    }
                   }
                 }
               }
