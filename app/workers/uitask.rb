@@ -151,15 +151,17 @@ class Uitask
           puts "===> bad company name: #{process_company[:company]}"
         end
 =end
-        res = Icp.find_by_sql("select ym from icp where DWMC='#{Mysql2::Client.escape(process_company[:company])}'")
+        res = Icp.find_by_sql("select ym,SITE_URL from icp where DWMC='#{Mysql2::Client.escape(process_company[:company])}'")
         res.each{ |r|
-          if r['ym']
-            found_domain = domains.detect{|d| d[:domain].downcase==r['ym'].downcase}
+          tmp_domains = r['SITE_URL']+';'+r['ym']
+          tmp_domains = tmp_domains.downcase.split(';').map{|host|
+            domain = get_domain_info_by_host(hostinfo_of_url(host))
+            found_domain = domains.detect{|d| d[:domain].downcase==domain.downcase}
             unless found_domain
-              domains << {domain:r['ym'], finished:false}
-              yield(r['ym'])
+              domains << {domain:domain, finished:false}
+              yield(domain)
             end
-          end
+          }
         }
 
         process_company[:finished] = true
