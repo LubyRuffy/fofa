@@ -28,7 +28,7 @@ class LabController < ApplicationController
       @jobid = SecureRandom.hex
       maxsize = 200
       maxsize = 1000 if current_user
-      Sidekiq::Client.enqueue_to('ui_task', Uitask, @jobid, @action, @domain, maxsize)
+      Uitask.perform_async( @jobid, @action, @domain, maxsize)
       render :json => {error:false, errormsg:'', jobId: @jobid}
       return
     else
@@ -81,83 +81,7 @@ class LabController < ApplicationController
       if @ips
         @ips = JSON.parse(@ips)
       else
-        query=%Q|
-{
-  "_source": [
-    "host",
-    "ip"
-  ],
-  "aggs": {
-    "ips_of_domain": {
-      "filter": {
-        "term": {
-          "domain": "#{domain.downcase}"
-        }
-      },
-      "aggs": {
-        "net": {
-          "terms": {
-            "script_file": "ipsubnet",
-            "size": 1000
-          },
-          "aggs": {
-            "ips": {
-              "terms": {
-                "field": "ip",
-                "size": 256
-              },
-              "aggs": {
-                "hosts": {
-                  "terms": {
-                    "field": "host",
-                    "size": 100,
-                    "order": {
-                      "url_size": "asc"
-                    }
-                  },
-                  "aggs": {
-                    "url_size": {
-                      "min": {
-                        "script_file": "hostsize"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "size": 0
-}
-|
-        @ips = []
-        aggs = Subdomain.__elasticsearch__.search(JSON.parse(query)).response
-        aggs["aggregations"]["ips_of_domain"]["net"]["buckets"].each{|netagg|
-          ipnet = netagg['key']
-          hosts = []
-          ips = []
-          netipcnt = 0
-          netagg['ips']["buckets"].each{|ipagg|
-            netipcnt += 1
-            ips << ipagg['key_as_string']
-            ipagg['hosts']["buckets"].each{|hostagg|
-              hosts << hostagg['key']
-            }
-          }
-          @ips << [ipnet,hosts.join(','),ips.join(','),netipcnt]
-        }
-
-=begin
-        @ips = Subdomain.connection.execute(%Q{
-              select INET_NTOA(INET_ATON(ip) & 0xFFFFFF00) as net,GROUP_CONCAT(hosts) as hosts,GROUP_CONCAT(ip) as ips,count(*) as cnt from(
-                select ip,GROUP_CONCAT(host) as hosts from (select ip, host from subdomain
-                where reverse_domain=reverse(#{Subdomain.connection.quote(@domain)}) limit #{maxsize}) t group by ip
-              )t group by net order by cnt desc,net asc
-            })
-=end
+        @ips = Subdomain.get_ips_of_domain(domain, maxsize)
         Sidekiq.redis{|redis|
           redis.set(key, @ips.to_json)
           redis.expire(key, 60*60*24)

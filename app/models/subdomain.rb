@@ -155,17 +155,92 @@ class Subdomain < ActiveRecord::Base
                   }
               }
           }|
-      result = __elasticsearch__.search(_source: ['host'],
+      result = __elasticsearch__.search({_source: ['host'],
                                           query: JSON.parse(@query_l),
-                                          sort: [
-                                              {
-                                                  lastupdatetime: "desc"
-                                              }
-                                          ],
-                                          size: count )
+                                          size: count}, {index: @index, type: @type} )
       result.map{|r| r.host}
     end
+
+    def get_ips_of_domain(domain, maxsize=1000)
+      query=%Q|
+{
+  "_source": [
+    "host",
+    "ip"
+  ],
+  "aggs": {
+    "ips_of_domain": {
+      "filter": {
+        "term": {
+          "domain": "#{domain.downcase}"
+        }
+      },
+      "aggs": {
+        "net": {
+          "terms": {
+            "script_file": "ipsubnet",
+            "size": 1000
+          },
+          "aggs": {
+            "ips": {
+              "terms": {
+                "field": "ip",
+                "size": 256
+              },
+              "aggs": {
+                "hosts": {
+                  "terms": {
+                    "field": "host",
+                    "size": 100,
+                    "order": {
+                      "url_size": "asc"
+                    }
+                  },
+                  "aggs": {
+                    "url_size": {
+                      "min": {
+                        "script_file": "hostsize"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "size": 0
+}
+|
+      ips = []
+      aggs = __elasticsearch__.search(JSON.parse(query)).response
+      aggs["aggregations"]["ips_of_domain"]["net"]["buckets"].each{|netagg|
+        ipnet = netagg['key']
+        hosts = []
+        ips = []
+        netipcnt = 0
+        netagg['ips']["buckets"].each{|ipagg|
+          netipcnt += 1
+          ips << ipagg['key_as_string']
+          ipagg['hosts']["buckets"].each{|hostagg|
+            hosts << hostagg['key']
+          }
+        }
+        ips << [ipnet,hosts.join(','),ips.join(','),netipcnt]
+      }
+      ips
+    end
+
+    def get_ips_of_host(host, count=100)
+      doc = es_get(host.downcase)
+      doc['_source']['ip'].split(',')
+    end
+
+    def search(query_or_payload, options={})
+      options.merge!({index: @index, type: @type})
+      __elasticsearch__.search(query_or_payload, options)
+    end
   end
-
-
 end
