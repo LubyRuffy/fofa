@@ -7,7 +7,7 @@ class LabController < ApplicationController
     @domain = params['domain']
     maxsize = 1000
     maxsize = 10000 if current_user
-    @ips = get_ips_of_domain(@domain, maxsize)
+    @ips = get_ips_of_domain_(@domain, maxsize)
   end
 
   def addtask
@@ -74,7 +74,7 @@ class LabController < ApplicationController
   end
 
   private
-  def get_ips_of_domain(domain, maxsize=1000)
+  def get_ips_of_domain_(domain, maxsize=1000)
     if domain
       key = 'domain_net:'+domain.downcase
       @ips = Sidekiq.redis{|redis| redis.get(key) }

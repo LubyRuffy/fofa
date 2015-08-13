@@ -214,7 +214,7 @@ class Subdomain < ActiveRecord::Base
   "size": 0
 }
 |
-      ips = []
+      ipsts = []
       aggs = __elasticsearch__.search(JSON.parse(query)).response
       aggs["aggregations"]["ips_of_domain"]["net"]["buckets"].each{|netagg|
         ipnet = netagg['key']
@@ -228,9 +228,9 @@ class Subdomain < ActiveRecord::Base
             hosts << hostagg['key']
           }
         }
-        ips << [ipnet,hosts.join(','),ips.join(','),netipcnt]
+        ipsts << [ipnet,hosts.join(','),ips.join(','),netipcnt]
       }
-      ips
+      ipsts
     end
 
     def get_ips_of_host(host, count=100)
