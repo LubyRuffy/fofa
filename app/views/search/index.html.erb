@@ -29,9 +29,11 @@
   title=abc 从标题中搜索abc。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('title="北京"')%>">标题中有北京的网站</a><br/>
   header=abc 从http头中搜索abc。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('header="jboss"')%>">jboss服务器</a><br/>
   body=abc 从html正文中搜索abc。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('body="Hacked by"')%>">正文包含Hacked by</a><br/>
+  domain=qq.com 搜索根域名带有qq.com的网站。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('domain="qq.com"')%>">正文包含Hacked by</a><br/>
   host=".gov.cn" 从url中搜索.gov.cn,注意搜索要用host作为名称。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('host=".gov.cn"')%>">政府网站</a>, <a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('host=".edu.cn"')%>">教育网站</a><br/>
   ip="1.1.1" 从ip中搜索包含1.1.1的网站,注意搜索要用ip作为名称。<a href="/search/result?qbase64=<%=CGI.escape Base64.encode64('ip="220.181.111."')%>">查询IP为220.181.111.网段的网站</a><br/>
 
+    新增==完全匹配的符号，可以加快搜索速度，比如查找qq.com所有host，可以是domain=="qq.com"<br/>
     <br/>
   高级搜索：可以使用括号 和 &amp;&amp; || !=等符号，如<br/>
   title="powered by" &amp;&amp; title!=discuz<br/>
