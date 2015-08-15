@@ -1,0 +1,195 @@
+.audio-player {
+    position: relative;
+    padding: 10px;
+    max-height: 80px;
+    border-radius: 2px;
+}
+.audio-title {
+    margin-left: 80px;
+}
+.audioplayer {
+    z-index: 1;
+}
+.audioplayer>div {
+    position: absolute;
+}
+.audioplayer-mini {
+    margin: 0 auto;
+    width: 100%;
+}
+.audioplayer-mini .audioplayer-playpause {
+    width: 100%;
+    border-radius: 2px;
+}
+.audioplayer-mini .audioplayer-time,
+.audioplayer-mini .audioplayer-bar,
+.audioplayer-mini .audioplayer-time,
+.audioplayer-mini .audioplayer-volume {
+    display: none;
+    visibility: hidden;
+}
+.audioplayer-mini .audio-title {
+    opacity: 0;
+    filter: alpha(opacity=0 * 100);
+}
+.audioplayer-playpause {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 80px;
+    height: 100%;
+    background: #ff604f;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-top-left-radius: 2px;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-topleft: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    cursor: pointer;
+}
+.audioplayer-playpause a {
+    display: block;
+    padding: 7px;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+.audioplayer-playing .audioplayer-playpause a:before,
+.audioplayer-playing .audioplayer-playpause a:after {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    height: 100%;
+}
+.audioplayer-playing .audioplayer-playpause a:before {
+    left: 0;
+}
+.audioplayer-playing .audioplayer-playpause a:after {
+    right: 0;
+}
+.audioplayer-time {
+    z-index: 2;
+    width: 40px;
+}
+.audioplayer-time-current {
+    top: 60%;
+    left: 90px;
+}
+.audioplayer-time-duration {
+    top: 60%;
+    right: 70px;
+}
+.audioplayer-novolume .audioplayer-time-duration {
+    right: 0;
+    border-right: 0;
+}
+.audioplayer-novolume .audioplayer-bar {
+    right: 70px;
+}
+.audioplayer-novolume .audioplayer-volume {
+    display: none;
+}
+.audioplayer-bar {
+    top: 74%;
+    right: 120px;
+    left: 130px;
+    z-index: 1;
+    margin-top: -7px;
+    height: 12px;
+    background-color: #f5f5f8;
+    cursor: pointer;
+}
+.audioplayer-bar div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+}
+.audioplayer-bar-loaded {
+    z-index: 1;
+    background-color: #f5f5f8;
+}
+.audioplayer-bar-played {
+    z-index: 2;
+    background: #17c3e5;
+}
+.audioplayer-volume {
+    top: 60%;
+    right: 10px;
+    z-index: 2;
+    width: 60px;
+    cursor: pointer;
+}
+.audioplayer-volume-button {
+    float: left;
+}
+.audioplayer-volume-button a {
+    position: relative;
+    z-index: 1;
+    color: #666;
+}
+.audioplayer-mute .audioplayer-volume-button a i:before {
+    content: "\f026";
+}
+.audioplayer-volume-adjust {
+    float: right;
+    width: 40px;
+    height: 12px;
+    background: #f5f5f8;
+    border-bottom: 0;
+    -webkit-border-top-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 2px;
+    -moz-border-radius-topright: 2px;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-topleft: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 2px;
+    cursor: default;
+    margin-top: 3px
+}
+.audioplayer-volume-adjust>div {
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    height: 12px;
+    background-color: #f5f5f8;
+    cursor: pointer;
+    width: 100%
+}
+.audioplayer-volume-adjust div {
+    border-radius: 2px;
+}
+.audioplayer-volume-adjust div div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #17c3e5;
+}
+.audioplayer-volume:hover .audioplayer-volume-adjust {
+    top: auto;
+    bottom: 100%;
+}
+.audioplayer-bar,
+.audioplayer-bar div {
+    border-radius: 2px;
+}

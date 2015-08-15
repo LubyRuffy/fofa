@@ -1,7 +1,7 @@
 class RulesController < ApplicationController
   before_action :set_rule, only: [:show, :edit, :update, :destroy, :save]
   before_filter :require_user
-  layout "main"
+  layout 'member'
 
   # GET /rules
   # GET /rules.json
@@ -117,4 +117,5 @@ class RulesController < ApplicationController
     def rule_params
       params.require(:rule).permit(:product, :producturl, :rule, :category_ids=>[])
     end
+
 end

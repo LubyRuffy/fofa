@@ -88,7 +88,6 @@ Fofa::Application.routes.draw do
   get "my/unsave/:id" => "my#unsave"
   delete "my/ruledestroy/:id" => "my#ruledestroy"
   get "my" => "my#index"
-
   scope '/my' do
     resources :rules do
       member do

@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy, :save]
   before_filter :require_user
-  layout "main"
+  layout 'member'
 
   # GET /categories
   # GET /categories.json

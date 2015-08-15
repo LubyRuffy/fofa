@@ -1,0 +1,130 @@
+<div class="scroll-menu">
+
+  <nav class="main-navigation slimscroll" data-height="auto" data-size="4px" data-color="#ddd" data-distance="0">
+    <ul>
+      <li <%if controller_name=='my' && action_name=="index"%>class="active"<%end%> >
+        <a href="/my">
+          <i class="fa fa-coffee"></i>
+          <span>管理面板</span>
+        </a>
+      </li>
+      <li class="dropdown<%if (controller_name=='rules' || controller_name=='categories')%> collapse-open open<%end%>">
+        <a href="javascript:;" data-toggle="dropdown">
+          <i class="fa fa-eye"></i>
+          <span>规则管理</span>
+          <i class="toggle-accordion"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li <%if controller_name=='rules'%>class="active"<%end%>>
+            <a href="/my/rules">
+              <span>我的规则</span>
+            </a>
+          </li>
+          <li <%if controller_name=='categories'%>class="active"<%end%>>
+            <a href="/my/categories">
+              <span>规则分组</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:;" data-toggle="dropdown">
+          <i class="fa fa-desktop"></i>
+          <span>资产管理</span>
+          <i class="toggle-accordion"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="boxed.html">
+              <span>Boxed</span>
+            </a>
+          </li>
+          <li>
+            <a href="horizontal.html">
+              <span>Horizontal menu</span>
+            </a>
+          </li>
+          <li>
+            <a href="horizontal_boxed.html">
+              <span>Horizontal Boxed</span>
+            </a>
+          </li>
+          <li>
+            <a href="small-sidebar.html">
+              <span>Small sidebar</span>
+            </a>
+          </li>
+          <li>
+            <a href="right-sidebar.html">
+              <span>Right Sidebar</span>
+            </a>
+          </li>
+          <li>
+            <a href="right-sidebar-collapsible.html">
+              <span>Right Sidebar collapsible</span>
+            </a>
+          </li>
+          <li>
+            <a href="both.html">
+              <span>Mixed menus</span>
+            </a>
+          </li>
+          <li>
+            <a href="collapsible.html">
+              <span>Collapsible Menu</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:;" data-toggle="dropdown">
+          <i class="fa fa-crosshairs"></i>
+          <span>漏洞管理</span>
+          <i class="toggle-accordion"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="boxed.html">
+              <span>Boxed</span>
+            </a>
+          </li>
+          <li>
+            <a href="horizontal.html">
+              <span>Horizontal menu</span>
+            </a>
+          </li>
+          <li>
+            <a href="horizontal_boxed.html">
+              <span>Horizontal Boxed</span>
+            </a>
+          </li>
+          <li>
+            <a href="small-sidebar.html">
+              <span>Small sidebar</span>
+            </a>
+          </li>
+          <li>
+            <a href="right-sidebar.html">
+              <span>Right Sidebar</span>
+            </a>
+          </li>
+          <li>
+            <a href="right-sidebar-collapsible.html">
+              <span>Right Sidebar collapsible</span>
+            </a>
+          </li>
+          <li>
+            <a href="both.html">
+              <span>Mixed menus</span>
+            </a>
+          </li>
+          <li>
+            <a href="collapsible.html">
+              <span>Collapsible Menu</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
