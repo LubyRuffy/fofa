@@ -27,6 +27,7 @@
           </li>
         </ul>
       </li>
+      <% if current_user.isadmin? %>
       <li class="dropdown">
         <a href="javascript:;" data-toggle="dropdown">
           <i class="fa fa-desktop"></i>
@@ -37,41 +38,6 @@
           <li>
             <a href="boxed.html">
               <span>Boxed</span>
-            </a>
-          </li>
-          <li>
-            <a href="horizontal.html">
-              <span>Horizontal menu</span>
-            </a>
-          </li>
-          <li>
-            <a href="horizontal_boxed.html">
-              <span>Horizontal Boxed</span>
-            </a>
-          </li>
-          <li>
-            <a href="small-sidebar.html">
-              <span>Small sidebar</span>
-            </a>
-          </li>
-          <li>
-            <a href="right-sidebar.html">
-              <span>Right Sidebar</span>
-            </a>
-          </li>
-          <li>
-            <a href="right-sidebar-collapsible.html">
-              <span>Right Sidebar collapsible</span>
-            </a>
-          </li>
-          <li>
-            <a href="both.html">
-              <span>Mixed menus</span>
-            </a>
-          </li>
-          <li>
-            <a href="collapsible.html">
-              <span>Collapsible Menu</span>
             </a>
           </li>
         </ul>
@@ -88,43 +54,29 @@
               <span>Boxed</span>
             </a>
           </li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="javascript:;" data-toggle="dropdown">
+          <i class="fa fa-tasks"></i>
+          <span>其他管理</span>
+          <i class="toggle-accordion"></i>
+        </a>
+        <ul class="dropdown-menu">
           <li>
-            <a href="horizontal.html">
-              <span>Horizontal menu</span>
+            <a href="/sidekiq" target="_blank">
+              <span>Sidekiq任务队列</span>
             </a>
           </li>
           <li>
-            <a href="horizontal_boxed.html">
-              <span>Horizontal Boxed</span>
-            </a>
-          </li>
-          <li>
-            <a href="small-sidebar.html">
-              <span>Small sidebar</span>
-            </a>
-          </li>
-          <li>
-            <a href="right-sidebar.html">
-              <span>Right Sidebar</span>
-            </a>
-          </li>
-          <li>
-            <a href="right-sidebar-collapsible.html">
-              <span>Right Sidebar collapsible</span>
-            </a>
-          </li>
-          <li>
-            <a href="both.html">
-              <span>Mixed menus</span>
-            </a>
-          </li>
-          <li>
-            <a href="collapsible.html">
-              <span>Collapsible Menu</span>
+            <a href="/admin" target="_blank">
+              <span>数据后台</span>
             </a>
           </li>
         </ul>
       </li>
+      <% end %>
     </ul>
   </nav>
 </div>

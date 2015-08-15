@@ -9,7 +9,7 @@
 //= require 'fastclick'
 //= require 'jquery.slimscroll'
 //= require 'offline/offline.min'
-#  'pace/pace.min'
+//= require 'pace/pace.min'
 //= require 'off-canvas'
 //= require '_member'
 //= require 'panel'
@@ -17,5 +17,5 @@
 //= require jquery.icheck
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
+# require bootstrap-sprockets
 //= require turbolinks

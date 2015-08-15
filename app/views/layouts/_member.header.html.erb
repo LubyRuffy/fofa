@@ -7,6 +7,7 @@
 </span>
     </a>
   </div>
+  <% if current_user.isadmin? %>
   <form class="navbar-form navbar-left hidden-xs" role="search">
     <div class="form-group">
       <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
@@ -15,8 +16,9 @@
       <input type="text" class="form-control no-border no-padding search" placeholder="Search Workspace">
     </div>
   </form>
+  <% end %>
   <ul class="nav navbar-nav navbar-right off-right">
-
+    <% if current_user.isadmin? %>
     <li class="notifications dropdown hidden-xs">
       <a href="javascript:;" data-toggle="dropdown">
         <i class="fa fa-bell"></i>
@@ -83,6 +85,7 @@
         </div>
       </div>
     </li>
+    <% end %>
     <li class="quickmenu">
       <a href="javascript:;" data-toggle="dropdown">
         <%= image_tag current_user.avatar.url(:thumb), class:"avatar pull-left img-circle", alt:"user", title:"user"%>
