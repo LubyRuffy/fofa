@@ -1,9 +1,97 @@
+<div class="row mg-b">
+  <div class="col-xs-6">
+    <h3 class="no-margin">管理面板</h3>
+    <small>欢迎回来 <%=current_user.login%></small>
+  </div>
+  <div class="col-xs-6 text-right">
+    <a href="javascript:;" class="fa fa-flash pull-right pd-sm toggle-sidebar" data-toggle="off-canvas" data-move="rtl">
+      <span class="badge bg-danger animated flash">6</span>
+    </a>
+  </div>
+</div>
 
 
-    <!-- Start .bredcrumb -->
-    <ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="/my">管理首页</a><i class="en-arrow-right7"></i></li></ul>
-    <!-- End .breadcrumb -->
-
-    <div class="alert alert-dismissable alert-info">
-      API KEY：  <font color="#adff2f"><strong><%=current_user.key%></strong></font> 用于调用<%= link_to 'fofacli', '/fofacli'%>，请妥善保管！
+    <div class="alert alert-dismissable alert-success">
+      API KEY：  <strong><%=current_user.key%></strong> 用于调用API （比如<%= link_to 'fofacli', '/fofacli'%>），请妥善保管！
     </div>
+
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <section class="panel">
+      <div class="panel-body">
+        <div class="circle-icon bg-success">
+          <i class="fa fa-microphone"></i>
+        </div>
+        <div>
+          <h3 class="no-margin">5,468</h3> 条规则
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <section class="panel">
+      <div class="panel-body">
+        <div class="circle-icon bg-danger">
+          <i class="fa fa-anchor"></i>
+        </div>
+        <div>
+          <h3 class="no-margin">2,300</h3> 种分类
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <section class="panel">
+      <div class="panel-body">
+        <div class="circle-icon bg-default">
+          <i class="fa fa-magnet"></i>
+        </div>
+        <div>
+          <h3 class="no-margin">3,823</h3> 个目标
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <section class="panel">
+      <div class="panel-body">
+        <div class="circle-icon">
+          <canvas id="icon1" width="50" height="50"></canvas>
+        </div>
+        <div>
+          <h3 class="no-margin">12,333</h3> 条漏洞
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var green = document.querySelector('.js-switch');
+        var switchery = new Switchery(green, {
+            color: '#2dcb73'
+        });
+        window.onload = function () {
+            date();
+        }, setInterval(function () {
+            date();
+        }, 1000);
+        function date() {
+            var now = moment().format('hh:mm');
+            $('.timer').html('<b>' + now + '</b>');
+        }
+
+        var today = moment();
+        $('.date').text(today.format('ddd, D MMMM YYYY'));
+
+        $(document).on("click", ".toggle-sidebar", function () {
+            redrawLine();
+        });
+        $(document).on("click", ".site-overlay", function () {
+            $(".app").removeClass("small-sidebar");
+            redrawLine();
+        });
+    });
+
+</script>
