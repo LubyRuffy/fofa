@@ -16,6 +16,7 @@
       API KEY：  <strong><%=current_user.key%></strong> 用于调用API （比如<%= link_to 'fofacli', '/fofacli'%>），请妥善保管！
     </div>
 
+<% if current_user.isadmin? %>
 <div class="row">
   <div class="col-md-3 col-sm-6 col-xs-12">
     <section class="panel">
@@ -66,6 +67,7 @@
     </section>
   </div>
 </div>
+<% end %>
 
 <script>
     $(document).ready(function () {
