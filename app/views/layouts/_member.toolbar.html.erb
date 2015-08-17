@@ -1,0 +1,172 @@
+<aside class="chat-sidebar canvas-right pull-right">
+  <div class="slimscroll" data-height="auto" data-size="6px" data-distance="0">
+
+    <b class="center-block text-white pd-md">
+      数据导入工具
+    </b>
+
+    <div class="btn-group show-on-hover col-xs-offset-2">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="min-width: 200px;">基础结构
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" style="min-width: 200px;">
+        <li>
+          <a href="javascript:$('#ajaxLog').text('');$('#task-bar').width('1%');document.getElementById('task_panel').style.display='block'; StartDump(<%= @target.id %>, whenfinished, whenerror, whendata, true);">FOF数据导入</a>
+        </li>
+        <li>
+          <a href="javascript:;">Google导入</a>
+        </li>
+      </ul>
+    </div>
+
+    <b class="center-block text-white pd-md"></b>
+
+    <div class="btn-group show-on-hover col-xs-offset-2">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" style="min-width: 200px;">人员信息
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" style="min-width: 200px;">
+        <li>
+          <a href="javascript:;">Google导入</a>
+        </li>
+        <li>
+          <a href="javascript:;">Github导入</a>
+        </li>
+      </ul>
+    </div>
+<!--
+
+    <div class="row text-white pd-md">
+      <div class="col-xs-8">
+        <p class="mg-t-xs">Mute notifications</p>
+      </div>
+      <div class="col-xs-4">
+        <input type="checkbox" class="js-switch" checked />
+      </div>
+    </div>
+
+    <b class="center-block text-white pd-md">
+      数据导入工具
+    </b>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+                            <span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x text-warning"></i>
+<i class="fa fa-download fa-stack-1x fa-inverse"></i>
+</span>
+      </a>
+      Rose Fournier
+      <small>Posted on to your wall</small>
+      <br>
+      <small>2 mins ago</small>
+    </div>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+                            <span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x text-danger"></i>
+<i class="fa fa-download fa-stack-1x fa-inverse"></i>
+</span>
+      </a>
+      Liviu Cîndea
+      <small>Shared a photo with you.</small>
+      <br>
+      <small>13 mins ago</small>
+    </div>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+                            <span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x text-success"></i>
+<i class="fa fa-download fa-stack-1x fa-inverse"></i>
+</span>
+      </a>
+      Ane Marín
+      <small>Left the group(HR)</small>
+      <br>
+      <small>4 days ago</small>
+    </div>
+    <b class="center-block text-white pd-md">
+      Favourites
+    </b>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+        <img src="/img/face4.jpg" class="avatar avatar-sm img-circle" alt="">
+      </a>
+      <div class="user">
+        Adi Afrom
+        <i class="fa fa-circle text-danger pull-right"></i>
+      </div>
+      <small>Offline</small>
+    </div>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+        <img src="/img/face3.jpg" class="avatar avatar-sm img-circle" alt="">
+      </a>
+      <div class="user">
+        Leonie Horn
+        <i class="fa fa-circle text-danger pull-right"></i>
+      </div>
+      <small>Offline</small>
+    </div>
+    <b class="center-block text-white pd-md">
+      Friends Online
+    </b>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+        <img src="/img/face1.jpg" class="avatar avatar-sm img-circle" alt="">
+      </a>
+      <div class="user">
+        Joshua Smart
+        <i class="fa fa-circle text-warning pull-right"></i>
+      </div>
+      <small>is thinking of bananas</small>
+    </div>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+        <img src="/img/face3.jpg" class="avatar avatar-sm img-circle" alt="">
+      </a>
+      <div class="user">
+        娉 廖
+        <i class="fa fa-circle text-success pull-right"></i>
+      </div>
+      <small>Ready to chat</small>
+    </div>
+    <div class="pd-md">
+      <a href="javascript:;" class="pull-left mg-r-md">
+        <img src="/img/face5.jpg" class="avatar avatar-sm img-circle" alt="">
+      </a>
+      <div class="user">
+        Albert Madsen
+        <i class="fa fa-circle-o text-default pull-right"></i>
+      </div>
+      <small>idle</small>
+    </div>
+-->
+  </div>
+</aside>
+
+<script>
+    function whenfinished(){
+        //alert("finish");
+        $('#ajaxLog').append("完成!<br/>");
+        document.getElementById('task_panel').style.display = "none";
+    }
+    function whenerror(msg){
+        //alert(msg);
+        $('#ajaxLog').append("<font color='red'>"+msg+"</font><br/>");
+    }
+    function whendata(data){
+        //alert(data);
+        for (index = 0; index < data.length; ++index) {
+            if (data[index]!='start dumping...' && data[index]!='<<<finished>>>')
+            {
+                $('#ajaxLog').append("- "+data[index]+" <br/>");
+                $('#ajaxLog').scrollTop($('#ajaxLog')[0].scrollHeight);
+                var width = $('#task-bar').width();
+                var parentWidth = $('#task-bar').offsetParent().width();
+                var percent = 100*width/parentWidth+1;
+                $("#task-bar").width(percent + '%');
+            }
+        }
+
+    }
+</script>

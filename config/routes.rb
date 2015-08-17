@@ -101,6 +101,14 @@ Fofa::Application.routes.draw do
         get :index
       end
     end
+
+    resources :targets do
+      collection do
+        get :index
+        get :getdumpinfo
+        get :adddumptask
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

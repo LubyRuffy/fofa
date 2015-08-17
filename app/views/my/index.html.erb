@@ -20,7 +20,7 @@
     <section class="panel">
       <div class="panel-body">
         <div class="circle-icon bg-success">
-          <i class="fa fa-microphone"></i>
+          <i class="fa fa-eye"></i>
         </div>
         <div>
           <h3 class="no-margin">5,468</h3> 条规则
@@ -31,7 +31,7 @@
   <div class="col-md-3 col-sm-6 col-xs-12">
     <section class="panel">
       <div class="panel-body">
-        <div class="circle-icon bg-danger">
+        <div class="circle-icon bg-info">
           <i class="fa fa-anchor"></i>
         </div>
         <div>
@@ -43,8 +43,8 @@
   <div class="col-md-3 col-sm-6 col-xs-12">
     <section class="panel">
       <div class="panel-body">
-        <div class="circle-icon bg-default">
-          <i class="fa fa-magnet"></i>
+        <div class="circle-icon bg-warning">
+          <i class="fa fa-desktop"></i>
         </div>
         <div>
           <h3 class="no-margin">3,823</h3> 个目标
@@ -55,8 +55,8 @@
   <div class="col-md-3 col-sm-6 col-xs-12">
     <section class="panel">
       <div class="panel-body">
-        <div class="circle-icon">
-          <canvas id="icon1" width="50" height="50"></canvas>
+        <div class="circle-icon bg-danger">
+          <i class="fa fa-crosshairs"></i>
         </div>
         <div>
           <h3 class="no-margin">12,333</h3> 条漏洞
@@ -84,14 +84,6 @@
 
         var today = moment();
         $('.date').text(today.format('ddd, D MMMM YYYY'));
-
-        $(document).on("click", ".toggle-sidebar", function () {
-            redrawLine();
-        });
-        $(document).on("click", ".site-overlay", function () {
-            $(".app").removeClass("small-sidebar");
-            redrawLine();
-        });
     });
 
 </script>
