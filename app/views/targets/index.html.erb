@@ -1,0 +1,45 @@
+
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="pull-right col-sm-auto" style="margin:10px">
+      <%= link_to raw('<li class="fa fa-plus"></li> 新建目标'), new_target_path,
+                  :class=>"btn btn-info" %>
+    </div>
+  </div>
+</div>
+<!-- Start .bredcrumb -->
+<ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="/my">管理首页</a><i class="en-arrow-right7"></i></li><li><i class="im-screen"></i> 目标列表 </li></ul>
+<!-- End .breadcrumb -->
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th width="10%">企业名称</th>
+    <th width="15%">网址</th>
+    <th width="65">备注</th>
+    <th width="10%">操作</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @targets.each do |target| %>
+      <tr>
+        <td><%= link_to target.name,target %></td>
+        <td><%= target.website %></td>
+        <td><%= target.memo %></td>
+        <td>
+          <%= link_to '编辑', edit_target_path(target), :class=>"btn btn-success btn-sm " %>
+          <%= link_to '删除', target, :class=>"btn btn-success btn-sm ", method: :delete, data: { confirm: '确定要删除吗?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="col-lg-4">
+  <div class="pull-right">
+    <%= will_paginate @targets,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+  </div>
+</div>
+

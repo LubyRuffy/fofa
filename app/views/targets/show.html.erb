@@ -1,0 +1,110 @@
+<ol class="breadcrumb">
+  <li>
+    <a href="/my">管理面板</a>
+  </li>
+  <li>
+    <a href="/my/targets">目标管理</a>
+  </li>
+  <li class="active"><%= @target.name %></li>
+</ol>
+
+<div class="row mg-b">
+  <div class="col-xs-6">
+    <h3 class="no-margin"><%= @target.name %>（<%= @target.website %>）<small><%= link_to raw('<i class="fa fa-pencil"></i>'), edit_target_path(@target) %></small></h3>
+    <small><%= @target.memo %>  </small>
+  </div>
+  <div class="col-xs-6 text-right">
+    <a href="javascript:;" class="fa fa-flash pull-right pd-sm toggle-sidebar" data-toggle="off-canvas" data-move="rtl">
+      <span class="badge bg-danger animated flash">6</span>
+    </a>
+  </div>
+</div>
+
+<!--
+<div class="row">
+  <div class="col-md-12">
+    <section class="panel">
+      <header class="panel-heading">资产导入工具</header>
+      <div class="panel-body">
+
+        <div class="btn-group show-on-hover">
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">导入基础结构资产
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="javascript:;">根域名</a>
+            </li>
+            <li>
+              <a href="javascript:;">IP</a>
+            </li>
+            <li>
+              <a href="javascript:;">子域名</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="javascript:;">其他</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="btn-group show-on-hover">
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">导入人员资产
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="javascript:;">根域名</a>
+            </li>
+            <li>
+              <a href="javascript:;">IP</a>
+            </li>
+            <li>
+              <a href="javascript:;">子域名</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="javascript:;">其他</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>-->
+
+<div class="row" style="display:none;" id="task_panel">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading"><i class="fa fa-refresh fa-spin mg-r-xs"></i>正在导入资产...</header>
+      <div class="panel-body">
+        <div class="progress progress-striped active">
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="task-bar">
+            <span class="sr-only">0% Complete</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" style="padding: 15px; height: 100px; overflow: auto;" id="ajaxLog">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+
+<script>
+
+    <%if @show_task %>
+    $( document ).ready(function() {
+        document.getElementById('task_panel').style.display = "block";
+        $("#task-bar").width('1%');
+        StartDump(<%= @target.id %>, whenfinished, whenerror, whendata, false);
+    });
+    <%end%>
+</script>
+
+<%= javascript_include_tag params[:controller] %>
