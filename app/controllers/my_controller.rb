@@ -3,7 +3,7 @@ class MyController < ApplicationController
   layout "member"
 
   def index
-    @show_toolbar = true
+    #@show_toolbar = true
     unless (current_user.key && current_user.key.size==32)
       require 'securerandom'
       key = SecureRandom.hex
