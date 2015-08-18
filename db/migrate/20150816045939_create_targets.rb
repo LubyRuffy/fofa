@@ -29,12 +29,12 @@ class CreateTargets < ActiveRecord::Migration
 
     create_table :asset_ips do |t|
       t.string :ip
-      t.belongs_to :asset_domain
+      t.belongs_to :target
       t.text :memo
 
       t.timestamps null: false
     end
-    add_index "asset_ips", ["asset_domain_id", "ip"], name: "asset_ips_ip_index", unique: true
+    add_index "asset_ips", ["target_id", "ip"], name: "asset_ips_ip_index", unique: true
 
   end
 end

@@ -8,5 +8,6 @@
 //= require 'wysiwyg/jquery.hotkeys'
 //= require 'wysiwyg/bootstrap-wysiwyg'
 //= require 'forms'
+//= require 'fuelux/js/tree.min'
 
 //= require 'ajaxtask'

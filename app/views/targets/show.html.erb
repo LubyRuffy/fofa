@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag params[:controller] %>
+
 <ol class="breadcrumb">
   <li>
     <a href="/my">管理面板</a>
@@ -93,18 +95,200 @@
   </div>
 </div>
 
+<section>
+  <ul id="myTab2" class="nav nav-tabs">
+    <li class="active">
+      <a href="#home" data-toggle="tab">根域名<span class="badge bg-info"><%= @domains.size %></span></a>
+    </li>
+    <li class="">
+      <a href="#profile" data-toggle="tab">网站列表<span class="badge bg-info"><%= @hosts.size %></span></a>
+    </li>
+    <li class="">
+      <a href="#messages" data-toggle="tab">IP范围<span class="badge bg-info"><%= @ips.size %></span></a>
+    </li>
+    <li class="">
+      <a href="#notifications" data-toggle="tab">员工<span class="badge bg-info"></span></a>
+    </li>
+  </ul>
+  <section class="panel">
+    <div class="panel-body">
+      <div id="myTabContent2" class="tab-content">
+        <div class="tab-pane active" id="home">
+          <section class="panel">
+            <div class="panel-heading">根域名列表</div>
+            <div class="panel-body no-padding">
+              <table class="table table-hover no-margin">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>域名</th>
+                  <th>更新日期</th>
+                  <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @domains.each{|d| %>
+                    <tr>
+                      <td><%=d.id%></td>
+                      <td><%=d.domain%></td>
+                      <td><%=d.created_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
+                      <td></td>
+                    </tr>
+                <% } %>
 
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane" id="profile">
+          <section class="panel">
+            <div class="panel-heading">网站列表</div>
+            <div class="panel-body no-padding">
+              <table class="table table-hover no-margin">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Host</th>
+                  <th>更新日期</th>
+                  <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @hosts.each{|h| %>
+                    <tr>
+                      <td><%=h.id%></td>
+                      <td><%=h.host%></td>
+                      <td><%=h.created_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
+                      <td></td>
+                    </tr>
+                <% } %>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane" id="messages">
+          <section class="panel">
+            <div class="panel-heading">IP列表</div>
+            <div class="panel-body no-padding">
+              <table class="table table-hover no-margin">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>IP</th>
+                  <th>更新日期</th>
+                  <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @ips.each{|d| %>
+                    <tr>
+                      <td><%=d.id%></td>
+                      <td><%=d.ip%></td>
+                      <td><%=d.created_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
+                      <td></td>
+                    </tr>
+                <% } %>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane" id="notifications">
+          <p>Notifications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
 
+<div class="row" style="display: none;">
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="panel-heading">
+        域名管理
+      </div>
+      <div class="panel-body">
+        <div id="FlatTree3" class="tree tree-plus-minus tree-solid-line tree-unselectable">
+          <div class = "tree-folder" style="display:none;">
+            <div class="tree-folder-header">
+              <i class="fa fa-folder"></i>
+              <div class="tree-folder-name"></div>
+            </div>
+            <div class="tree-folder-content"></div>
+            <div class="tree-loader" style="display:none"></div>
+          </div>
+          <div class="tree-item" style="display:none;">
+            <i class="tree-dot"></i>
+            <div class="tree-item-name"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
-
+$( document ).ready(function() {
     <%if @show_task %>
-    $( document ).ready(function() {
         document.getElementById('task_panel').style.display = "block";
         $("#task-bar").width('1%');
         StartDump(<%= @target.id %>, whenfinished, whenerror, whendata, false);
-    });
     <%end%>
+
+    var TreeView = function () {
+
+        return {
+            //main function to initiate the module
+            init: function () {
+
+                var DataSourceTree = function (options) {
+                    this._data  = options.data;
+                    this._delay = options.delay;
+                };
+
+                DataSourceTree.prototype = {
+
+                    data: function (options, callback) {
+                        var self = this;
+
+                        setTimeout(function () {
+                            var data = $.extend(true, [], self._data);
+
+                            callback({ data: data });
+
+                        }, this._delay)
+                    }
+                };
+
+                // INITIALIZING TREE
+
+                var treeDataSource3 = new DataSourceTree({
+                    data: [
+                        { name: 'Dashboard <div class="tree-actions"></div>', type: 'folder', additionalParameters: { id: 'F11' } },
+                        { name: 'AdminEx', type: 'item', additionalParameters: { id: 'I11' } },
+                        { name: 'View Category <div class="tree-actions"></div>', type: 'folder', additionalParameters: { id: 'F12' } },
+                        { name: 'Modern Elements', type: 'item', additionalParameters: { id: 'I12' } }
+                    ],
+                    delay: 400
+                });
+
+
+                $('#FlatTree3').tree({
+                    dataSource: treeDataSource3,
+                    loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
+                });
+
+
+            }
+
+        };
+
+    }();
+
+    TreeView.init();
+});
 </script>
 
 <%= javascript_include_tag params[:controller] %>

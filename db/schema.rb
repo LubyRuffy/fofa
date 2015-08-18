@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816045939) do
+ActiveRecord::Schema.define(version: 20150818181539) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -56,15 +56,25 @@ ActiveRecord::Schema.define(version: 20150816045939) do
 
   add_index "asset_domains", ["target_id", "domain"], name: "asset_domains_target_index", unique: true, using: :btree
 
-  create_table "asset_ips", force: :cascade do |t|
-    t.string   "ip",              limit: 255
-    t.integer  "asset_domain_id", limit: 4
-    t.text     "memo",            limit: 65535
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+  create_table "asset_hosts", force: :cascade do |t|
+    t.string   "host",       limit: 255
+    t.integer  "target_id",  limit: 4
+    t.text     "memo",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "asset_ips", ["asset_domain_id", "ip"], name: "asset_ips_ip_index", unique: true, using: :btree
+  add_index "asset_hosts", ["target_id", "host"], name: "asset_hosts_host_index", unique: true, using: :btree
+
+  create_table "asset_ips", force: :cascade do |t|
+    t.string   "ip",         limit: 255
+    t.integer  "target_id",  limit: 4
+    t.text     "memo",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "asset_ips", ["target_id", "ip"], name: "asset_ips_ip_index", unique: true, using: :btree
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id",      limit: 4

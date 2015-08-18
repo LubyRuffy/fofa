@@ -37,6 +37,9 @@ class TargetsController < InheritedResources::Base
   def show
     @show_toolbar = true
     @show_task = not_finished_dump_task?(@target.id)
+    @domains = @target.asset_domains
+    @ips = @target.asset_ips
+    @hosts = @target.asset_hosts
   end
 
   def getdumpinfo
