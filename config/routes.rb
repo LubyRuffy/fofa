@@ -109,6 +109,11 @@ Fofa::Application.routes.draw do
         get :adddumptask
       end
     end
+
+    resources :sensitives do
+      collection do
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

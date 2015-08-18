@@ -1,0 +1,57 @@
+<style>
+  em {
+      background-color: #ff604f;
+  }
+</style>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <form class="navbar-form navbar-left hidden-xs" role="search">
+      <div class="form-group">
+        <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+        <input id='q' name='q' type="text" class="form-control no-border no-padding search" placeholder="Search Workspace">
+      </div>
+    </form>
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="pull-right col-sm-auto" style="margin:10px">
+      <%= link_to raw('<li class="fa fa-plus"></li> 新建数据'), new_sensitive_path,
+                  :class=>"btn btn-info" %>
+    </div>
+  </div>
+</div>
+<!-- Start .bredcrumb -->
+<ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="/my">管理首页</a><i class="en-arrow-right7"></i></li><li><i class="im-screen"></i> 敏感数据列表 </li></ul>
+<!-- End .breadcrumb -->
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th width="10%">来源</th>
+    <th width="15%">内容</th>
+    <th width="65">备注</th>
+    <th width="10%">操作</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @sensitives.each do |s| %>
+      <tr>
+        <td><%= link_to s['_source']['reference'], '/my/sensitives/'+s['_id'] %></td>
+        <td><%= raw(s['highlight']['content']) %></td>
+        <td><%= s['_source']['memo'] %></td>
+        <td>
+          <%= link_to '编辑', '/my/sensitives/'+s['_id']+'/edit', :class=>"btn btn-success btn-sm " %>
+          <%= link_to '删除', '/my/sensitives/'+s['_id'], :class=>"btn btn-success btn-sm ", method: :delete, data: { confirm: '确定要删除吗?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="col-lg-4">
+  <div class="pull-right">
+    <%= will_paginate @sensitives,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+  </div>
+</div>
+

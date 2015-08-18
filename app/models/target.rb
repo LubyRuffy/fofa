@@ -4,4 +4,5 @@ class Target < ActiveRecord::Base
   has_many :asset_domains
   has_many :asset_ips
   has_many :asset_hosts
+  has_many :sensitives
 end

@@ -1,0 +1,50 @@
+
+
+
+<%= form_for(@sensitive) do |f| %>
+    <% if @sensitive.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@sensitive.errors.count, "error") %> prohibited this sensitive from being saved:</h2>
+
+          <ul>
+            <% @sensitive.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">目标内容</header>
+          <div class="panel-body">
+            <form class="form-horizontal bordered-group" role="form">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">数据来源</label>
+                <div class="col-sm-10">
+                  <%= f.text_field :reference, class:"form-control"%>
+                  <p class="help-block"></p>
+                </div>
+                <label class="col-sm-2 control-label">内容</label>
+                <div class="col-sm-10">
+                  <%= f.text_area :content, class:"form-control" %>
+                  <p class="help-block"></p>
+                </div>
+                <label class="col-sm-2 control-label">备注</label>
+                <div class="col-sm-10">
+                  <%= f.text_area :memo, class:"form-control" %>
+                </div>
+
+                <p></p>
+                <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit value:"保存", class:"btn btn-primary" %>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+<% end %>
+<%= javascript_include_tag params[:controller] %>

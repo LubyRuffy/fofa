@@ -1,0 +1,21 @@
+
+
+<ol class="breadcrumb">
+  <li>
+    <a href="/my">管理面板</a>
+  </li>
+  <li>
+    <a href="/my/sensitives">数据管理</a>
+  </li>
+  <li class="active"><%= @sensitive.reference %></li>
+</ol>
+
+<div class="row mg-b">
+  <div class="col-xs-12">
+    <h3 class="no-margin"><%= @sensitive.reference %><small><%= link_to raw('<i class="fa fa-pencil"></i>'), edit_sensitive_path(@sensitive) %></small></h3>
+    <small><pre><%= @sensitive.content %> </pre> </small>
+    <p></p>
+    <small><%= @sensitive.memo %>  </small>
+  </div>
+</div>
+
