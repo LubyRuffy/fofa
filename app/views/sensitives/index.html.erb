@@ -11,7 +11,7 @@
         <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
           <i class="fa fa-search"></i>
         </button>
-        <input id='q' name='q' type="text" class="form-control no-border no-padding search" placeholder="Search Workspace">
+        <input id='q' name='q' type="text" class="form-control no-border no-padding search" placeholder="输入关键字进行查找">
       </div>
     </form>
   </div>
@@ -36,16 +36,30 @@
   </thead>
 
   <tbody>
-  <% @sensitives.each do |s| %>
-      <tr>
-        <td><%= link_to s['_source']['reference'], '/my/sensitives/'+s['_id'] %></td>
-        <td><%= raw(s['highlight']['content']) %></td>
-        <td><%= s['_source']['memo'] %></td>
-        <td>
-          <%= link_to '编辑', '/my/sensitives/'+s['_id']+'/edit', :class=>"btn btn-success btn-sm " %>
-          <%= link_to '删除', '/my/sensitives/'+s['_id'], :class=>"btn btn-success btn-sm ", method: :delete, data: { confirm: '确定要删除吗?' } %>
-        </td>
-      </tr>
+  <%if params[:q] %>
+      <% @sensitives.each do |s| %>
+          <tr>
+            <td><%= link_to s['_source']['reference'], '/my/sensitives/'+s['_id'] %></td>
+            <td><%= raw(s['highlight']['content']) %></td>
+            <td><%= s['_source']['memo'] %></td>
+            <td>
+              <%= link_to '编辑', '/my/sensitives/'+s['_id']+'/edit', :class=>"btn btn-success btn-sm " %>
+              <%= link_to '删除', '/my/sensitives/'+s['_id'], :class=>"btn btn-success btn-sm ", method: :delete, data: { confirm: '确定要删除吗?' } %>
+            </td>
+          </tr>
+      <% end %>
+  <%else %>
+      <% @sensitives.each do |s| %>
+          <tr>
+            <td><%= link_to s.reference, s %></td>
+            <td><%= s.created_at %></td>
+            <td><%= s.memo %></td>
+            <td>
+              <%= link_to '编辑', edit_sensitive_path(s), :class=>"btn btn-success btn-sm " %>
+              <%= link_to '删除', s, :class=>"btn btn-success btn-sm ", method: :delete, data: { confirm: '确定要删除吗?' } %>
+            </td>
+          </tr>
+      <% end %>
   <% end %>
   </tbody>
 </table>

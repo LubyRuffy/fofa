@@ -5,7 +5,7 @@ class SensitivesController < InheritedResources::Base
   layout 'member'
 
   def index
-    if params[:q].size>0
+    if params[:q] && params[:q].size>0
       q = {query:     { query_string:  { query: "content:(\"#{params[:q]}\")" } },
            highlight: { fields: { content: {} } }}
       puts q.to_json
