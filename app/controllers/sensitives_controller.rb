@@ -23,6 +23,7 @@ class SensitivesController < InheritedResources::Base
     respond_to do |format|
       if @sensitive.save
         @sensitive.__elasticsearch__.index_document
+        @sensitive.__elasticsearch__.refresh_index!
         format.html { redirect_to sensitives_url, notice: '创建成功！' }
         format.json { render :show, status: :created, location: @sensitive }
       else
@@ -34,6 +35,7 @@ class SensitivesController < InheritedResources::Base
 
   def update
     @sensitive.__elasticsearch__.update_document
+    @sensitive.__elasticsearch__.refresh_index!
     respond_to do |format|
       if @sensitive.update(sensitive_params)
         format.html { redirect_to @sensitive, notice: '更新成功！' }
@@ -48,6 +50,7 @@ class SensitivesController < InheritedResources::Base
   def destroy
     @sensitive.destroy
     @sensitive.__elasticsearch__.delete_document
+    #@sensitive.__elasticsearch__.refresh_index!
     respond_to do |format|
       format.html { redirect_to sensitives_url, notice: '删除成功！' }
       format.json { head :no_content }
