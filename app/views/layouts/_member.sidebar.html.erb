@@ -82,14 +82,14 @@
         </ul>
       </li>
 
-      <li class="dropdown">
+      <li class="dropdown<%if (controller_name=='sgk')%> collapse-open open<%end%>">
         <a href="javascript:;" data-toggle="dropdown">
-          <i class="fa fa-tasks"></i>
+          <i class="fa fa-search"></i>
           <span>数据查询</span>
           <i class="toggle-accordion"></i>
         </a>
         <ul class="dropdown-menu">
-          <li>
+          <li <%if controller_name=='sgk'%>class="active"<%end%>>
             <a href="/my/sgk">
               <span>社工库查询</span>
             </a>

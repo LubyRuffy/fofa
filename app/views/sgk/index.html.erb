@@ -16,7 +16,7 @@
         <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
           <i class="fa fa-search"></i>
         </button>
-        <input id='q' name='q' type="text" class="form-control no-border no-padding search" placeholder="输入关键字进行查找">
+        <input id='q' name='q' type="text" class="form-control no-border no-padding search" placeholder="输入关键字进行查找" value="<%= params[:q]%>">
       </div>
     </form>
   </div>
@@ -35,11 +35,11 @@
       <tr>
         <td>
 
-          <% s['_source'].each{|d| %>
-              <%= d %><br/>
-          <% } %>
+          <% s['_source'].each{|d| unless d[0]=="source" %>
+              <%= d[0] %> : <b><%= link_to d[1], "/my/sgk?q=\"#{d[1]}\"" %></b><br/>
+          <% end } %>
 
-          <small><%= s['_type'] %></small><br/>
+          <small><span class="label label-default pull-right"><%= s['_type'] %></span></small><br/>
         </td>
       </tr>
   <% end %>
@@ -47,7 +47,7 @@
 </table>
 
 <div class="col-lg-4">
-  <div class="pull-right">
+  <div class="pull-right pagination pagination-lg">
     <%= will_paginate @sgk,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
   </div>
 </div>
