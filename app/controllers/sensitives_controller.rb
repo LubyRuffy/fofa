@@ -18,7 +18,7 @@ class SensitivesController < InheritedResources::Base
   end
 
   def create
-    @sensitive = Sensitive.new(sensitive_params)
+    @sensitive = current_user.sensitives.new(sensitive_params)
     respond_to do |format|
       if @sensitive.save
         @sensitive.__elasticsearch__.index_document
