@@ -8,7 +8,6 @@ class SensitivesController < InheritedResources::Base
     if params[:q] && params[:q].size>0
       q = {query:     { query_string:  { query: "content:(\"#{params[:q]}\")" } },
            highlight: { fields: { content: {} } }}
-      puts q.to_json
       @sensitives = Sensitive.__elasticsearch__.search( q.to_json ).paginate(:page => params[:page],
                                                                                        :per_page => 20)
     else

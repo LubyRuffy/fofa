@@ -1,0 +1,55 @@
+<style>
+  em {
+      background-color: #ff604f;
+  }
+</style>
+
+
+<!-- Start .bredcrumb -->
+<ul id="crumb" class="breadcrumb"><li><i class="im-home"></i><a href="/my">管理首页</a><i class="en-arrow-right7"></i></li><li><i class="im-screen"></i> 社工库查询 </li></ul>
+<!-- End .breadcrumb -->
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6">
+    <form class="navbar-form navbar-left hidden-xs" role="search">
+      <div class="form-group">
+        <button class="btn no-border no-margin bg-none no-pd-l" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+        <input id='q' name='q' type="text" class="form-control no-border no-padding search" placeholder="输入关键字进行查找">
+      </div>
+    </form>
+  </div>
+</div>
+
+<% if @sgk %>
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th width="100%">内容</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @sgk.each do |s| %>
+      <tr>
+        <td>
+
+          <% s['_source'].each{|d| %>
+              <%= d %><br/>
+          <% } %>
+
+          <small><%= s['_type'] %></small><br/>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="col-lg-4">
+  <div class="pull-right">
+    <%= will_paginate @sgk,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+  </div>
+</div>
+
+<% end %>

@@ -114,6 +114,12 @@ Fofa::Application.routes.draw do
       collection do
       end
     end
+
+    resources :sgk do
+      collection do
+        get :index
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
