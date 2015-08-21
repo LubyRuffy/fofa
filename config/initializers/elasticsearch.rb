@@ -6,5 +6,5 @@ unless ARGV[0] && ARGV[0].include?('fofa:') #rake任务时就不用初始化了
   elasticsearch_url = "#{config['host']}:#{config['port']}"
 
   Elasticsearch::Model.client = Elasticsearch::Client.new url:elasticsearch_url, log: (rails_env!='production' && !Sidekiq.server?)
-  Elasticsearch::Model::Response::Response.__send__ :include, Elasticsearch::Model::Response::Pagination::WillPaginate
+  #Elasticsearch::Model::Response::Response.__send__ :include, Elasticsearch::Model::Response::Pagination::WillPaginate
 end
