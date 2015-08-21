@@ -18,18 +18,7 @@ def add_target_msg(target_id,msg)
   }
 end
 
-def dump_asset(target_id, domain)
-  #Sidekiq.redis{|redis|
-  #  key = target_redis_key(target_id)
-  #  redis.expire(key, 2*60*60) #2小时
-  #}
-  add_target_msg(target_id, 'dump worker started...')
-  AssetDomain.find_or_create_by(target_id: target_id, domain: domain)
-
-  getalldomains(domain, 1000){|d|
-    AssetDomain.find_or_create_by(target_id: target_id, domain: d)
-    add_target_msg(target_id, d)
-  }
+def import_domain(target_id, domain)
   @ips = Subdomain.get_ips_of_domain(domain, 10000)
   @ips.each do |net|
     ipnet,hosts,ips,netipcnt = net
@@ -42,6 +31,22 @@ def dump_asset(target_id, domain)
       add_target_msg(target_id, ip)
     }
   end
+end
+
+def dump_asset(target_id, domain)
+  #Sidekiq.redis{|redis|
+  #  key = target_redis_key(target_id)
+  #  redis.expire(key, 2*60*60) #2小时
+  #}
+  add_target_msg(target_id, 'dump worker started...')
+  AssetDomain.find_or_create_by(target_id: target_id, domain: domain)
+
+  getalldomains(domain, 1000){|d|
+    AssetDomain.find_or_create_by(target_id: target_id, domain: d)
+    add_target_msg(target_id, d)
+    import_domain(target_id, d)
+  }
+  import_domain(target_id, domain)
 
   add_target_msg(target_id, '<<<finished>>>')
 end
