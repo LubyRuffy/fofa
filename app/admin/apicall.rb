@@ -1,5 +1,5 @@
 ActiveAdmin.register Apicall do
-  menu :label => "API调用", :priority => 5
+  menu label: "API调用", priority: 5
   
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

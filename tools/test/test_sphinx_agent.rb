@@ -20,9 +20,9 @@ end
 ips.split(',').each_with_index{|h,i|
   puts "========SphinxQL server : #{h}========"
   result = Benchmark.measure do
-    mysql = Mysql2::Client.new(:host => h, :username => config['username'],
-                               :port => 9306, :secure_auth => config['secure_auth'],
-                               :encoding => 'utf8', :reconnect => true)
+    mysql = Mysql2::Client.new(host: h, username: config['username'],
+                               port: 9306, secure_auth: config['secure_auth'],
+                               encoding: 'utf8', reconnect: true)
 
     mysql.query("select max(lastupdatetime) as lasttime,count(*) as cnt from idx1p#{i} limit 1").each do |row|
       puts "#{row['cnt']}, #{Time.at(row['lasttime'].to_i)}, "

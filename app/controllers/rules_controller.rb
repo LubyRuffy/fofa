@@ -6,8 +6,8 @@ class RulesController < ApplicationController
   # GET /rules
   # GET /rules.json
   def index
-    @rules = current_user.rules.paginate(:page => params[:page],
-                                         :per_page => 50).order('id DESC')
+    @rules = current_user.rules.paginate(page: params[:page],
+                                         per_page: 50).order('id DESC')
   end
 
   # GET /rules/1
@@ -115,7 +115,7 @@ class RulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rule_params
-      params.require(:rule).permit(:product, :producturl, :rule, :category_ids=>[])
+      params.require(:rule).permit(:product, :producturl, :rule, category_ids:[])
     end
 
 end

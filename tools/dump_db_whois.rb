@@ -22,21 +22,21 @@ rails_env = ENV['RAILS_ENV'] || 'development'
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
 
-  @mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
-                                :username => thinking_config['connection_options']['username'],
-                                :password => thinking_config['connection_options']['password'],
-                                :database => thinking_config['connection_options']['database'],
-                                :port => thinking_config['mysql41'],
-                                :encoding => 'utf8', :reconnect => true)
+  @mysql ||= Mysql2::Client.new(host: thinking_config['address'],
+                                username: thinking_config['connection_options']['username'],
+                                password: thinking_config['connection_options']['password'],
+                                database: thinking_config['connection_options']['database'],
+                                port: thinking_config['mysql41'],
+                                encoding: 'utf8', reconnect: true)
 
 def query(query_info, max_id)
   headers = []
   match_query =  SphinxProcessor.parse(query_info)
 
-  options = {:match_mode => :extended, :index => 'subdomain_core',
-             :with => {:id => max_id..9999999999},
-             :sql => { :select => 'id,header,host'}, :per_page => 1000,
-             :page => 1, :order => "id asc"}
+  options = {match_mode: :extended, index: 'subdomain_core',
+             with: {id: max_id..9999999999},
+             sql: { select: 'id,header,host'}, per_page: 1000,
+             page: 1, order: "id asc"}
   ThinkingSphinx.search(match_query, options).each{|r|
     headers << r.header
     max_id = r.id

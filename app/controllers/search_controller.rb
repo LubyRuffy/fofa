@@ -13,14 +13,14 @@ class SearchController < ApplicationController
   
   def get_web_cnt
     #@tbl_cnt = Subdomain.search_count
-    render :text => Subdomain.es_size
+    render text: Subdomain.es_size
   end
 
   def get_hosts_by_ip
     @error, @mode, @results, @tags = search("ip=\"#{params['ip']}.\"")
     respond_to do |format|
-      format.html {render '/search/gethostsbyip', :layout => false}
-      format.json {render :json => @results}
+      format.html {render '/search/gethostsbyip', layout: false}
+      format.json {render json: @results}
     end
   end
 
@@ -29,16 +29,16 @@ class SearchController < ApplicationController
       redis.srem("black_ips", params['ip'])
     }
     respond_to do |format|
-      format.html {render :text => "已经移除黑名单！"}
-      format.json {render :json => {:status=>"ok"}}
+      format.html {render text: "已经移除黑名单！"}
+      format.json {render json: {status:"ok"}}
     end
   end
 
   def get_host_content
   	unless params['host'].downcase.include?('qihoo.net')
-    	render :json => {'host'=>Subdomain.es_get(params['host'])['_source']}
+    	render json: {'host'=>Subdomain.es_get(params['host'])['_source']}
     else
-      render :json => {'host'=>''}
+      render json: {'host'=>''}
     end
   end
 
@@ -51,7 +51,7 @@ class SearchController < ApplicationController
     @query = Base64.decode64(params['qbase64']) if params['qbase64'] &&  params['qbase64'].size>2
     #puts @query.encoding
     #@query.force_encoding('utf-8')
-    #render :text => @query
+    #render text: @query
     @error, @mode, @results, @tags, @es_query_string = search(@query, 10, @page, true)
     if @page && @page.to_i>10 && !current_user
       @error = "未登录状态只能查看100条记录，登录后可查看1000条记录！";
@@ -71,7 +71,7 @@ class SearchController < ApplicationController
   def refresh
     @host = params['host']
     RealtimeprocessWorker.perform_async(@host, true)
-    render :text => "强制刷新成功！"
+    render text: "强制刷新成功！"
   end
 
 end

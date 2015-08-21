@@ -24,12 +24,12 @@ thinking_config = YAML::load(File.open(@root_path+"/../config/thinking_sphinx.ym
 config = YAML::load(File.open(@root_path+"/../config/database.yml"))[rails_env]
 ActiveRecord::Base.establish_connection (config)
 
-@mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
-                              :username => thinking_config['connection_options']['username'],
-                               :password => thinking_config['connection_options']['password'],
-                               :database => thinking_config['connection_options']['database'],
-                               :port => thinking_config['mysql41'],
-                               :encoding => 'utf8', :reconnect => true)
+@mysql ||= Mysql2::Client.new(host: thinking_config['address'],
+                              username: thinking_config['connection_options']['username'],
+                               password: thinking_config['connection_options']['password'],
+                               database: thinking_config['connection_options']['database'],
+                               port: thinking_config['mysql41'],
+                               encoding: 'utf8', reconnect: true)
 puts thinking_config
 def query(query_info, minid=0, limit=1000)
     match_query =  SphinxProcessor.parse(query_info)

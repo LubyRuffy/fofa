@@ -1,5 +1,5 @@
 ActiveAdmin.register Subdomain do
-  menu :label => "网站列表", :priority => 3
+  menu label: "网站列表", priority: 3
   
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

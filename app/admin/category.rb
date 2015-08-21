@@ -1,11 +1,11 @@
 ActiveAdmin.register Category do
 
-  belongs_to :user, :optional => true
+  belongs_to :user, optional: true
   navigation_menu :category
 
-  menu :label => "分组管理", :priority => 5
+  menu label: "分组管理", priority: 5
 
-  permit_params :user_id, :title, :published, :rule_ids => []
+  permit_params :user_id, :title, :published, rule_ids: []
 
   index do
     selectable_column
@@ -44,8 +44,8 @@ ActiveAdmin.register Category do
       f.input :user
       f.input :published
 
-      f.input :rules, :multiple => true, as: :check_boxes, :collection => Rule.published
-      #f.input :categories, :as => :check_boxes
+      f.input :rules, multiple: true, as: :check_boxes, collection: Rule.published
+      #f.input :categories, as: :check_boxes
     end
     f.actions
   end

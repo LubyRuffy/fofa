@@ -20,7 +20,7 @@ class RealtimeprocessWorker
   def initialize
   end
 
-  sidekiq_options :queue => :realtime_process, :retry => 3, :backtrace => true#, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
+  sidekiq_options queue: :realtime_process, retry: 3, backtrace: true#, unique: true, unique_job_expiration: 120 * 60 # 2 hours
 
 
   def perform(url, force=false, addlinkhosts=true, userid=0)

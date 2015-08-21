@@ -48,7 +48,7 @@ end
 
 class DumpassetWorker
 
-  sidekiq_options :retry => 3, :backtrace => true, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
+  sidekiq_options retry: 3, backtrace: true, unique: true, unique_job_expiration: 120 * 60 # 2 hours
 
   sidekiq_retries_exhausted do |msg|
     Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"

@@ -13,10 +13,10 @@ ips = YAML::load(File.open(@root_path+"/../config/ips.yml"))['mysql_servers']
 ips.split(',').each_with_index{|h,i|
   puts "========mysql server : #{h}========"
   result = Benchmark.measure do
-    mysql = Mysql2::Client.new(:host => h, :username => config['username'],
-                                   :password => config['password'],
-                                   :port => config['port'], :secure_auth => config['secure_auth'],
-                                   :encoding => 'utf8', :reconnect => true)
+    mysql = Mysql2::Client.new(host: h, username: config['username'],
+                                   password: config['password'],
+                                   port: config['port'], secure_auth: config['secure_auth'],
+                                   encoding: 'utf8', reconnect: true)
 
     mysql.query("show full processlist").each do |row|
       printf("%-8s%-8s%-25s%-10s %-30s %s\n",row['Id'],row['Time'],row['Host'],row['Command'],row['State'],row['Info']) unless row['Command']=='Sleep'

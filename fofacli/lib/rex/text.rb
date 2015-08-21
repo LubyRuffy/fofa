@@ -390,7 +390,7 @@ module Text
 
     if str.respond_to?(:encode)
       # Skip over any bytes that fail to convert to UTF-8
-      return str.encode('utf-8', { :invalid => :replace, :undef => :replace, :replace => '' })
+      return str.encode('utf-8', { invalid: :replace, undef: :replace, replace: '' })
     end
 
     begin
