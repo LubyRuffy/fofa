@@ -1,6 +1,7 @@
 
 
 class SgkController < ApplicationController
+  before_filter :require_user
   layout 'member'
 
   def index
