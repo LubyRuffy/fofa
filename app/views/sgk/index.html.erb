@@ -35,9 +35,28 @@
       <tr>
         <td>
 
-          <% s['_source'].each{|d| unless d[0]=="source" %>
+          <%
+             md5=nil
+             salt=nil
+             s['_source'].each{|d|
+               unless d[0]=="source"
+                    if d[0].to_s.downcase.include?('salt')
+                      salt=d[1]
+                    end
+                    if d[1].to_s.downcase=~/[a-f0-9]{32}/i
+                      md5=d[1]
+                    end
+          %>
               <%= d[0] %> : <b><%= link_to d[1], "/my/sgk?q=\"#{d[1]}\"" %></b><br/>
-          <% end } %>
+          <%    end
+             } %>
+
+          <% if md5
+             md5_str = md5
+             md5_str += salt ? ':'+salt : ''
+          %>
+              <a href="/my/sgk/crack?md5=<%= md5_str %>"><span class="label label-info pull-right">解密:<%= md5_str %></span><a/><br/>
+          <% end  %>
 
           <small><span class="label label-default pull-right"><%= s['_type'] %></span></small><br/>
         </td>

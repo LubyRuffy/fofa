@@ -118,6 +118,7 @@ Fofa::Application.routes.draw do
     resources :sgk do
       collection do
         get :index
+        get :crack
       end
     end
   end
