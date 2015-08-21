@@ -12,7 +12,8 @@ class SgkController < ApplicationController
 
   def crack
     if params[:md5]
-      text = crack_md5(params[:md5], Rails.configuration.x.cmd5.email, Rails.configuration.x.cmd5.password.to_s)
+      type = params[:md5].include?(':') ? 8 : 0
+      text = crack_md5(params[:md5], Rails.configuration.x.cmd5.email, Rails.configuration.x.cmd5.password.to_s, type)
       if text
         render json: {error:false, text:text}
       else
