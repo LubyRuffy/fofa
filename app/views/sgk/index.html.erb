@@ -46,8 +46,10 @@
                     if d[1].to_s.downcase=~/[a-f0-9]{32}/i
                       md5=d[1]
                     end
+             value = d[1]
+                    value = s['highlight'][d[0]] if s['highlight'][d[0]]
           %>
-              <%= d[0] %> : <b><%= link_to d[1], "/my/sgk?q=\"#{d[1]}\"" %></b><br/>
+              <%= d[0] %> : <b><%= value ? link_to(raw(value), "/my/sgk?q=\"#{d[1]}\"") : '' %></b><br/>
           <%    end
              } %>
 
