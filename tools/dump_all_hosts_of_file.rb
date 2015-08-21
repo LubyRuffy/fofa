@@ -32,22 +32,22 @@ if USE_THINKING_SPHINX
   ThinkingSphinx::Configuration.instance.searchd.address = thinking_config['address']
   ThinkingSphinx::Configuration.instance.searchd.port = thinking_config['port']
 else
-  @mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
-                                :username => thinking_config['connection_options']['username'],
-                                :password => thinking_config['connection_options']['password'],
-                                :database => thinking_config['connection_options']['database'],
-                                :port => thinking_config['mysql41'],
-                                :encoding => 'utf8', :reconnect => true)
+  @mysql ||= Mysql2::Client.new(host: thinking_config['address'],
+                                username: thinking_config['connection_options']['username'],
+                                password: thinking_config['connection_options']['password'],
+                                database: thinking_config['connection_options']['database'],
+                                port: thinking_config['mysql41'],
+                                encoding: 'utf8', reconnect: true)
 end
 
 def query(query_info, max_id)
   hosts = []
   match_query =  SphinxProcessor.parse(query_info)
 
-  options = {:match_mode => :extended, :index => 'subdomain_core',
-             :with => {:id => max_id..9999999999},
-             :sql => { :select => 'id,host'}, :per_page => 1000,
-             :page => 1, :order => "id asc"}
+  options = {match_mode: :extended, index: 'subdomain_core',
+             with: {id: max_id..9999999999},
+             sql: { select: 'id,host'}, per_page: 1000,
+             page: 1, order: "id asc"}
   ThinkingSphinx.search(match_query, options).each{|r|
     hosts << r.host
     max_id = r.id

@@ -18,6 +18,6 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every 1.days, :at => '3:30 am' do
+every 1.days, at: '3:30 am' do
   rake ts:index
 end

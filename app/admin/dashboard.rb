@@ -109,7 +109,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "实时根域名排名" do
           Sidekiq.redis {|redis|
             ul do
-            redis.zrevrange("rootdomains", 0, 19, :with_scores => true).each{|kv|
+            redis.zrevrange("rootdomains", 0, 19, with_scores: true).each{|kv|
               k,v = kv
               li "#{k} : #{v.to_i}"
             }
@@ -122,7 +122,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "实时IP排名" do
           ul do
             Sidekiq.redis {|redis|
-              redis.zrevrange("ips", 0, 19, :with_scores => true).each{|kv|
+              redis.zrevrange("ips", 0, 19, with_scores: true).each{|kv|
                 k,v = kv
                 li "#{k} : #{v.to_i}"
               }

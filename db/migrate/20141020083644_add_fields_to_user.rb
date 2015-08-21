@@ -1,7 +1,7 @@
 class AddFieldsToUser < ActiveRecord::Migration
   def self.up
     add_column :user, :sash_id, :integer
-    add_column :user, :level, :integer, :default => 0
+    add_column :user, :level, :integer, default: 0
   end
 
   def self.down

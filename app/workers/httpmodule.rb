@@ -99,9 +99,9 @@ module HttpModule
   def get_web_content(url,ops=nil)
 
     @options ||= {}
-    ops ||= {:following => 0}
+    ops ||= {following: 0}
     ops[:following] = 0 if !ops.has_key?(:following)
-    resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
+    resp = {error:true, errstring:'', code:999, url:url, html:nil, redirect_url:nil}
 
     begin
       url = 'http://'+url+'/' if !url.include?('http://') and !url.include?('https://')
@@ -315,17 +315,17 @@ module HttpModule
 
       if(encoding.to_s != "UTF-8")
         c = c.force_encoding(encoding)
-        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+        c = c.encode('UTF-8', undef: :replace, invalid: :replace, replace: '^')
       else
         c = c.force_encoding("UTF-8") if c.encoding != 'UTF-8'
-        c.encode!('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+        c.encode!('UTF-8', undef: :replace, invalid: :replace, replace: '^')
         #
       end
     else
       c = c.force_encoding('UTF-8')
       if !c.valid_encoding?
         c = c.force_encoding("GB18030")
-        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+        c = c.encode('UTF-8', undef: :replace, invalid: :replace, replace: '^')
       end
     end
 
@@ -334,7 +334,7 @@ module HttpModule
       if !c.valid_encoding?
         return ''
       end
-      c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+      c = c.encode('UTF-8', undef: :replace, invalid: :replace, replace: '^')
     end
 
     c
@@ -499,22 +499,22 @@ module HttpModule
       if img[k]
         img_src = img[k]
         local_file = download_img(img_src, referer)
-        imgs << {:from=>img_src, :to=>get_img_path(local_file), :type=>'string_replace', :repead=>true} if local_file #处理异步加载
-        imgs << {:from=>img_raw_src, :to=>get_img_path(local_file), :type=>'string_replace', :repead=>true} if local_file #处理异步加载
+        imgs << {from:img_src, to:get_img_path(local_file), type:'string_replace', repead:true} if local_file #处理异步加载
+        imgs << {from:img_raw_src, to:get_img_path(local_file), type:'string_replace', repead:true} if local_file #处理异步加载
       end
     }
 
     img_src = img['src']
     local_file = nil
     local_file = download_img(img_src, referer) if img_src
-    imgs << {:from=>img_src, :to=>get_img_path(local_file), :type=>'string_replace', :repead=>true} if local_file
+    imgs << {from:img_src, to:get_img_path(local_file), type:'string_replace', repead:true} if local_file
 
     imgs
   end
 
   #分析html(Nokogiri的node类型)中得所有img标签，下载图片到本地，然后返回替换的数组
   def receive_imgs(html,referer)
-    @options ||= {:img_save_mode => 'cloud'}
+    @options ||= {img_save_mode: 'cloud'}
     imgs = []
     if @options[:img_save_mode] != 'none'
       html.css('img').each {|img|

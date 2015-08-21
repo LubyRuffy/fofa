@@ -95,7 +95,7 @@ end
 
 def dnsbrute(target, wordlist, nssrv)
   subdomains = []
-	res = Net::DNS::Resolver.new(:udp_timeout=>15)
+	res = Net::DNS::Resolver.new(udp_timeout:15)
 	if nssrv.nil?
     dns_ips = getAllDNSServer(res, target)#getAuthDNSServers(res, target)
     dns_ips += %w|8.8.8.8 114.114.114.114 8.8.4.4 208.67.222.222 208.67.220.220 223.5.5.5 223.6.6.6 101.226.4.6 218.30.118.6 123.125.81.6 140.207.198.6|

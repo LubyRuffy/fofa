@@ -363,7 +363,7 @@ module Zip
     # Converts string encoding
     def encode_string(str, src, dst)
       if str.respond_to?(:encode)
-        str.encode(dst, { :invalid => :replace, :undef => :replace, :replace => '' })
+        str.encode(dst, { invalid: :replace, undef: :replace, replace: '' })
       else
         begin
           Iconv.conv(dst, src, str)

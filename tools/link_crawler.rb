@@ -14,7 +14,7 @@ include HttpModule
 include Lrlink
 
 @hosts = []
-@options = {:cachetime=>864000}
+@options = {cachetime:864000}
 $pattern = nil
 $max_site = 10000
 

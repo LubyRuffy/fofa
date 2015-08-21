@@ -32,7 +32,7 @@ def bulk_submit
   $bulks.clear
 end
 
-fetch = Sidekiq::BasicFetch.new(:queues => [
+fetch = Sidekiq::BasicFetch.new(queues: [
                                         'update_index',
                                         'check_url',
                                         'process_url'

@@ -6,8 +6,8 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = current_user.categories.paginate(:page => params[:page],
-                                         :per_page => 50).order('id DESC')
+    @categories = current_user.categories.paginate(page: params[:page],
+                                         per_page: 50).order('id DESC')
   end
 
   # GET /categories/1
@@ -107,6 +107,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:title, :rule_ids=>[])
+      params.require(:category).permit(:title, rule_ids:[])
     end
 end

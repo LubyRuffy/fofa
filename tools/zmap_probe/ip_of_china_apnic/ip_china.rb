@@ -13,8 +13,8 @@ unless File.exist?(@apnic_file)
 end
 
 #require 'netaddr'
-#ip_net_range = NetAddr.range("223.255.252.0", "223.255.253.255", :Inclusive => true, :Objectify => true)
-#cidr = NetAddr.merge(ip_net_range, :Objectify => true)
+#ip_net_range = NetAddr.range("223.255.252.0", "223.255.253.255", Inclusive: true, Objectify: true)
+#cidr = NetAddr.merge(ip_net_range, Objectify: true)
 #puts cidr
 #exit
 

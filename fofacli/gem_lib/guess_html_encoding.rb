@@ -47,7 +47,7 @@ module GuessHtmlEncoding
     if html_copy.valid_encoding?
       html_copy
     else
-      html_copy.force_encoding('ASCII-8BIT').encode('UTF-8', :undef => :replace, :invalid => :replace)
+      html_copy.force_encoding('ASCII-8BIT').encode('UTF-8', undef: :replace, invalid: :replace)
     end
   end
 

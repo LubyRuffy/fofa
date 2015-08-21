@@ -27,7 +27,7 @@ class Archive
       if File.directory?(file)
         @entries << Entry.new(relative.chomp('/') + '/', '', @compmeth, nil, EFA_ISDIR, nil, nil)
       else
-        contents = File.read(file, :mode => 'rb')
+        contents = File.read(file, mode: 'rb')
         @entries << Entry.new(relative, contents, @compmeth, nil, nil, nil, nil)
       end
     end

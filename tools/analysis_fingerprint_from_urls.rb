@@ -69,8 +69,8 @@ if r.size>0
     arr =  array_body.inject { |result, e|
       same_string = StringIO.new
       Diff::LCS::HTMLDiff.new(result.lines, e.lines,
-                              :expand_tabs => 0,
-                              :output => same_string).run
+                              expand_tabs: 0,
+                              output: same_string).run
       same_string.string
     }.lines.reject{|x|
       #x.size<20 ||

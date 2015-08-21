@@ -6,8 +6,8 @@ class TargetsController < InheritedResources::Base
   layout 'member'
 
   def index
-    @targets = current_user.targets.paginate(:page => params[:page],
-                                                    :per_page => 20).order('id DESC')
+    @targets = current_user.targets.paginate(page: params[:page],
+                                                    per_page: 20).order('id DESC')
   end
 
   def create
@@ -15,7 +15,7 @@ class TargetsController < InheritedResources::Base
 
     respond_to do |format|
       if @target.save
-        @target.usertargets.create(:user => current_user, :user_type => "owner")
+        @target.usertargets.create(user: current_user, user_type: "owner")
         add_dump_task
         format.html { redirect_to targets_url, notice: '创建成功！' }
         format.json { render :show, status: :created, location: @target }
@@ -47,16 +47,16 @@ class TargetsController < InheritedResources::Base
 
     if Sidekiq.redis {|redis| redis.exists(key) }
       msgs = Sidekiq.redis {|redis| redis.lrange(key, 0, -1) }
-      render :json => {error:false, msgs:msgs, finished:msgs.include?('<<<finished>>>')}
+      render json: {error:false, msgs:msgs, finished:msgs.include?('<<<finished>>>')}
     else
-      render :json => {error:false, msgs:[], finished:true}
+      render json: {error:false, msgs:[], finished:true}
     end
 
   end
 
   def adddumptask
     need_add = add_dump_task
-    render :json => {error:false, jobid:@target.id, need_add:need_add}
+    render json: {error:false, jobid:@target.id, need_add:need_add}
   end
 
   private

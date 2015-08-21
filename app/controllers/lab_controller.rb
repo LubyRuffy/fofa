@@ -13,12 +13,12 @@ class LabController < ApplicationController
   def addtask
     @action = params['taskaction']
     unless @action
-      render :json => {error:true, errormsg:'未知操作！' }
+      render json: {error:true, errormsg:'未知操作！' }
       return
     end
     @domain = params['domain']
     unless @domain && @domain.size>1
-      render :json => {error:true, errormsg:'请输入域名！' }
+      render json: {error:true, errormsg:'请输入域名！' }
       return
     end
 
@@ -29,10 +29,10 @@ class LabController < ApplicationController
       maxsize = 200
       maxsize = 1000 if current_user
       Uitask.perform_async( @jobid, @action, @domain, maxsize)
-      render :json => {error:false, errormsg:'', jobId: @jobid}
+      render json: {error:false, errormsg:'', jobId: @jobid}
       return
     else
-      render :json => {error:true, errormsg:'未知操作！'}
+      render json: {error:true, errormsg:'未知操作！'}
     end
   end
 
@@ -40,7 +40,7 @@ class LabController < ApplicationController
     jobId = params['jobId']
     key = "task:#{jobId}"
     msgs = Sidekiq.redis {|redis| redis.lrange(key, 0, -1) }
-    render :json => {error:false, msgs:msgs, finished:msgs.include?('<<<finished>>>')}
+    render json: {error:false, msgs:msgs, finished:msgs.include?('<<<finished>>>')}
   end
 
   def alldomains

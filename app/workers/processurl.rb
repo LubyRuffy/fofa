@@ -56,7 +56,7 @@ end
 
 class ProcessUrlWorker
 
-  sidekiq_options :queue => :process_url, :retry => 3, :backtrace => true#, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
+  sidekiq_options queue: :process_url, retry: 3, backtrace: true#, unique: true, unique_job_expiration: 120 * 60 # 2 hours
 
   sidekiq_retries_exhausted do |msg|
     #todo 丢到国外的服务器

@@ -31,12 +31,12 @@ if USE_THINKING_SPHINX
   ThinkingSphinx::Configuration.instance.searchd.address = thinking_config['address']
   ThinkingSphinx::Configuration.instance.searchd.port = thinking_config['port']
 else
-  @mysql ||= Mysql2::Client.new(:host => thinking_config['address'],
-                              :username => thinking_config['connection_options']['username'],
-                               :password => thinking_config['connection_options']['password'],
-                               :database => thinking_config['connection_options']['database'],
-                               :port => thinking_config['mysql41'],
-                               :encoding => 'utf8', :reconnect => true)
+  @mysql ||= Mysql2::Client.new(host: thinking_config['address'],
+                              username: thinking_config['connection_options']['username'],
+                               password: thinking_config['connection_options']['password'],
+                               database: thinking_config['connection_options']['database'],
+                               port: thinking_config['mysql41'],
+                               encoding: 'utf8', reconnect: true)
 end
 
 def build_info(query_array, col_name)
@@ -47,7 +47,7 @@ def build_info(query_array, col_name)
     match_query =  SphinxProcessor.parse(query_info)
 
     if USE_THINKING_SPHINX
-      data = ThinkingSphinx.search(match_query, :match_mode => :extended)
+      data = ThinkingSphinx.search(match_query, match_mode: :extended)
       cnt = data.meta
     else
       match_sql = "select count(*) as cnt from subdomain_core where match('#{Mysql2::Client.escape(match_query)}')"

@@ -8,7 +8,7 @@ module Fofa
 
 
     def self.get_web_content(url, req)
-      resp = {:error=>true, :errstring=>'', :code=>999, :url=>url, :html=>nil, :redirect_url=>nil}
+      resp = {error:true, errstring:'', code:999, url:url, html:nil, redirect_url:nil}
 
       begin
         url=url+'/' unless url.include?('/')
@@ -172,17 +172,17 @@ module Fofa
 	
 	      if(encoding.to_s != "UTF-8")
 	        c = c.force_encoding(encoding)
-	        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	        c = c.encode('UTF-8', undef: :replace, invalid: :replace, replace: '^')
 	      else
 	        c = c.force_encoding("UTF-8") if c.encoding != 'UTF-8'
-	        c.encode!('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	        c.encode!('UTF-8', undef: :replace, invalid: :replace, replace: '^')
 	        #
 	      end
 	    else
 	      c = c.force_encoding('UTF-8')
 	      if !c.valid_encoding?
 	        c = c.force_encoding("GB18030")
-	        c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	        c = c.encode('UTF-8', undef: :replace, invalid: :replace, replace: '^')
 	      end
 	    end
 	
@@ -191,7 +191,7 @@ module Fofa
 	      if !c.valid_encoding?
 	        return ''
 	      end
-	      c = c.encode('UTF-8', :undef => :replace, :invalid => :replace, :replace => '^')
+	      c = c.encode('UTF-8', undef: :replace, invalid: :replace, replace: '^')
 	    end
 	
 	    c

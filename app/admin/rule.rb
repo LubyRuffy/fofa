@@ -1,11 +1,11 @@
 ActiveAdmin.register Rule do
 
-  belongs_to :user, :optional => true
+  belongs_to :user, optional: true
   navigation_menu :user
 
-  menu :label => "规则管理", :priority => 1
+  menu label: "规则管理", priority: 1
 
-  permit_params :product, :rule, :producturl, :published, :user_id, :category_ids=> [:id]
+  permit_params :product, :rule, :producturl, :published, :user_id, category_ids: [:id]
 
   index do
     selectable_column
@@ -51,8 +51,8 @@ ActiveAdmin.register Rule do
       f.input :user
       f.input :published
 
-      f.input :categories, :multiple => true, as: :check_boxes, :collection => Category.published
-      #f.input :categories, :as => :check_boxes
+      f.input :categories, multiple: true, as: :check_boxes, collection: Category.published
+      #f.input :categories, as: :check_boxes
     end
     f.actions
   end

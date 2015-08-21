@@ -14,6 +14,6 @@ class UserhostController < ApplicationController
     @rawurl = params['host']
     @error, @msg = Userhost.add_user_host(current_user, @rawurl,request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip, true)
     @info = @msg if @error
-    render :action => "index"
+    render action: "index"
   end
 end
