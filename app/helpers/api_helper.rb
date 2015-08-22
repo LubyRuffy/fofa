@@ -36,7 +36,7 @@ module ApiHelper
               "function_score": {
                 "query": {
                   "query_string": {
-                    "query": "#{@query.query_escape}"
+                    "query": "#{@query.query_escape}*"
                   }
                 },
                 "score_mode": "multiply",
@@ -66,7 +66,7 @@ module ApiHelper
                     "filter": {
                       "query": {
                         "query_string": {
-                          "query": "ip:#{@query.query_escape}*"
+                          "query": "ipstr:#{@query.query_escape}*"
                         }
                       }
                     },
