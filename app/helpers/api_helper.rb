@@ -66,7 +66,7 @@ module ApiHelper
                     "filter": {
                       "query": {
                         "query_string": {
-                          "query": "ip:*#{@query.query_escape}*"
+                          "query": "ip:#{@query.query_escape}*"
                         }
                       }
                     },
