@@ -30,12 +30,69 @@ module ApiHelper
         if @query_l
           @mode = "extended"
         else
-          highlight = false
+          #highlight = false
           @query_l = %Q|
           {
-              "query_string": {
-                  "query": "#{@query.query_escape}",
-                  "analyze_wildcard": true
+              "function_score": {
+                "query": {
+                  "query_string": {
+                    "query": "#{@query.query_escape}"
+                  }
+                },
+                "score_mode": "multiply",
+                "boost_mode": "multiply",
+                "functions": [
+                  {
+                    "filter": {
+                      "query": {
+                        "query_string": {
+                          "query": "domain:#{@query.query_escape}"
+                        }
+                      }
+                    },
+                    "boost_factor": 200
+                  },
+                  {
+                    "filter": {
+                      "query": {
+                        "query_string": {
+                          "query": "host:*#{@query.query_escape}"
+                        }
+                      }
+                    },
+                    "boost_factor": 100
+                  },
+                  {
+                    "filter": {
+                      "query": {
+                        "query_string": {
+                          "query": "ip:*#{@query.query_escape}"
+                        }
+                      }
+                    },
+                    "boost_factor": 100
+                  },
+                  {
+                    "filter": {
+                      "query": {
+                        "query_string": {
+                          "query": "header:#{@query.query_escape}"
+                        }
+                      }
+                    },
+                    "boost_factor": 50
+                  },
+                  {
+                    "filter": {
+                      "query": {
+                        "query_string": {
+                          "query": "body:#{@query.query_escape}"
+                        }
+                      }
+                    },
+                    "boost_factor": 1
+                  }
+                ]
               }
           }|
         end
@@ -49,18 +106,12 @@ module ApiHelper
       @query_l = {
           _source: source,
           query: JSON.parse(@query_l),
-          sort: [
-
-              {
-                  lastupdatetime: "desc"
-              },
-              {
-                  _score: "desc"
-              }
-          ]
       }
       @query_l[:highlight] = {pre_tags: ["<mark>"],post_tags: ["</mark >"],fields: {header_ok: {fragment_size: 2000}}} if highlight
-        @results = Subdomain.__elasticsearch__.search(@query_l).paginate(page: page, per_page: page_count)
+      if @mode == "extended"
+        @query_l[:sort] = [{lastupdatetime: "desc"}, {_score: "desc"}]
+      end
+      @results = Subdomain.__elasticsearch__.search(@query_l).paginate(page: page, per_page: page_count)
       #rescue => e
       #  @error = e.to_s
       #end
