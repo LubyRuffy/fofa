@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
   <title><%= content_for?(:title) ? yield(:title).force_encoding('utf-8') + " :FOFA网站信息库": "我的管理后台 -- FOFA" %></title>
   <%= stylesheet_link_tag "my" %>
-  <%= javascript_include_tag "my", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "my" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

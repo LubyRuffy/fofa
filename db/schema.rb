@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819024412) do
+ActiveRecord::Schema.define(version: 20150823033039) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 20150819024412) do
   end
 
   add_index "asset_ips", ["target_id", "ip"], name: "asset_ips_ip_index", unique: true, using: :btree
+
+  create_table "asset_persons", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.integer  "target_id",  limit: 4
+    t.text     "memo",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "asset_persons", ["target_id", "email"], name: "asset_persons_email_index", unique: true, using: :btree
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id",      limit: 4
@@ -222,7 +233,7 @@ ActiveRecord::Schema.define(version: 20150819024412) do
   create_table "sensitives", force: :cascade do |t|
     t.string   "reference",  limit: 255
     t.text     "content",    limit: 65535
-    t.integer  "target_id",  limit: 4
+    t.integer  "user_id",    limit: 4
     t.text     "memo",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

@@ -79,7 +79,8 @@ ActiveAdmin.register_page "Dashboard" do
        column do
          panel "收录总览" do
            ul do
-             li "elasticsearch索引个数：#{Subdomain.es_size}"
+             li "Host索引个数：#{Subdomain.es_size}"
+             li "社工库索引个数：#{Sgk.es_count}"
            end
          end
        end
@@ -165,6 +166,19 @@ ActiveAdmin.register_page "Dashboard" do
             #    li "#{v}"
             #  }
             #}
+          end
+        end
+      end
+
+    end
+
+    columns do
+      column do
+        panel "社工库数据量" do
+          ul do
+             Sgk.alltypes.sort_by{|k,v| k}.each{|k,v|
+               li "#{k} => #{v}"
+             }
           end
         end
       end

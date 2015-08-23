@@ -39,8 +39,21 @@ class Sgk < ActiveRecord::Base
     end
 
     def search(query_or_payload, options={})
-      options.merge!({index: @index, type: @type})
+      options.merge!({index: @index})
       __elasticsearch__.search(query_or_payload, options)
+    end
+
+    def alltypes
+      result = @client.indices.get_mapping(index: @index).to_hash
+      types = result[@index]['mappings'].map{|k,v|
+        k
+      }
+      types_cnt = {}
+      types.each{|src|
+        cnt = @client.count(index: @index, type: src)['count']
+        types_cnt[src] = cnt
+      }
+      types_cnt
     end
   end
 end
