@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-@root_path = File.expand_path(File.dirname(__FILE__))
+$root_path = File.expand_path(File.dirname(__FILE__))
 require 'yaml'
 require 'awesome_print'
 require 'elasticsearch/model'
@@ -10,13 +10,24 @@ class Sidekiq
     false
   end
 end
-require @root_path+"/../config/initializers/elasticsearch.rb"
+require $root_path+"/../config/initializers/elasticsearch.rb"
 
 class RdnsBulkIndex
   def initialize(file='rdns.txt', startline=0)
     @file = file
+    @progress_file = 'es-import-rdns-lino.txt'
     @startline = startline
-    if !File.exist?(@file) && $test_data.size<1
+
+    if @startline == 0  && File.exists?($root_path + @progress_file)
+      File.open($root_path + @progress_file){|f|
+        line = f.readline()
+        @startline = line.strip!.to_i
+        puts "[INFO] read line from #{$root_path + @progress_file} : #{@startline}"
+      }
+    end
+
+
+    if !File.exist?(@file)
       puts "[ERROR] File not exists, quit..."
       exit
     end
@@ -122,11 +133,11 @@ class RdnsBulkIndex
       end
       i += 1
 
-      if arr.size % 1000 == 0
+      if arr.size % 10 == 0 && arr.size>0
         es_bulk_insert(arr)
         arr.clear
-        `echo #{i} > es-import-rdns-lino.txt`
-        print "#{i}                \r"
+        `echo #{i} > #{$root_path + @progress_file}`
+        print "  #{i}                \r"
       end
       #ap @client.indices.analyze index: @index, type: @type, text: line, analyzer: 'dot_split_analyzer'
     }
@@ -134,6 +145,9 @@ class RdnsBulkIndex
     if arr.size>0
       es_bulk_insert(arr)
       arr.clear
+      i += arr.size
+      `echo #{i} > #{$root_path + @progress_file}`
+      print "  #{i}                \r"
     end
   end
 end
@@ -141,5 +155,5 @@ end
 if ARGV[0]
   RdnsBulkIndex.new(ARGV[0], ARGV[1] || 0).run
 else
-  puts "#{$0} <rdns_file_path>"
+  puts "#{$0} <rdns_file_path> [start_line]"
 end
