@@ -133,7 +133,7 @@ class RdnsBulkIndex
       end
       i += 1
 
-      if arr.size % 1000 == 0 && arr.size>0
+      if arr.size % 3000 == 0 && arr.size>0
         es_bulk_insert(arr)
         arr.clear
         `echo #{i} > #{$root_path + @progress_file}`
