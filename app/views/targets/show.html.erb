@@ -106,7 +106,9 @@
       } %></span></a>
     </li>
     <li class="">
-      <a href="#messages" data-toggle="tab">IP范围<span class="badge bg-info"><%= @ips.size %></span></a>
+      <a href="#messages" data-toggle="tab">IP范围<span class="badge bg-info"><%= @ips_g.inject(0) {|sum, arr|
+        sum + arr[1].size
+      } %></span></a>
     </li>
     <li class="">
       <a href="#notifications" data-toggle="tab">员工<span class="badge bg-info"></span></a>
@@ -168,30 +170,25 @@
         </div>
         <div class="tab-pane" id="messages">
           <section class="panel">
-            <div class="panel-heading">IP列表</div>
-            <div class="panel-body no-padding">
-              <table class="table table-hover no-margin">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>IP</th>
-                  <th>更新日期</th>
-                  <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @ips.each{|d| %>
-                    <tr>
-                      <td><%=d.id%></td>
-                      <td><%=d.ip%></td>
-                      <td><%=d.created_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
-                      <td></td>
-                    </tr>
-                <% } %>
-                </tbody>
-              </table>
+            <div class="panel-heading">
+              IP列表
             </div>
-          </section>
+            <div class="panel-body no-padding">
+              <div id="iptree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
+                <div class = "tree-folder" style="display:none;">
+                  <div class="tree-folder-header">
+                    <i class="fa fa-folder"></i>
+                    <div class="tree-folder-name"></div>
+                  </div>
+                  <div class="tree-folder-content"></div>
+                  <div class="tree-loader" style="display:none"></div>
+                </div>
+                <div class="tree-item" style="display:none;">
+                  <i class="tree-dot"></i>
+                  <div class="tree-item-name"></div>
+                </div>
+              </div>
+            </div>
         </div>
         <div class="tab-pane" id="notifications">
           <p>Notifications</p>
@@ -269,11 +266,42 @@ $( document ).ready(function() {
                         {}
                     ],
                     delay: 10
+                })
+
+                var iptreeDataSource = new DataSourceTree({
+                    data: [
+                        <% if @ips_g
+                             @ips_g.sort_by{|k,v| -v.size}.each{|ipnet,ips|
+                             ips_strings = []
+                             ips.each{|h|
+                                ips_strings << %Q|{ name: '#{h.ip}', type: 'item', additionalParameters: { id: '#{h.ip}' } }|
+                             }
+                             %>
+                        {
+                            name: '<%=ipnet%> <div class="tree-actions"></div> <span class="badge bg-default"><%= ips.size %></span>',
+                            type: 'folder',
+                            additionalParameters: { id: '<%=ipnet%>' },
+                            data: [
+                                <%= raw(ips_strings.join(',')) %>
+                            ]
+                        },
+
+                        <%
+                           }
+                        end %>
+                        {}
+                    ],
+                    delay: 10
                 });
 
 
                 $('#FlatTree3').tree({
                     dataSource: treeDataSource3,
+                    loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
+                });
+
+                $('#iptree').tree({
+                    dataSource: iptreeDataSource,
                     loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
                 });
 

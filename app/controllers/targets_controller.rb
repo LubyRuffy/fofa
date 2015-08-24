@@ -38,7 +38,7 @@ class TargetsController < InheritedResources::Base
     @show_toolbar = true
     @show_task = not_finished_dump_task?(@target.id)
     @domains = @target.asset_domains
-    @ips = @target.asset_ips
+    @ips_g = @target.asset_ips.select('*').group_by(&:ipnet)
     @hosts_g = @target.asset_hosts.select('*').group_by(&:domain)
   end
 

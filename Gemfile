@@ -106,3 +106,5 @@ gem 'geoip'
 gem 'merit'
 
 gem 'highlight', :require => 'simplabs/highlight'
+
+gem 'awesome_print', require: false
