@@ -101,7 +101,9 @@
       <a href="#home" data-toggle="tab">根域名<span class="badge bg-info"><%= @domains.size %></span></a>
     </li>
     <li class="">
-      <a href="#profile" data-toggle="tab">网站列表<span class="badge bg-info"><%= @hosts.size %></span></a>
+      <a href="#profile" data-toggle="tab">网站列表<span class="badge bg-info"><%= @hosts_g.inject(0) {|sum, arr|
+        sum + arr[1].size
+      } %></span></a>
     </li>
     <li class="">
       <a href="#messages" data-toggle="tab">IP范围<span class="badge bg-info"><%= @ips.size %></span></a>
@@ -143,28 +145,24 @@
         </div>
         <div class="tab-pane" id="profile">
           <section class="panel">
-            <div class="panel-heading">网站列表</div>
+            <div class="panel-heading">
+              域名管理
+            </div>
             <div class="panel-body no-padding">
-              <table class="table table-hover no-margin">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Host</th>
-                  <th>更新日期</th>
-                  <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @hosts.each{|h| %>
-                    <tr>
-                      <td><%=h.id%></td>
-                      <td><%=h.host%></td>
-                      <td><%=h.created_at.strftime("%Y-%m-%d %H:%M:%S")%></td>
-                      <td></td>
-                    </tr>
-                <% } %>
-                </tbody>
-              </table>
+              <div id="FlatTree3" class="tree tree-plus-minus tree-solid-line tree-unselectable">
+                <div class = "tree-folder" style="display:none;">
+                  <div class="tree-folder-header">
+                    <i class="fa fa-folder"></i>
+                    <div class="tree-folder-name"></div>
+                  </div>
+                  <div class="tree-folder-content"></div>
+                  <div class="tree-loader" style="display:none"></div>
+                </div>
+                <div class="tree-item" style="display:none;">
+                  <i class="tree-dot"></i>
+                  <div class="tree-item-name"></div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -203,32 +201,6 @@
   </section>
 </section>
 
-<div class="row" style="display: none;">
-  <div class="col-md-6">
-    <div class="panel">
-      <div class="panel-heading">
-        域名管理
-      </div>
-      <div class="panel-body">
-        <div id="FlatTree3" class="tree tree-plus-minus tree-solid-line tree-unselectable">
-          <div class = "tree-folder" style="display:none;">
-            <div class="tree-folder-header">
-              <i class="fa fa-folder"></i>
-              <div class="tree-folder-name"></div>
-            </div>
-            <div class="tree-folder-content"></div>
-            <div class="tree-loader" style="display:none"></div>
-          </div>
-          <div class="tree-item" style="display:none;">
-            <i class="tree-dot"></i>
-            <div class="tree-item-name"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
 $( document ).ready(function() {
     <%if @show_task %>
@@ -243,35 +215,60 @@ $( document ).ready(function() {
             //main function to initiate the module
             init: function () {
 
-                var DataSourceTree = function (options) {
-                    this._data  = options.data;
+                var DataSourceTree = function(options) {
+                    this._data 	= options.data;
                     this._delay = options.delay;
-                };
+                }
 
-                DataSourceTree.prototype = {
+                DataSourceTree.prototype.data = function(options, callback) {
+                    var self = this;
+                    var $data = null;
 
-                    data: function (options, callback) {
-                        var self = this;
-
-                        setTimeout(function () {
-                            var data = $.extend(true, [], self._data);
-
-                            callback({ data: data });
-
-                        }, this._delay)
+                    if(!("name" in options) && !("type" in options)){
+                        $data = this._data;//the root tree
+                        callback({ data: $data });
+                        return;
                     }
+                    else if("type" in options && options.type == "folder") {
+                        if("additionalParameters" in options && "data" in options)
+                            $data = options.data;
+                        else $data = {}//no data
+                    }
+
+                    if($data != null)//this setTimeout is only for mimicking some random delay
+                        setTimeout(function(){callback({ data: $data });} , parseInt(Math.random() * 500) + 200);
+
+                    //we have used static data here
+                    //but you can retrieve your data dynamically from a server using ajax call
+                    //checkout examples/treeview.html and examples/treeview.js for more info
                 };
 
                 // INITIALIZING TREE
 
                 var treeDataSource3 = new DataSourceTree({
                     data: [
-                        { name: 'Dashboard <div class="tree-actions"></div>', type: 'folder', additionalParameters: { id: 'F11' } },
-                        { name: 'AdminEx', type: 'item', additionalParameters: { id: 'I11' } },
-                        { name: 'View Category <div class="tree-actions"></div>', type: 'folder', additionalParameters: { id: 'F12' } },
-                        { name: 'Modern Elements', type: 'item', additionalParameters: { id: 'I12' } }
+                    <% if @hosts_g
+                         @hosts_g.sort_by{|k,v| -v.size}.each{|d,hosts|
+                         hosts_strings = []
+                         hosts.each{|h|
+                            hosts_strings << %Q|{ name: '#{h.host}', type: 'item', additionalParameters: { id: '#{h.host}' } }|
+                         }
+                         %>
+                         {
+                             name: '<%=d%> <div class="tree-actions"></div> <span class="badge bg-default"><%= hosts.size %></span>',
+                             type: 'folder',
+                             additionalParameters: { id: '<%=d%>' },
+                             data: [
+                                 <%= raw(hosts_strings.join(',')) %>
+                             ]
+                         },
+
+                    <%
+                       }
+                    end %>
+                        {}
                     ],
-                    delay: 400
+                    delay: 10
                 });
 
 

@@ -39,7 +39,7 @@ class TargetsController < InheritedResources::Base
     @show_task = not_finished_dump_task?(@target.id)
     @domains = @target.asset_domains
     @ips = @target.asset_ips
-    @hosts = @target.asset_hosts
+    @hosts_g = @target.asset_hosts.select('*').group_by(&:domain)
   end
 
   def getdumpinfo

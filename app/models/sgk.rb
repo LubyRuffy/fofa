@@ -39,7 +39,7 @@ class Sgk < ActiveRecord::Base
     end
 
     def search(query_or_payload, options={})
-      options.merge!({index: @index})
+      options.merge!({index: @index, type: @type})
       __elasticsearch__.search(query_or_payload, options)
     end
 

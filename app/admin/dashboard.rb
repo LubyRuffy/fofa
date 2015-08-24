@@ -174,9 +174,10 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        panel "社工库数据量" do
+        types = Sgk.alltypes
+        panel "社工库数据量(#{types.size})" do
           ul do
-             Sgk.alltypes.sort_by{|k,v| k}.each{|k,v|
+            types.sort_by{|k,v| k}.each{|k,v|
                li "#{k} => #{v}"
              }
           end

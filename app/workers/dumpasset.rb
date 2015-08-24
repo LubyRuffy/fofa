@@ -23,11 +23,11 @@ def import_domain(target_id, domain)
   @ips.each do |net|
     ipnet,hosts,ips,netipcnt = net
     hosts.split(',').each{|h|
-      AssetHost.find_or_create_by(target_id: target_id, host: h)
+      AssetHost.find_or_create_by(target_id: target_id, host: h, domain: domain)
       add_target_msg(target_id, h)
     }
     ips.split(',').each{|ip|
-      AssetIp.find_or_create_by(target_id: target_id, ip: ip)
+      AssetIp.find_or_create_by(target_id: target_id, ip: ip, domain: domain, ipnet: ipnet)
       add_target_msg(target_id, ip)
     }
   end
