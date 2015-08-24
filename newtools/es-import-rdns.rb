@@ -122,7 +122,7 @@ class RdnsBulkIndex
       end
       i += 1
 
-      if arr.size % 1 == 0
+      if arr.size % 1000 == 0
         es_bulk_insert(arr)
         arr.clear
         `echo #{i} > es-import-rdns-lino.txt`
