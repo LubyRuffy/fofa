@@ -12,10 +12,10 @@ class Sidekiq
 end
 require $root_path+"/../config/initializers/elasticsearch.rb"
 
-class RdnsBulkIndex
-  def initialize(file='rdns.txt', startline=0)
+class DnsrecordBulkIndex
+  def initialize(file='dnsrecords.txt', startline=0)
     @file = file
-    @progress_file = 'es-import-rdns-lino.txt'
+    @progress_file = 'es-import-dnsrecords-lino.txt'
     @startline = startline
 
     if @startline == 0  && File.exists?($root_path + @progress_file)
@@ -32,8 +32,8 @@ class RdnsBulkIndex
       exit
     end
     @client = Elasticsearch::Model.client
-    @index = 'networks'
-    @type = 'rdns'
+    @index = 'dnsrecords'
+    @type = 'dnsrecords'
   end
 
   def create_mapping
@@ -64,27 +64,37 @@ class RdnsBulkIndex
                   }
               },
               mappings: {
-                  rdns: {
+                  dnsrecords: {
                       properties: {
-                          ip: {
+                          host: {
                               type: 'multi_field',
                               fields: {
-                                  ip: {
-                                      type: 'ip'
-                                  },
-                                  ipraw: {
+                                  hoststr: {
                                       type: "string",
                                       analyzer: "dot_split_analyzer"
                                   },
-                                  ipstr: {
+                                  hostraw: {
                                       type: "string",
                                       index: "not_analyzed"
                                   }
                               }
                           },
-                          name: {
+                          dnstype: {
                               type: 'string',
-                              analyzer: "dot_split_analyzer"
+                              index: "not_analyzed"
+                          },
+                          to: {
+                              type: 'multi_field',
+                              fields: {
+                                  tostr: {
+                                      type: "string",
+                                      analyzer: "dot_split_analyzer"
+                                  },
+                                  toraw: {
+                                      type: "string",
+                                      index: "not_analyzed"
+                                  }
+                              }
                           },
 
                       }
@@ -102,20 +112,21 @@ class RdnsBulkIndex
     res.each { |r|
       begin
       r.strip!
-      ip, name = r.split(',')
+      host,type,to = r.split(',')
       records << {
           index: {
               _index: @index,
               _type: @type,
-              _id: ip,
+              _id: host,
               data: {
-                  ip: ip,
-                  name: name
+                  host: host,
+                  dnstype: type,
+                  to: to
               }
           }
       }
       rescue => e
-        puts r, es
+        puts r, e
       end
 
     }
@@ -160,7 +171,7 @@ class RdnsBulkIndex
 end
 
 if ARGV[0]
-  RdnsBulkIndex.new(ARGV[0], ARGV[1] || 0).run
+  DnsrecordBulkIndex.new(ARGV[0], ARGV[1] || 0).run
 else
-  puts "#{$0} <rdns_file_path> [start_line]"
+  puts "#{$0} <dnsrecords_file_path> [start_line]"
 end
