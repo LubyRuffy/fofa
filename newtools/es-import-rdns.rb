@@ -115,7 +115,7 @@ class RdnsBulkIndex
           }
       }
       rescue => e
-        puts r, e
+        puts r, es
       end
 
     }
@@ -135,15 +135,15 @@ class RdnsBulkIndex
     File.open(@file).each_line { |line|
       if i >= @startline
         arr << line
+      else
+        print "  #{i}                \r" if i % 5000 == 0
       end
       i += 1
 
-      if arr.size % 5000 == 0
-        if arr.size>0
-          es_bulk_insert(arr)
-          arr.clear
-          `echo #{i} > #{$root_path + @progress_file}`
-        end
+      if arr.size % 5000 == 0 && arr.size>0
+        es_bulk_insert(arr)
+        arr.clear
+        `echo #{i} > #{$root_path + @progress_file}`
         print "  #{i}                \r"
       end
       #ap @client.indices.analyze index: @index, type: @type, text: line, analyzer: 'dot_split_analyzer'
