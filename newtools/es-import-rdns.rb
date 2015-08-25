@@ -100,6 +100,7 @@ class RdnsBulkIndex
   def prepare_records(res)
     records = []
     res.each { |r|
+      begin
       r.strip!
       ip, name = r.split(',')
       records << {
@@ -113,6 +114,10 @@ class RdnsBulkIndex
               }
           }
       }
+      rescue => e
+        puts r, e
+      end
+
     }
     records
   end
@@ -133,10 +138,12 @@ class RdnsBulkIndex
       end
       i += 1
 
-      if arr.size % 3000 == 0 && arr.size>0
-        es_bulk_insert(arr)
-        arr.clear
-        `echo #{i} > #{$root_path + @progress_file}`
+      if arr.size % 5000 == 0
+        if arr.size>0
+          es_bulk_insert(arr)
+          arr.clear
+          `echo #{i} > #{$root_path + @progress_file}`
+        end
         print "  #{i}                \r"
       end
       #ap @client.indices.analyze index: @index, type: @type, text: line, analyzer: 'dot_split_analyzer'
