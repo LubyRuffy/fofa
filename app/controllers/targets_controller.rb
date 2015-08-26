@@ -1,7 +1,8 @@
 require 'dumpasset'
 
 class TargetsController < InheritedResources::Base
-  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask]
+  include Lrlink
+  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :add_domain, :add_host, :get_domains_json]
   before_filter :require_user
   layout 'member'
 
@@ -37,7 +38,6 @@ class TargetsController < InheritedResources::Base
   def show
     @show_toolbar = true
     @show_task = not_finished_dump_task?(@target.id)
-    @domains = @target.asset_domains
     @ips_g = @target.asset_ips.select('*').group_by(&:ipnet)
     @hosts_g = @target.asset_hosts.select('*').group_by(&:domain)
   end
@@ -57,6 +57,42 @@ class TargetsController < InheritedResources::Base
   def adddumptask
     need_add = add_dump_task
     render :json => {error:false, jobid:@target.id, need_add:need_add}
+  end
+
+  def add_domain
+    domain = params[:domain]
+    autoimport = (params[:autoimport] == 'true')
+    ad = @target.asset_domains.find_or_create_by(target_id: @target.id, domain: domain)
+
+    if autoimport
+      ImportDomainAssetWorker.perform_async(@target.id, domain)
+    end
+
+    render :json => {error:false, domain_id:ad[:id]}
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
+  end
+
+  def add_host
+    host = params[:host]
+    domain_info = get_domain_info_by_host(host)
+    if !domain_info
+      render :json => {error:true, errmsg:"invalid host!"}
+    else
+      domain = domain_info.domain+'.'+domain_info.public_suffix
+      ad = @target.asset_hosts.find_or_create_by(target_id: @target.id, host: host, domain:domain)
+      render :json => {error:false, domain_id:ad[:id]}
+    end
+
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
+  end
+
+  def get_domains_json
+    @domains = @target.asset_domains
+    render :json => {error:false, domains:@domains}
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
   end
 
   private

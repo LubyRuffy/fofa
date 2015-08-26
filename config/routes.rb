@@ -108,6 +108,12 @@ Fofa::Application.routes.draw do
         get :getdumpinfo
         get :adddumptask
       end
+
+      member do
+        post :add_domain
+        post :add_host
+        get :get_domains_json
+      end
     end
 
     resources :sensitives do

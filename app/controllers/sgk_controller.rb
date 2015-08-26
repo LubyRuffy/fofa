@@ -6,9 +6,9 @@ class SgkController < ApplicationController
 
   def index
     if params[:q] && params[:q].size>0
-      q = {query:     { query_string:  { query: "#{params[:q].query_escape}" } },
+      @q = {query:     { query_string:  { query: params[:q] } },
            highlight: { pre_tags:["<mark>"], post_tags:["</mark>"], fields: { '*'=> {} } } }
-      @sgk = Sgk.search( q ).paginate(:page => params[:page],:per_page => 20)
+      @sgk = Sgk.search( @q ).paginate(:page => params[:page],:per_page => 20)
     end
   end
 
