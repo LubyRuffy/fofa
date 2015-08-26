@@ -115,7 +115,7 @@ class RdnsBulkIndex
           }
       }
       rescue => e
-        puts r, es
+        puts r, e
       end
 
     }
