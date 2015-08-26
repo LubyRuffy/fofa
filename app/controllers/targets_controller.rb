@@ -2,7 +2,7 @@ require 'dumpasset'
 
 class TargetsController < InheritedResources::Base
   include Lrlink
-  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :add_domain, :add_host, :get_domains_json]
+  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :add_domain, :add_host, :get_domains_json, :get_hosts_json, :get_ips_json]
   before_filter :require_user
   layout 'member'
 
@@ -89,11 +89,47 @@ class TargetsController < InheritedResources::Base
   end
 
   def get_domains_json
-    @domains = @target.asset_domains
+    @domains = @target.asset_domains.select('id, domain, created_at')
     render :json => {error:false, domains:@domains}
   rescue => e
     render :json => {error:true, errmsg:e.to_s}
   end
+
+  def get_hosts_json
+    hosts_g = @target.asset_hosts.select('id, host, domain').group_by(&:domain).sort_by{|k,v| -v.size}
+    data = hosts_g.map{|d,hosts|
+      {
+          name: "#{d} <div class='tree-actions'></div> <span class='badge bg-default'>#{hosts.size}</span>",
+          type: 'folder',
+          additionalParameters: { id: d },
+          data: hosts.map{|h|
+            { name: h.host, type: 'item', additionalParameters: { id: h.host } }
+          }
+      }
+    }
+    render :json => {error:false, data:data, size:hosts_g.inject(0) {|sum, arr| sum + arr[1].size } }
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
+  end
+
+  def get_ips_json
+    ips_g = @target.asset_ips.select('ip,ipnet').group_by(&:ipnet).sort_by{|k,v| -v.size}
+    data = ips_g.map{|ipnet,ips|
+      {
+          name: "#{ipnet} <div class='tree-actions'></div> <span class='badge bg-default'>#{ips.size}</span>",
+          type: 'folder',
+          additionalParameters: { id: ipnet },
+          data: ips.map{|ip|
+            { name: ip.ip, type: 'item', additionalParameters: { id: ip.ip } }
+          }
+      }
+    }
+    render :json => {error:false, data:data, size:ips_g.inject(0) {|sum, arr| sum + arr[1].size } }
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
+  end
+
+
 
   private
 

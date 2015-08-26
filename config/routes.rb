@@ -113,6 +113,8 @@ Fofa::Application.routes.draw do
         post :add_domain
         post :add_host
         get :get_domains_json
+        get :get_hosts_json
+        get :get_ips_json
       end
     end
 
