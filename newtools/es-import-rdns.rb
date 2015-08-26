@@ -136,11 +136,11 @@ class RdnsBulkIndex
       if i >= @startline
         arr << line
       else
-        print "  #{i}                \r" if i % 10000 == 0
+        print "  #{i}                \r" if i % 50000 == 0
       end
       i += 1
 
-      if arr.size % 5000 == 0 && arr.size>0
+      if arr.size % 10000 == 0 && arr.size>0
         es_bulk_insert(arr)
         arr.clear
         `echo #{i} > #{$root_path + @progress_file}`
