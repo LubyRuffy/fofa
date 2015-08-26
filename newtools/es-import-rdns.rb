@@ -136,7 +136,7 @@ class RdnsBulkIndex
       if i >= @startline
         arr << line
       else
-        print "  #{i}                \r" if i % 50000 == 0
+        print "  #{i}                \r" if i % 100000 == 0
       end
       i += 1
 
