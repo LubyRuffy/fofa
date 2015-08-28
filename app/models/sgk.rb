@@ -43,6 +43,15 @@ class Sgk < ActiveRecord::Base
       __elasticsearch__.search(query_or_payload, options)
     end
 
+    #data = Sgk.get_emails('sohu-inc.com')
+    def get_emails(domain,maxsize)
+      q = {query:     { query_string:  { query: "email:\"#{domain}\"" } }, size: maxsize }
+      res = search(q)
+      res.map do |s|
+        s['_source']['email']
+      end
+    end
+
     def alltypes
       result = @client.indices.get_mapping(index: @index).to_hash
       types = result[@index]['mappings'].map{|k,v|

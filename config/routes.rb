@@ -115,6 +115,7 @@ Fofa::Application.routes.draw do
         get :get_domains_json
         get :get_hosts_json
         get :get_ips_json
+        get :get_persons_json
       end
     end
 

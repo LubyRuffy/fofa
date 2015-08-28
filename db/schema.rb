@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824213039) do
+ActiveRecord::Schema.define(version: 20150828162739) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20150824213039) do
     t.text     "memo",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "domain",     limit: 255
   end
 
   add_index "asset_persons", ["target_id", "email"], name: "asset_persons_email_index", unique: true, using: :btree

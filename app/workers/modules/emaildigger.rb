@@ -1,31 +1,39 @@
 root_path = File.expand_path(File.dirname(__FILE__))
 require File.join(root_path, 'searchengines', 'bingsearch.rb')
 require File.join(root_path, 'searchengines', 'googlesearch.rb')
+require 'logger'
+
 
 class EmailDigger
-  def initialize(domain)
+  def initialize(domain,logger=nil)
     @domain = domain
+    @logger = logger || Logger.new(STDOUT)  #输出到控制台
   end
 
   def importGoogle
     html = GoogleSearch.new.search('@'+@domain)
   end
 
-  def importBing
+  def importBing(api=true)
     res = []
 
-    results = BingSearch.searchall('"@'+@domain+'"')
+    klass = api ? BingApiSearch : BingSearch
+    results = klass.new(@logger).searchall('"@'+@domain+'"')
     results.each{|r|
-      res << _extract_email(r)
+      emails = _extract_email(r)
+      res << emails
+      yield(emails) if block_given?
     }
 
-    results = BingSearch.searchall('"_at_'+@domain+'"')
+    results = klass.new(@logger).searchall('"_at_'+@domain+'"')
     results.each{|r|
       r = r.gsub('_at_', '@')
       r = r.gsub('(at)', '@')
       r = r.gsub(' at ', '@')
       #puts html
-      res << _extract_email(r)
+      emails = _extract_email(r)
+      res << emails
+      yield(emails) if block_given?
     }
 
     res.uniq
@@ -41,13 +49,23 @@ class EmailDigger
 
   def importAll()
     res = []
-    res = res + importEmailFormatCom
-    res = res + importBing
-    #importGoogle
+
+    res = res + _import_from('EmailFormatCom')
+    res = res + _import_from('Bing')
+    #res = res + _import_from('Google')
+
     res.uniq
   end
 
   private
+
+  def _import_from(name)
+    @logger.info("Import email from #{name}...")
+    emails = send("import#{name}")
+    @logger.info("Found [#{emails.size}] emails ")
+    emails
+  end
+
   def _extract_email(body)
     email_name_regex = '[\w][\w\.%\+\-]*'.freeze
     emails = body.scan(/#{email_name_regex}@#{@domain}/i)
@@ -57,7 +75,9 @@ class EmailDigger
 end
 
 if __FILE__ == $PROGRAM_NAME
-  emails = EmailDigger.new('tencent.com').importAll
-  #emails = EmailDigger.new('sohu-inc.com').importAll
-  puts emails
+  logger = Logger.new(STDOUT)
+  logger.level = Logger::DEBUG
+  #emails = EmailDigger.new('tencent.com', logger).importAll
+  emails = EmailDigger.new('sohu-inc.com').importAll
+  logger.info emails
 end

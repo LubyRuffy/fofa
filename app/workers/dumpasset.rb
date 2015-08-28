@@ -40,6 +40,17 @@ def import_domain(target_id, domain)
       end
     }
   end
+
+  #email
+  @emails = Sgk.get_emails(domain, 1000)
+  @emails.uniq.each{|email|
+    begin
+      AssetPerson.find_or_create_by(target_id: target_id, email: email, name: email, domain: domain)
+      add_target_msg(target_id, email)
+    rescue => e
+      puts e
+    end
+  }
 end
 
 def dump_asset(target_id, domain)
@@ -47,22 +58,46 @@ def dump_asset(target_id, domain)
   #  key = target_redis_key(target_id)
   #  redis.expire(key, 2*60*60) #2小时
   #}
+  unless Target.exists?(target_id)
+    return
+  end
   add_target_msg(target_id, 'dump worker started...')
-  AssetDomain.find_or_create_by(target_id: target_id, domain: domain)
 
+  #主域名
+  AssetDomain.find_or_create_by(target_id: target_id, domain: domain)
+  import_domain(target_id, domain)
+
+  #兄弟域名
   getalldomains(domain, 1000){|d|
     AssetDomain.find_or_create_by(target_id: target_id, domain: d)
     add_target_msg(target_id, d)
     import_domain(target_id, d)
   }
-  import_domain(target_id, domain)
+
 
   add_target_msg(target_id, '<<<finished>>>')
 end
 
-class DumpassetWorker
+class ImportDomainAssetWorker
+  include Sidekiq::Worker
 
-  sidekiq_options :retry => 3, :backtrace => true, :unique => true, :unique_job_expiration => 120 * 60 # 2 hours
+  sidekiq_options :retry => 3, :backtrace => true
+
+  sidekiq_retries_exhausted do |msg|
+    Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
+  end
+
+  def perform(target_id, domain)
+    import_domain(target_id, domain)
+  end
+
+end
+
+
+class DumpassetWorker
+  include Sidekiq::Worker
+
+  sidekiq_options :retry => 3, :backtrace => true
 
   sidekiq_retries_exhausted do |msg|
     Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
@@ -73,3 +108,4 @@ class DumpassetWorker
   end
 
 end
+

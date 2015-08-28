@@ -11,7 +11,7 @@
       </button>
       <ul class="dropdown-menu" role="menu" style="min-width: 200px;">
         <li>
-          <a href="javascript:$('#ajaxLog').text('');$('#task-bar').width('1%');document.getElementById('task_panel').style.display='block'; StartDump(<%= @target.id %>, whenfinished, whenerror, whendata, true);">FOF数据导入</a>
+          <a href="javascript:start_target_import(true);">FOF数据导入</a>
         </li>
         <li>
           <a href="javascript:;">Google导入</a>
@@ -143,30 +143,3 @@
 -->
   </div>
 </aside>
-
-<script>
-    function whenfinished(){
-        //alert("finish");
-        $('#ajaxLog').append("完成!<br/>");
-        document.getElementById('task_panel').style.display = "none";
-    }
-    function whenerror(msg){
-        //alert(msg);
-        $('#ajaxLog').append("<font color='red'>"+msg+"</font><br/>");
-    }
-    function whendata(data){
-        //alert(data);
-        for (index = 0; index < data.length; ++index) {
-            if (data[index]!='start dumping...' && data[index]!='<<<finished>>>')
-            {
-                $('#ajaxLog').append("- "+data[index]+" <br/>");
-                $('#ajaxLog').scrollTop($('#ajaxLog')[0].scrollHeight);
-                var width = $('#task-bar').width();
-                var parentWidth = $('#task-bar').offsetParent().width();
-                var percent = 100*width/parentWidth+1;
-                $("#task-bar").width(percent + '%');
-            }
-        }
-
-    }
-</script>

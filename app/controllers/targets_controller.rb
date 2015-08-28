@@ -2,7 +2,7 @@ require 'dumpasset'
 
 class TargetsController < InheritedResources::Base
   include Lrlink
-  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :add_domain, :add_host, :get_domains_json, :get_hosts_json, :get_ips_json]
+  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :add_domain, :add_host, :get_domains_json, :get_hosts_json, :get_ips_json, :get_persons_json]
   before_filter :require_user
   layout 'member'
 
@@ -129,6 +129,22 @@ class TargetsController < InheritedResources::Base
     render :json => {error:true, errmsg:e.to_s}
   end
 
+  def get_persons_json
+    persons_g = @target.asset_persons.select('domain,email').group_by(&:domain).sort_by{|k,v| -v.size}
+    data = persons_g.map{|domain,emails|
+      {
+          name: "#{domain} <div class='tree-actions'></div> <span class='badge bg-default'>#{emails.size}</span>",
+          type: 'folder',
+          additionalParameters: { id: domain },
+          data: emails.map{|email|
+            { name: email.email, type: 'item', additionalParameters: { id: email.email } }
+          }
+      }
+    }
+    render :json => {error:false, data:data, size:persons_g.inject(0) {|sum, arr| sum + arr[1].size } }
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
+  end
 
 
   private
