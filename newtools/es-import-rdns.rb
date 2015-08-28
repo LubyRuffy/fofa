@@ -124,7 +124,15 @@ class RdnsBulkIndex
 
   def es_bulk_insert(res, refresh=false)
     records = prepare_records(res)
-    @client.bulk body: records, refresh: refresh
+    while true
+      begin
+        @client.bulk body: records, refresh: refresh
+        break
+      rescue => e
+        puts "[ERROR] : #{e}"
+      end
+    end
+
   end
 
   def run
@@ -136,7 +144,7 @@ class RdnsBulkIndex
       if i >= @startline
         arr << line
       else
-        print "  #{i}                \r" if i % 100000 == 0
+        print "  #{i}                \r" if i % 500000 == 0
       end
       i += 1
 
