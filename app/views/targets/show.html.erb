@@ -13,7 +13,8 @@
 <div class="row mg-b">
   <div class="col-xs-6">
     <h3 class="no-margin"><%= @target.name %>（<%= @target.website %>）<small><%= link_to raw('<i class="fa fa-pencil"></i>'), edit_target_path(@target) %></small></h3>
-    <small><%= @target.memo %>  </small>
+    <small><%= @target.memo %>  </small><br/>
+    <small><%= @target.tags.map{|t| t.name}.join(',') %>  </small>
   </div>
   <div class="col-xs-6 text-right">
     <a href="javascript:;" class="fa fa-flash pull-right pd-sm toggle-sidebar" data-toggle="off-canvas" data-move="rtl">
@@ -197,6 +198,15 @@
           </section>
         </div>
         <div class="tab-pane" id="personPanel">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <div class="pull-right col-sm-auto" style="margin:10px">
+                <%= link_to raw('<li class="fa fa-plus"></li>添加员工信息'), new_target_asset_person_path(@target), remote: true, class: "btn btn-info btn-sm"%>
+              </div>
+            </div>
+          </div>
           <section class="panel">
             <div class="panel-heading">员工信息列表 <a class="fa fa-refresh" href="javascript:refresh_assets('person', 'personTree');"></a></div>
             <div class="panel-body no-padding">
@@ -222,6 +232,9 @@
   </section>
 </section>
 
+<div class="modal fade bs-modal-sm add-person-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-person-modal">
+</div>
+
 <div class="modal fade bs-modal-sm add-domain-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-domain-modal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -230,14 +243,14 @@
         <h5 class="modal-title text-center" id="myModalLabel">添加根域名资产</h5>
       </div>
       <div class="modal-body">
-          <div class="form-group">
-            <label>请输入根域名</label>
-            <input type="text" class="form-control input-sm" name="domain" id="domain">
-          </div>
-          <div class="form-group">
-            <label class="checkbox pull-left"></label>
-            <input type="checkbox" name="autoimport" id="autoimport" checked>自动获取子域名和邮箱资产
-          </div>
+        <div class="form-group">
+          <label>请输入根域名</label>
+          <input type="text" class="form-control input-sm" name="domain" id="domain">
+        </div>
+        <div class="form-group">
+          <label class="checkbox pull-left"></label>
+          <input type="checkbox" name="autoimport" id="autoimport" checked>自动获取子域名和邮箱资产
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
@@ -421,6 +434,7 @@
                   });
 
                   $('#'+treeid).tree({
+                      selectable: false,
                       dataSource: treedata,
                       loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
                   });

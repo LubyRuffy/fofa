@@ -108,3 +108,5 @@ gem 'merit'
 gem 'highlight', :require => 'simplabs/highlight'
 
 gem 'awesome_print', require: false
+
+gem 'acts-as-taggable-on', '~> 3.4'

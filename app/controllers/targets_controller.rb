@@ -38,8 +38,6 @@ class TargetsController < InheritedResources::Base
   def show
     @show_toolbar = true
     @show_task = not_finished_dump_task?(@target.id)
-    @ips_g = @target.asset_ips.select('*').group_by(&:ipnet)
-    @hosts_g = @target.asset_hosts.select('*').group_by(&:domain)
   end
 
   def getdumpinfo
@@ -99,11 +97,11 @@ class TargetsController < InheritedResources::Base
     hosts_g = @target.asset_hosts.select('id, host, domain').group_by(&:domain).sort_by{|k,v| -v.size}
     data = hosts_g.map{|d,hosts|
       {
-          name: "#{d} <div class='tree-actions'></div> <span class='badge bg-default'>#{hosts.size}</span>",
+          name: "#{d} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{hosts.size}</span>",
           type: 'folder',
           additionalParameters: { id: d },
           data: hosts.map{|h|
-            { name: h.host, type: 'item', additionalParameters: { id: h.host } }
+            { name: h.host+"<div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div>", type: 'item', additionalParameters: { id: h.host } }
           }
       }
     }
@@ -116,11 +114,11 @@ class TargetsController < InheritedResources::Base
     ips_g = @target.asset_ips.select('ip,ipnet').group_by(&:ipnet).sort_by{|k,v| -v.size}
     data = ips_g.map{|ipnet,ips|
       {
-          name: "#{ipnet} <div class='tree-actions'></div> <span class='badge bg-default'>#{ips.size}</span>",
+          name: "#{ipnet} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{ips.size}</span>",
           type: 'folder',
           additionalParameters: { id: ipnet },
           data: ips.map{|ip|
-            { name: ip.ip, type: 'item', additionalParameters: { id: ip.ip } }
+            { name: ip.ip+"<div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div>", type: 'item', additionalParameters: { id: ip.ip } }
           }
       }
     }
@@ -130,14 +128,14 @@ class TargetsController < InheritedResources::Base
   end
 
   def get_persons_json
-    persons_g = @target.asset_persons.select('domain,email').group_by(&:domain).sort_by{|k,v| -v.size}
-    data = persons_g.map{|domain,emails|
+    persons_g = @target.asset_persons.select('name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
+    data = persons_g.map{|domain,persons|
       {
-          name: "#{domain} <div class='tree-actions'></div> <span class='badge bg-default'>#{emails.size}</span>",
+          name: "#{domain} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{persons.size}</span>",
           type: 'folder',
           additionalParameters: { id: domain },
-          data: emails.map{|email|
-            { name: email.email, type: 'item', additionalParameters: { id: email.email } }
+          data: persons.map{|person|
+            { name: "#{person.name}(#{person.email})<div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div>", type: 'item', additionalParameters: { id: person.id } }
           }
       }
     }
@@ -176,7 +174,7 @@ class TargetsController < InheritedResources::Base
   end
 
     def target_params
-      params.require(:target).permit(:name, :website, :memo)
+      params.require(:target).permit(:name, :website, :memo, :tag_list)
     end
 
     def set_target

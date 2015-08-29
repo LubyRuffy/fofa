@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def set_charset
-    headers["Content-Type"] = "text/html; charset=UTF-8"
+    #headers["Content-Type"] = "text/html; charset=UTF-8" #这一句会导致js的format不可用，改成在每个地方单独设置
   end
 
 

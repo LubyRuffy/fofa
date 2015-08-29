@@ -5,9 +5,8 @@
 //= require 'jquery.maskedinput.min'
 //= require 'slider/bootstrap-slider'
 //= require 'bootstrap-datepicker/bootstrap-datepicker'
-//= require 'wysiwyg/jquery.hotkeys'
-//= require 'wysiwyg/bootstrap-wysiwyg'
 //= require 'forms'
 //= require 'fuelux/js/tree.min'
-
+//= require 'fuelux/js/dropdown-autoflip'
+//= require 'fuelux/js/pillbox'
 //= require 'ajaxtask'

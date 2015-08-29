@@ -30,6 +30,7 @@ class EmailDigger
       r = r.gsub('_at_', '@')
       r = r.gsub('(at)', '@')
       r = r.gsub(' at ', '@')
+      r = r.gsub('[at]', '@')
       #puts html
       emails = _extract_email(r)
       res << emails

@@ -1,4 +1,6 @@
 class Target < ActiveRecord::Base
+  acts_as_taggable
+
   has_many :usertargets
   has_many :users, through: :usertargets
   has_many :asset_domains, dependent: :delete_all

@@ -1,0 +1,49 @@
+
+
+  <div class="modal-dialog modal-md">
+
+    <%= form_for(@person, remote: true, url:  @person.id ? target_asset_person_path(@target, @person) : target_asset_persons_path(@target)) do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h5 class="modal-title text-center" id="myModalLabel">员工信息</h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>员工名称</label>
+              <div>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>别名（马甲）</label>    <small>多个别名用逗号分割</small>
+              <div>
+                <%= f.text_field :alias, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>邮箱</label>    <small>填写企业邮箱，只能填写一个</small>
+              <div>
+                <%= f.text_field :email, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>其他邮箱</label>    <small>多个邮箱用逗号分割，这里主要是私人邮箱</small>
+              <div>
+                <%= f.text_field :otheremails, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>备注</label>    <small>其他信息，手机住址等</small>
+              <div>
+                <%= f.text_area :memo, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
+            <%= f.submit '提交', class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+    <% end %>
+  </div>

@@ -18,7 +18,8 @@
   <tr>
     <th width="10%">企业名称</th>
     <th width="15%">网址</th>
-    <th width="65">备注</th>
+    <th width="30%">标签</th>
+    <th width="35%">备注</th>
     <th width="10%">操作</th>
   </tr>
   </thead>
@@ -28,6 +29,7 @@
       <tr>
         <td><%= link_to target.name,target %></td>
         <td><%= target.website %></td>
+        <td><%= target.tags.map{|t| t.name}.join(',') %></td>
         <td><%= target.memo %></td>
         <td>
           <%= link_to '编辑', edit_target_path(target), :class=>"btn btn-success btn-sm " %>

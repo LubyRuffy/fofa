@@ -1,6 +1,4 @@
 
-
-
 <%= form_for(@target) do |f| %>
     <% if @target.errors.any? %>
         <div id="error_explanation">
@@ -32,16 +30,22 @@
                   <p class="help-block">只填写主域名，后续再进行多个域名的管理</p>
                 </div>
                 <label class="col-sm-2 control-label">标签</label>
-                <div class="col-sm-10">
-                  <div id="pillbox" class="pillbox">
-                    <ul>
-                      <li class="bg-default" data-value="gov">政府</li>
-                      <li class="bg-success">上市公司</li>
-                      <li class="bg-warning">互联网企业</li>
-                      <li class="bg-danger">金融</li>
-                      <li class="bg-info">世界500强</li>
-                      <li class="bg-success">央企</li>
-                      <li class="bg-default">高校</li>
+                <%= f.hidden_field :tag_list, class:"form-control"%>
+                <div class="col-sm-10 fuelux">
+                  <div class="pillbox" id="tag_pillbox">
+                    <ul class="clearfix pill-group">
+                      <% require 'digest/md5'
+                         @target.tags.each{|tag| %>
+                      <li class="btn btn-default pill" data-value="<%=tag.name%>" >
+                        <span><%=tag.name%></span>
+                          <span class="glyphicon glyphicon-close">
+                            <span class="sr-only">Remove</span>
+                          </span>
+                      </li>
+                      <% } %>
+                      <li class="clearfix pillbox-input-wrap btn-group">
+                        <input type="text" class="form-control pillbox-add-item" style=":focus {background-color: #ffffff;}" placeholder="添加标签">
+                      </li>
                     </ul>
                   </div>
                 </div>

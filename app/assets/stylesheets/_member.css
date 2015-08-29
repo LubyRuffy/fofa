@@ -3709,50 +3709,6 @@ a.fc-event,
   border-color: #cccccc;
 }
 /*
- * FuelUX Pill
- *
- */
-
-.pillbox {
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #e8ecf3;
-  border-radius: 2px;
-  line-height: 1;
-}
-.pillbox ul {
-  display: inline-block;
-  margin: 0;
-}
-.pillbox li {
-  display: inline-block;
-  margin: 2px;
-  padding: 4px;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 2px;
-  font-weight: bold;
-}
-.pillbox li:after {
-  position: relative;
-  float: right;
-  padding-left: 4px;
-  content: " \00D7";
-  font-size: 12px;
-}
-.pillbox li.status-important {
-  background-color: #ff604f;
-}
-.pillbox li.status-warning {
-  background-color: #ffb244;
-}
-.pillbox li.status-success {
-  background-color: #2dcb73;
-}
-.pillbox li.status-info {
-  background-color: #1ec3c8;
-}
-/*
  * FuelUX Spinner
  *
  */
@@ -4898,3 +4854,4 @@ canvas {
   padding: 0;
 }
 /*# sourceMappingURL=main.css.map */
+

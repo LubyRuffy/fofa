@@ -103,6 +103,9 @@ Fofa::Application.routes.draw do
     end
 
     resources :targets do
+
+      resources :asset_persons
+
       collection do
         get :index
         get :getdumpinfo
