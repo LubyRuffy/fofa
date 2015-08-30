@@ -18,9 +18,18 @@ class AssetPersonsController < ApplicationController
   def create
     @name = asset_person_params[:name]
     if @name
+      @alias = asset_person_params[:alias]
       @email = asset_person_params[:email]
+      @otheremails = asset_person_params[:otheremails]
       @memo = asset_person_params[:memo]
-      @asset_person = @target.asset_persons.find_or_create_by(target_id: @target.id, name: @name, email:@email, memo: @memo)
+      begin
+        @asset_person = @target.asset_persons.find_or_create_by(target_id: @target.id, name: @name, alias:@alias, email:@email, otheremails:@otheremails, memo: @memo, useradd:true)
+      rescue ActiveRecord::RecordNotUnique => e
+        @errmsg = '已经存在相同记录'
+      rescue =>e
+        @errmsg = e.to_s
+      end
+
       @persons = @target.asset_persons.paginate(:page => params[:page],
                                               :per_page => params[:per_page] || 20).order('id DESC')
     else

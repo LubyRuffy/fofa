@@ -5,7 +5,7 @@
     <th width="10%">企业名称</th>
     <th width="15%">邮箱</th>
     <th width="30%">其他邮箱</th>
-    <th width="35%">标签</th>
+    <th width="35%">备注</th>
     <th width="10%">操作</th>
   </tr>
   </thead>
@@ -16,7 +16,8 @@
         <td><%= link_to person.name+"#{(person.alias && person.alias.size>0) ? '('+person.alias+')' : ''}", edit_target_asset_person_path(@target, person), remote: true  %></td>
         <td><%= person.email %></td>
         <td><%= person.otheremails %></td>
-        <td><%= person.tags.map{|t| t.name}.join(',') %></td>
+        <!--<td><%= person.tags.map{|t| t.name}.join(',') %></td>-->
+        <td><%= person.memo %></td>
         <td>
           <%= link_to '编辑', edit_target_asset_person_path(@target, person), :class=>"btn btn-success btn-sm ", remote: true %>
           <%= link_to '删除', target_asset_person_path(@target, person), :class=>"btn btn-success btn-sm ", remote: true, method: :delete, data: { confirm: '确定要删除吗?' } %>
