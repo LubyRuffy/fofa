@@ -128,14 +128,14 @@ class TargetsController < InheritedResources::Base
   end
 
   def get_persons_json
-    persons_g = @target.asset_persons.select('name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
+    persons_g = @target.asset_persons.select('id,name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
     data = persons_g.map{|domain,persons|
       {
-          name: "#{domain} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{persons.size}</span>",
+          name: "#{domain} <div class='tree-actions'><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{persons.size}</span>",
           type: 'folder',
           additionalParameters: { id: domain },
           data: persons.map{|person|
-            { name: "#{person.name}(#{person.email})<div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div>", type: 'item', additionalParameters: { id: person.id } }
+            { name: "#{view_context.link_to view_context.raw("#{person.name}(#{person.email})"), edit_target_asset_person_path(@target, person), remote: true}<div class='tree-actions'>#{view_context.link_to view_context.raw("<i class='fa fa-trash-o'></i>"), target_asset_person_path(@target, person), remote: true, method: :delete, data: { confirm: '确定要删除吗?' }}", type: 'item', additionalParameters: { id: person.id } }
           }
       }
     }

@@ -44,6 +44,7 @@ class AssetPersonsController < ApplicationController
 
   def update
     if @person
+      @person[:useradd] = true
       if @person.update(asset_person_params)
         @persons = @target.asset_persons.paginate(:page => params[:page],
                                                   :per_page => params[:per_page] || 20).order('id DESC')

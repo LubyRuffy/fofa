@@ -10,11 +10,15 @@
   <li class="active"><%= @target.name %></li>
 </ol>
 
+<div class="col-xs-12 col-sm-12" id="logPanel">
+</div>
+
 <div class="row mg-b">
   <div class="col-xs-6">
     <h3 class="no-margin"><%= @target.name %>（<%= @target.website %>）<small><%= link_to raw('<i class="fa fa-pencil"></i>'), edit_target_path(@target) %></small></h3>
     <small><%= @target.memo %>  </small><br/>
     <small><%= @target.tags.map{|t| t.name}.join(',') %>  </small>
+
   </div>
   <div class="col-xs-6 text-right">
     <a href="javascript:;" class="fa fa-flash pull-right pd-sm toggle-sidebar" data-toggle="off-canvas" data-move="rtl">
@@ -181,18 +185,6 @@
             </div>
             <div class="panel-body no-padding">
               <div id="iptree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
-                <div class = "tree-folder" style="display:none;">
-                  <div class="tree-folder-header">
-                    <i class="fa fa-folder"></i>
-                    <div class="tree-folder-name"></div>
-                  </div>
-                  <div class="tree-folder-content"></div>
-                  <div class="tree-loader" style="display:none"></div>
-                </div>
-                <div class="tree-item" style="display:none;">
-                  <i class="tree-dot"></i>
-                  <div class="tree-item-name"></div>
-                </div>
               </div>
             </div>
           </section>
@@ -370,7 +362,7 @@
   {
       is_refresh_domains = true;
       $('#domains-size').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>');
-      $('#domains-update').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>正在刷新域名...')
+      //$('#domains-update').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>正在刷新域名...')
       $.ajax({
           type: 'GET',
           url: '/my/targets/<%=@target.id%>/get_domains_json',
@@ -415,6 +407,21 @@
     //type = host,ip,person
   function refresh_assets(type,treeid)
   {
+      $('#'+treeid).html(
+              '<div class = "tree-folder" style="display:none;"> \
+              <div class="tree-folder-header">\
+              <i class="fa fa-folder"></i>\
+              <div class="tree-folder-name"></div>\
+              </div>\
+              <div class="tree-folder-content"></div>\
+              <div class="tree-loader" style="display:none"></div>\
+              </div>\
+              <div class="tree-item" style="display:none;">\
+              <i class="tree-dot"></i>\
+              <div class="tree-item-name"></div>\
+              </div>');
+      delete($('#'+treeid).data().tree);
+
       set_type_refresh(type, true);
       $('#'+type+'s-size').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>');
       $.ajax({
@@ -432,6 +439,10 @@
                       data: data.data,
                       delay: 10
                   });
+
+                  //$('#'+treeid+' .tree-item:visible').remove();
+                  //$('#'+treeid+' .tree-folder:visible').remove();
+
 
                   $('#'+treeid).tree({
                       selectable: false,

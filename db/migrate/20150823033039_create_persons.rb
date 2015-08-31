@@ -8,7 +8,5 @@ class CreatePersons < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index "asset_persons", ["target_id", "email"], name: "asset_persons_email_index", unique: true
-
   end
 end
