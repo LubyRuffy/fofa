@@ -1,6 +1,6 @@
 root_path = File.expand_path(File.dirname(__FILE__))
 require File.join(root_path, 'searchengines', 'bingsearch.rb')
-require File.join(root_path, 'searchengines', 'googlesearch.rb')
+#require File.join(root_path, 'searchengines', 'googlesearch.rb')
 require 'logger'
 
 
