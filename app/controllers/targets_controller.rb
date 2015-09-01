@@ -87,7 +87,7 @@ class TargetsController < InheritedResources::Base
   end
 
   def get_domains_json
-    @domains = @target.asset_domains.select('id, domain, created_at')
+    @domains = @target.asset_domains.select('id, domain, created_at').order('created_at desc')
     render :json => {error:false, domains:@domains}
   rescue => e
     render :json => {error:true, errmsg:e.to_s}
