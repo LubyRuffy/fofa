@@ -11,7 +11,7 @@ class EmailDigger
   end
 
   def importGoogle
-    html = GoogleSearch.new.search('@'+@domain)
+    #html = GoogleSearch.new.search('@'+@domain)
   end
 
   def importBing(api=true)
@@ -21,7 +21,7 @@ class EmailDigger
     results = klass.new(@logger).searchall('"@'+@domain+'"')
     results.each{|r|
       emails = _extract_email(r)
-      res << emails
+      res += emails
       yield(emails) if block_given?
     }
 
@@ -33,7 +33,7 @@ class EmailDigger
       r = r.gsub('[at]', '@')
       #puts html
       emails = _extract_email(r)
-      res << emails
+      res += emails
       yield(emails) if block_given?
     }
 
@@ -79,6 +79,6 @@ if __FILE__ == $PROGRAM_NAME
   logger = Logger.new(STDOUT)
   logger.level = Logger::DEBUG
   #emails = EmailDigger.new('tencent.com', logger).importAll
-  emails = EmailDigger.new('sohu-inc.com').importAll
+  emails = EmailDigger.new(ARGV[0] || 'sohu-inc.com').importAll
   logger.info emails
 end

@@ -106,7 +106,9 @@ end
 if __FILE__ == $PROGRAM_NAME
   logger = Logger.new(STDOUT)
   logger.level = Logger::DEBUG
+  target = '"@sohu-inc.com"'
+  target = '"'+ARGV[0]+'"' if ARGV[0]
   #body = BingSearch.new().search('"@sohu-inc.com"')
-  body = BingApiSearch.new().searchall('"@sohu-inc.com"')
+  body = BingApiSearch.new().searchall( target )
   puts body
 end
