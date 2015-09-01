@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830032601) do
+ActiveRecord::Schema.define(version: 20150831125402) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150830032601) do
     t.text     "memo",       limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.boolean  "useradd"
   end
 
   add_index "asset_domains", ["target_id", "domain"], name: "asset_domains_target_index", unique: true, using: :btree
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150830032601) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "domain",     limit: 255
+    t.boolean  "useradd"
   end
 
   add_index "asset_hosts", ["target_id", "host"], name: "asset_hosts_host_index", unique: true, using: :btree
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150830032601) do
     t.datetime "updated_at",               null: false
     t.string   "domain",     limit: 255
     t.string   "ipnet",      limit: 255
+    t.boolean  "useradd"
   end
 
   add_index "asset_ips", ["target_id", "ip"], name: "asset_ips_ip_index", unique: true, using: :btree
@@ -89,9 +92,9 @@ ActiveRecord::Schema.define(version: 20150830032601) do
     t.string   "domain",      limit: 255
     t.text     "otheremails", limit: 65535
     t.text     "alias",       limit: 65535
+    t.boolean  "useradd"
   end
 
-  add_index "asset_persons", ["target_id", "email"], name: "asset_persons_email_index", unique: true, using: :btree
   add_index "asset_persons", ["target_id", "name"], name: "asset_persons_name_index", unique: true, using: :btree
 
   create_table "badges_sashes", force: :cascade do |t|

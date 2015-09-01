@@ -164,6 +164,5 @@ function StartDump(jobId, jobFinished, onError, onData, need_submit) {
         pollJob(jobId, jobFinished);
     }
 
-
-
 }
+

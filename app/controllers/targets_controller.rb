@@ -2,7 +2,7 @@ require 'dumpasset'
 
 class TargetsController < InheritedResources::Base
   include Lrlink
-  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :add_domain, :add_host, :get_domains_json, :get_hosts_json, :get_ips_json, :get_persons_json]
+  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask]
   before_filter :require_user
   layout 'member'
 
@@ -55,93 +55,6 @@ class TargetsController < InheritedResources::Base
   def adddumptask
     need_add = add_dump_task
     render :json => {error:false, jobid:@target.id, need_add:need_add}
-  end
-
-  def add_domain
-    domain = params[:domain]
-    autoimport = (params[:autoimport] == 'true')
-    ad = @target.asset_domains.find_or_create_by(target_id: @target.id, domain: domain)
-
-    if autoimport
-      ImportDomainAssetWorker.perform_async(@target.id, domain)
-    end
-
-    render :json => {error:false, domain_id:ad[:id]}
-  rescue => e
-    render :json => {error:true, errmsg:e.to_s}
-  end
-
-  def add_host
-    host = params[:host]
-    domain_info = get_domain_info_by_host(host)
-    if !domain_info
-      render :json => {error:true, errmsg:"invalid host!"}
-    else
-      domain = domain_info.domain+'.'+domain_info.public_suffix
-      ad = @target.asset_hosts.find_or_create_by(target_id: @target.id, host: host, domain:domain)
-      render :json => {error:false, domain_id:ad[:id]}
-    end
-
-  rescue => e
-    render :json => {error:true, errmsg:e.to_s}
-  end
-
-  def get_domains_json
-    @domains = @target.asset_domains.select('id, domain, created_at').order('created_at desc')
-    render :json => {error:false, domains:@domains}
-  rescue => e
-    render :json => {error:true, errmsg:e.to_s}
-  end
-
-  def get_hosts_json
-    hosts_g = @target.asset_hosts.select('id, host, domain').group_by(&:domain).sort_by{|k,v| -v.size}
-    data = hosts_g.map{|d,hosts|
-      {
-          name: "#{d} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{hosts.size}</span>",
-          type: 'folder',
-          additionalParameters: { id: d },
-          data: hosts.map{|h|
-            { name: h.host+"<div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div>", type: 'item', additionalParameters: { id: h.host } }
-          }
-      }
-    }
-    render :json => {error:false, data:data, size:hosts_g.inject(0) {|sum, arr| sum + arr[1].size } }
-  rescue => e
-    render :json => {error:true, errmsg:e.to_s}
-  end
-
-  def get_ips_json
-    ips_g = @target.asset_ips.select('ip,ipnet').group_by(&:ipnet).sort_by{|k,v| -v.size}
-    data = ips_g.map{|ipnet,ips|
-      {
-          name: "#{ipnet} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{ips.size}</span>",
-          type: 'folder',
-          additionalParameters: { id: ipnet },
-          data: ips.map{|ip|
-            { name: ip.ip+"<div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div>", type: 'item', additionalParameters: { id: ip.ip } }
-          }
-      }
-    }
-    render :json => {error:false, data:data, size:ips_g.inject(0) {|sum, arr| sum + arr[1].size } }
-  rescue => e
-    render :json => {error:true, errmsg:e.to_s}
-  end
-
-  def get_persons_json
-    persons_g = @target.asset_persons.select('id,name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
-    data = persons_g.map{|domain,persons|
-      {
-          name: "#{domain} <div class='tree-actions'><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{persons.size}</span>",
-          type: 'folder',
-          additionalParameters: { id: domain },
-          data: persons.map{|person|
-            { name: "#{view_context.link_to view_context.raw("#{person.name}(#{person.email})"), edit_target_asset_person_path(@target, person), remote: true}<div class='tree-actions'>#{view_context.link_to view_context.raw("<i class='fa fa-trash-o'></i>"), target_asset_person_path(@target, person), remote: true, method: :delete, data: { confirm: '确定要删除吗?' }}", type: 'item', additionalParameters: { id: person.id } }
-          }
-      }
-    }
-    render :json => {error:false, data:data, size:persons_g.inject(0) {|sum, arr| sum + arr[1].size } }
-  rescue => e
-    render :json => {error:true, errmsg:e.to_s}
   end
 
 

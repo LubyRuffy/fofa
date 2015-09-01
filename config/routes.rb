@@ -103,8 +103,29 @@ Fofa::Application.routes.draw do
     end
 
     resources :targets do
-
-      resources :asset_persons
+      resources :asset_domains do
+        collection do
+          get :reload
+        end
+      end
+      resources :asset_hosts do
+        collection do
+          get :reload
+          get :get_all_json
+        end
+      end
+      resources :asset_ips do
+        collection do
+          get :reload
+          get :get_all_json
+        end
+      end
+      resources :asset_persons do
+        collection do
+          get :reload
+          get :get_all_json
+        end
+      end
 
       collection do
         get :index
@@ -112,14 +133,6 @@ Fofa::Application.routes.draw do
         get :adddumptask
       end
 
-      member do
-        post :add_domain
-        post :add_host
-        get :get_domains_json
-        get :get_hosts_json
-        get :get_ips_json
-        get :get_persons_json
-      end
     end
 
     resources :sensitives do

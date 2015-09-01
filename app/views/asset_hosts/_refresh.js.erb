@@ -1,0 +1,9 @@
+<% if @host && @host.errors.any? %>
+    <% @host.errors.full_messages.each do |message| %>
+    $("#logPanel").append($("<li />").html("<%= message.html_safe %>"));
+    <% end %>
+<% else %>
+    <%= render 'reload' %>
+<% end %>
+
+<%= render 'resetmodal' %>

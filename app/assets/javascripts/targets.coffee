@@ -10,3 +10,4 @@
 //= require 'fuelux/js/dropdown-autoflip'
 //= require 'fuelux/js/pillbox'
 //= require 'ajaxtask'
+//= require 'target'

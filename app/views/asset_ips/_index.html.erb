@@ -1,0 +1,47 @@
+<% content_for :title, '域名资产管理' %>
+<div class="row">
+  <div class="col-lg-12">
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th width="10%">域名</th>
+    <th width="15%">更新时间</th>
+    <th width="35%">备注</th>
+    <th width="10%">操作</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @ips.each do |ip| %>
+      <tr>
+        <td><%= link_to ip.ip, edit_target_asset_ip_path(@target, ip), remote: true  %></td>
+        <td><%= ip.created_at %></td>
+        <td><%= ip.memo %></td>
+        <td>
+          <%= link_to '编辑', edit_target_asset_ip_path(@target, ip), :class=>"btn btn-success btn-sm ", remote: true %>
+          <%= link_to '删除', target_asset_ip_path(@target, ip), :class=>"btn btn-success btn-sm ", remote: true, method: :delete, data: { confirm: '确定要删除吗?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-lg-12">
+  <div class="pull-right">
+    <%= will_paginate @ips,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+  </div>
+</div>
+</div>
+
+<section class="panel">
+  <div class="panel-heading">
+    网站列表<a class="fa fa-refresh"></a>
+  </div>
+  <div class="panel-body no-padding" id="ipTreePanel">
+    <div id="ipTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
+    </div>
+  </div>
+</section>

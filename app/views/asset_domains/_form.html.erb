@@ -1,0 +1,35 @@
+
+
+  <div class="modal-dialog modal-md">
+
+    <%= form_for(@domain, remote: true, url:  @domain.id ? target_asset_domain_path(@target, @domain) : target_asset_domains_path(@target)) do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h5 class="modal-title text-center" id="myModalLabel">根域名资产</h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>请输入根域名</label>
+              <div>
+                <%= f.text_field :domain, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="checkbox pull-left"></label>
+              <input type="checkbox" name="autoimport" id="autoimport" checked>自动获取子域名和邮箱资产
+            </div>
+            <div class="form-group">
+              <label>备注</label>
+              <div>
+                <%= f.text_area :memo, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
+            <%= f.submit '提交', class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+    <% end %>
+  </div>

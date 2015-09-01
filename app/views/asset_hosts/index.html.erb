@@ -5,7 +5,7 @@
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="pull-right col-sm-auto" style="margin:10px">
-      <%= link_to raw('<li class="fa fa-plus"></li>添加员工信息'), new_target_asset_person_path(@target), remote: true, class: "btn btn-info btn-sm"%>
+      <%= link_to raw('<li class="fa fa-plus"></li>添加网站'), new_target_asset_host_path(@target), remote: true, class: "btn btn-info btn-sm"%>
     </div>
   </div>
 </div>
@@ -13,16 +13,16 @@
 <ul id="crumb" class="breadcrumb">
   <li><i class="im-home"></i><a href="/my">管理首页</a><i class="en-arrow-right7"></i></li>
   <li><i class="im-home"></i><%= link_to @target.name, target_path(@target)%><i class="en-arrow-right7"></i></li>
-  <li><i class="im-screen"></i> 人员资产 </li>
+  <li><i class="im-screen"></i> 网站资产列表 </li>
 </ul>
 <!-- End .breadcrumb -->
 
-<div class="person-list-index">
+<div class="host-list-index">
 <%= render 'index' %>
 </div>
 
 
-<div class="modal fade bs-modal-sm add-person-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-person-modal">
+<div class="modal fade bs-modal-sm add-host-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-host-modal">
 </div>
 
 <script>
@@ -30,6 +30,5 @@
         <%= render 'reload.js' %>
     });
 </script>
-
 
 <%= javascript_include_tag('targets') %>

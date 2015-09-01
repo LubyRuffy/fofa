@@ -1,6 +1,6 @@
-$("#add-person-modal").modal("hide");
+$("#add-ip-modal").modal("hide");
 
 $("#logPanel div").delay(3000).fadeOut(3000);
 
 if (typeof(refresh_assets) == "function")
-    refresh_assets('person', <%= @target.id %>);
+    refresh_assets('ip', <%= @target.id %>);

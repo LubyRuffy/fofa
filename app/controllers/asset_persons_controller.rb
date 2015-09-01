@@ -1,9 +1,9 @@
 
 class AssetPersonsController < ApplicationController
-  before_action :set_target, only: [:index, :create, :show, :new, :edit, :update, :destroy]
+  before_action :set_target, only: [:index, :create, :show, :new, :edit, :update, :destroy, :get_all_json]
   before_filter :require_user
   respond_to :html, :js
-  protect_from_forgery :except => [:new, :edit]
+  protect_from_forgery :except => [:new, :edit, :reload]
   layout 'member', only: [:index]
 
   def index
@@ -67,6 +67,23 @@ class AssetPersonsController < ApplicationController
   end
 
   def show
+  end
+
+  def get_all_json
+    persons_g = @target.asset_persons.select('id,name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
+    data = persons_g.map{|domain,persons|
+      {
+          name: "#{domain} <div class='tree-actions'><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{persons.size}</span>",
+          type: 'folder',
+          additionalParameters: { id: domain },
+          data: persons.map{|person|
+            { name: "#{view_context.link_to view_context.raw("#{person.name}(#{person.email})"), edit_target_asset_person_path(@target, person), remote: true}<div class='tree-actions'>#{view_context.link_to view_context.raw("<i class='fa fa-trash-o'></i>"), target_asset_person_path(@target, person), remote: true, method: :delete, data: { confirm: '确定要删除吗?' }}", type: 'item', additionalParameters: { id: person.id } }
+          }
+      }
+    }
+    render :json => {error:false, data:data, size:persons_g.inject(0) {|sum, arr| sum + arr[1].size } }
+  rescue => e
+    render :json => {error:true, errmsg:e.to_s}
   end
 
   private

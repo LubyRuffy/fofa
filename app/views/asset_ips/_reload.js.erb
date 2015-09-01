@@ -1,0 +1,5 @@
+$(".ip-list-index").html("<%= escape_javascript(render 'index') %>");
+$('#ips-size').html(<%= @ips.length %>);
+
+if (typeof(refresh_assets) == "function")
+    refresh_assets('ip', <%= @target.id %>);

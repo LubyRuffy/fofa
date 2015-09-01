@@ -1,0 +1,26 @@
+
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6" id="logPanel">
+  </div>
+  <div class="col-xs-6 col-sm-6">
+    <div class="pull-right col-sm-auto" style="margin:10px">
+      <%= link_to raw('<li class="fa fa-plus"></li>添加根域名'), new_target_asset_domain_path(@target), remote: true, class: "btn btn-info btn-sm"%>
+    </div>
+  </div>
+</div>
+<!-- Start .bredcrumb -->
+<ul id="crumb" class="breadcrumb">
+  <li><i class="im-home"></i><a href="/my">管理首页</a><i class="en-arrow-right7"></i></li>
+  <li><i class="im-home"></i><%= link_to @target.name, target_path(@target)%><i class="en-arrow-right7"></i></li>
+  <li><i class="im-screen"></i> 根域名资产 </li>
+</ul>
+<!-- End .breadcrumb -->
+
+<div class="domain-list-index">
+<%= render 'index' %>
+</div>
+
+
+<div class="modal fade bs-modal-sm add-domain-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-domain-modal">
+</div>

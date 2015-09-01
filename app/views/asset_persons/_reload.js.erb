@@ -1,0 +1,5 @@
+$(".person-list-index").html("<%= escape_javascript(render 'index') %>");
+$('#persons-size').html(<%= @persons.length %>);
+
+if (typeof(refresh_assets) == "function")
+    refresh_assets('person', <%= @target.id %>);

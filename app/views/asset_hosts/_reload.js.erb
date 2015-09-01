@@ -1,0 +1,5 @@
+$(".host-list-index").html("<%= escape_javascript(render 'index') %>");
+$('#hosts-size').html(<%= @hosts.length %>);
+
+if (typeof(refresh_assets) == "function")
+    refresh_assets('host', <%= @target.id %>);

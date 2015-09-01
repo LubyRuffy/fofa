@@ -1,0 +1,6 @@
+<% if @message %>
+    <div class="col-xs-6 col-sm-6 alert <%if @error %>alert-warning<%else%>alert-success<%end%> ade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+      <strong>提示：</strong> <%=@message%>
+    </div>
+<% end %>

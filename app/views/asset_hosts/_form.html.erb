@@ -1,0 +1,31 @@
+
+
+  <div class="modal-dialog modal-md">
+
+    <%= form_for(@host, remote: true, url:  @host.id ? target_asset_host_path(@target, @host) : target_asset_hosts_path(@target)) do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h5 class="modal-title text-center" id="myModalLabel">网站资产</h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>请输入网站</label>
+              <div>
+                <%= f.text_field :host, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>备注</label>
+              <div>
+                <%= f.text_area :memo, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
+            <%= f.submit '提交', class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+    <% end %>
+  </div>

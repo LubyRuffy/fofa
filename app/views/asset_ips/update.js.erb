@@ -4,12 +4,11 @@ if @errmsg
     @message = @errmsg
 else
     @error = false
-    @message = "添加成功！"
+    @message = "更新成功！"
 %>
-<%= render 'refresh' %>
 <% end %>
-
 $("#logPanel").html("<%= escape_javascript(render 'notice') %>");
 
+<%= render 'refresh' %>
 <%= render 'resetmodal' %>
 

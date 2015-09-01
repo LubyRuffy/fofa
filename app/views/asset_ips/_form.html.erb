@@ -1,0 +1,37 @@
+
+
+  <div class="modal-dialog modal-md">
+
+    <%= form_for(@ip, remote: true, url:  @ip.id ? target_asset_ip_path(@target, @ip) : target_asset_ips_path(@target)) do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h5 class="modal-title text-center" id="myModalLabel">IP资产</h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>请输入IP</label>
+              <div>
+                <%= f.text_field :ip, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>请输入所属域名</label>
+              <div>
+                <%= f.text_field :domain, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>备注</label>
+              <div>
+                <%= f.text_area :memo, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
+            <%= f.submit '提交', class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
