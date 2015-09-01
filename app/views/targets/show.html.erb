@@ -134,7 +134,6 @@
               <table class="table table-hover no-margin">
                 <thead>
                 <tr>
-                  <th>#</th>
                   <th>域名</th>
                   <th>更新日期</th>
                   <th>操作</th>
@@ -158,7 +157,7 @@
           </div>
           <section class="panel">
             <div class="panel-heading">
-              域名管理
+              网站列表<a class="fa fa-refresh" href="javascript:refresh_assets('host');"></a>
             </div>
             <div class="panel-body no-padding" id="hostTreePanel">
               <div id="hostTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
@@ -169,7 +168,7 @@
         <div class="tab-pane" id="ipPanel">
           <section class="panel">
             <div class="panel-heading">
-              IP列表
+                IP列表<a class="fa fa-refresh" href="javascript:refresh_assets('ip');"></a>
             </div>
             <div class="panel-body no-padding" id="ipTreePanel">
               <div id="ipTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
@@ -188,7 +187,7 @@
             </div>
           </div>
           <section class="panel">
-            <div class="panel-heading">员工信息列表 <a class="fa fa-refresh" href="javascript:refresh_assets('person', 'personTree');"></a></div>
+            <div class="panel-heading">员工信息列表 <a class="fa fa-refresh" href="javascript:refresh_assets('person');"></a></div>
             <div class="panel-body no-padding" id="personTreePanel">
               <div id="personTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
               </div>
@@ -352,10 +351,11 @@
               {
                   var newRows = '';
                   for (var i in data.domains) {
-                      newRows += "<tr><td>" + data.domains[i].id + "</td>"
+                      newRows += "<tr>"
                       newRows += "<td>" + data.domains[i].domain + "</td>"
                       newRows += "<td>" + data.domains[i].created_at + "</td>"
                       newRows += "<td>修改／删除</td>"
+                      newRows += "</tr>"
                   }
                   $('#domains-update').html(newRows);
                   $('#domains-size').html(data.domains.length);
@@ -381,13 +381,13 @@
   }
 
     //type = host,ip,person
-  function refresh_assets(type,treeid)
+  function refresh_assets(asset_type)
   {
-      set_type_refresh(type, true);
-      $('#'+type+'s-size').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>');
+      set_type_refresh(asset_type, true);
+      $('#'+asset_type+'s-size').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>');
       $.ajax({
           type: 'GET',
-          url: '/my/targets/<%=@target.id%>/get_'+type+'s_json',
+          url: '/my/targets/<%=@target.id%>/get_'+asset_type+'s_json',
           success: function(data){
               if (data.error)
               {
@@ -395,6 +395,7 @@
               }
               else
               {
+                  treeid = asset_type+'Tree';
                   if ($('#'+treeid).data().tree)
                       delete($('#'+treeid).data().tree);
 
@@ -414,14 +415,11 @@
     </div>\
 </div>');
 
-                  $('#'+type+'s-size').html(data.size);
+                  $('#'+asset_type+'s-size').html(data.size);
                   var treedata = new DataSourceTree({
                       data: data.data,
                       delay: 10
                   });
-
-                  //$('#'+treeid+' .tree-item:visible').remove();
-                  //$('#'+treeid+' .tree-folder:visible').remove();
 
                   $('#'+treeid).tree({
                       selectable: false,
@@ -429,11 +427,11 @@
                       loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
                   });
               }
-              set_type_refresh(type, false);
+              set_type_refresh(asset_type, false);
           },
           error: function(e) {
               $('#ajaxLog').append("<font color='red'>error</font><br/>");
-              set_type_refresh(type, false);
+              set_type_refresh(asset_type, false);
           },
           dataType: 'json'
       });
@@ -445,9 +443,9 @@
                 && !is_refresh_assets_ip
                 && !is_refresh_assets_person) {
             refresh_domains();
-            refresh_assets('host', 'hostTree');
-            refresh_assets('ip', 'ipTree');
-            refresh_assets('person', 'personTree');
+            refresh_assets('host');
+            refresh_assets('ip');
+            refresh_assets('person');
         }
 
         if (!$('#task_panel').is(':hidden'))
