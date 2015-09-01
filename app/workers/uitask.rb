@@ -18,8 +18,8 @@ def getallhosts(domain, maxsize)
   }
 end
 
-def getallips(host)
-  Subdomain.get_ips_of_host(host)
+def getallips(host,maxsize=1000)
+  Subdomain.get_ips_of_host(host,maxsize)
 end
 
 def getalldomains(domain, maxsize)
