@@ -160,20 +160,8 @@
             <div class="panel-heading">
               域名管理
             </div>
-            <div class="panel-body no-padding">
+            <div class="panel-body no-padding" id="hostTreePanel">
               <div id="hostTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
-                <div class = "tree-folder" style="display:none;">
-                  <div class="tree-folder-header">
-                    <i class="fa fa-folder"></i>
-                    <div class="tree-folder-name"></div>
-                  </div>
-                  <div class="tree-folder-content"></div>
-                  <div class="tree-loader" style="display:none"></div>
-                </div>
-                <div class="tree-item" style="display:none;">
-                  <i class="tree-dot"></i>
-                  <div class="tree-item-name"></div>
-                </div>
               </div>
             </div>
           </section>
@@ -183,8 +171,8 @@
             <div class="panel-heading">
               IP列表
             </div>
-            <div class="panel-body no-padding">
-              <div id="iptree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
+            <div class="panel-body no-padding" id="ipTreePanel">
+              <div id="ipTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
               </div>
             </div>
           </section>
@@ -201,20 +189,8 @@
           </div>
           <section class="panel">
             <div class="panel-heading">员工信息列表 <a class="fa fa-refresh" href="javascript:refresh_assets('person', 'personTree');"></a></div>
-            <div class="panel-body no-padding">
+            <div class="panel-body no-padding" id="personTreePanel">
               <div id="personTree" class="tree tree-plus-minus tree-solid-line tree-unselectable">
-                <div class = "tree-folder" style="display:none;">
-                  <div class="tree-folder-header">
-                    <i class="fa fa-folder"></i>
-                    <div class="tree-folder-name"></div>
-                  </div>
-                  <div class="tree-folder-content"></div>
-                  <div class="tree-loader" style="display:none"></div>
-                </div>
-                <div class="tree-item" style="display:none;">
-                  <i class="tree-dot"></i>
-                  <div class="tree-item-name"></div>
-                </div>
               </div>
             </div>
           </section>
@@ -295,7 +271,7 @@
         }
 
         if($data != null)//this setTimeout is only for mimicking some random delay
-            setTimeout(function(){callback({ data: $data });} , parseInt(Math.random() * 500) + 200);
+            callback({ data: $data });
 
         //we have used static data here
         //but you can retrieve your data dynamically from a server using ajax call
@@ -407,21 +383,6 @@
     //type = host,ip,person
   function refresh_assets(type,treeid)
   {
-      $('#'+treeid).html(
-              '<div class = "tree-folder" style="display:none;"> \
-              <div class="tree-folder-header">\
-              <i class="fa fa-folder"></i>\
-              <div class="tree-folder-name"></div>\
-              </div>\
-              <div class="tree-folder-content"></div>\
-              <div class="tree-loader" style="display:none"></div>\
-              </div>\
-              <div class="tree-item" style="display:none;">\
-              <i class="tree-dot"></i>\
-              <div class="tree-item-name"></div>\
-              </div>');
-      delete($('#'+treeid).data().tree);
-
       set_type_refresh(type, true);
       $('#'+type+'s-size').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>');
       $.ajax({
@@ -434,6 +395,25 @@
               }
               else
               {
+                  if ($('#'+treeid).data().tree)
+                      delete($('#'+treeid).data().tree);
+
+                  $('#'+treeid+'Panel').html(
+'<div id="'+treeid+'" class="tree tree-plus-minus tree-solid-line tree-unselectable">\
+    <div class = "tree-folder" style="display:none;"> \
+        <div class="tree-folder-header">\
+            <i class="fa fa-folder"></i>\
+            <div class="tree-folder-name"></div>\
+        </div>\
+        <div class="tree-folder-content"></div>\
+        <div class="tree-loader" style="display:none"></div>\
+    </div>\
+    <div class="tree-item" style="display:none;">\
+        <i class="tree-dot"></i>\
+        <div class="tree-item-name"></div>\
+    </div>\
+</div>');
+
                   $('#'+type+'s-size').html(data.size);
                   var treedata = new DataSourceTree({
                       data: data.data,
@@ -442,7 +422,6 @@
 
                   //$('#'+treeid+' .tree-item:visible').remove();
                   //$('#'+treeid+' .tree-folder:visible').remove();
-
 
                   $('#'+treeid).tree({
                       selectable: false,
@@ -467,7 +446,7 @@
                 && !is_refresh_assets_person) {
             refresh_domains();
             refresh_assets('host', 'hostTree');
-            refresh_assets('ip', 'iptree');
+            refresh_assets('ip', 'ipTree');
             refresh_assets('person', 'personTree');
         }
 
