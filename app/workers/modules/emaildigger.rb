@@ -7,6 +7,9 @@ require 'logger'
 class EmailDigger
   def initialize(domain,logger=nil)
     @domain = domain
+    if @domain[0] == '@'
+      @domain = @domain[1..-1]
+    end
     @logger = logger || Logger.new(STDOUT)  #输出到控制台
   end
 
@@ -44,11 +47,13 @@ class EmailDigger
     url = "http://www.email-format.com/d/"+@domain
     html = open(url).read
     doc = Nokogiri::HTML(html)
-    html = doc.css('table#domain_address_container')[0].text
+    table = doc.css('table#domain_address_container')
+    html = table[0].text if table[0]
     _extract_email(html)
   end
 
-  def importAll()
+  def importAll(options)
+    options ||= {search:1, github:1, bruteforce:1}
     res = []
 
     res = res + _import_from('EmailFormatCom')

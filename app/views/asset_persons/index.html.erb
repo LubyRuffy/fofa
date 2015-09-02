@@ -5,6 +5,7 @@
   </div>
   <div class="col-xs-6 col-sm-6">
     <div class="pull-right col-sm-auto" style="margin:10px">
+      <%= link_to raw('<li class="fa fa-exchange"></li>导入邮箱'), import_emails_target_asset_persons_path(@target), remote: true, class: "btn btn-success btn-sm"%>
       <%= link_to raw('<li class="fa fa-plus"></li>添加员工信息'), new_target_asset_person_path(@target), remote: true, class: "btn btn-info btn-sm"%>
     </div>
   </div>
@@ -22,7 +23,10 @@
 </div>
 
 
-<div class="modal fade bs-modal-sm add-person-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-person-modal">
+<div class="modal fade bs-modal-sm add-person-modal" tabindex="100" role="dialog" aria-hidden="true" id="add-person-modal">
+</div>
+
+<div class="modal fade bs-modal-sm import-emails-modal" tabindex="100" role="dialog" aria-hidden="true" id="import-emails-modal">
 </div>
 
 <script>

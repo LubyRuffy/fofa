@@ -1,0 +1,38 @@
+
+  <div class="modal-dialog modal-md">
+    <%= form_tag(import_emails_target_asset_persons_path(@target), remote: true) do  %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h5 class="modal-title text-center" id="myModalLabel">导入员工邮箱信息</h5>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>邮箱根域名（@开头）</label>
+              <div>
+                <%= text_field_tag :domain, (@target.website.size>1) ? '@'+@target.website : nil, class: "form-control", placeholder: '@fofa.so' %>
+              </div>
+              <label>导入选项</label>
+              <div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag :from_search, '1', true %>从搜索引擎导入
+                  </label>
+                  <label>
+                    <%= check_box_tag :from_github, '1', true %>从Github导入
+                  </label>
+                  <label>
+                    <%= check_box_tag :from_bf, '1', true %>爆破导入
+                  </label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
+            <%= submit_tag '提交', class: "btn btn-primary btn-sm" %>
+          </div>
+        </div>
+    <% end %>
+  </div>

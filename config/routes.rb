@@ -124,6 +124,9 @@ Fofa::Application.routes.draw do
         collection do
           get :reload
           get :get_all_json
+          get :import_emails
+          post :import_emails
+          delete :delete_domain_emails
         end
       end
 

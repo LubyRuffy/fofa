@@ -2,7 +2,7 @@ require 'dumpasset'
 
 class TargetsController < InheritedResources::Base
   include Lrlink
-  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask]
+  before_action :set_target, only: [:show, :edit, :update, :destroy, :getdumpinfo, :adddumptask, :import_emails]
   before_filter :require_user
   layout 'member'
 

@@ -1,0 +1,19 @@
+
+
+<% if @is_post %>
+    <%
+    if @errmsg
+        @error = true
+        @message = @errmsg
+    else
+        @error = false
+        @message = "任务添加到队列，数据将会在稍后自动更新！"
+    end
+    %>
+    $("#logPanel").html("<%= escape_javascript(render 'notice') %>");
+    $("#logPanel div").delay(3000).fadeOut(3000);
+    $("#import-emails-modal").modal("hide");
+<% else %>
+    $("#import-emails-modal").html("<%= escape_javascript(render 'import_form') %>");
+    $("#import-emails-modal").modal();
+<% end %>

@@ -1,0 +1,16 @@
+
+<%
+if @errmsg
+    @error = true
+    @message = @errmsg
+else
+    @error = false
+    @message = "成功删除人员信息！"
+end
+%>
+
+$("#logPanel").html("<%= escape_javascript(render 'notice') %>");
+$("#logPanel div").delay(3000).fadeOut(3000);
+
+<%= render 'refresh' %>
+<%= render 'resetmodal' %>

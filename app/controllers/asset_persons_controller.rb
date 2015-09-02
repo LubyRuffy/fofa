@@ -1,9 +1,11 @@
+require 'dumpasset'
+require 'date'
 
 class AssetPersonsController < ApplicationController
-  before_action :set_target, only: [:index, :create, :show, :new, :edit, :update, :destroy, :get_all_json]
+  before_action :set_target, only: [:index, :create, :show, :new, :edit, :update, :destroy, :get_all_json, :import_emails, :delete_domain_emails]
   before_filter :require_user
   respond_to :html, :js
-  protect_from_forgery :except => [:new, :edit, :reload]
+  protect_from_forgery :except => [:new, :edit, :reload, :import_emails]
   layout 'member', only: [:index]
 
   def index
@@ -66,14 +68,36 @@ class AssetPersonsController < ApplicationController
                                               :per_page => params[:per_page] || 20).order('id DESC')
   end
 
+  def delete_domain_emails
+    if params[:delete_domain]
+      AssetPerson.delete_all(["domain = ? and target_id=? ", params[:delete_domain], @target.id])
+    else
+      @errmsg = '参数错误！'
+    end
+    @persons = @target.asset_persons.paginate(:page => params[:page],
+                                              :per_page => params[:per_page] || 20).order('id DESC')
+  rescue => e
+    @errmsg = e
+  end
+
   def show
   end
 
   def get_all_json
+    t = Time.now.to_datetime.strftime("%Q")
     persons_g = @target.asset_persons.select('id,name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
     data = persons_g.map{|domain,persons|
+      if domain
+        link_to = view_context.link_to(view_context.raw("<i class='fa fa-trash-o'></i>"),
+                                       delete_domain_emails_target_asset_persons_path(@target)+'?delete_domain='+domain+'&t='+t,
+                                       remote: true,
+                                       method: :delete,
+                                       data: { confirm: '确定要删除吗?' })
+      else
+        link_to = ''
+      end
       {
-          name: "#{domain} <div class='tree-actions'><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{persons.size}</span>",
+          name: "#{domain} <div class='tree-actions'>#{link_to}</div> <span class='badge bg-default'>#{persons.size}</span>",
           type: 'folder',
           additionalParameters: { id: domain },
           data: persons.map{|person|
@@ -85,6 +109,20 @@ class AssetPersonsController < ApplicationController
   rescue => e
     render :json => {error:true, errmsg:e.to_s}
   end
+
+  def import_emails
+    if request.post?
+      @is_post = true
+      #params = params.permit(:domain,:from_search,:from_github,:from_bf)
+      if params[:domain] && params[:domain].size>1
+        ImportEmailAssetWorker.perform_async(@target.id, params[:domain], params)
+      else
+        @errmsg = '参数错误！'
+      end
+    end
+
+  end
+
 
   private
 

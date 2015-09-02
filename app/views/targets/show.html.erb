@@ -179,9 +179,12 @@
         <div class="tab-pane" id="personPanel">
           <div class="row">
             <div class="col-xs-6 col-sm-6">
+              <div class="pull-left col-sm-auto">
+                <%= link_to raw('<li class="fa fa-exchange"></li>导入邮箱'), import_emails_target_asset_persons_path(@target), remote: true, class: "btn btn-success btn-sm"%>
+              </div>
             </div>
             <div class="col-xs-6 col-sm-6">
-              <div class="pull-right col-sm-auto" style="margin:10px">
+              <div class="pull-right col-sm-auto">
                 <%= link_to raw('<li class="fa fa-plus"></li>添加员工信息'), new_target_asset_person_path(@target), remote: true, class: "btn btn-info btn-sm"%>
               </div>
             </div>
@@ -199,37 +202,19 @@
   </section>
 </section>
 
-<div class="modal fade bs-modal-sm add-person-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-person-modal">
+<div class="modal fade bs-modal-sm add-person-modal" tabindex="100" role="dialog" aria-hidden="true" id="add-person-modal">
 </div>
 
-<div class="modal fade bs-modal-sm add-domain-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-domain-modal">
+<div class="modal fade bs-modal-sm add-domain-modal" tabindex="100" role="dialog" aria-hidden="true" id="add-domain-modal">
 </div>
 
-<div class="modal fade bs-modal-sm add-host-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-host-modal">
+<div class="modal fade bs-modal-sm add-host-modal" tabindex="100" role="dialog" aria-hidden="true" id="add-host-modal">
 </div>
 
-<div class="modal fade bs-modal-sm add-ip-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-ip-modal">
+<div class="modal fade bs-modal-sm add-ip-modal" tabindex="100" role="dialog" aria-hidden="true" id="add-ip-modal">
 </div>
 
-<div class="modal fade bs-modal-sm add-host-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-host-modal">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h5 class="modal-title text-center" id="myModalLabel">添加网站资产</h5>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>请输入网站Host</label>
-          <input type="text" class="form-control input-sm" name="host" id="host">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn bg-default btn-sm" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-sm" onclick="javascript:add_host_submit()">提交»</button>
-      </div>
-    </div>
-  </div>
+<div class="modal fade bs-modal-sm import-emials-modal" tabindex="100" role="dialog" aria-hidden="true" id="import-emials-modal">
 </div>
 
 <script>
