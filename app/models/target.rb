@@ -7,5 +7,6 @@ class Target < ActiveRecord::Base
   has_many :asset_ips, dependent: :delete_all
   has_many :asset_hosts, dependent: :delete_all
   has_many :asset_persons, dependent: :delete_all
+  has_many :asset_entrances, dependent: :delete_all
   has_many :sensitives
 end

@@ -18,6 +18,7 @@
     <h3 class="no-margin"><%= @target.name %>（<%= @target.website %>）<small><%= link_to raw('<i class="fa fa-pencil"></i>'), edit_target_path(@target) %></small></h3>
     <small><%= @target.memo %>  </small><br/>
     <small><%= @target.tags.map{|t| t.name}.join(',') %>  </small>
+    <small><div id="entrances-list-buttons"></div></small>
 
   </div>
   <div class="col-xs-6 text-right">
@@ -214,7 +215,10 @@
 <div class="modal fade bs-modal-sm add-ip-modal" tabindex="100" role="dialog" aria-hidden="true" id="add-ip-modal">
 </div>
 
-<div class="modal fade bs-modal-sm import-emials-modal" tabindex="100" role="dialog" aria-hidden="true" id="import-emials-modal">
+<div class="modal fade bs-modal-sm import-emails-modal" tabindex="1000" role="dialog" aria-hidden="true" id="import-emails-modal">
+</div>
+
+<div class="modal fade bs-modal-sm add-entrance-modal" tabindex="-1" role="dialog" aria-hidden="true" id="add-entrance-modal">
 </div>
 
 <script>
@@ -257,7 +261,9 @@ $( document ).ready(function() {
     <%if @show_task %>
     start_target_import(false);
     <%end%>
+    $.getScript("/my/targets/<%= @target.id %>/asset_entrances/reload.js");
     refresh_progress(<%= @target.id %>);
+
 });
 </script>
 

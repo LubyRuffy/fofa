@@ -1,0 +1,4 @@
+<% @target.asset_entrances.each{|e| %>
+    <%= link_to e.entrance_type, edit_target_asset_entrance_path(@target,e), remote:true, class:"btn btn-warning btn-xs btn-rounded" %>
+<% } %>
+<%= link_to '添加入口', new_target_asset_entrance_path(@target), remote:true, class:"btn btn-info btn-xs" %>

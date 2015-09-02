@@ -108,6 +108,11 @@ Fofa::Application.routes.draw do
           get :reload
         end
       end
+      resources :asset_entrances do
+        collection do
+          get :reload
+        end
+      end
       resources :asset_hosts do
         collection do
           get :reload

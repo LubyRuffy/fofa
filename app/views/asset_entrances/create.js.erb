@@ -1,0 +1,15 @@
+<%
+if @errmsg
+    @error = true
+    @message = @errmsg
+else
+    @error = false
+    @message = "添加成功！"
+%>
+<%= render 'refresh' %>
+<% end %>
+
+$("#logPanel").html("<%= escape_javascript(render 'notice') %>");
+
+<%= render 'resetmodal' %>
+

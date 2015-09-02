@@ -1,0 +1,32 @@
+<% content_for :title, '企业入口资产管理' %>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+  <tr>
+    <th width="10%">入口类型</th>
+    <th width="15%">地址</th>
+    <th width="35%">备注</th>
+    <th width="10%">操作</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @entrances.each do |entrance| %>
+      <tr>
+        <td><%= link_to entrance.entrance_type, edit_target_asset_entrance_path(@target, entrance), remote: true  %></td>
+        <td><%= entrance.value %></td>
+        <td><%= entrance.memo %></td>
+        <td>
+          <%= link_to '编辑', edit_target_asset_entrance_path(@target, entrance), :class=>"btn btn-success btn-sm ", remote: true %>
+          <%= link_to '删除', target_asset_entrance_path(@target, entrance), :class=>"btn btn-success btn-sm ", remote: true, method: :delete, data: { confirm: '确定要删除吗?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="col-lg-4">
+  <div class="pull-right">
+    <%= will_paginate @entrances,:previous_label=> '上一页',:next_label=> '下一页', :container => false  %>
+  </div>
+</div>

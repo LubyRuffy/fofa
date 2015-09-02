@@ -1,0 +1,3 @@
+$(".entrance-list-index").html("<%= escape_javascript(render 'index') %>");
+$('#entrances-size').html(<%= @entrances.length %>);
+$('#entrances-list-buttons').html("<%= escape_javascript(render 'list_buttons') %>");

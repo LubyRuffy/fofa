@@ -5,6 +5,7 @@ require File.join(FOFA_ROOT_PATH, 'models', 'subdomain.rb')
 require File.join(FOFA_ROOT_PATH, 'models', 'asset_domain.rb')
 require File.join(FOFA_ROOT_PATH, 'models', 'asset_ip.rb')
 #require File.join(FOFA_ROOT_PATH, 'models', 'asset_host.rb')
+require File.join(FOFA_ROOT_PATH, 'workers', 'modules', 'emaildigger.rb')
 
 def target_redis_key(target_id)
   "target_asset_dump:#{target_id}"
@@ -15,6 +16,24 @@ def add_target_msg(target_id,msg)
     key = target_redis_key(target_id)
     redis.rpush(key, msg)
     redis.expire(key, 60) #10秒超时
+  }
+end
+
+def import_emails(target_id, domain, options={})
+  domain = domain[1..-1] if domain[0] == '@'
+
+  options ||= {search:1, github:1, bruteforce:1}
+
+  @emails = Sgk.get_emails(domain, 10000)
+  @emails += EmailDigger.new(domain).importAll(options)
+
+  @emails.uniq.each{|email|
+      begin
+        AssetPerson.find_or_create_by(target_id: target_id, email: email, name: email, domain: domain)
+        add_target_msg(target_id, email)
+      rescue => e
+        puts e
+      end
   }
 end
 
@@ -42,15 +61,7 @@ def import_domain(target_id, domain)
   end
 
   #email
-  @emails = Sgk.get_emails(domain, 1000)
-  @emails.uniq.each{|email|
-    begin
-      AssetPerson.find_or_create_by(target_id: target_id, email: email, name: email, domain: domain)
-      add_target_msg(target_id, email)
-    rescue => e
-      puts e
-    end
-  }
+  import_emails(target_id, email)
 end
 
 def dump_asset(target_id, domain)
@@ -89,6 +100,21 @@ class ImportDomainAssetWorker
 
   def perform(target_id, domain)
     import_domain(target_id, domain)
+  end
+
+end
+
+class ImportEmailAssetWorker
+  include Sidekiq::Worker
+
+  sidekiq_options :retry => 3, :backtrace => true
+
+  sidekiq_retries_exhausted do |msg|
+    Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
+  end
+
+  def perform(target_id, domain, options=nil)
+    import_emails(target_id, domain, options)
   end
 
 end

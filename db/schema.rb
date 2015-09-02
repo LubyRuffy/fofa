@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831125402) do
+ActiveRecord::Schema.define(version: 20150902094827) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20150831125402) do
   end
 
   add_index "asset_domains", ["target_id", "domain"], name: "asset_domains_target_index", unique: true, using: :btree
+
+  create_table "asset_entrances", force: :cascade do |t|
+    t.integer "target_id",     limit: 4
+    t.string  "entrance_type", limit: 255
+    t.string  "value",         limit: 255
+    t.text    "memo",          limit: 65535
+  end
+
+  add_index "asset_entrances", ["target_id", "entrance_type", "value"], name: "asset_entrances_type_value_index", unique: true, using: :btree
 
   create_table "asset_hosts", force: :cascade do |t|
     t.string   "host",       limit: 255
