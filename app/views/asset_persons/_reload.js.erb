@@ -1,5 +1,18 @@
 $(".person-list-index").html("<%= escape_javascript(render 'index') %>");
 $('#persons-size').html(<%= @persons.length %>);
 
+<% unless @reloaded
+ @reloaded = true
+
+ if @treedata
+%>
+refresh_assets_from_data('personTree', <%=raw(@treedata.to_json)%>);
+<%else%>
 if (typeof(refresh_assets) == "function")
     refresh_assets('person', <%= @target.id %>);
+<%
+end
+
+end %>
+
+$(".person-filter-form").html("<%= escape_javascript(render 'filter_form') %>");

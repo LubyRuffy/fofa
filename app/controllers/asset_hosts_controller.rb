@@ -9,8 +9,7 @@ class AssetHostsController < ApplicationController
   layout 'member', only: [:index]
 
   def index
-    @hosts = @target.asset_hosts.paginate(:page => params[:page],
-                                                    :per_page => params[:per_page] || 20).order('id DESC')
+    @hosts = get_all(true)
   end
 
   def new
@@ -38,8 +37,7 @@ class AssetHostsController < ApplicationController
           @errmsg = e.to_s
         end
 
-        @hosts = @target.asset_hosts.paginate(:page => params[:page],
-                                                :per_page => params[:per_page] || 20).order('id DESC')
+        @hosts = get_all
       end
     else
       @errmsg = '参数错误！'
@@ -59,8 +57,7 @@ class AssetHostsController < ApplicationController
         @host[:useradd] = true
         @host[:domain] = domain_info.domain+'.'+domain_info.public_suffix
         if @host.update(asset_host_params)
-          @hosts = @target.asset_hosts.paginate(:page => params[:page],
-                                                    :per_page => params[:per_page] || 20).order('id DESC')
+          @hosts = get_all
         else
           @errmsg = '更新失败！'
         end
@@ -76,16 +73,14 @@ class AssetHostsController < ApplicationController
     else
       @errmsg = '未找到数据！'
     end
-    @hosts = @target.asset_hosts.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+    @hosts = get_all
   end
 
   def show
   end
 
   def reload
-    @hosts = @target.asset_hosts.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+    @hosts = get_all(params[:tree])
   end
 
   def get_all_json
@@ -123,5 +118,33 @@ class AssetHostsController < ApplicationController
       end
 
     end
+
+  def get_all(tree=false)
+    @filterrific = initialize_filterrific(
+        @target.asset_hosts,
+        params[:filterrific],
+    ) or return nil
+    results = @filterrific.find.paginate(page:params[:page], per_page:params[:per_page] || 20)
+    #@target.asset_hosts.paginate(:page => params[:page],
+    #                             :per_page => params[:per_page] || 20).order('id DESC')
+
+    if tree
+      hosts_g = results.select('id, host, domain').group_by(&:domain).sort_by{|k,v| -v.size}
+      @treedata = hosts_g.map{|d,hosts|
+        {
+            name: "#{d} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{hosts.size}</span>",
+            type: 'folder',
+            additionalParameters: { id: d },
+            data: hosts.map{|h|
+              { name: "#{view_context.link_to h.host, edit_target_asset_host_path(@target, h), remote: true}<div class='tree-actions'>#{view_context.link_to view_context.raw("<i class='fa fa-trash-o'></i>"), target_asset_host_path(@target, h), remote: true, method: :delete, data: { confirm: '确定要删除吗?' }}",
+                type: 'item', additionalParameters: { id: h.id } }
+            }
+        }
+      }
+      @host_size = hosts_g.inject(0) {|sum, arr| sum + arr[1].size }
+    end
+
+    results
+  end
 end
 

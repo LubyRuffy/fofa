@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12">
+    <%= form_for_filterrific @filterrific, remote:'true', url:reload_target_asset_domains_path(@target)+'?tree=true', class:'navbar-form navbar-left hidden-xs' do |f| %>
+        <div class="input-group mg-b-md">
+          <%= f.text_field(
+                      :q,
+                      class: 'form-control search',
+                      placeholder:"输入关键字进行查找"
+              ) %>
+          <span class="input-group-btn">
+        <button class="btn btn-white" type="submit">搜索</button>
+      </span>
+        </div>
+    <% end %>
+  </div>
+</div>

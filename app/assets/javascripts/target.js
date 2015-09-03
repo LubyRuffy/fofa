@@ -50,8 +50,40 @@ function set_type_refresh(type, is_refreshing)
         is_refresh_assets_person=is_refreshing;
 }
 
+function refresh_assets_from_data(treeid, data)
+{
+    if ($('#'+treeid).data().tree)
+        delete($('#'+treeid).data().tree);
+
+    $('#'+treeid+'Panel').html(
+        '<div id="'+treeid+'" class="tree tree-plus-minus tree-solid-line tree-unselectable">\
+    <div class = "tree-folder" style="display:none;"> \
+        <div class="tree-folder-header">\
+            <i class="fa fa-folder"></i>\
+            <div class="tree-folder-name"></div>\
+        </div>\
+        <div class="tree-folder-content"></div>\
+        <div class="tree-loader" style="display:none"></div>\
+    </div>\
+    <div class="tree-item" style="display:none;">\
+        <i class="tree-dot"></i>\
+        <div class="tree-item-name"></div>\
+    </div>\
+</div>');
+    var treedata = new DataSourceTree({
+        data: data,
+        delay: 10
+    });
+
+    $('#'+treeid).tree({
+        selectable: false,
+        dataSource: treedata,
+        loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
+    });
+}
+
 //type = host,ip,person
-function refresh_assets(asset_type,target_id)
+function _refresh_assets(asset_type,target_id)
 {
     set_type_refresh(asset_type, true);
     $('#'+asset_type+'s-size').html('<i class="fa fa-refresh fa-spin mg-r-xs"></i>');
@@ -69,33 +101,9 @@ function refresh_assets(asset_type,target_id)
                 if ($('#'+treeid).data().tree)
                     delete($('#'+treeid).data().tree);
 
-                $('#'+treeid+'Panel').html(
-                    '<div id="'+treeid+'" class="tree tree-plus-minus tree-solid-line tree-unselectable">\
-    <div class = "tree-folder" style="display:none;"> \
-        <div class="tree-folder-header">\
-            <i class="fa fa-folder"></i>\
-            <div class="tree-folder-name"></div>\
-        </div>\
-        <div class="tree-folder-content"></div>\
-        <div class="tree-loader" style="display:none"></div>\
-    </div>\
-    <div class="tree-item" style="display:none;">\
-        <i class="tree-dot"></i>\
-        <div class="tree-item-name"></div>\
-    </div>\
-</div>');
+                refresh_assets_from_data(treeid, data.data);
 
                 $('#'+asset_type+'s-size').html(data.size);
-                var treedata = new DataSourceTree({
-                    data: data.data,
-                    delay: 10
-                });
-
-                $('#'+treeid).tree({
-                    selectable: false,
-                    dataSource: treedata,
-                    loadingHTML: '<i class="fa fa-refresh fa-spin mg-r-xs"></i>加载中……',
-                });
             }
             set_type_refresh(asset_type, false);
         },
@@ -105,6 +113,12 @@ function refresh_assets(asset_type,target_id)
         },
         dataType: 'json'
     });
+}
+
+
+function refresh_assets(asset_type,target_id)
+{
+    $.getScript("/my/targets/"+target_id+"/asset_"+asset_type+"s/reload.js?tree=true");
 }
 
 function refresh_progress(target_id)

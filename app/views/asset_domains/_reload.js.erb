@@ -1,2 +1,4 @@
 $(".domain-list-index").html("<%= escape_javascript(render 'index') %>");
 $('#domains-size').html(<%= @domains.length %>);
+
+$(".domain-filter-form").html("<%= escape_javascript(render 'filter_form') %>");

@@ -7,8 +7,8 @@ class AssetDomainsController < ApplicationController
   layout 'member', only: [:index]
 
   def index
-    @domains = @target.asset_domains.paginate(:page => params[:page],
-                                                    :per_page => params[:per_page] || 20).order('id DESC')
+    @domains = get_all
+
   end
 
   def new
@@ -31,8 +31,7 @@ class AssetDomainsController < ApplicationController
         @errmsg = e.to_s
       end
 
-      @domains = @target.asset_domains.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+      @domains = get_all
     else
       @errmsg = '参数错误！'
     end
@@ -46,8 +45,7 @@ class AssetDomainsController < ApplicationController
     if @domain
       @domain[:useradd] = true
       if @domain.update(asset_domain_params)
-        @domains = @target.asset_domains.paginate(:page => params[:page],
-                                                  :per_page => params[:per_page] || 20).order('id DESC')
+        @domains = get_all
       else
         @errmsg = '更新失败！'
       end
@@ -62,16 +60,14 @@ class AssetDomainsController < ApplicationController
     else
       @errmsg = '未找到数据！'
     end
-    @domains = @target.asset_domains.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+    @domains = get_all
   end
 
   def show
   end
 
   def reload
-    @domains = @target.asset_domains.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+    @domains = get_all
   end
 
   private
@@ -91,5 +87,16 @@ class AssetDomainsController < ApplicationController
       end
 
     end
+
+  def get_all()
+    @filterrific = initialize_filterrific(
+        @target.asset_domains,
+        params[:filterrific],
+    ) or return nil
+    @filterrific.find.paginate(page:params[:page], per_page:params[:per_page] || 20)
+    #@target.asset_domains.paginate(:page => params[:page],
+    #                             :per_page => params[:per_page] || 20).order('id DESC')
+
+  end
 end
 

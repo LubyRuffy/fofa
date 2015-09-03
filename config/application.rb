@@ -27,5 +27,6 @@ module Fofa
     config.i18n.default_locale = "zh-CN"
 
     config.relative_url_root = "/"
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

@@ -2,15 +2,14 @@ require 'dumpasset'
 require 'date'
 
 class AssetPersonsController < ApplicationController
-  before_action :set_target, only: [:index, :create, :show, :new, :edit, :update, :destroy, :get_all_json, :import_emails, :delete_domain_emails]
+  before_action :set_target, only: [:index, :create, :show, :new, :edit, :update, :destroy, :get_all_json, :import_emails, :delete_domain_emails, :reload]
   before_filter :require_user
   respond_to :html, :js
   protect_from_forgery :except => [:new, :edit, :reload, :import_emails]
   layout 'member', only: [:index]
 
   def index
-    @persons = @target.asset_persons.paginate(:page => params[:page],
-                                                    :per_page => params[:per_page] || 20).order('id DESC')
+    @persons = get_all(true)
   end
 
   def new
@@ -32,8 +31,7 @@ class AssetPersonsController < ApplicationController
         @errmsg = e.to_s
       end
 
-      @persons = @target.asset_persons.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+      @persons = get_all
     else
       @errmsg = '参数错误！'
     end
@@ -48,8 +46,7 @@ class AssetPersonsController < ApplicationController
     if @person
       @person[:useradd] = true
       if @person.update(asset_person_params)
-        @persons = @target.asset_persons.paginate(:page => params[:page],
-                                                  :per_page => params[:per_page] || 20).order('id DESC')
+        @persons = get_all
       else
         @errmsg = '更新失败！'
       end
@@ -64,8 +61,7 @@ class AssetPersonsController < ApplicationController
     else
       @errmsg = '未找到数据！'
     end
-    @persons = @target.asset_persons.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+    @persons = get_all
   end
 
   def delete_domain_emails
@@ -74,13 +70,16 @@ class AssetPersonsController < ApplicationController
     else
       @errmsg = '参数错误！'
     end
-    @persons = @target.asset_persons.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('id DESC')
+    @persons = @get_all
   rescue => e
     @errmsg = e
   end
 
   def show
+  end
+
+  def reload
+    @persons = get_all(true)
   end
 
   def get_all_json
@@ -141,5 +140,42 @@ class AssetPersonsController < ApplicationController
       end
 
     end
+
+  def get_all(tree=false)
+    @filterrific = initialize_filterrific(
+        @target.asset_persons,
+        params[:filterrific],
+    ) or return nil
+    results = @filterrific.find.paginate(page:params[:page], per_page:params[:per_page] || 20)
+    #@target.asset_persons.paginate(:page => params[:page],
+    #                             :per_page => params[:per_page] || 20).order('id DESC')
+
+    if tree
+      t = Time.now.to_datetime.strftime("%Q")
+      persons_g = results.select('id,name,email,domain').group_by(&:domain).sort_by{|k,v| -v.size}
+      @treedata = persons_g.map{|domain,persons|
+        if domain
+          link_to = view_context.link_to(view_context.raw("<i class='fa fa-trash-o'></i>"),
+                                         delete_domain_emails_target_asset_persons_path(@target)+'?delete_domain='+domain+'&t='+t,
+                                         remote: true,
+                                         method: :delete,
+                                         data: { confirm: '确定要删除吗?' })
+        else
+          link_to = ''
+        end
+        {
+            name: "#{domain} <div class='tree-actions'>#{link_to}</div> <span class='badge bg-default'>#{persons.size}</span>",
+            type: 'folder',
+            additionalParameters: { id: domain },
+            data: persons.map{|person|
+              { name: "#{view_context.link_to view_context.raw("#{person.name}(#{person.email})"), edit_target_asset_person_path(@target, person), remote: true}<div class='tree-actions'>#{view_context.link_to view_context.raw("<i class='fa fa-trash-o'></i>"), target_asset_person_path(@target, person), remote: true, method: :delete, data: { confirm: '确定要删除吗?' }}", type: 'item', additionalParameters: { id: person.id } }
+            }
+        }
+      }
+      @ip_size = persons_g.inject(0) {|sum, arr| sum + arr[1].size }
+    end
+
+    results
+  end
 end
 

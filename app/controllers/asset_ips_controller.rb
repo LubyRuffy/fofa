@@ -9,8 +9,7 @@ class AssetIpsController < ApplicationController
   layout 'member', only: [:index]
 
   def index
-    @ips = @target.asset_ips.paginate(:page => params[:page],
-                                                    :per_page => params[:per_page] || 20).order('updated_at DESC')
+    @ips = get_all(true)
   end
 
   def new
@@ -31,8 +30,7 @@ class AssetIpsController < ApplicationController
         @errmsg = e.to_s
       end
 
-      @ips = @target.asset_ips.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('updated_at DESC')
+      @ips = get_all
     else
       @errmsg = '参数错误！'
     end
@@ -47,8 +45,7 @@ class AssetIpsController < ApplicationController
       @ip[:useradd] = true
       @ip[:ipnet] = ip.split('.')[0..2].join('.')+'.0/24'
       if @ip.update(asset_ip_params)
-        @ips = @target.asset_ips.paginate(:page => params[:page],
-                                                  :per_page => params[:per_page] || 20).order('updated_at DESC')
+        @ips = get_all
       else
         @errmsg = '更新失败！'
       end
@@ -63,16 +60,14 @@ class AssetIpsController < ApplicationController
     else
       @errmsg = '未找到数据！'
     end
-    @ips = @target.asset_ips.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('updated_at DESC')
+    @ips = get_all
   end
 
   def show
   end
 
   def reload
-    @ips = @target.asset_ips.paginate(:page => params[:page],
-                                              :per_page => params[:per_page] || 20).order('updated_at DESC')
+    @ips = get_all(true)
   end
 
   def get_all_json
@@ -110,5 +105,33 @@ class AssetIpsController < ApplicationController
       end
 
     end
+
+  def get_all(tree=false)
+    @filterrific = initialize_filterrific(
+        @target.asset_ips,
+        params[:filterrific],
+    ) or return nil
+    results = @filterrific.find.paginate(page:params[:page], per_page:params[:per_page] || 20)
+    #@target.asset_hosts.paginate(:page => params[:page],
+    #                             :per_page => params[:per_page] || 20).order('id DESC')
+
+    if tree
+      ips_g = results.select('id, ip, ipnet').group_by(&:ipnet).sort_by{|k,v| -v.size}
+      @treedata = ips_g.map{|d,ips|
+        {
+            name: "#{d} <div class='tree-actions'><i class='fa fa-plus'></i><i class='fa fa-trash-o'></i><i class='fa fa-refresh'></i></div> <span class='badge bg-default'>#{ips.size}</span>",
+            type: 'folder',
+            additionalParameters: { id: d },
+            data: ips.map{|h|
+              { name: "#{view_context.link_to h.ip, edit_target_asset_ip_path(@target, h), remote: true}<div class='tree-actions'>#{view_context.link_to view_context.raw("<i class='fa fa-trash-o'></i>"), target_asset_ip_path(@target, h), remote: true, method: :delete, data: { confirm: '确定要删除吗?' }}",
+                type: 'item', additionalParameters: { id: h.id } }
+            }
+        }
+      }
+      @ip_size = ips_g.inject(0) {|sum, arr| sum + arr[1].size }
+    end
+
+    results
+  end
 end
 

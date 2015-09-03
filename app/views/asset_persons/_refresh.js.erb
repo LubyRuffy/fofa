@@ -3,7 +3,7 @@
     $("#logPanel").append($("<li />").html("<%= message.html_safe %>"));
     <% end %>
 <% else %>
-    $(".person-list-index").html("<%= escape_javascript(render 'index') %>");
+    <%= render 'reload' %>
 <% end %>
 
 <%= render 'resetmodal' %>

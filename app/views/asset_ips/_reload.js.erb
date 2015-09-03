@@ -1,5 +1,18 @@
 $(".ip-list-index").html("<%= escape_javascript(render 'index') %>");
 $('#ips-size').html(<%= @ips.length %>);
 
+<% unless @reloaded
+ @reloaded = true
+
+ if @treedata
+%>
+refresh_assets_from_data('ipTree', <%=raw(@treedata.to_json)%>);
+<%else%>
 if (typeof(refresh_assets) == "function")
     refresh_assets('ip', <%= @target.id %>);
+<%
+end
+
+end %>
+
+$(".ip-filter-form").html("<%= escape_javascript(render 'filter_form') %>");

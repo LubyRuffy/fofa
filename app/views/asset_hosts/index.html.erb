@@ -27,7 +27,8 @@
 
 <script>
     $(document).ready(function() {
-        <%= render 'reload.js' %>
+        refresh_assets_from_data('hostTree', <%=raw(@treedata.to_json)%>);
+        <%#= render 'reload.js' %>
     });
 </script>
 

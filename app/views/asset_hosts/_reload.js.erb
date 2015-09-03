@@ -1,5 +1,18 @@
 $(".host-list-index").html("<%= escape_javascript(render 'index') %>");
 $('#hosts-size').html(<%= @hosts.length %>);
 
+<% unless @reloaded
+ @reloaded = true
+
+ if @treedata
+%>
+refresh_assets_from_data('hostTree', <%=raw(@treedata.to_json)%>);
+<%else%>
 if (typeof(refresh_assets) == "function")
     refresh_assets('host', <%= @target.id %>);
+<%
+end
+
+end %>
+
+$(".host-filter-form").html("<%= escape_javascript(render 'filter_form') %>");
