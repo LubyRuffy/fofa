@@ -1,4 +1,4 @@
-fofa 2.0
+its an amazing project fofa 2.0
 ==
 
 简介
