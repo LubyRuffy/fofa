@@ -38,7 +38,7 @@ redis配置
 
 管理web服务器:
 ---
-* rake fofa:start_unicorn
+* rake fofa:start_unicornn
 * rake fofa:stop_unicorn
 * rake fofa:restart_unicorn
 
